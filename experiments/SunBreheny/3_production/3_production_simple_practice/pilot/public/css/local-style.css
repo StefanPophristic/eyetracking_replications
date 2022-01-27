@@ -1,0 +1,142 @@
+.slider {
+  /* default is width 400 and margin 10 */
+	width: 400;
+	margin: 10px;
+}
+
+.slide {
+	padding-top: 25;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	grid-gap: 0px;
+	/* background-color: #2196F3; */
+	padding: 0px;
+	align-items: center;
+	justify-items: center;
+	z-index: 1;
+}
+
+.grid-container > div {
+	/* background-color: rgba(255, 255, 255, 0.8); */
+	text-align: center;
+	padding: 0px 0px;
+	font-size: 30px;
+}
+
+.loc1 {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	z-index: 1;
+}
+.loc2 {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	z-index: 1;
+}
+.loc3 {
+	grid-column-start: 6;
+	grid-column-end: 6;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	z-index: 1;
+}
+.loc4 {
+	grid-column-start: 6;
+	grid-column-end: 6;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	z-index: 1;
+}
+.loc5 {
+	grid-column-start: 3;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 3;
+	z-index: 1;
+}
+.loc6 {
+	grid-column-start: 4;
+	grid-column-end: 4;
+	grid-row-start: 3;
+	grid-row-end: 3;
+	z-index: 1;
+}
+.loc7 {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	z-index: 1;
+}
+.loc8 {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	z-index: 1;
+}
+.loc9 {
+	grid-column-start: 5;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	z-index: 1;
+}
+.loc10 {
+	grid-column-start: 5;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	z-index: 1;
+}
+
+.squareProperties {
+	height: 100%;
+	width: 100%;
+	background-color: transparent;
+	border-width: 10px;
+	border-style: solid;
+	border-color: #b30000;
+	z-index: 2;
+}
+
+.locTopLeft {
+	/* justify-self: stretch;
+	align-self: stretch; */
+	grid-column-start: 1;
+	grid-row-start: 1;
+	grid-column-end: 3;
+}
+
+.locTopRight {
+	grid-column-start: 5;
+	grid-column-end: 7;
+	grid-row-start: 1;
+}
+.locBottomLeft {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 4;
+}
+.locBottomRight {
+	grid-column-start: 5;
+	grid-column-end: 7;
+	grid-row-start: 4;
+}
+.err {
+	padding-top: 20px;
+	color: red;
+	font-size: 22;
+}
+
+.continueButton {
+	margin-bottom: 25;
+}

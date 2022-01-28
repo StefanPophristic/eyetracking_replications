@@ -130,28 +130,26 @@ numTrialsPerParticipant <- nrow(dfExp)
 #list that will hold all workerids of people with high error rates
 ids <- list()
 
-# get worker id's of people with higher than 5% NOUN error rate
-wrongNounError <- participantStatsNoun %>%
-  filter(correctNoun == 0 & correctNounCount > numTrialsPerParticipant*0.05) %>%
+# Exclude participants based on the 5% exclusion cutoff
+highErrorRatePreExclusionNum <- nrow(dfExp)
+
+ids <- dfExp %>%
+  group_by(workerid) %>%
+  mutate(exclusion = case_when(
+    correctGender == 0 ~ 0,
+    correctNoun == 0 ~ 0,
+    correctDet == 0 ~ 0,
+    TRUE ~ 1)) %>%
+  count(exclusion) %>%
+  filter(exclusion == 0 & n >= 24) %>%
+  select(workerid) %>%
   pull(workerid)
 
-ids <- append(ids, wrongNounError)
-
-# get worker id's of people with higher than 5% GENDER error rate
-wrongGenderError <- participantStatsGender %>%
-  filter(correctGender == 0 & correctGenderCount > numTrialsPerParticipant*0.05) %>%
-  pull(workerid)
-
-ids <- append(ids, wrongGenderError)
-
-
-# get worker id's of people with higher than 5% DETERMINER error rate
-wrongDetError <- participantStatsCorrectDet %>%
-  filter(correctDet == 0 & correctDetCount > numTrialsPerParticipant*0.05) %>%
-  pull(workerid)
-
-ids <- append(ids, wrongDetError)
-ids <- unname(unlist(ids))
+highErrorRatePostExclusionNum <- nrow(dfExp)
+highErrorRateTotalExclusionNum <- highErrorRatePreExclusionNum - highErrorRatePostExclusionNum
+print(paste("Total number of participants excluded due to 5% error rate: ", 
+            highErrorRateTotalExclusionNum))
+# "Total number of participants excluded due to 5% error rate:  0"
 
 # Get rid of all participants with >5% error rates
 dfExp <- dfExp %>%
@@ -193,9 +191,7 @@ dfExp <- dfExp %>%
 numTrialsAfterSingleExclusion <- nrow(dfExp)
 
 # print number of participants excluded due to >50% rate of single word responses
-
 postSingleWordParticipantExclusionNum <- (numTrialsPreSingleExclusion - numTrialsAfterSingleExclusion)/48
-
 print(paste("Number of participants excluded due to > 50% rate of use of single word utterances: ", 
             postSingleWordParticipantExclusionNum))
 # [1] "Number of participants excluded due to > 50% rate of use of single word utterances:  1"

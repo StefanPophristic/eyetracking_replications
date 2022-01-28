@@ -62,14 +62,48 @@ df = read.csv("../data/3_production_simple-trials_cleaned.csv", header = TRUE)
 nrow(df) # 2550 data points
 length(unique(df$workerid)) # 51 participants run
 
-# test <- df %>% filter(workerid == 6)
-# # 54 total trials
-# 
-# test <- test %>% filter(ExpFiller == "Exp")
-# # 36 experimental trials
-# 
-# table(test$size, test$determiner)
-# test$size 
+totalNumTrials <- df %>% filter(workerid == 63)
+length(totalNumTrials)
+# 56 total trials
+
+totalExpTrials <- totalNumTrials %>% filter(ExpFiller == "Exp")
+nrow(totalExpTrials)
+# 36 experimental trials
+
+totalExpTrials %>%
+  group_by(target_figure3) %>%
+  count()
+# boy condition, n = 18
+# girl condition, n = 18
+
+totalExpTrials %>%
+  group_by(size) %>%
+  count()
+# big condition, n = 18
+# small condition, n = 18
+
+totalExpTrials %>%
+  group_by(setting) %>%
+  count()
+# 1 fruit           12
+# 2 kitchenwares    12
+# 3 stationeries    12
+
+totalExpTrials %>%
+  group_by(condition) %>%
+  count()
+# 1 all          12
+# 2 num          12
+# 3 some         12
+
+
+totalFillerTrials <- totalNumTrials %>% filter(ExpFiller == "Filler")
+nrow(totalFillerTrials)
+#12 filler trials
+
+totalPracTrials <- totalNumTrials %>% filter(ExpFiller == "Prac")
+nrow(totalPracTrials)
+# 2 practice trials
 
 #############################################
 #############################################
@@ -130,33 +164,30 @@ numTrialsPerParticipant <- nrow(dfExp)
 #list that will hold all workerids of people with high error rates
 ids <- list()
 
-# get worker id's of people with higher than 5% NOUN error rate
-wrongNounError <- participantStatsNoun %>%
-  filter(correctNoun == 0 & correctNounCount > numTrialsPerParticipant*0.05) %>%
+# Exclude participants based on the 5% exclusion cutoff
+highErrorRatePreExclusionNum <- nrow(dfExp)
+
+ids <- dfExp %>%
+  group_by(workerid) %>%
+  mutate(exclusion = case_when(
+    correctGender == 0 ~ 0,
+    correctNoun == 0 ~ 0,
+    correctDet == 0 ~ 0,
+    TRUE ~ 1)) %>%
+  count(exclusion) %>%
+  filter(exclusion == 0 & n >= 24) %>%
+  select(workerid) %>%
   pull(workerid)
 
-ids <- append(ids, wrongNounError)
-
-# get worker id's of people with higher than 5% GENDER error rate
-wrongGenderError <- participantStatsGender %>%
-  filter(correctGender == 0 & correctGenderCount > numTrialsPerParticipant*0.05) %>%
-  pull(workerid)
-
-ids <- append(ids, wrongGenderError)
-
-
-# get worker id's of people with higher than 5% DETERMINER error rate
-wrongDetError <- participantStatsCorrectDet %>%
-  filter(correctDet == 0 & correctDetCount > numTrialsPerParticipant*0.05) %>%
-  pull(workerid)
-
-ids <- append(ids, wrongDetError)
-ids <- unname(unlist(ids))
+highErrorRatePostExclusionNum <- nrow(dfExp)
+highErrorRateTotalExclusionNum <- highErrorRatePreExclusionNum - highErrorRatePostExclusionNum
+print(paste("Total number of participants excluded due to 5% error rate: ", 
+            highErrorRateTotalExclusionNum))
+# "Total number of participants excluded due to 5% error rate:  0"
 
 # Get rid of all participants with >5% error rates
 dfExp <- dfExp %>%
   filter(!(workerid %in% ids))
-
 
 # Get rid of participants that do not use nouns > 50% of the time
 numTrialsPreNoNounExclusion <- nrow(dfExp)

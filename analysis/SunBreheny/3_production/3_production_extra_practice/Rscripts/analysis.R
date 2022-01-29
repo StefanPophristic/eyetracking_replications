@@ -225,8 +225,8 @@ ggplot(dfExp, aes(x=logRT)) +
   geom_vline(xintercept=mean_rt+sd_cutoff)
 
 # see trials that would get cut off
-View(dfExp[dfExp$response_times < exp(mean_rt-sd_cutoff),]) # there is nobody on the low end, but if you search for response times < 2500 (ie 2.5 seconds), you'll see this is mostly one person who never typed the gender. we may want to exclude participants who never or rarely produced gender, since they are arguably not doing the same task as the others (these appear to be workers 95 and 128)
-View(dfExp[dfExp$response_times > exp(mean_rt+sd_cutoff),]) # the very slow people produce reasonable referring expressions. my hunch is that because we're having people type and there are big differences in how fast people type, some are just turning up as very slow, but they shouldn't be excluded.
+# View(dfExp[dfExp$response_times < exp(mean_rt-sd_cutoff),]) # there is nobody on the low end, but if you search for response times < 2500 (ie 2.5 seconds), you'll see this is mostly one person who never typed the gender. we may want to exclude participants who never or rarely produced gender, since they are arguably not doing the same task as the others (these appear to be workers 95 and 128)
+# View(dfExp[dfExp$response_times > exp(mean_rt+sd_cutoff),]) # the very slow people produce reasonable referring expressions. my hunch is that because we're having people type and there are big differences in how fast people type, some are just turning up as very slow, but they shouldn't be excluded.
 
 #############################################
 #############################################
@@ -236,7 +236,8 @@ View(dfExp[dfExp$response_times > exp(mean_rt+sd_cutoff),]) # the very slow peop
 #############################################
 #############################################
 
-# These errors include filler trials
+dfExp <- dfExp %>%
+  filter(ExpFiller == "Exp")
 
 # Get rid of trials with wrong nouns
 preNounExclusionNum <- nrow(dfExp)
@@ -246,7 +247,7 @@ dfExp <- dfExp %>%
 postNounExclusionNum <- nrow(dfExp)
 trialExclusionNoun <- preNounExclusionNum - postNounExclusionNum
 print(paste("Number of trials excluded due to wrong Noun: ",trialExclusionNoun))
-# "Number of trials excluded due to wrong Noun:  25"
+# "Number of trials excluded due to wrong Noun:  16"
 
 # get rid of trials with wrong gender
 preGenderExclusionNum <- nrow(dfExp)
@@ -256,7 +257,7 @@ dfExp <- dfExp %>%
 postGenderExclusionNum <- nrow(dfExp)
 trialExclusionGender <- preGenderExclusionNum - postGenderExclusionNum
 print(paste("Number of trials excluded due to wrong Gender: ",trialExclusionGender))
-# "Number of trials excluded due to wrong Gender:  3"
+# "Number of trials excluded due to wrong Gender:  2"
 
 # Get rid of trials with wrong determiner
 preDetExclusionNum <- nrow(dfExp)
@@ -287,18 +288,15 @@ dfExp <- dfExp %>%
 postSingleWordExclusionNum <- nrow(dfExp)
 trialExclusionSingleWord <- preSingleWordExclusionNum - postSingleWordExclusionNum
 print(paste("Number of trials excluded due to single word responses: ",trialExclusionSingleWord))
-"Number of trials excluded due to single word responses:  16"
+"Number of trials excluded due to single word responses:  13"
 
 # Print total number of trials excluded
 trialsExcluded <- trialExclusionNoun + trialExclusionGender + trialExclusionDet + trialExclusionNoNoun + trialExclusionSingleWord
 print(paste("Total number of trials excluded due to incorrect answers: ", trialsExcluded))
-# "Total number of trials excluded due to incorrect answers:  50"
+# "Total number of trials excluded due to incorrect answers:  37"
 
 #############################################
 #############################################
-
-dfExp <- dfExp %>%
-  filter(ExpFiller == "Exp")
 
 nrow(dfExp) # 1771 data points to analyze after exclusions
 
@@ -667,7 +665,7 @@ graphSurprisalDetByNoun <- dfDet %>%
   xlab("Determiner")
 graphSurprisalDetByNoun
 
-ggsave(filename = "../graphs/det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
+ggsave(filename = "../graphs/extra_det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
        width = 7, height = 7, units = "in", device = "pdf")
 
 
@@ -770,7 +768,7 @@ graphSurprisalDetByNounFaceted <- dfDet %>%
   xlab("Determiner")
 graphSurprisalDetByNounFaceted
 
-ggsave(filename = "../graphs/det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
+ggsave(filename = "../graphs/extra_det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
        width = 17, height = 7, units = "in", device = "pdf")
 
 
@@ -980,10 +978,14 @@ finalCorrelationDetDF <- surprisalDet %>%
   merge(cors_determiner, by = c("condition", "size", "gender"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
+graphDetCorrelation <- ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
   geom_point(size=2) 
 
+graphDetCorrelation
+
+ggsave(filename = "../graphs/extra_det_correlation.pdf", plot = graphDetCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Run linear model to test for how predictive surprisal is of correlation
 m = lm(correlation ~ surprisal, data=finalCorrelationDetDF) 
@@ -996,6 +998,7 @@ finalCorrelationDet <- finalCorrelationDetDF %>%
   summarize(Correlation=round(cor.test(surprisal,correlation)$estimate,2),
             P=round(cor.test(surprisal,correlation)$p.value,5))
 
+finalCorrelationDet
 #  Correlation       P
 # 1       -0.74 0.00635
 
@@ -1015,13 +1018,20 @@ finalCorrelationNounDF <- surprisalNoun %>%
   merge(cors_noun, by = c("condition", "size", "gender", "noun"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationNounDF, aes(x=surprisal, y=correlation, color=condition, shape = size))+
+graphNounCorrelation <- ggplot(finalCorrelationNounDF, aes(x=surprisal, y=correlation, color=condition, shape = size))+
   geom_point()
+
+graphNounCorrelation
+
+ggsave(filename = "../graphs/extra_noun_correlation.pdf", plot = graphNounCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationNoun <- finalCorrelationNounDF %>%
   summarize(Correlation=round(cor.test(surprisal,correlation)$estimate,2),
             P=round(cor.test(surprisal,correlation)$p.value,5))
+
+finalCorrelationNoun
 #   Correlation       P
 # 1        0.16 0.20033
 
@@ -1040,12 +1050,17 @@ surprisalGender <- surprisalGender %>%
 
 # Merge surprisal and correlation data
 finalCorrelationGenderDF <- surprisalGender %>%
-  merge(cors_noun, by = c("condition", "size", "gender"))
+  merge(cors_gender, by = c("condition", "size", "gender"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationGenderDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
+graphGenderCorrelation <- ggplot(finalCorrelationGenderDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
   geom_point()
+
+graphGenderCorrelation
+
+ggsave(filename = "../graphs/extra_gender_correlation.pdf", plot = graphGenderCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationgender <- finalCorrelationGenderDF %>%
@@ -1054,4 +1069,4 @@ finalCorrelationgender <- finalCorrelationGenderDF %>%
 finalCorrelationgender
 
 # Correlation       P
-# 1        0.05 0.66658
+#1        0.77 0.02401

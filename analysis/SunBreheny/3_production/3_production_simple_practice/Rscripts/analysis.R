@@ -271,7 +271,10 @@ ggplot(dfExp, aes(x=logRT)) +
 #############################################
 #############################################
 
-# These errors include filler trials
+# Exclude trials of JUST experimental trails
+
+dfExp <- dfExp %>%
+  filter(ExpFiller == "Exp")
 
 # Get rid of trials with wrong nouns
 preNounExclusionNum <- nrow(dfExp)
@@ -281,7 +284,7 @@ dfExp <- dfExp %>%
 postNounExclusionNum <- nrow(dfExp)
 trialExclusionNoun <- preNounExclusionNum - postNounExclusionNum
 print(paste("Number of trials excluded due to wrong Noun: ",trialExclusionNoun))
-# "Number of trials excluded due to wrong Noun:  22"
+# "Number of trials excluded due to wrong Noun:  17"
 
 # get rid of trials with wrong gender
 preGenderExclusionNum <- nrow(dfExp)
@@ -291,7 +294,7 @@ dfExp <- dfExp %>%
 postGenderExclusionNum <- nrow(dfExp)
 trialExclusionGender <- preGenderExclusionNum - postGenderExclusionNum
 print(paste("Number of trials excluded due to wrong Gender: ",trialExclusionGender))
-# "Number of trials excluded due to wrong Gender:  4"
+# "Number of trials excluded due to wrong Gender:  3"
 
 # Get rid of trials with wrong determiner
 preDetExclusionNum <- nrow(dfExp)
@@ -301,7 +304,7 @@ dfExp <- dfExp %>%
 postDetExclusionNum <- nrow(dfExp)
 trialExclusionDet <- preDetExclusionNum - postDetExclusionNum
 print(paste("Number of trials excluded due to wrong Determiner: ",trialExclusionDet))
-# "Number of trials excluded due to wrong Determiner:  8"
+# "Number of trials excluded due to wrong Determiner:  6"
 
 
 # Get rid of trails where the participant did not use a noun
@@ -322,18 +325,17 @@ dfExp <- dfExp %>%
 postSingleWordExclusionNum <- nrow(dfExp)
 trialExclusionSingleWord <- preSingleWordExclusionNum - postSingleWordExclusionNum
 print(paste("Number of trials excluded due to single word responses: ",trialExclusionSingleWord))
-"Number of trials excluded due to single word responses:  1"
+"Number of trials excluded due to single word responses:  0"
 
 # Print total number of trials excluded
 trialsExcluded <- trialExclusionNoun + trialExclusionGender + trialExclusionDet + trialExclusionNoNoun + trialExclusionSingleWord
 print(paste("Total number of trials excluded due to incorrect answers: ", trialsExcluded))
-# "Total number of trials excluded due to incorrect answers:  35"
+# "Total number of trials excluded due to incorrect answers:  26"
 
 #############################################
 #############################################
 
-dfExp <- dfExp %>%
-  filter(ExpFiller == "Exp")
+
 
 nrow(dfExp) # 1810 data points to analyze after exclusions
 
@@ -701,7 +703,7 @@ graphSurprisalDetByNoun <- dfDet %>%
   xlab("Determiner")
 graphSurprisalDetByNoun
   
-ggsave(filename = "../graphs/det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
+ggsave(filename = "../graphs/simple_det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
        width = 7, height = 7, units = "in", device = "pdf")
 
 
@@ -805,7 +807,7 @@ graphSurprisalDetByNounFaceted <- dfDet %>%
   xlab("Determiner")
 graphSurprisalDetByNounFaceted
 
-ggsave(filename = "../graphs/det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
+ggsave(filename = "../graphs/simple_det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
        width = 17, height = 7, units = "in", device = "pdf")
 
 
@@ -1015,10 +1017,14 @@ finalCorrelationDetDF <- surprisalDet %>%
   merge(cors_determiner, by = c("condition", "size", "gender"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
+graphDetCorrelation <- ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
   geom_point(size=2) 
 
+graphDetCorrelation
+
+ggsave(filename = "../graphs/simple_det_correlation.pdf", plot = graphDetCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Run linear model to test for how predictive surprisal is of correlation
 m = lm(correlation ~ surprisal, data=finalCorrelationDetDF) 
@@ -1052,8 +1058,13 @@ finalCorrelationNounDF <- surprisalNoun %>%
   merge(cors_noun, by = c("condition", "size", "gender", "noun"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationNounDF, aes(x=surprisal, y=correlation, color=condition, shape = size))+
+graphNounCorrelation <- ggplot(finalCorrelationNounDF, aes(x=surprisal, y=correlation, color=condition, shape = size))+
   geom_point()
+
+graphNounCorrelation
+
+ggsave(filename = "../graphs/simple_noun_correlation.pdf", plot = graphNounCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationNoun <- finalCorrelationNounDF %>%
@@ -1078,12 +1089,17 @@ surprisalGender <- surprisalGender %>%
 
 # Merge surprisal and correlation data
 finalCorrelationGenderDF <- surprisalGender %>%
-  merge(cors_noun, by = c("condition", "size", "gender"))
+  merge(cors_gender, by = c("condition", "size", "gender"))
 
 # Plot the correlation for visual inspection
-ggplot(finalCorrelationGenderDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
+graphGenderCorrelation <- ggplot(finalCorrelationGenderDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
   geom_point()
+
+graphGenderCorrelation
+
+ggsave(filename = "../graphs/simple_gender_correlation.pdf", plot = graphGenderCorrelation,
+       width = 7, height = 7, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationgender <- finalCorrelationGenderDF %>%
@@ -1092,4 +1108,4 @@ finalCorrelationgender <- finalCorrelationGenderDF %>%
 finalCorrelationgender
 
 # Correlation       P
-# 1        0.01 0.90937
+#1        0.52 0.18176

@@ -344,9 +344,9 @@ gender <- mutate_at(gender, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 gender <- gender %>%
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -402,9 +402,9 @@ det <- mutate_at(det, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 det <- det %>%                            
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -471,9 +471,9 @@ noun <- mutate_at(noun, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 noun <- noun %>%
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -620,10 +620,26 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0000001 so that we can calculate surprisal
+# Change 0 observations to 0.0001 so that we can calculate surprisal
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.000001))
+  mutate(n = replace(n, is.na(n), 0.0001))
+# Groups:   detUsed [5]
+# detUsed   newN
+# <chr>    <dbl>
+#   1 all      240  
+#   2 noDet    305  
+#   3 num     1019  
+#   4 some     106  
+#   5 other     57.0
 
+
+# Count occurances for CogSci Paper
+occuranceCount <- dfDet %>%
+  group_by(detUsed) %>%
+  mutate(newN = sum(n)) %>%
+  select(detUsed, newN) %>%
+  unique()
+occuranceCount
 
 # Get total number of utterances per condition (size x noun)
 totalSums <- dfDet %>%
@@ -639,34 +655,44 @@ dfDet <- merge(dfDet, totalSums, by = c("size", "noun"))
 dfDet <- dfDet %>%
   mutate(surprisal = -log2(n / sum))
 
+# run linear model
+m = lmer(surprisal ~ detUsed*size +(1 + detUsed + size | noun), data = dfDet)
+
 # Graph it
 dfDet$detUsed <- dfDet$detUsed %>%
   factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
 
-graphSurprisalDetByNoun <- dfDet %>%
+surprisalMeanAndCI <- dfDet %>%
   group_by(size,detUsed) %>% 
   summarize(
     mean_surprisal = mean(surprisal),
     CI.Low = ci.low(surprisal),
     CI.High = ci.high(surprisal)
-  ) %>% 
+  )
+
+write.csv(surprisalMeanAndCI, "extra_surprisalMeanAndCI.csv", row.names = FALSE)
+
+graphSurprisalDetByNoun <- surprisalMeanAndCI %>%
   ungroup() %>% 
   mutate(YMin = mean_surprisal - CI.Low, 
          YMax = mean_surprisal + CI.High) %>% 
   ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.15) + 
-  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.4) + 
+  theme(text = element_text(size = 12), 
+        plot.title = element_text(hjust = 0.5, size = 12),
+        legend.text = element_text(size = 8),
+        axis.text.x = element_text(size = 8, angle = 45, hjust = 0.9)) +
   scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
   guides(color=guide_legend("Size")) + 
   ylab("Surprisal") +
-  ylim(0, 27) + 
-  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
+  ylim(0, 20) + 
+  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no \ndeterminer", "other")) + 
   xlab("Determiner")
 graphSurprisalDetByNoun
 
 ggsave(filename = "../graphs/extra_det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
-       width = 7, height = 7, units = "in", device = "pdf")
+       width = 3.5, height = 3.5, units = "in", device = "pdf")
 
 
 #############################################
@@ -723,9 +749,9 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("condition", "size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0000001 so that we can calculate surprisal
+# Change 0 observations to 0.0001 so that we can calculate surprisal
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.000001))
+  mutate(n = replace(n, is.na(n), 0.0001))
 
 # Get total number of utterances per condition (condition x size x noun)
 totalSums <- dfDet %>%

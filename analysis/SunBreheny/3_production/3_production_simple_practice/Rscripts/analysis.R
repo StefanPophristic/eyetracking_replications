@@ -276,6 +276,8 @@ ggplot(dfExp, aes(x=logRT)) +
 dfExp <- dfExp %>%
   filter(ExpFiller == "Exp")
 
+print(nrow(dfExp)) #1836 trials pre trial exclusions
+
 # Get rid of trials with wrong nouns
 preNounExclusionNum <- nrow(dfExp)
 dfExp <- dfExp %>%
@@ -332,6 +334,9 @@ trialsExcluded <- trialExclusionNoun + trialExclusionGender + trialExclusionDet 
 print(paste("Total number of trials excluded due to incorrect answers: ", trialsExcluded))
 # "Total number of trials excluded due to incorrect answers:  26"
 
+print(nrow(dfExp)) #1810 trials post trial exclusion
+
+
 #############################################
 #############################################
 
@@ -383,9 +388,9 @@ gender <- mutate_at(gender, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 gender <- gender %>%
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -441,9 +446,9 @@ det <- mutate_at(det, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 det <- det %>%                            
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -510,9 +515,9 @@ noun <- mutate_at(noun, "targetUtteranceN", ~replace(., is.na(.), 0))
 
 # In order to have correlation analysis, we have to have surprisals of not INF
 #   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.000001
+#   so we replace all observations of target utterances of 0 with 0.0001
 noun <- noun %>%
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.000001))
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
 
 # Calculate Surprisal
 # Surprisal = -log(P(Utterance))
@@ -658,10 +663,26 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0000001 so that we can calculate surprisal
+# Change 0 observations to 0.0001 so that we can calculate surprisal
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.000001))
+  mutate(n = replace(n, is.na(n), 0.0001))
   
+# Count occurances for CogSci Paper
+occuranceCount <- dfDet %>%
+  group_by(detUsed) %>%
+  mutate(newN = sum(n)) %>%
+  select(detUsed, newN) %>%
+  unique()
+occuranceCount
+# Groups:   detUsed [5]
+# detUsed        newN
+# <chr>         <dbl>
+#   1 noDet    566       
+# 2 num     1182       
+# 3 some      48.0     
+# 4 other     14.0     
+# 5 all        0.000024
+
 
 # Get total number of utterances per condition (size x noun)
 totalSums <- dfDet %>%
@@ -677,34 +698,44 @@ dfDet <- merge(dfDet, totalSums, by = c("size", "noun"))
 dfDet <- dfDet %>%
   mutate(surprisal = -log2(n / sum))
 
+# Run linear model tobackup the claims
+m = lmer(surprisal ~ detUsed*size + (1+detUsed+size|noun), data=dfDet)
+
 # Graph it
 dfDet$detUsed <- dfDet$detUsed %>%
   factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
 
-graphSurprisalDetByNoun <- dfDet %>%
+surprisalMeanAndCI <- dfDet %>%
   group_by(size,detUsed) %>% 
   summarize(
     mean_surprisal = mean(surprisal),
     CI.Low = ci.low(surprisal),
     CI.High = ci.high(surprisal)
-  ) %>% 
+  )
+
+write.csv(surprisalMeanAndCI, "simple_surprisalMeanAndCI.csv", row.names = FALSE)
+
+graphSurprisalDetByNoun <- surprisalMeanAndCI %>% 
   ungroup() %>% 
   mutate(YMin = mean_surprisal - CI.Low, 
          YMax = mean_surprisal + CI.High) %>% 
   ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.15) + 
-  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.4) + 
+  theme(text = element_text(size = 12), 
+        plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.x = element_text(size = 8, angle = 45, hjust = 0.9),
+        legend.text = element_text(size = 8)) +
   scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
   guides(color=guide_legend("Size")) + 
   ylab("Surprisal") +
-  ylim(0, 27) + 
-  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
+  ylim(0, 20) + 
+  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no \n determiner", "other")) + 
   xlab("Determiner")
 graphSurprisalDetByNoun
   
 ggsave(filename = "../graphs/simple_det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
-       width = 7, height = 7, units = "in", device = "pdf")
+       width = 3.5, height = 3.5, units = "in", device = "pdf")
 
 
 
@@ -762,9 +793,9 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("condition", "size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0000001 so that we can calculate surprisal
+# Change 0 observations to 0.0001 so that we can calculate surprisal
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.000001))
+  mutate(n = replace(n, is.na(n), 0.0001))
 
 # Get total number of utterances per condition (condition x size x noun)
 totalSums <- dfDet %>%
@@ -1024,7 +1055,7 @@ graphDetCorrelation <- ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlat
 graphDetCorrelation
 
 ggsave(filename = "../graphs/simple_det_correlation.pdf", plot = graphDetCorrelation,
-       width = 7, height = 7, units = "in", device = "pdf")
+       width = 3.5, height = 2.5, units = "in", device = "pdf")
 
 # Run linear model to test for how predictive surprisal is of correlation
 m = lm(correlation ~ surprisal, data=finalCorrelationDetDF) 
@@ -1064,7 +1095,7 @@ graphNounCorrelation <- ggplot(finalCorrelationNounDF, aes(x=surprisal, y=correl
 graphNounCorrelation
 
 ggsave(filename = "../graphs/simple_noun_correlation.pdf", plot = graphNounCorrelation,
-       width = 7, height = 7, units = "in", device = "pdf")
+       width = 3.5, height = 2.5, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationNoun <- finalCorrelationNounDF %>%
@@ -1099,7 +1130,7 @@ graphGenderCorrelation <- ggplot(finalCorrelationGenderDF, aes(x=surprisal, y=co
 graphGenderCorrelation
 
 ggsave(filename = "../graphs/simple_gender_correlation.pdf", plot = graphGenderCorrelation,
-       width = 7, height = 7, units = "in", device = "pdf")
+       width = 3.5, height = 2.5, units = "in", device = "pdf")
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationgender <- finalCorrelationGenderDF %>%

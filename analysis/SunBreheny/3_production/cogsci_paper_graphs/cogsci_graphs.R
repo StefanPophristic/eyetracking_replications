@@ -18,6 +18,12 @@ theme_set(theme_bw())
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
+#############
+#
+# Make Graphs for Experiment 1 and 2
+#
+#############
+
 extraDF <- read_csv("extra_surprisalMeanAndCI.csv")
 extraDF <- extraDF %>%
   mutate(experiment = "Exp. 2")
@@ -51,4 +57,43 @@ graphSurprisalDetByNoun <- df %>%
 graphSurprisalDetByNoun
 
 ggsave(filename = "det_surprisal_faceted.pdf", plot = graphSurprisalDetByNoun,
+       width = 5, height = 4, device = "pdf")
+
+#############
+#
+# Make Graphs for Correlation Analysis
+#
+#############
+
+simpleDF <- read_csv("simple_finalCorrelationDetDF.csv")
+simpleDF <- simpleDF %>%
+  mutate(experiment = "Exp. 1")
+extraDF <- read_csv("extra_finalCorrelationDetDf.csv")
+extraDF <- extraDF %>%
+  mutate(experiment = "Exp. 2")
+
+dfCorr <- bind_rows(simpleDF, extraDF)
+dfCorr$experiment<- dfCorr$experiment%>%
+  factor()
+
+dfCorr$condition <- dfCorr$condition %>%
+  factor(levels = c('all', 'some', 'number'))
+
+
+graphSurprisalCorr <- dfCorr %>% 
+  ggplot(aes(x=surprisal, y=correlation, color=condition, shape = size,group=1)) + 
+  facet_grid(. ~ experiment) +
+  geom_point(size = 4) +
+  geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
+  scale_color_manual(values=c(cbPalette[3], cbPalette[7], cbPalette[2])) +
+  theme(text = element_text(size = 12), 
+        plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.x = element_text(size = 12),
+        legend.text = element_text(size = 12),
+        legend.position = "top",
+        legend.box= "vertical")
+
+graphSurprisalCorr
+
+ggsave(filename = "surprisal_correlation.pdf", plot = graphSurprisalCorr,
        width = 5, height = 4, device = "pdf")

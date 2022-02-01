@@ -1047,6 +1047,8 @@ finalCorrelationDetDF <- surprisalDet %>%
   select(condition, size, gender, surprisal) %>%
   merge(cors_determiner, by = c("condition", "size", "gender"))
 
+write.csv(finalCorrelationDetDF, "simple_finalCorrelationDetDF.csv", row.names = FALSE)
+
 # Plot the correlation for visual inspection
 graphDetCorrelation <- ggplot(finalCorrelationDetDF, aes(x=surprisal, y=correlation, color=condition, shape = size,group=1))+
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +

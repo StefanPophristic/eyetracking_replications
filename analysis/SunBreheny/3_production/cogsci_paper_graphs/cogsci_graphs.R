@@ -8,11 +8,14 @@ library(boot)
 
 # color-blind-friendly palette
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7") 
-#1 = orange
+# 1 = orange (light)
 # 2 = light blue
 # 3 = green
-#7 = pink
+# 4 = yellow
 # 5 = dark blue
+# 6 = orange (dark)
+# 7 = pink
+
 
 theme_set(theme_bw())
 
@@ -35,6 +38,9 @@ df <- bind_rows(simpleDF, extraDF)
 df$experiment<- df$experiment%>%
   factor()
 
+df <- df %>%
+  mutate(detUsed = fct_relevel(detUsed, "all", "some","num","noDet"))
+
 graphSurprisalDetByNoun <- df %>% 
   ungroup() %>% 
   mutate(YMin = mean_surprisal - CI.Low, 
@@ -48,10 +54,10 @@ graphSurprisalDetByNoun <- df %>%
         axis.text.x = element_text(size = 12, angle = 45, hjust = 0.9),
         legend.text = element_text(size = 12),
         legend.position ="top") +
-  scale_color_manual(values=c(cbPalette[3], cbPalette[7])) +
+  scale_color_manual(values=c(cbPalette[2], cbPalette[7])) +
   guides(color=guide_legend("Size")) + 
   ylab("Surprisal") +
-  ylim(0, 20) + 
+  ylim(0, 14) + 
   scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
   xlab("Determiner")
 graphSurprisalDetByNoun
@@ -78,20 +84,25 @@ dfCorr$experiment<- dfCorr$experiment%>%
 
 dfCorr$condition <- dfCorr$condition %>%
   factor(levels = c('all', 'some', 'number'))
-
+dfCorr$size <- dfCorr$size %>%
+  factor(levels = c('small', 'big'))
 
 graphSurprisalCorr <- dfCorr %>% 
   ggplot(aes(x=surprisal, y=correlation, color=condition, shape = size,group=1)) + 
-  facet_grid(. ~ experiment) +
+  facet_grid(. ~ experiment, scales = "free") +
   geom_point(size = 4) +
   geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
-  scale_color_manual(values=c(cbPalette[3], cbPalette[7], cbPalette[2])) +
+  scale_color_manual(values=c(cbPalette[1], cbPalette[3], cbPalette[5])) +
   theme(text = element_text(size = 12), 
         plot.title = element_text(hjust = 0.5, size = 12),
         axis.text.x = element_text(size = 12),
         legend.text = element_text(size = 12),
         legend.position = "top",
-        legend.box= "vertical")
+        legend.box= "vertical",
+        legend.spacing.y = unit(-0.3, 'cm')) +
+  guides(color=guide_legend("Condition"), shape =guide_legend("Size")) +
+  xlab("Surprisal") +
+  ylab("Correlation")
 
 graphSurprisalCorr
 

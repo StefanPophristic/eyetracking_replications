@@ -400,20 +400,27 @@ det <- left_join(det, detTemp, by = c("condition", "size", "target_figure3")) %>
 # column --> replace those values with 0
 det <- mutate_at(det, "targetUtteranceN", ~replace(., is.na(.), 0))
 
-# In order to have correlation analysis, we have to have surprisals of not INF
-#   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.0001
-det <- det %>%                            
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
-
-# Calculate Surprisal
-# Surprisal = -log(P(Utterance))
-# P(Utterance) = [number of instances of target utterance given a condition] / [total number of utterances given a condition]
-surprisalDet<- det %>%
+surprisalDet <-det %>%
   group_by(condition, size, target_figure3) %>%
-  summarize(probability = targetUtteranceN / sum(n), 
-            surprisal = -log2(targetUtteranceN / sum(n))) %>%
-  distinct()
+  mutate(probability = (targetUtteranceN/sum(n))) %>%
+  mutate(probability = case_when(probability == 0 ~ 0.0001,
+                                 TRUE ~ probability)) %>%
+  mutate(surprisal = -log2(probability))
+
+# # In order to have correlation analysis, we have to have surprisals of not INF
+# #   which means we can't have observations of target utterances of 0
+# #   so we replace all observations of target utterances of 0 with 0.0001
+# det <- det %>%                            
+#   mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
+# 
+# # Calculate Surprisal
+# # Surprisal = -log(P(Utterance))
+# # P(Utterance) = [number of instances of target utterance given a condition] / [total number of utterances given a condition]
+# surprisalDet<- det %>%
+#   group_by(condition, size, target_figure3) %>%
+#   summarize(probability = targetUtteranceN / sum(n), 
+#             surprisal = -log2(targetUtteranceN / sum(n))) %>%
+#   distinct()
 
 #############################################
 #############################################
@@ -620,9 +627,9 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0001 so that we can calculate surprisal
+# Change NA observations to 0
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.0001))
+  mutate(n = replace(n, is.na(n), 0))
 # Groups:   detUsed [5]
 # detUsed   newN
 # <chr>    <dbl>
@@ -653,14 +660,20 @@ dfDet <- merge(dfDet, totalSums, by = c("size", "noun"))
 # Surprisal = -log([# of instances of determiner use given size and noun condition] / 
 # [total number of trials of the given size and noun condition])
 dfDet <- dfDet %>%
-  mutate(surprisal = -log2(n / sum))
+  mutate(probability = (n/sum)) %>%
+  mutate(probability = case_when(probability == 0 ~ 0.0001,
+                                 TRUE ~ probability)) %>%
+  mutate(surprisal = -log2(probability))
 
-# run linear model
-m = lmer(surprisal ~ detUsed*size +(1 + detUsed + size | noun), data = dfDet)
+tmp <- dfDet %>%
+  mutate(detUsed = fct_relevel(detUsed,"some"))
+
+# Run linear model tobackup the claims
+m = lmer(surprisal ~ detUsed*size + (1|noun), data=tmp)
+
+summary(m)
 
 # Graph it
-dfDet$detUsed <- dfDet$detUsed %>%
-  factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
 
 surprisalMeanAndCI <- dfDet %>%
   group_by(size,detUsed) %>% 
@@ -686,7 +699,7 @@ graphSurprisalDetByNoun <- surprisalMeanAndCI %>%
   scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
   guides(color=guide_legend("Size")) + 
   ylab("Surprisal") +
-  ylim(0, 20) + 
+  ylim(0, 14) + 
   scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no \ndeterminer", "other")) + 
   xlab("Determiner")
 graphSurprisalDetByNoun
@@ -1018,8 +1031,8 @@ ggsave(filename = "../graphs/extra_det_correlation.pdf", plot = graphDetCorrelat
 # Run linear model to test for how predictive surprisal is of correlation
 m = lm(correlation ~ surprisal, data=finalCorrelationDetDF) 
 summary(m) 
-# surprisal estimate:  -0.03852
-# Suprisal estimate Pr(>|t|): 0.00635 **  
+# surprisal estimate:  -0.038322
+# Suprisal estimate Pr(>|t|): 8.75e-15 *** 
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationDet <- finalCorrelationDetDF %>%
@@ -1028,7 +1041,7 @@ finalCorrelationDet <- finalCorrelationDetDF %>%
 
 finalCorrelationDet
 #  Correlation       P
-# 1       -0.74 0.00635
+# 1       -0.74      0
 
 #####
 # Noun Correlations

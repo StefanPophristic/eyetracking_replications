@@ -425,7 +425,7 @@ det <- det %>%
     TRUE ~ detUsed
   ))
 
-# Resum values after collapsing different gender utterances into "other"
+# Resum values after collapsing different det utterances into "other"
 det <- det %>%
   group_by(condition, size, target_figure3, detUsed) %>%
   summarize(n = sum(n))
@@ -444,20 +444,27 @@ det <- left_join(det, detTemp, by = c("condition", "size", "target_figure3")) %>
 # column --> replace those values with 0
 det <- mutate_at(det, "targetUtteranceN", ~replace(., is.na(.), 0))
 
-# In order to have correlation analysis, we have to have surprisals of not INF
-#   which means we can't have observations of target utterances of 0
-#   so we replace all observations of target utterances of 0 with 0.0001
-det <- det %>%                            
-  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
-
-# Calculate Surprisal
-# Surprisal = -log(P(Utterance))
-# P(Utterance) = [number of instances of target utterance given a condition] / [total number of utterances given a condition]
-surprisalDet<- det %>%
+surprisalDet <-det %>%
   group_by(condition, size, target_figure3) %>%
-  summarize(probability = targetUtteranceN / sum(n), 
-            surprisal = -log2(targetUtteranceN / sum(n))) %>%
-  distinct()
+  mutate(probability = (targetUtteranceN/sum(n))) %>%
+  mutate(probability = case_when(probability == 0 ~ 0.0001,
+                                 TRUE ~ probability)) %>%
+  mutate(surprisal = -log2(probability))
+
+# # In order to have correlation analysis, we have to have surprisals of not INF
+# #   which means we can't have observations of target utterances of 0
+# #   so we replace all observations of target utterances of 0 with 0.0001
+# det <- det %>%                            
+#   mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
+# 
+# # Calculate Surprisal
+# # Surprisal = -log(P(Utterance))
+# # P(Utterance) = [number of instances of target utterance given a condition] / [total number of utterances given a condition]
+# surprisalDet<- det %>%
+#   group_by(condition, size, target_figure3) %>%
+#   summarize(probability = targetUtteranceN / sum(n), 
+#             surprisal = -log2(targetUtteranceN / sum(n))) %>%
+#   distinct()
 
 #############################################
 #############################################
@@ -663,10 +670,11 @@ allCombinations <- allCombinations %>%
 
 dfDet <- right_join(dfDet, allCombinations, by = c("size", "noun", "detUsed"))
 
-# Change 0 observations to 0.0001 so that we can calculate surprisal
+
+# Change NA occurances with 0
 dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.0001))
-  
+  mutate(n = replace(n, is.na(n), 0))
+
 # Count occurances for CogSci Paper
 occuranceCount <- dfDet %>%
   group_by(detUsed) %>%
@@ -696,24 +704,29 @@ dfDet <- merge(dfDet, totalSums, by = c("size", "noun"))
 # Surprisal = -log([# of instances of determiner use given size and noun condition] / 
 # [total number of trials of the given size and noun condition])
 dfDet <- dfDet %>%
-  mutate(surprisal = -log2(n / sum))
+  mutate(probability = (n/sum)) %>%
+  mutate(probability = case_when(probability == 0 ~ 0.0001,
+                                 TRUE ~ probability)) %>%
+  mutate(surprisal = -log2(probability))
+  
+tmp <- dfDet %>%
+  mutate(detUsed = fct_relevel(detUsed,"some"))
 
 # Run linear model tobackup the claims
-m = lmer(surprisal ~ detUsed*size + (1+detUsed+size|noun), data=dfDet)
+m = lmer(surprisal ~ detUsed*size + (1|noun), data=tmp)
 
-# Graph it
-dfDet$detUsed <- dfDet$detUsed %>%
-  factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
+summary(m)
+
+# # Graph it
 
 surprisalMeanAndCI <- dfDet %>%
   group_by(size,detUsed) %>% 
   summarize(
     mean_surprisal = mean(surprisal),
     CI.Low = ci.low(surprisal),
-    CI.High = ci.high(surprisal)
-  )
+    CI.High = ci.high(surprisal))
 
-write.csv(surprisalMeanAndCI, "simple_surprisalMeanAndCI.csv", row.names = FALSE)
+write.csv(surprisalMeanAndCI, "simple_surprisalMeanAndCI.csv", row.names = FALSE) 
 
 graphSurprisalDetByNoun <- surprisalMeanAndCI %>% 
   ungroup() %>% 
@@ -729,7 +742,7 @@ graphSurprisalDetByNoun <- surprisalMeanAndCI %>%
   scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
   guides(color=guide_legend("Size")) + 
   ylab("Surprisal") +
-  ylim(0, 20) + 
+  ylim(0, 14) + 
   scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no \n determiner", "other")) + 
   xlab("Determiner")
 graphSurprisalDetByNoun
@@ -748,101 +761,101 @@ ggsave(filename = "../graphs/simple_det_surprisal_by_noun.pdf", plot = graphSurp
 #############################################
 
 # Calculate surprisal of conditions by noun rather than gender
-
-# Change target object labels for convenience
-dfDet <- dfExp %>%
-  mutate(target_object3 = as.character(target_object3)) %>%
-  mutate(target_object3 = case_when(
-    target_object3 == "2_apples" | target_object3 == "3_apples" ~ "apples",
-    target_object3 == "2_bananas" | target_object3 == "3_bananas" ~ "bananas",
-    target_object3 == "2_pears" | target_object3 == "3_pears" ~ "pears",
-    target_object3 == "2_oranges" | target_object3 == "3_oranges" ~ "oranges",
-    
-    target_object3 == "2_forks" | target_object3 == "3_forks" ~ "forks",
-    target_object3 == "2_knives" | target_object3 == "3_knives" ~ "knives",
-    target_object3 == "2_spoons" | target_object3 == "3_spoons" ~ "spoons",
-    target_object3 == "2_plates" | target_object3 == "3_plates" ~ "plates",
-    
-    target_object3 == "2_pencils" | target_object3 == "3_pencils" ~ "pencils",
-    target_object3 == "2_erasers" | target_object3 == "3_erasers" ~ "erasers",
-    target_object3 == "2_rulers" | target_object3 == "3_rulers" ~ "rulers",
-    target_object3 == "2_scissors" | target_object3 == "3_scissors" ~ "scissors")) %>%
-  rename(noun = target_object3)
-
-# Change all other determiners to "other" category
-# Change "two" and "three" to "num"
-dfDet <- dfDet %>%
-  mutate(detUsed = as.character(detUsed)) %>%
-  mutate(detUsed = case_when(
-    detUsed != "noDet" & detUsed != "some" & detUsed != "all" &
-      detUsed != "two" & detUsed != "three" ~ "other",
-    detUsed == "two" | detUsed == "three" ~ "num",
-    TRUE ~ detUsed))
-
-# Keep only columns you need (size, noun, and determiner used)
-# And count the number of instances of determiner per (size x noun)
-dfDet <- dfDet %>%
-  group_by(condition, size, noun, detUsed) %>%
-  count() %>%
-  ungroup()
-
-# Add in all the size x noun x determiner used combinations which were not observed
-allCombinations <- expand.grid(unique(dfDet$condition), unique(dfDet$size), unique(dfDet$noun), c("all", "some", "num", "noDet", "other"))
-allCombinations <- allCombinations %>%
-  rename(condition = Var1, size = Var2, noun = Var3, detUsed = Var4)
-
-dfDet <- right_join(dfDet, allCombinations, by = c("condition", "size", "noun", "detUsed"))
-
-# Change 0 observations to 0.0001 so that we can calculate surprisal
-dfDet <- dfDet %>%
-  mutate(n = replace(n, is.na(n), 0.0001))
-
-# Get total number of utterances per condition (condition x size x noun)
-totalSums <- dfDet %>%
-  group_by(condition, size, noun) %>%
-  summarize(sum = sum(n))
-
-# Merge the two together
-dfDet <- merge(dfDet, totalSums, by = c("condition", "size", "noun"))
-
-#Calculate suprisal
-# Surprisal = -log([# of instances of determiner use given size and noun condition] / 
-# [total number of trials of the given size and noun condition])
-dfDet <- dfDet %>%
-  mutate(surprisal = -log2(n / sum))
-
-# Graph it
-dfDet$detUsed <- dfDet$detUsed %>%
-  factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
-
-graphSurprisalDetByNounFaceted <- dfDet %>%
-  group_by(condition, size,detUsed) %>% 
-  summarize(
-    mean_surprisal = mean(surprisal),
-    CI.Low = ci.low(surprisal),
-    CI.High = ci.high(surprisal)
-  ) %>% 
-  ungroup() %>% 
-  mutate(YMin = mean_surprisal - CI.Low, 
-         YMax = mean_surprisal + CI.High) %>% 
-  ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
-  facet_grid(. ~ condition) + 
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.15) + 
-  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
-  scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
-  guides(color=guide_legend("Size")) + 
-  ylab("Surprisal") +
-  ylim(0, 27) + 
-  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
-  xlab("Determiner")
-graphSurprisalDetByNounFaceted
-
-ggsave(filename = "../graphs/simple_det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
-       width = 17, height = 7, units = "in", device = "pdf")
-
-
-#############################################
+# 
+# # Change target object labels for convenience
+# dfDet <- dfExp %>%
+#   mutate(target_object3 = as.character(target_object3)) %>%
+#   mutate(target_object3 = case_when(
+#     target_object3 == "2_apples" | target_object3 == "3_apples" ~ "apples",
+#     target_object3 == "2_bananas" | target_object3 == "3_bananas" ~ "bananas",
+#     target_object3 == "2_pears" | target_object3 == "3_pears" ~ "pears",
+#     target_object3 == "2_oranges" | target_object3 == "3_oranges" ~ "oranges",
+#     
+#     target_object3 == "2_forks" | target_object3 == "3_forks" ~ "forks",
+#     target_object3 == "2_knives" | target_object3 == "3_knives" ~ "knives",
+#     target_object3 == "2_spoons" | target_object3 == "3_spoons" ~ "spoons",
+#     target_object3 == "2_plates" | target_object3 == "3_plates" ~ "plates",
+#     
+#     target_object3 == "2_pencils" | target_object3 == "3_pencils" ~ "pencils",
+#     target_object3 == "2_erasers" | target_object3 == "3_erasers" ~ "erasers",
+#     target_object3 == "2_rulers" | target_object3 == "3_rulers" ~ "rulers",
+#     target_object3 == "2_scissors" | target_object3 == "3_scissors" ~ "scissors")) %>%
+#   rename(noun = target_object3)
+# 
+# # Change all other determiners to "other" category
+# # Change "two" and "three" to "num"
+# dfDet <- dfDet %>%
+#   mutate(detUsed = as.character(detUsed)) %>%
+#   mutate(detUsed = case_when(
+#     detUsed != "noDet" & detUsed != "some" & detUsed != "all" &
+#       detUsed != "two" & detUsed != "three" ~ "other",
+#     detUsed == "two" | detUsed == "three" ~ "num",
+#     TRUE ~ detUsed))
+# 
+# # Keep only columns you need (size, noun, and determiner used)
+# # And count the number of instances of determiner per (size x noun)
+# dfDet <- dfDet %>%
+#   group_by(condition, size, noun, detUsed) %>%
+#   count() %>%
+#   ungroup()
+# 
+# # Add in all the size x noun x determiner used combinations which were not observed
+# allCombinations <- expand.grid(unique(dfDet$condition), unique(dfDet$size), unique(dfDet$noun), c("all", "some", "num", "noDet", "other"))
+# allCombinations <- allCombinations %>%
+#   rename(condition = Var1, size = Var2, noun = Var3, detUsed = Var4)
+# 
+# dfDet <- right_join(dfDet, allCombinations, by = c("condition", "size", "noun", "detUsed"))
+# 
+# # Change 0 observations to 0.0001 so that we can calculate surprisal
+# dfDet <- dfDet %>%
+#   mutate(n = replace(n, is.na(n), 0.0001))
+# 
+# # Get total number of utterances per condition (condition x size x noun)
+# totalSums <- dfDet %>%
+#   group_by(condition, size, noun) %>%
+#   summarize(sum = sum(n))
+# 
+# # Merge the two together
+# dfDet <- merge(dfDet, totalSums, by = c("condition", "size", "noun"))
+# 
+# #Calculate suprisal
+# # Surprisal = -log([# of instances of determiner use given size and noun condition] / 
+# # [total number of trials of the given size and noun condition])
+# dfDet <- dfDet %>%
+#   mutate(surprisal = -log2(n / sum))
+# 
+# # Graph it
+# dfDet$detUsed <- dfDet$detUsed %>%
+#   factor(levels = c('all', 'some', 'num', 'noDet', 'other'))
+# 
+# graphSurprisalDetByNounFaceted <- dfDet %>%
+#   group_by(condition, size,detUsed) %>% 
+#   summarize(
+#     mean_surprisal = mean(surprisal),
+#     CI.Low = ci.low(surprisal),
+#     CI.High = ci.high(surprisal)
+#   ) %>% 
+#   ungroup() %>% 
+#   mutate(YMin = mean_surprisal - CI.Low, 
+#          YMax = mean_surprisal + CI.High) %>% 
+#   ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
+#   facet_grid(. ~ condition) + 
+#   geom_point(size = 4) +
+#   geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.15) + 
+#   theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+#   scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
+#   guides(color=guide_legend("Size")) + 
+#   ylab("Surprisal") +
+#   ylim(0, 27) + 
+#   scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
+#   xlab("Determiner")
+# graphSurprisalDetByNounFaceted
+# 
+# ggsave(filename = "../graphs/simple_det_surprisal_by_noun_faceted.pdf", plot = graphSurprisalDetByNounFaceted,
+#        width = 17, height = 7, units = "in", device = "pdf")
+# 
+# 
+# #############################################
 #############################################
 #
 # IMPORT ANALYSIS FROM INCREMENTAL STUDY
@@ -1062,8 +1075,8 @@ ggsave(filename = "../graphs/simple_det_correlation.pdf", plot = graphDetCorrela
 # Run linear model to test for how predictive surprisal is of correlation
 m = lm(correlation ~ surprisal, data=finalCorrelationDetDF) 
 summary(m) 
-# surprisal estimate:  -0.002017
-# Suprisal estimate Pr(>|t|): 0.159    
+# surprisal estimate:  -0.005497
+# Suprisal estimate Pr(>|t|): 0.00015 ***
 
 # Calculate correlation between surprisal and incremental study correlations
 finalCorrelationDet <- finalCorrelationDetDF %>%
@@ -1071,9 +1084,8 @@ finalCorrelationDet <- finalCorrelationDetDF %>%
             P=round(cor.test(surprisal,correlation)$p.value,5))
 
 finalCorrelationDet
-
-#  Correlation       P
-# 1       -0.43 0.15948
+# Correlation       P
+# 1       -0.54 0.00015
 
 #####
 # Noun Correlations

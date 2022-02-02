@@ -1015,6 +1015,13 @@ cors_determiner = toplot %>%
   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
 cors_determiner
 
+cors_determiner_by_noun = toplot %>%
+  filter(window == "determiner+name") %>%
+  group_by(determiner, size) %>%
+  summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+cors_determiner_by_noun
+  
+
 # correlation between eye movement and decision task data separately by condition within noun window
 cors_noun = toplot %>% 
   filter(window == "noun") %>% 
@@ -1154,3 +1161,78 @@ finalCorrelationgender
 
 # Correlation       P
 #1        0.52 0.18176
+
+#############################################
+#############################################
+#
+# Redo Analysis but split things up by noun rather than gender
+#
+#############################################
+#############################################
+
+
+# Create data frame with counts of all determiner utterances
+# based off of size and target figure conditions
+detTwo <- dfExp %>%
+  group_by(condition, size, detUsed) %>%
+  count()
+
+# Code all number utterances as "num"
+# note: only possible numbers are "two" and "three"
+#  the numbers "one" and "four" were only found in filler trials
+detTwo <- detTwo %>%
+  mutate(detUsed = as.character(detUsed)) %>%
+  mutate(detUsed = case_when(
+    detUsed == "two" | detUsed == "three" ~ "num",
+    TRUE ~ detUsed
+  ))
+
+# Resum values after collapsing different det utterances into "other"
+detTwo <- detTwo %>%
+  group_by(condition, size, detUsed) %>%
+  summarize(n = sum(n))
+
+# Get number of instances of the target utterance (e.g. "all" for all-condition)
+# and append that as a new column
+detTempTwo <- detTwo %>%
+  filter(condition == detUsed) %>%
+  mutate(targetUtteranceN = n)
+
+detTwo <- left_join(detTwo, detTempTwo, by = c("condition", "size")) %>%
+  select(-c(detUsed.y, n.y)) %>%
+  rename(determiner = detUsed.x, n = n.x)
+
+# If no target utterances were observed, they will come up as NA in the targetUtteranceN
+# column --> replace those values with 0
+detTwo <- mutate_at(detTwo, "targetUtteranceN", ~replace(., is.na(.), 0))
+
+surprisalDetTwo <-detTwo %>%
+  group_by(condition, size) %>%
+  mutate(probability = (targetUtteranceN/sum(n))) %>%
+  mutate(probability = case_when(probability == 0 ~ 0.0001,
+                                 TRUE ~ probability)) %>%
+  mutate(surprisal = -log2(probability))
+
+
+surprisalDetTwo <- surprisalDetTwo %>%
+  mutate(condition=fct_recode(condition, "number"="num"))
+
+cors_determiner_by_noun <- cors_determiner_by_noun %>%
+  rename(condition = determiner)
+
+# Merge surprisal and correlation data
+finalCorrelationDetDFTwo <- surprisalDetTwo %>%
+  select(condition, size, surprisal) %>%
+  merge(cors_determiner_by_noun, by = c("condition", "size")) %>%
+  unique()
+
+# Plot the correlation for visual inspection
+graphDetCorrelationTwo <- ggplot(finalCorrelationDetDFTwo, aes(x=surprisal, y=Correlation, color=condition, shape = size,group=1))+
+  geom_smooth(method="lm",se=F,color="gray80",alpha=.5) +
+  geom_point(size=2) 
+
+graphDetCorrelationTwo
+
+# Run linear model to test for how predictive surprisal is of correlation
+mm = lm(Correlation ~ surprisal, data=finalCorrelationDetDFTwo) 
+summary(mm) 

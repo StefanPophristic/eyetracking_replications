@@ -59,7 +59,7 @@ graphSurprisalDetByNoun <- df %>%
   ylab("Surprisal") +
   ylim(0, 14) + 
   scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no determiner", "other")) + 
-  xlab("Determiner")
+  xlab("Quantifier")
 graphSurprisalDetByNoun
 
 ggsave(filename = "det_surprisal_faceted.pdf", plot = graphSurprisalDetByNoun,
@@ -100,7 +100,7 @@ graphSurprisalCorr <- dfCorr %>%
         legend.position = "top",
         legend.box= "vertical",
         legend.spacing.y = unit(-0.3, 'cm')) +
-  guides(color=guide_legend("Condition"), shape =guide_legend("Size")) +
+  guides(color=guide_legend("Quantifier"), shape =guide_legend("Size")) +
   xlab("Surprisal") +
   ylab("Correlation")
 

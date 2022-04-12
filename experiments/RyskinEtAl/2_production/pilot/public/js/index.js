@@ -3,6 +3,10 @@ var contexts = ["good", "bad"],
 pragContext = contexts[Math.floor(Math.random() * contexts.length)];
 console.log(pragContext);
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function make_slides(f) {
   var slides = {};
 
@@ -33,6 +37,7 @@ function make_slides(f) {
       exp.trial_start = Date.now();
       console.log("time:"+(Date.now()-exp.trial_start))
 
+
       $(".err").hide(); //hide any error messages
       $(".grid-container").show();
       $("#textInput").val(""); // make input textbox blank at start of trial
@@ -41,6 +46,8 @@ function make_slides(f) {
       this.stim = stim; // store this information in the slide so you can record it later
 
       exp.trial_start = Date.now();
+
+      console.log(stim.cond);
 
       loc_shuffled = _.shuffle([".loc1", ".loc2", ".loc3", ".loc4"]) //shuffles the ordering of the target and competitors between trials
       var loc_target = '<img src="images/'+stim.target_pic+'" style="width: 90%; height: 90%" class="img-scale-down">';
@@ -57,8 +64,49 @@ function make_slides(f) {
       var loc_small_filler = '<img src="images/'+stim.small_filler+'" style="width: 90%; height: 90%" class="img-scale-down">';
       $(loc_shuffled[3]).html(loc_small_filler);
 
-      // get location of target ("loc1", "loc2", "loc3", or "loc4")
-      classID = $(loc_shuffled[0]).selector;
+
+      // Randomly pick whether the target will be the real target from Ryskin et al.
+      // Or the competitor item to which the adjective applies to
+
+      // this variable will log whether the selection target for this experiment is
+      // a "ryskinTarget" or "ryskinCompetitor"
+      productionTargetType = "";
+      productionTarget = "";
+
+      // This only applies to target and training trials:
+      if (stim.trialType == "test" || (stim.trialType == "train" && stim.cond == "contrast")) {
+        // If a random int is 0: Selection target is the target from Ryskin et al.
+        // otherwise: the selection target is the competitor from Ryskin et al.
+        if (getRandomInt(2) == 0) {
+          // get location of target ("loc1", "loc2", "loc3", or "loc4")
+          classID = $(loc_shuffled[0]).selector;
+
+          productionTargetType = "ryskinTarget";
+          productionTarget = stim.target_pic;
+
+        } else {
+          productionTargetType = "ryskinCompetitor";
+
+          // if adjective used is big get location of big filler
+          // otherwise get location of small filler
+          if (stim.target_pic.includes("big")) {
+            classID = $(loc_shuffled[2]).selector;
+            productionTarget = stim.big_filler;
+          } else {
+            classID = $(loc_shuffled[3]).selector;
+            productionTarget = stim.small_filler;
+          }
+        }
+      } else {
+        // If the item is not a test trial nor a training trial in the contrast condition
+        // then keep the original target
+
+        // get location of target ("loc1", "loc2", "loc3", or "loc4")
+        classID = $(loc_shuffled[0]).selector;
+
+        productionTargetType = "ryskinTarget";
+        productionTarget = stim.target_pic;
+      }
 
       // add a red boundary around the target
       $(classID).css( "border", "5px solid red" );
@@ -113,7 +161,9 @@ function make_slides(f) {
         "response_times" : exp.trial_end - exp.trial_start,
         "response" : exp.response,
         "trial_number": exp.phase,
-        "pragContext": pragContext
+        "pragContext": pragContext,
+        "productionTargetType": productionTargetType,
+        "productionTarget": productionTarget
     });
 
     }

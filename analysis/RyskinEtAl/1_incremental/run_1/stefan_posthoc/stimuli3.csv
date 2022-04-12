@@ -1,0 +1,301 @@
+,trialType,cond,utterance_type,instruction,target,contrastGood,contrastBad,big_filler,small_Filler
+0,test,contrast,modified,Click on the big pickle,pickle_big.jpg,pickle_small.jpg,pickle_small.jpg,stapler_big.jpg,tennisball_small.jpg
+1,test,contrast,modified,Click on the small lobster,lobster_small.jpg,lobster_big.jpg,lobster_big.jpg,windmill_big.jpg,cake_small.jpg
+2,test,contrast,modified,Click on the big corn,corn_big.jpg,corn_small.jpg,corn_small.jpg,muffin_big.jpg,lacrosse_small.jpg
+3,test,contrast,modified,Click on the small cookie,cookie_small.jpg,cookie_big.jpg,cookie_big.jpg,speaker_big.jpg,teapot_small.jpg
+4,test,contrast,modified,Click on the big hat,hat_big.jpg,hat_small.jpg,hat_small.jpg,helmet_big.jpg,wreath_small.jpg
+5,test,contrast,modified,Click on the small backpack,backpack_small.jpg,backpack_big.jpg,backpack_big.jpg,broccoli_big.jpg,shovel_small.jpg
+6,test,contrast,modified,Click on the big ballerina,ballerina_big.jpg,ballerina_small.jpg,ballerina_small.jpg,piano_big.jpg,cables_small.jpg
+7,test,contrast,modified,Click on the small icecream,icecream_small.jpg,icecream_big.jpg,icecream_big.jpg,funnel_big.jpg,pizza_small.jpg
+8,test,contrast,modified,Click on the big pear,pear_big.jpg,pear_small.jpg,pear_small.jpg,soap_big.jpg,cannoli_small.jpg
+9,test,contrast,modified,Click on the small bird,bird_small.jpg,bird_big.jpg,bird_big.jpg,hairclip_big.jpg,trophy_small.jpg
+10,test,contrast,modified,Click on the big dog,dog_big.jpg,dog_small.jpg,dog_small.jpg,dinosaur_big.jpg,palette_small.jpg
+11,test,contrast,modified,Click on the small cat,cat_small.jpg,cat_big.jpg,cat_big.jpg,veggieplatter_big.jpg,recliner_small.jpg
+12,test,contrast,modified,Click on the small flower,flower_small.jpg,flower_big.jpg,flower_big.jpg,mug_big.jpg,fireextinguisher_small.jpg
+13,test,contrast,modified,Click on the big ball,ball_big.jpg,ball_small.jpg,ball_small.jpg,iguana_big.jpg,lime_small.jpg
+14,test,contrast,modified,Click on the small bottle,bottle_small.jpg,bottle_big.jpg,bottle_big.jpg,microwave_big.jpg,paperclips_small.jpg
+15,test,contrast,modified,Click on the big plant,plant_big.jpg,plant_small.jpg,plant_small.jpg,blackspaceship_big.jpg,bucket_small.jpg
+16,test,contrast,modified,Click on the small fish,fish_small.jpg,fish_big.jpg,fish_big.jpg,scissors_big.jpg,rollerblades_small.jpg
+17,test,contrast,modified,Click on the big lock,lock_big.jpg,lock_small.jpg,lock_small.jpg,molecule_big.jpg,sneaker_small.jpg
+18,test,contrast,modified,Click on the small monkey,monkey_small.jpg,monkey_big.jpg,monkey_big.jpg,sponge_big.jpg,sportsbag_small.jpg
+19,test,contrast,modified,Click on the big ribbon,ribbon_big.jpg,ribbon_small.jpg,ribbon_small.jpg,toyfarm_big.jpg,tissues_small.jpg
+20,test,no_contrast,modified,Click on the small hammer,hammer_small.jpg,pickle_big.jpg,pickle_big.jpg,cork_big.jpg,yoyo_small.jpg
+21,test,no_contrast,modified,Click on the big brush,brush_big.jpg,lobster_small.jpg,lobster_small.jpg,panflute_big.jpg,dolphin_small.jpg
+22,test,no_contrast,modified,Click on the small pencil,pencil_small.jpg,corn_big.jpg,corn_big.jpg,bone_big.jpg,screwdriver_small.jpg
+23,test,no_contrast,modified,Click on the big tuxedo,tuxedo_big.jpg,cookie_small.jpg,cookie_small.jpg,shapestoy_big.jpg,pillow_small.jpg
+24,test,no_contrast,modified,Click on the small onion,onion_small.jpg,hat_big.jpg,hat_big.jpg,cane_big.jpg,alligator_small.jpg
+25,test,no_contrast,modified,Click on the big dress,dress_big.jpg,backpack_small.jpg,backpack_small.jpg,tractor_big.jpg,nest_small.jpg
+26,test,no_contrast,modified,Click on the small key,key_small.jpg,ballerina_big.jpg,ballerina_big.jpg,barrel_big.jpg,compass_small.jpg
+27,test,no_contrast,modified,Click on the big orange,orange_big.jpg,icecream_small.jpg,icecream_small.jpg,ladybug_big.jpg,cone_small.jpg
+28,test,no_contrast,modified,Click on the small feather,feather_small.jpg,pear_big.jpg,pear_big.jpg,basket_big.jpg,washer_small.jpg
+29,test,no_contrast,modified,Click on the big kayak,kayak_big.jpg,bird_small.jpg,bird_small.jpg,accordion_big.jpg,microscope_small.jpg
+30,test,no_contrast,modified,Click on the small bike,bike_small.jpg,dog_big.jpg,dog_big.jpg,suitcase_big.jpg,wavevase_small.jpg
+31,test,no_contrast,modified,Click on the big turtle,turtle_big.jpg,cat_small.jpg,cat_small.jpg,milkshake_big.jpg,baseballglove_small.jpg
+32,test,no_contrast,modified,Click on the big camera,camera_big.jpg,flower_small.jpg,flower_small.jpg,bill_big.jpg,wheelchair_small.jpg
+33,test,no_contrast,modified,Click on the small tree,tree_small.jpg,ball_big.jpg,ball_big.jpg,stove_big.jpg,fridge_small.jpg
+34,test,no_contrast,modified,Click on the big starfish,starfish_big.jpg,bottle_small.jpg,bottle_small.jpg,laptop_big.jpg,toyoctopus_small.jpg
+35,test,no_contrast,modified,Click on the small guitar,guitar_small.jpg,plant_big.jpg,plant_big.jpg,orangephone_big.jpg,pie_small.jpg
+36,test,no_contrast,modified,Click on the big bunny,bunny_big.jpg,fish_small.jpg,fish_small.jpg,tape_big.jpg,lightbulb_small.jpg
+37,test,no_contrast,modified,Click on the small fan,fan_small.jpg,lock_big.jpg,lock_big.jpg,hookah_big.jpg,flag_small.jpg
+38,test,no_contrast,modified,Click on the big grapes,grapes_big.jpg,monkey_small.jpg,monkey_small.jpg,desk_big.jpg,shears_small.jpg
+39,test,no_contrast,modified,Click on the small bell,bell_small.jpg,ribbon_big.jpg,ribbon_big.jpg,bagpipes_big.jpg,microphone_small.jpg
+40,train,contrast,modified,Click on the big paperbag,paperbag_big.jpg,paperbag_small.jpg,pencilsharpener_small.jpg,panda_big.jpg,gong_small.jpg
+41,train,contrast,modified,Click on the small mask,mask_small.jpg,mask_big.jpg,holepunch_big.jpg,crown_big.jpg,brain_small.jpg
+42,train,contrast,modified,Click on the big lifevest,lifevest_big.jpg,lifevest_small.jpg,hotairballoon_small.jpg,gun_big.jpg,toolbox_small.jpg
+43,train,contrast,modified,Click on the small checkerboard,checkerboard_small.jpg,checkerboard_big.jpg,binoculars_big.jpg,plastichouse_big.jpg,stoplight_small.jpg
+44,train,contrast,modified,Click on the big briefcase,briefcase_big.jpg,briefcase_small.jpg,calculator_small.jpg,lizard_big.jpg,carseat_small.jpg
+45,train,contrast,modified,Click on the small spaceship,spaceship_small.jpg,spaceship_big.jpg,fishbowl_big.jpg,rollingpin_big.jpg,grill_small.jpg
+46,train,contrast,modified,Click on the big beetle,beetle_big.jpg,beetle_small.jpg,lei_small.jpg,beermug_big.jpg,pinkdice_small.jpg
+47,train,contrast,modified,Click on the small butterfly,butterfly_small.jpg,butterfly_big.jpg,parkingmeter_big.jpg,victrola_big.jpg,bed_small.jpg
+48,train,contrast,modified,Click on the big door,door_big.jpg,door_small.jpg,soccerball_small.jpg,caterpillar_big.jpg,globe_small.jpg
+49,train,contrast,modified,Click on the small saw,saw_small.jpg,saw_big.jpg,potatochips_big.jpg,fishingpole_big.jpg,dart_small.jpg
+50,train,contrast,modified,Click on the big rope,rope_big.jpg,rope_small.jpg,ironingboard_small.jpg,deer_big.jpg,stampset_small.jpg
+51,train,contrast,modified,Click on the small drum,drum_small.jpg,drum_big.jpg,floppydiscs_big.jpg,stroller_big.jpg,doll_small.jpg
+52,train,contrast,modified,Click on the big violin,violin_big.jpg,violin_small.jpg,maracas_small.jpg,firealarm_big.jpg,beaker_small.jpg
+53,train,contrast,modified,Click on the small harp,harp_small.jpg,harp_big.jpg,webcam_big.jpg,anchor_big.jpg,fountain_small.jpg
+54,train,contrast,modified,Click on the big flute,flute_big.jpg,flute_small.jpg,toolbelt_small.jpg,frenchfries_big.jpg,xylophone_small.jpg
+55,train,contrast,modified,Click on the small wheel,wheel_small.jpg,wheel_big.jpg,safetypin_big.jpg,africanmask_big.jpg,graduationhat_small.jpg
+56,train,contrast,modified,Click on the big house,house_big.jpg,house_small.jpg,antelope_small.jpg,hippo_big.jpg,candle_small.jpg
+57,train,contrast,modified,Click on the small airplane,airplane_small.jpg,airplane_big.jpg,crab_big.jpg,beaver_big.jpg,kangaroo_small.jpg
+58,train,contrast,modified,Click on the big target,target_big.jpg,target_small.jpg,clarinet_small.jpg,kiwi_big.jpg,toyhammer_small.jpg
+59,train,contrast,modified,Click on the small teabag,teabag_small.jpg,teabag_big.jpg,chipmunk_big.jpg,groceries_big.jpg,lion_small.jpg
+60,train,contrast,modified,Click on the big alarmclock,alarmclock_big.jpg,alarmclock_small.jpg,earth_small.jpg,button_big.jpg,artichoke_small.jpg
+61,train,contrast,modified,Click on the small domino,domino_small.jpg,domino_big.jpg,peeler_big.jpg,tambourine_big.jpg,eggs_small.jpg
+62,train,contrast,modified,Click on the big jeep,jeep_big.jpg,jeep_small.jpg,snowboard_small.jpg,blackboard_big.jpg,candyapple_small.jpg
+63,train,contrast,modified,Click on the small nut,nut_small.jpg,nut_big.jpg,spotlight_big.jpg,bandage_big.jpg,axe_small.jpg
+64,train,contrast,modified,Click on the big mushroom,mushroom_big.jpg,mushroom_small.jpg,teeth_small.jpg,bathtub_big.jpg,sushi_small.jpg
+65,train,contrast,modified,Click on the small camel,camel_small.jpg,camel_big.jpg,lacrosse_big.jpg,sandwich_big.jpg,castle_small.jpg
+66,train,contrast,modified,Click on the big yarn,yarn_big.jpg,yarn_small.jpg,walkietalkie_small.jpg,champagne_big.jpg,babycup_small.jpg
+67,train,contrast,modified,Click on the small banjo,banjo_small.jpg,banjo_big.jpg,dropper_big.jpg,pooltable_big.jpg,crib_small.jpg
+68,train,contrast,modified,Click on the big bat,bat_big.jpg,bat_small.jpg,paintcan_small.jpg,cucumber_big.jpg,sewingmachine_big.jpg
+69,train,contrast,modified,Click on the small eagle,eagle_small.jpg,eagle_big.jpg,scotchtape_big.jpg,scarf_big.jpg,horse_small.jpg
+70,train,contrast,modified,Click on the big wallet,wallet_big.jpg,wallet_small.jpg,gasmask_small.jpg,hawk_big.jpg,hay_small.jpg
+71,train,contrast,modified,Click on the small necklace,necklace_small.jpg,necklace_big.jpg,matzah_big.jpg,brochette_big.jpg,kazoo_small.jpg
+72,train,contrast,modified,Click on the big suit,suit_big.jpg,suit_small.jpg,qtip_small.jpg,keyboard_big.jpg,redrose_small.jpg
+73,train,contrast,modified,Click on the small boat,boat_small.jpg,boat_big.jpg,usbstick_big.jpg,puppy_big.jpg,lighthouse_small.jpg
+74,train,contrast,modified,Click on the big pool,pool_big.jpg,pool_small.jpg,clover_small.jpg,spoon_big.jpg,cookiecutter_small.jpg
+75,train,contrast,modified,Click on the small snail,snail_small.jpg,snail_big.jpg,alien_big.jpg,candycanes_big.jpg,radish_small.jpg
+76,train,contrast,modified,Click on the big seahorse,seahorse_big.jpg,seahorse_small.jpg,almond_small.jpg,slide_big.jpg,pingpong_small.jpg
+77,train,contrast,modified,Click on the small igloo,igloo_small.jpg,igloo_big.jpg,canon_big.jpg,pineapple_big.jpg,snowflake_small.jpg
+78,train,contrast,modified,Click on the big hammock,hammock_big.jpg,hammock_small.jpg,pagoda_small.jpg,teepee_big.jpg,bowlofoatmeal_small.jpg
+79,train,contrast,modified,Click on the small football,football_small.jpg,football_big.jpg,bib_big.jpg,chess_big.jpg,scrunchie_small.jpg
+80,train,no_contrast,unmodified,Click on the boots,boots_small.jpg,paperbag_big.jpg,boots_big.jpg,pinecone_big.jpg,pancakes_small.jpg
+81,train,no_contrast,unmodified,Click on the buffalo,buffalo_big.jpg,mask_small.jpg,buffalo_small.jpg,ostrich_big.jpg,potato_small.jpg
+82,train,no_contrast,unmodified,Click on the cactus,cactus_small.jpg,lifevest_big.jpg,cactus_big.jpg,origami_big.jpg,brooch_small.jpg
+83,train,no_contrast,unmodified,Click on the chair,chair_big.jpg,checkerboard_small.jpg,chair_small.jpg,clog_big.jpg,motorcycle_small.jpg
+84,train,no_contrast,unmodified,Click on the cherry,cherry_small.jpg,briefcase_big.jpg,cherry_big.jpg,train_big.jpg,jetski_small.jpg
+85,train,no_contrast,unmodified,Click on the comb,comb_big.jpg,spaceship_small.jpg,comb_small.jpg,jacket_big.jpg,bowlingball_small.jpg
+86,train,no_contrast,unmodified,Click on the discoball,discoball_small.jpg,beetle_big.jpg,discoball_big.jpg,gumballmachine_big.jpg,chowchow_small.jpg
+87,train,no_contrast,unmodified,Click on the elephant,elephant_big.jpg,butterfly_small.jpg,elephant_small.jpg,coral_big.jpg,garlic_small.jpg
+88,train,no_contrast,unmodified,Click on the flashlight,flashlight_small.jpg,door_big.jpg,flashlight_big.jpg,greenbean_big.jpg,hourglass_small.jpg
+89,train,no_contrast,unmodified,Click on the garbagebin,garbagebin_big.jpg,saw_small.jpg,garbagebin_small.jpg,gardeningpail_big.jpg,tank_small.jpg
+90,train,no_contrast,unmodified,Click on the giraffe,giraffe_small.jpg,rope_big.jpg,giraffe_big.jpg,bananas_big.jpg,conch_small.jpg
+91,train,no_contrast,unmodified,Click on the glass,glass_big.jpg,drum_small.jpg,glass_small.jpg,creamer_big.jpg,wagon_small.jpg
+92,train,no_contrast,unmodified,Click on the hotdog,hotdog_small.jpg,violin_big.jpg,hotdog_big.jpg,cinnamonroll_big.jpg,frog_small.jpg
+93,train,no_contrast,unmodified,Click on the firehydrant,firehydrant_big.jpg,harp_small.jpg,firehydrant_small.jpg,floppy_big.jpg,chocolatebar_small.jpg
+94,train,no_contrast,unmodified,Click on the leaf,leaf_small.jpg,flute_big.jpg,leaf_big.jpg,lollipops_big.jpg,crane_small.jpg
+95,train,no_contrast,unmodified,Click on the lipstick,lipstick_big.jpg,wheel_small.jpg,lipstick_small.jpg,ring_big.jpg,burrito_small.jpg
+96,train,no_contrast,unmodified,Click on the owl,owl_small.jpg,house_big.jpg,owl_big.jpg,bowtie_big.jpg,faucet_small.jpg
+97,train,no_contrast,unmodified,Click on the paperclip,paperclip_big.jpg,airplane_small.jpg,paperclip_small.jpg,dalmatian_big.jpg,blueberries_small.jpg
+98,train,no_contrast,unmodified,Click on the penguin,penguin_small.jpg,target_big.jpg,penguin_big.jpg,sock_big.jpg,bush_small.jpg
+99,train,no_contrast,unmodified,Click on the rooster,rooster_big.jpg,teabag_small.jpg,rooster_small.jpg,eiffeltower_big.jpg,glove_small.jpg
+100,train,no_contrast,unmodified,Click on the saxophone,saxophone_small.jpg,alarmclock_big.jpg,saxophone_big.jpg,window_big.jpg,pearls_small.jpg
+101,train,no_contrast,unmodified,Click on the shark,shark_big.jpg,domino_small.jpg,shark_small.jpg,croissant_big.jpg,waffle_small.jpg
+102,train,no_contrast,unmodified,Click on the stool,stool_small.jpg,jeep_big.jpg,stool_big.jpg,table_big.jpg,cushion_small.jpg
+103,train,no_contrast,unmodified,Click on the tacos,tacos_big.jpg,nut_small.jpg,tacos_small.jpg,footstool_big.jpg,sunflower_small.jpg
+104,train,no_contrast,unmodified,Click on the tie,tie_small.jpg,mushroom_big.jpg,tie_big.jpg,swan_big.jpg,cougar_small.jpg
+105,train,no_contrast,unmodified,Click on the toy,toy_big.jpg,camel_small.jpg,toy_small.jpg,coconut_big.jpg,stingray_small.jpg
+106,train,no_contrast,unmodified,Click on the triangle,triangle_small.jpg,yarn_big.jpg,triangle_big.jpg,asparagus_big.jpg,leash_small.jpg
+107,train,no_contrast,unmodified,Click on the whistle,whistle_big.jpg,banjo_small.jpg,whistle_small.jpg,ghost_big.jpg,sheep_small.jpg
+108,train,no_contrast,unmodified,Click on the zebra,zebra_small.jpg,bat_big.jpg,zebra_big.jpg,telescope_big.jpg,icecreambar_small.jpg
+109,train,no_contrast,unmodified,Click on the bowlingpin,bowlingpin_big.jpg,eagle_small.jpg,bowlingpin_small.jpg,chick_big.jpg,raspberry_small.jpg
+110,train,no_contrast,unmodified,Click on the fork,fork_small.jpg,wallet_big.jpg,fork_big.jpg,pig_big.jpg,blender_small.jpg
+111,train,no_contrast,unmodified,Click on the screen,screen_big.jpg,necklace_small.jpg,screen_small.jpg,harmonica_big.jpg,peanut_small.jpg
+112,train,no_contrast,unmodified,Click on the vase,vase_small.jpg,suit_big.jpg,vase_big.jpg,partyhat_big.jpg,burger_small.jpg
+113,train,no_contrast,unmodified,Click on the paintbrush,paintbrush_big.jpg,boat_small.jpg,paintbrush_small.jpg,goose_big.jpg,parrot_small.jpg
+114,train,no_contrast,unmodified,Click on the popcorn,popcorn_small.jpg,pool_big.jpg,popcorn_big.jpg,pants_big.jpg,firepants_small.jpg
+115,train,no_contrast,unmodified,Click on the schoolbus,schoolbus_big.jpg,snail_small.jpg,schoolbus_small.jpg,magnifyingglass_big.jpg,package_small.jpg
+116,train,no_contrast,unmodified,Click on the avocado,avocado_small.jpg,seahorse_big.jpg,avocado_big.jpg,ovenmit_big.jpg,candleholder_small.jpg
+117,train,no_contrast,unmodified,Click on the bagel,bagel_big.jpg,igloo_small.jpg,bagel_small.jpg,broom_big.jpg,nutcracker_small.jpg
+118,train,no_contrast,unmodified,Click on the blackberry,blackberry_small.jpg,hammock_big.jpg,blackberry_big.jpg,musicsheet_big.jpg,tote_small.jpg
+119,train,no_contrast,unmodified,Click on the sardines,sardines_big.jpg,football_small.jpg,sardines_small.jpg,oars_big.jpg,couch_small.jpg
+120,filler,semantic_contrast,modified,Click on the wood hanger,hanger_wood.jpg,hanger_plastic.jpg,bishop.jpg,pinata_big.jpg,congadrum_small.jpg
+121,filler,semantic_contrast,modified,Click on the strawberry icecream,icecream_strawberry.jpg,icecream_vanilla.jpg,seagull.jpg,toydrill_big.jpg,headlights_small.jpg
+122,filler,semantic_contrast,modified,Click on the spotted cow,cow_spotted.jpg,cow_brown.jpg,buddha.jpg,pinacolada_big.jpg,honeystick_small.jpg
+123,filler,semantic_contrast,modified,Click on the electric guitar,guitar_electric.jpg,guitar_classic.jpg,cardinal.jpg,turkey_big.jpg,horseshoe_small.jpg
+124,filler,semantic_contrast,modified,Click on the gold bracelet,bracelet_gold.jpg,bracelet_diamond.jpg,carousel.jpg,waterhose_big.jpg,hubble_small.jpg
+125,filler,semantic_contrast,modified,Click on the blue balloon,balloon_blue.jpg,balloon_red.jpg,treasurechest.jpg,watercooler_big.jpg,huntingvest_small.jpg
+126,filler,semantic_contrast,modified,Click on the red bathingsuit,bathingsuit_red.jpg,bathingsuit_blue.jpg,chopsticks.jpg,weddingcake_big.jpg,jackolantern_small.jpg
+127,filler,semantic_contrast,modified,Click on the red wine,wine_red.jpg,wine_white.jpg,cockerspaniel.jpg,bootie_big.jpg,jar_small.jpg
+128,filler,semantic_contrast,modified,Click on the nuts chocolatebar,chocolatebar_nuts.jpg,chocolatebar_nonuts.jpg,constructionhelmet.jpg,woodperson_big.jpg,joystick_small.jpg
+129,filler,semantic_contrast,modified,Click on the one dollarbills,dollarbills_one.jpg,dollarbills_five.jpg,daisies.jpg,bobcat_big.jpg,juicer_small.jpg
+130,filler,semantic_contrast,modified,Click on the green bellpeppers,bellpeppers_green.jpg,bellpeppers_red.jpg,dogbones.jpg,babyswing_big.jpg,redkettle_small.jpg
+131,filler,semantic_contrast,modified,Click on the round chocolatecandy,chocolatecandy_round.jpg,chocolatecandy_square.jpg,film.jpg,bait_big.jpg,kitchenisland_small.jpg
+132,filler,semantic_contrast,modified,Click on the reading glasses,glasses_reading.jpg,glasses_sun.jpg,fishhook.jpg,evenbars_big.jpg,kitchentimer_small.jpg
+133,filler,semantic_contrast,modified,Click on the round loafofbread,loafofbread_round.jpg,loafofbread_rectangular.jpg,flamingo.jpg,batteries_big.jpg,kneehammer_small.jpg
+134,filler,semantic_contrast,modified,Click on the dog robot,robot_dog.jpg,robot_person.jpg,flipflops.jpg,beachtowels_big.jpg,boxcutter_small.jpg
+135,filler,semantic_contrast,modified,Click on the metal sink,sink_metal.jpg,sink_porcelain.jpg,flowerpot.jpg,bikewithbasket_big.jpg,ladle_small.jpg
+136,filler,semantic_contrast,modified,Click on the tricolor pasta,pasta_tricolor.jpg,pasta_tortellini.jpg,mortarandpestle.jpg,brusselsprout_big.jpg,lemur_small.jpg
+137,filler,semantic_contrast,modified,Click on the heart candy,candy_heart.jpg,candy_orange.jpg,frame.jpg,butternutsquash_big.jpg,leopard_small.jpg
+138,filler,semantic_contrast,modified,Click on the electric kettle,kettle_electric.jpg,kettle_stovetop.jpg,frenchtoast.jpg,celery_big.jpg,loofa_small.jpg
+139,filler,semantic_contrast,modified,Click on the open coffin,coffin_open.jpg,coffin_closed.jpg,fruitcake.jpg,cigarette_big.jpg,braidedloaf_small.jpg
+140,filler,semantic_contrast,modified,Click on the round cracker,cracker_round.jpg,cracker_square.jpg,grillpan.jpg,golfcart_big.jpg,manatee_small.jpg
+141,filler,semantic_contrast,modified,Click on the hand mirror,mirror_hand.jpg,mirror_standing.jpg,goldfish.jpg,exercisebike_big.jpg,mango_small.jpg
+142,filler,semantic_contrast,modified,Click on the rainbow slinky,slinky_rainbow.jpg,slinky_silver.jpg,golfiron.jpg,dustpan_big.jpg,measuringcups_small.jpg
+143,filler,semantic_contrast,modified,Click on the open backpack,backpack_open.jpg,backpack_closed.jpg,grater.jpg,helicopter_big.jpg,meat_small.jpg
+144,filler,semantic_contrast,modified,Click on the open book,book_open.jpg,book_closed.jpg,groundhog.jpg,tank_big.jpg,thermometer_small.jpg
+145,filler,semantic_contrast,modified,Click on the green cabbage,cabbage_green.jpg,cabbage_red.jpg,milkjug.jpg,fortunecookie_big.jpg,muffinpan_small.jpg
+146,filler,semantic_contrast,modified,Click on the mobile phone,phone_mobile.jpg,phone_landline.jpg,ship.jpg,gingerbreadcookie_big.jpg,nailpolish_small.jpg
+147,filler,semantic_contrast,modified,Click on the glazed donut,donut_glazed.jpg,donut_powdered.jpg,lighter.jpg,gummybears_big.jpg,organ_small.jpg
+148,filler,semantic_contrast,modified,Click on the coffee cup,cup_coffee.jpg,cup_plastic.jpg,icecubetray.jpg,carkeys_big.jpg,oven_small.jpg
+149,filler,semantic_contrast,modified,Click on the glass bottle,bottle_glass.jpg,bottle_plastic.jpg,gardeningpail.jpg,lawnmower_big.jpg,paintroller_small.jpg
+150,filler,semantic_contrast,modified,Click on the fountain pen,pen_fountain.jpg,pen_marker.jpg,mousewheel.jpg,kimono_big.jpg,bench_small.jpg
+151,filler,semantic_contrast,modified,Click on the rubber duck,duck_rubber.jpg,duck_plush.jpg,nailclippers.jpg,spring_big.jpg,parsley_small.jpg
+152,filler,semantic_contrast,modified,Click on the red pin,pin_red.jpg,pin_yellow.jpg,orca.jpg,saltpepper_big.jpg,pitabread_small.jpg
+153,filler,semantic_contrast,modified,Click on the pink cooler,cooler_pink.jpg,cooler_blue.jpg,rainboots.jpg,scooter_big.jpg,pepperoni_small.jpg
+154,filler,semantic_contrast,modified,Click on the lion doorknocker,doorknocker_lion.jpg,doorknocker_dragon.jpg,rug.jpg,sandbox_big.jpg,peppershaker_small.jpg
+155,filler,semantic_contrast,modified,Click on the yellow highlighter,highlighter_yellow.jpg,highlighter_pink.jpg,picnictable.jpg,computermouse_big.jpg,persianrug_small.jpg
+156,filler,semantic_contrast,modified,Click on the barn mailbox,mailbox_barn.jpg,mailbox_cow.jpg,pinkshoes.jpg,seesaw_big.jpg,pitchfork_small.jpg
+157,filler,semantic_contrast,modified,Click on the convertible car,car_convertible.jpg,car_sedan.jpg,pocketwatch.jpg,shield_big.jpg,plum_small.jpg
+158,filler,semantic_contrast,modified,Click on the cocktail umbrella,umbrella_cocktail.jpg,umbrella_rain.jpg,potofgold.jpg,sportsbasket_big.jpg,corndog_small.jpg
+159,filler,semantic_contrast,modified,Click on the fivecent coins,coins_fivecent.jpg,coins_tencent.jpg,rake.jpg,turnip_big.jpg,pomegranate_small.jpg
+160,filler,semantic_contrast,modified,Click on the twoslot toaster,toaster_twoslot.jpg,toaster_fourslot.jpg,recyclingbox.jpg,robe_big.jpg,eyeshadow_small.jpg
+161,filler,semantic_contrast,modified,Click on the round tupperware,tupperware_round.jpg,tupperware_rectangular.jpg,rockingchair.jpg,crutches_big.jpg,powder_small.jpg
+162,filler,semantic_contrast,modified,Click on the hawaiian shirt,shirt_hawaiian.jpg,shirt_corvette.jpg,yellowrose.jpg,exerciseball_big.jpg,policecar_small.jpg
+163,filler,semantic_contrast,modified,Click on the green lightbulb,lightbulb_green.jpg,lightbulb_white.jpg,russiandoll.jpg,greentape_big.jpg,redbean_small.jpg
+164,filler,semantic_contrast,modified,Click on the plastic fork,fork_plastic.jpg,fork_silver.jpg,salami.jpg,postits_big.jpg,rockclimbingshoe_small.jpg
+165,filler,semantic_contrast,modified,Click on the red apple,apple_red.jpg,apple_green.jpg,scale.jpg,payphone_big.jpg,saddle_small.jpg
+166,filler,semantic_contrast,modified,Click on the wrapped candy,candy_wrapped.jpg,candy_unwrapped.jpg,seal.jpg,grenade_big.jpg,sandal_small.jpg
+167,filler,semantic_contrast,modified,Click on the open box,box_open.jpg,box_closed.jpg,skeleton.jpg,measuringtape_big.jpg,screw_small.jpg
+168,filler,semantic_contrast,modified,Click on the shorthair puppet,puppet_shorthair.jpg,puppet_longhair.jpg,sled.jpg,protractor_big.jpg,shades_small.jpg
+169,filler,semantic_contrast,modified,Click on the whole lemon,lemon_whole.jpg,lemon_half.jpg,skydive.jpg,handcuffs_big.jpg,shelf_small.jpg
+170,filler,semantic_contrast,modified,Click on the open lock,lock_open.jpg,lock_closed.jpg,speakers.jpg,wrench_big.jpg,jumprope_small.jpg
+171,filler,semantic_contrast,modified,Click on the green mixer,mixer_green.jpg,mixer_red.jpg,spiderweb.jpg,tweezers_big.jpg,skirt_small.jpg
+172,filler,semantic_contrast,modified,Click on the yellow watch,watch_yellow.jpg,watch_brown.jpg,staircase.jpg,babybottle_big.jpg,snowshoes_small.jpg
+173,filler,semantic_contrast,modified,Click on the pink eraser,eraser_pink.jpg,eraser_redandblue.jpg,streetlamp.jpg,barberchair_big.jpg,thimble_small.jpg
+174,filler,semantic_contrast,modified,Click on the black shorts,shorts_black.jpg,shorts_blue.jpg,zucchini.jpg,birdcage_big.jpg,thermos_small.jpg
+175,filler,semantic_contrast,modified,Click on the red toothbrush,toothbrush_red.jpg,toothbrush_purple.jpg,baseballbat.jpg,bloodymary_big.jpg,threeholepunch_small.jpg
+176,filler,semantic_contrast,modified,Click on the blue bow,bow_blue.jpg,bow_pink.jpg,buffalowings.jpg,bottleopener_big.jpg,toiletplunger_small.jpg
+177,filler,semantic_contrast,modified,Click on the strawberry pie,pie_strawberry.jpg,pie_cherry.jpg,jalapeno.jpg,castanets_big.jpg,toyhorse_small.jpg
+178,filler,semantic_contrast,modified,Click on the yellow plate,plate_yellow.jpg,plate_blue.jpg,legoblocks.jpg,cheeseplate_big.jpg,kooshball_small.jpg
+179,filler,semantic_contrast,modified,Click on the narrow tire,tire_narrow.jpg,tire_wide.jpg,wetsuit.jpg,playpen_big.jpg,toytrain_small.jpg
+180,filler,contrast_control,unmodified,Click on the stapler,stapler_big.jpg,lacrosse_small.jpg,stapler_small.jpg,broom_big.jpg,broom_small.jpg
+181,filler,contrast_control,unmodified,Click on the cake,cake_small.jpg,speaker_big.jpg,cake_big.jpg,candleholder_big.jpg,candleholder_small.jpg
+182,filler,contrast_control,unmodified,Click on the muffin,muffin_big.jpg,palette_small.jpg,muffin_small.jpg,goose_big.jpg,goose_small.jpg
+183,filler,contrast_control,unmodified,Click on the teapot,teapot_small.jpg,funnel_big.jpg,teapot_big.jpg,burger_big.jpg,burger_small.jpg
+184,filler,contrast_control,unmodified,Click on the helmet,helmet_big.jpg,cables_small.jpg,helmet_small.jpg,chick_big.jpg,chick_small.jpg
+185,filler,contrast_control,unmodified,Click on the shovel,shovel_small.jpg,veggieplatter_big.jpg,shovel_big.jpg,icecreambar_big.jpg,icecreambar_small.jpg
+186,filler,contrast_control,unmodified,Click on the piano,piano_big.jpg,paperclips_small.jpg,piano_small.jpg,coconut_big.jpg,coconut_small.jpg
+187,filler,contrast_control,unmodified,Click on the pizza,pizza_small.jpg,blackspaceship_big.jpg,pizza_big.jpg,cougar_big.jpg,cougar_small.jpg
+188,filler,contrast_control,unmodified,Click on the soap,soap_big.jpg,sportsbag_small.jpg,soap_small.jpg,croissant_big.jpg,croissant_small.jpg
+189,filler,contrast_control,unmodified,Click on the trophy,trophy_small.jpg,toyfarm_big.jpg,trophy_big.jpg,pearls_big.jpg,pearls_small.jpg
+190,filler,contrast_control,unmodified,Click on the dinosaur,dinosaur_big.jpg,screwdriver_small.jpg,dinosaur_small.jpg,dalmatian_big.jpg,dalmatian_small.jpg
+191,filler,contrast_control,unmodified,Click on the recliner,recliner_small.jpg,shapestoy_big.jpg,recliner_big.jpg,faucet_big.jpg,faucet_small.jpg
+192,filler,contrast_control,unmodified,Click on the mug,mug_big.jpg,compass_small.jpg,mug_small.jpg,floppy_big.jpg,floppy_small.jpg
+193,filler,contrast_control,unmodified,Click on the lime,lime_small.jpg,milkshake_big.jpg,lime_big.jpg,frog_big.jpg,frog_small.jpg
+194,filler,contrast_control,unmodified,Click on the microwave,microwave_big.jpg,wavevase_small.jpg,microwave_small.jpg,gardeningpail_big.jpg,gardeningpail_small.jpg
+195,filler,contrast_control,unmodified,Click on the bucket,bucket_small.jpg,ladybug_big.jpg,bucket_big.jpg,hourglass_big.jpg,hourglass_small.jpg
+196,filler,contrast_control,unmodified,Click on the scissors,scissors_big.jpg,toyoctopus_small.jpg,scissors_small.jpg,jacket_big.jpg,jacket_small.jpg
+197,filler,contrast_control,unmodified,Click on the sneaker,sneaker_small.jpg,orangephone_big.jpg,sneaker_big.jpg,jetski_big.jpg,jetski_small.jpg
+198,filler,contrast_control,unmodified,Click on the sponge,sponge_big.jpg,shears_small.jpg,sponge_small.jpg,ostrich_big.jpg,ostrich_small.jpg
+199,filler,contrast_control,unmodified,Click on the tissues,tissues_small.jpg,bagpipes_big.jpg,tissues_big.jpg,pancakes_big.jpg,pancakes_small.jpg
+200,filler,contrast_control,unmodified,Click on the cork,cork_big.jpg,toolbox_small.jpg,cork_small.jpg,pineapple_big.jpg,pineapple_small.jpg
+201,filler,contrast_control,unmodified,Click on the dolphin,dolphin_small.jpg,magnifyingglass_big.jpg,dolphin_big.jpg,pingpong_big.jpg,pingpong_small.jpg
+202,filler,contrast_control,unmodified,Click on the bone,bone_big.jpg,pinkdice_small.jpg,bone_small.jpg,puppy_big.jpg,puppy_small.jpg
+203,filler,contrast_control,unmodified,Click on the pillow,pillow_small.jpg,oars_big.jpg,pillow_big.jpg,redrose_big.jpg,redrose_small.jpg
+204,filler,contrast_control,unmodified,Click on the cane,cane_big.jpg,stampset_small.jpg,cane_small.jpg,scarf_big.jpg,scarf_small.jpg
+205,filler,contrast_control,unmodified,Click on the nest,nest_small.jpg,victrola_big.jpg,nest_big.jpg,sewingmachine_big.jpg,sewingmachine_small.jpg
+206,filler,contrast_control,unmodified,Click on the barrel,barrel_big.jpg,xylophone_small.jpg,barrel_small.jpg,sandwich_big.jpg,sandwich_small.jpg
+207,filler,contrast_control,unmodified,Click on the cone,cone_small.jpg,stroller_big.jpg,cone_big.jpg,sushi_big.jpg,sushi_small.jpg
+208,filler,contrast_control,unmodified,Click on the basket,basket_big.jpg,toyhammer_small.jpg,basket_small.jpg,tambourine_big.jpg,tambourine_small.jpg
+209,filler,contrast_control,unmodified,Click on the microscope,microscope_small.jpg,plastichouse_big.jpg,microscope_big.jpg,artichoke_big.jpg,artichoke_small.jpg
+210,filler,contrast_control,unmodified,Click on the suitcase,suitcase_big.jpg,candyapple_small.jpg,suitcase_small.jpg,beaver_big.jpg,beaver_small.jpg
+211,filler,contrast_control,unmodified,Click on the baseballglove,baseballglove_small.jpg,africanmask_big.jpg,baseballglove_big.jpg,candle_big.jpg,candle_small.jpg
+212,filler,contrast_control,unmodified,Click on the bill,bill_big.jpg,babycup_small.jpg,bill_small.jpg,anchor_big.jpg,anchor_small.jpg
+213,filler,contrast_control,unmodified,Click on the fridge,fridge_small.jpg,groceries_big.jpg,fridge_big.jpg,beaker_big.jpg,beaker_small.jpg
+214,filler,contrast_control,unmodified,Click on the laptop,laptop_big.jpg,hay_small.jpg,laptop_small.jpg,fishingpole_big.jpg,fishingpole_small.jpg
+215,filler,contrast_control,unmodified,Click on the pie,pie_small.jpg,bandage_big.jpg,pie_big.jpg,globe_big.jpg,globe_small.jpg
+216,filler,contrast_control,unmodified,Click on the tape,tape_big.jpg,cookiecutter_small.jpg,tape_small.jpg,rollingpin_big.jpg,rollingpin_small.jpg
+217,filler,contrast_control,unmodified,Click on the flag,flag_small.jpg,pooltable_big.jpg,flag_big.jpg,carseat_big.jpg,carseat_small.jpg
+218,filler,contrast_control,unmodified,Click on the desk,desk_big.jpg,bowlofoatmeal_small.jpg,desk_small.jpg,crown_big.jpg,crown_small.jpg
+219,filler,contrast_control,unmodified,Click on the microphone,microphone_small.jpg,brochette_big.jpg,microphone_big.jpg,gong_big.jpg,gong_small.jpg
+220,filler,contrast_control,unmodified,Click on the panda,panda_big.jpg,brooch_small.jpg,panda_small.jpg,hookah_big.jpg,hookah_small.jpg
+221,filler,contrast_control,unmodified,Click on the brain,brain_small.jpg,candycanes_big.jpg,brain_big.jpg,lightbulb_big.jpg,lightbulb_small.jpg
+222,filler,contrast_control,unmodified,Click on the gun,gun_big.jpg,bush_small.jpg,gun_small.jpg,stove_big.jpg,stove_small.jpg
+223,filler,contrast_control,unmodified,Click on the stoplight,stoplight_small.jpg,chess_big.jpg,stoplight_big.jpg,wheelchair_big.jpg,wheelchair_small.jpg
+224,filler,contrast_control,unmodified,Click on the lizard,lizard_big.jpg,chowchow_small.jpg,lizard_small.jpg,accordion_big.jpg,accordion_small.jpg
+225,filler,contrast_control,unmodified,Click on the grill,grill_small.jpg,clog_big.jpg,grill_big.jpg,washer_big.jpg,washer_small.jpg
+226,filler,contrast_control,unmodified,Click on the beermug,beermug_big.jpg,conch_small.jpg,beermug_small.jpg,tractor_big.jpg,tractor_small.jpg
+227,filler,contrast_control,unmodified,Click on the bed,bed_small.jpg,coral_big.jpg,bed_big.jpg,alligator_big.jpg,alligator_small.jpg
+228,filler,contrast_control,unmodified,Click on the caterpillar,caterpillar_big.jpg,crane_small.jpg,caterpillar_small.jpg,panflute_big.jpg,panflute_small.jpg
+229,filler,contrast_control,unmodified,Click on the dart,dart_small.jpg,creamer_big.jpg,dart_big.jpg,yoyo_big.jpg,yoyo_small.jpg
+230,filler,contrast_control,unmodified,Click on the deer,deer_big.jpg,cushion_small.jpg,deer_small.jpg,molecule_big.jpg,molecule_small.jpg
+231,filler,contrast_control,unmodified,Click on the doll,doll_small.jpg,ring_big.jpg,doll_big.jpg,rollerblades_big.jpg,rollerblades_small.jpg
+232,filler,contrast_control,unmodified,Click on the firealarm,firealarm_big.jpg,leash_small.jpg,firealarm_small.jpg,iguana_big.jpg,iguana_small.jpg
+233,filler,contrast_control,unmodified,Click on the fountain,fountain_small.jpg,eiffeltower_big.jpg,fountain_big.jpg,fireextinguisher_big.jpg,fireextinguisher_small.jpg
+234,filler,contrast_control,unmodified,Click on the frenchfries,frenchfries_big.jpg,blender_small.jpg,frenchfries_small.jpg,hairclip_big.jpg,hairclip_small.jpg
+235,filler,contrast_control,unmodified,Click on the graduationhat,graduationhat_small.jpg,footstool_big.jpg,graduationhat_big.jpg,cannoli_big.jpg,cannoli_small.jpg
+236,filler,contrast_control,unmodified,Click on the hippo,hippo_big.jpg,firepants_small.jpg,hippo_small.jpg,broccoli_big.jpg,broccoli_small.jpg
+237,filler,contrast_control,unmodified,Click on the kangaroo,kangaroo_small.jpg,ghost_big.jpg,kangaroo_big.jpg,wreath_big.jpg,wreath_small.jpg
+238,filler,contrast_control,unmodified,Click on the kiwi,kiwi_big.jpg,tote_small.jpg,kiwi_small.jpg,windmill_big.jpg,windmill_small.jpg
+239,filler,contrast_control,unmodified,Click on the lion,lion_small.jpg,harmonica_big.jpg,lion_big.jpg,tennisball_big.jpg,tennisball_small.jpg
+240,filler,semantic_control,unmodified,Click on the button,button_big.jpg,congadrum_small.jpg,button_small.jpg,coffeemaker_orange.jpg,coffeemaker_blue.jpg
+241,filler,semantic_control,unmodified,Click on the eggs,eggs_small.jpg,pinata_big.jpg,eggs_big.jpg,parfait_stemglass.jpg,parfait_cup.jpg
+242,filler,semantic_control,unmodified,Click on the blackboard,blackboard_big.jpg,horseshoe_small.jpg,blackboard_small.jpg,plant_largeleaves.jpg,plant_smallleaves.jpg
+243,filler,semantic_control,unmodified,Click on the axe,axe_small.jpg,turkey_big.jpg,axe_big.jpg,mailbox_farm.jpg,mailbox_green.jpg
+244,filler,semantic_control,unmodified,Click on the bathtub,bathtub_big.jpg,huntingvest_small.jpg,bathtub_small.jpg,garbage_yellow.jpg,garbage_blue.jpg
+245,filler,semantic_control,unmodified,Click on the castle,castle_small.jpg,weddingcake_big.jpg,castle_big.jpg,aabacus_four.jpg,aabacus_ten.jpg
+246,filler,semantic_control,unmodified,Click on the champagne,champagne_big.jpg,jar_small.jpg,champagne_small.jpg,convertible_closed.jpg,convertible_open.jpg
+247,filler,semantic_control,unmodified,Click on the crib,crib_small.jpg,bootie_big.jpg,crib_big.jpg,laundrybasket_red.jpg,laundrybasket_white.jpg
+248,filler,semantic_control,unmodified,Click on the cucumber,cucumber_big.jpg,joystick_small.jpg,cucumber_small.jpg,pacifier_red.jpg,pacifier_blue.jpg
+249,filler,semantic_control,unmodified,Click on the horse,horse_small.jpg,bobcat_big.jpg,horse_big.jpg,legoman_cult.jpg,legoman_sailor.jpg
+250,filler,semantic_control,unmodified,Click on the hawk,hawk_big.jpg,redkettle_small.jpg,hawk_small.jpg,scroll_writing.jpg,scroll_blank.jpg
+251,filler,semantic_control,unmodified,Click on the kazoo,kazoo_small.jpg,babyswing_big.jpg,kazoo_big.jpg,spraybottle_orange.jpg,spraybottle_blue.jpg
+252,filler,semantic_control,unmodified,Click on the keyboard,keyboard_big.jpg,kitchentimer_small.jpg,keyboard_small.jpg,sushi_salmon.jpg,sushi_nigiri.jpg
+253,filler,semantic_control,unmodified,Click on the lighthouse,lighthouse_small.jpg,batteries_big.jpg,lighthouse_big.jpg,measuringtape_black.jpg,measuringtape_orange.jpg
+254,filler,semantic_control,unmodified,Click on the spoon,spoon_big.jpg,lemur_small.jpg,spoon_small.jpg,perfume_tall.jpg,perfume_short.jpg
+255,filler,semantic_control,unmodified,Click on the radish,radish_small.jpg,bikewithbasket_big.jpg,radish_big.jpg,pill_hard.jpg,pill_capsule.jpg
+256,filler,semantic_control,unmodified,Click on the slide,slide_big.jpg,leopard_small.jpg,slide_small.jpg,quilt_blue.jpg,quilt_brown.jpg
+257,filler,semantic_control,unmodified,Click on the snowflake,snowflake_small.jpg,brusselsprout_big.jpg,snowflake_big.jpg,spicerack_rectangle.jpg,spicerack_shelves.jpg
+258,filler,semantic_control,unmodified,Click on the teepee,teepee_big.jpg,manatee_small.jpg,teepee_small.jpg,wheelbarrow_blue.jpg,wheelbarrow_red.jpg
+259,filler,semantic_control,unmodified,Click on the scrunchie,scrunchie_small.jpg,celery_big.jpg,scrunchie_big.jpg,hawaiianshirt_red.jpg,hawaiianshirt_blue.jpg
+260,filler,semantic_control,unmodified,Click on the pinecone,pinecone_big.jpg,measuringcups_small.jpg,pinecone_small.jpg,sword_fantasy.jpg,sword_thin.jpg
+261,filler,semantic_control,unmodified,Click on the potato,potato_small.jpg,dustpan_big.jpg,potato_big.jpg,duck_camo.jpg,duck_zebra.jpg
+262,filler,semantic_control,unmodified,Click on the origami,origami_big.jpg,meat_small.jpg,origami_small.jpg,register_new.jpg,register_old.jpg
+263,filler,semantic_control,unmodified,Click on the motorcycle,motorcycle_small.jpg,fortunecookie_big.jpg,motorcycle_big.jpg,seal_red.jpg,seal_green.jpg
+264,filler,semantic_control,unmodified,Click on the train,train_big.jpg,thermometer_small.jpg,train_small.jpg,babywalker_blue.jpg,babywalker_yellow.jpg
+265,filler,semantic_control,unmodified,Click on the bowlingball,bowlingball_small.jpg,helicopter_big.jpg,bowlingball_big.jpg,neckpillow_pink.jpg,neckpillow_purple.jpg
+266,filler,semantic_control,unmodified,Click on the gumballmachine,gumballmachine_big.jpg,paintroller_small.jpg,gumballmachine_small.jpg,duster_pink.jpg,duster_turquoise.jpg
+267,filler,semantic_control,unmodified,Click on the garlic,garlic_small.jpg,tank_big.jpg,garlic_big.jpg,cassette_black.jpg,cassette_white.jpg
+268,filler,semantic_control,unmodified,Click on the greenbean,greenbean_big.jpg,pepperoni_small.jpg,greenbean_small.jpg,opener_metal.jpg,opener_wood.jpg
+269,filler,semantic_control,unmodified,Click on the tank,tank_small.jpg,kimono_big.jpg,tank_big.jpg,string_jute.jpg,string_white.jpg
+270,filler,semantic_control,unmodified,Click on the bananas,bananas_big.jpg,nailpolish_small.jpg,bananas_small.jpg,filingcabinet_black.jpg,filingcabinet_gray.jpg
+271,filler,semantic_control,unmodified,Click on the wagon,wagon_small.jpg,turnip_big.jpg,wagon_big.jpg,tricycle_plastic.jpg,tricycle_red.jpg
+272,filler,semantic_control,unmodified,Click on the cinnamonroll,cinnamonroll_big.jpg,corndog_small.jpg,cinnamonroll_small.jpg,chips_stacked.jpg,chips_strewn.jpg
+273,filler,semantic_control,unmodified,Click on the chocolatebar,chocolatebar_small.jpg,scooter_big.jpg,chocolatebar_big.jpg,phone_antique.jpg,phone_modern.jpg
+274,filler,semantic_control,unmodified,Click on the lollipops,lollipops_big.jpg,pitchfork_small.jpg,lollipops_small.jpg,pen_green.jpg,pen_black.jpg
+275,filler,semantic_control,unmodified,Click on the burrito,burrito_small.jpg,seesaw_big.jpg,burrito_big.jpg,notebook_open.jpg,notebook_closed.jpg
+276,filler,semantic_control,unmodified,Click on the bowtie,bowtie_big.jpg,pomegranate_small.jpg,bowtie_small.jpg,kettle_silver.jpg,kettle_gold.jpg
+277,filler,semantic_control,unmodified,Click on the blueberries,blueberries_small.jpg,robe_big.jpg,blueberries_big.jpg,orangejuice_stemglass.jpg,orangejuice_tallglass.jpg
+278,filler,semantic_control,unmodified,Click on the sock,sock_big.jpg,redbean_small.jpg,sock_small.jpg,garlicpress_blue.jpg,garlicpress_red.jpg
+279,filler,semantic_control,unmodified,Click on the glove,glove_small.jpg,handcuffs_big.jpg,glove_big.jpg,pot_brass.jpg,pot_ceramic.jpg
+280,filler,semantic_control,unmodified,Click on the window,window_big.jpg,saddle_small.jpg,window_small.jpg,chips_single.jpg,chips_multiple.jpg
+281,filler,semantic_control,unmodified,Click on the waffle,waffle_small.jpg,exerciseball_big.jpg,waffle_big.jpg,pretzel_knot.jpg,pretzel_sticks.jpg
+282,filler,semantic_control,unmodified,Click on the table,table_big.jpg,jumprope_small.jpg,table_small.jpg,womansshoe_pair.jpg,womansshoe_single.jpg
+283,filler,semantic_control,unmodified,Click on the sunflower,sunflower_small.jpg,tweezers_big.jpg,sunflower_big.jpg,pumpkin_real.jpg,pumpkin_cookie.jpg
+284,filler,semantic_control,unmodified,Click on the swan,swan_big.jpg,skirt_small.jpg,swan_small.jpg,noisemaker_purple.jpg,noisemaker_green.jpg
+285,filler,semantic_control,unmodified,Click on the stingray,stingray_small.jpg,castanets_big.jpg,stingray_big.jpg,flower_lily.jpg,flower_dahlia.jpg
+286,filler,semantic_control,unmodified,Click on the asparagus,asparagus_big.jpg,thimble_small.jpg,asparagus_small.jpg,dress_roses.jpg,dress_flowers.jpg
+287,filler,semantic_control,unmodified,Click on the sheep,sheep_small.jpg,payphone_big.jpg,sheep_big.jpg,clock_cuckoo.jpg,clock_grandfather.jpg
+288,filler,semantic_control,unmodified,Click on the telescope,telescope_big.jpg,thermos_small.jpg,telescope_small.jpg,feather_gold.jpg,feather_blue.jpg
+289,filler,semantic_control,unmodified,Click on the raspberry,raspberry_small.jpg,measuringtape_big.jpg,raspberry_big.jpg,wallsconce_speckled.jpg,wallsconce_tassles.jpg
+290,filler,semantic_control,unmodified,Click on the pig,pig_big.jpg,toytrain_small.jpg,pig_small.jpg,vacuum_handheld.jpg,vacuum_standing.jpg
+291,filler,semantic_control,unmodified,Click on the peanut,peanut_small.jpg,birdcage_big.jpg,peanut_big.jpg,typewriter_old.jpg,typewriter_modern.jpg
+292,filler,semantic_control,unmodified,Click on the partyhat,partyhat_big.jpg,kooshball_small.jpg,partyhat_small.jpg,sleepingbag_plaid.jpg,sleepingbag_blue.jpg
+293,filler,semantic_control,unmodified,Click on the parrot,parrot_small.jpg,babybottle_big.jpg,parrot_big.jpg,skateboard_stripes.jpg,skateboard_checkers.jpg
+294,filler,semantic_control,unmodified,Click on the pants,pants_big.jpg,parsley_small.jpg,pants_small.jpg,robot_blue.jpg,robot_purple.jpg
+295,filler,semantic_control,unmodified,Click on the package,package_small.jpg,bloodymary_big.jpg,package_big.jpg,pasta_ravioli.jpg,pasta_spaghetti.jpg
+296,filler,semantic_control,unmodified,Click on the ovenmit,ovenmit_big.jpg,rockclimbingshoe_small.jpg,ovenmit_small.jpg,leatherman_purple.jpg,leatherman_yellow.jpg
+297,filler,semantic_control,unmodified,Click on the nutcracker,nutcracker_small.jpg,wrench_big.jpg,nutcracker_big.jpg,iceskates_figure.jpg,iceskates_hockey.jpg
+298,filler,semantic_control,unmodified,Click on the musicsheet,musicsheet_big.jpg,screw_small.jpg,musicsheet_small.jpg,birdhouse_onstand.jpg,birdhouse_plain.jpg
+299,filler,semantic_control,unmodified,Click on the couch,couch_small.jpg,cheeseplate_big.jpg,couch_big.jpg,glasses_tortoise.jpg,glasses_blue.jpg

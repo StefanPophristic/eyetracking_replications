@@ -1,4 +1,4 @@
-exp.stims_cb = [ 
+exp.stims_cb = [
 {
 	trial: "1",
 	trialType: "test",

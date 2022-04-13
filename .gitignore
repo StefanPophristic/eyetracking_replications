@@ -29,12 +29,4 @@ papers/cogsci2020/si_context_rt.pdf
 *.fls
 *.log
 *.synctex.gz
-PragTrain3_noun_for_GLMM_timesummLongForm.txt
-PragTrain3_baseline_window_timesummLongForm.txt
-PragTrain3_adjnoun_for_GLMM_timesummLongForm.txt
-
-analysis/RyskinEtAl/1_incremental/run_1/stefan_posthoc/data/ryskin_eyetracking/PragTrain3_noun_for_GLMM_timesummLongForm.txt
-
-analysis/RyskinEtAl/1_incremental/run_1/stefan_posthoc/data/ryskin_eyetracking/PragTrain3_adjnoun_for_GLMM_timesummLongForm.txt
-
-analysis/RyskinEtAl/1_incremental/run_1/main/data/ryskin_eyetracking/PragTrain3_baseline_window_timesummLongForm.txt
+analysis/RyskinEtAl/1_incremental/shared/Ryskin_original_eyetracking_data/*

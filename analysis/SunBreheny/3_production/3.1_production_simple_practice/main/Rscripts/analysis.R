@@ -722,6 +722,13 @@ m = lmer(surprisal ~ detUsed*size + (1|noun), data=tmp)
 
 summary(m)
 
+#Check that probability values were computed correctly
+# this should yield values of 1
+probability <- dfDet %>%
+  mutate(new = (2^(-surprisal))) %>%
+  group_by(size, noun) %>%
+  summarise(probs = sum(new))
+
 # # Graph it
 
 surprisalMeanAndCI <- dfDet %>%
@@ -731,7 +738,7 @@ surprisalMeanAndCI <- dfDet %>%
     CI.Low = ci.low(surprisal),
     CI.High = ci.high(surprisal))
 
-write.csv(surprisalMeanAndCI, "simple_surprisalMeanAndCI.csv", row.names = FALSE)
+write.csv(surprisalMeanAndCI, "../../../cogsci_paper_graphs/data/simple_surprisalMeanAndCI.csv", row.names = FALSE)
 
 graphSurprisalDetByNoun <- surprisalMeanAndCI %>%
   ungroup() %>%
@@ -754,7 +761,6 @@ graphSurprisalDetByNoun
 
 ggsave(filename = "../graphs/simple_det_surprisal_by_noun.pdf", plot = graphSurprisalDetByNoun,
        width = 3.5, height = 3.5, units = "in", device = "pdf")
-
 
 
 #############################################

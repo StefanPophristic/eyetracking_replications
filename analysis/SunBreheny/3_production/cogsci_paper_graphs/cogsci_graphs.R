@@ -34,12 +34,34 @@ simpleDF <- read_csv("data/simple_surprisalMeanAndCI.csv")
 simpleDF <- simpleDF %>%
   mutate(experiment = "Exp. 1")
 
+
+# Check that the surprisal was calculated correctly
+# The numbers should be around 1
+# any deviation from 1 is because these are mean surprisals
+
+probability_extra <- extraDF %>%
+  mutate(new = (2^(-mean_surprisal))) %>%
+  group_by(size) %>%
+  summarise(probs = sum(new))
+  
+view(probability_extra)
+
+probability_simple <- simpleDF %>%
+  mutate(new = (2^(-mean_surprisal))) %>%
+  group_by(size) %>%
+  summarise(probs = sum(new))
+
+view(probability_simple)
+
+
 df <- bind_rows(simpleDF, extraDF)
 df$experiment<- df$experiment%>%
   factor()
 
 df <- df %>%
   mutate(detUsed = fct_relevel(detUsed, "all", "some","num","noDet"))
+
+
 
 graphSurprisalDetByNoun <- df %>% 
   ungroup() %>% 

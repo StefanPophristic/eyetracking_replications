@@ -3,11 +3,40 @@ Welcome to Stefan's repo of eye-tracking replication studies
 
 The goal of this project is to replicate visual world paradigm (eye-tracking) studies as incremental decision tasks and production tasks in order to test the role of surprisal in implicit linking hypotheses in eye-tracking tasks.
 
-Implicit linking hypothesis in a lot of visual world paradigm studies is that looks to an object represent belief that the object is the target of the referential utterance.
+The original visual world paradigm studies we base our studies off of are:
+- [Ryskin et al. 2019](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12769)
+- [Sun and Breheny 2020](https://www.tandfonline.com/doi/full/10.1080/23273798.2019.1678759)
 
-The incremental decision tasks use the same visual stimuli as the original study, but instead of the utterances being presented auditorily and measuring looks to an object, the utterance is presented in written format incrementally. Participants then read part of the sentence and click on the object they believe the utterance refers to. We take this as a measure of explicit belief that the object is the intended target.
+The final products of each study can be found in the links below or in the [output folder](output/).
+- Ryskin et al. 2019:
+  - Incremental Decision Task — work in progress
+  - Production Task - work in progress
+- Sun and Breheny 2020:
+  - [Incremental Decision Task](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf)
+  - Production Task (link will be added shortly)
 
-The production tasks likewise use the same visual stimuli. However, the target is explicitly marked by a red box. Participants are then given an input box where they communicate to another (fictitious) participant what the target utterance is. We compute surprisal by comparing the instances where a word (adjective/quantifier or noun) occurred in the original experiment stimuli with how often (i.e. the probability) that that word is naturally produced by participants in this production task.
+# Repo organization
+
+This repo is organized as follows:
+
+- [**analysis**](analysis/): folder containing all raw data, all processed/cleaned data, analysis scripts, and graphs
+- [**experiments**](experiments/): folder containing all experimental scripts. Opening the *index.html* file of any given experiment ([for example](experiments/SunBreheny/3_production/3.1/main/list1/public/index.html)) should allow you to run the experiment locally. Stimuli lists of each experiment can be found in the subfolder *js>stimuli.js* ([for example](experiments/SunBreheny/3_production/3.1/main/list1/public/js/stimuli.js)).
+- [**materials**](materials/): This folder contains copies of the original studies if they are not available elsewhere.
+- [**output**](output/): This folder contains finished papers, conference submissions, and presentations pertaining to this project.
+- [**readings**](readings/): this folder contains copies of the original papers for easy access.
+
+Studies are labelled after the original study they are based off of: SunBreheny and RyskinEtAl. The individual experiments can be found in folders of the same name.
+
+The Sun and Breheny 2020 production study (3_production) has two sub-experiments. The first one (3.1) has 2 practice trials whereas the second one (3.2) also has 4 exposure trials.
+
+
+# Background
+
+For this project, we are explicitly testing the implicit linking hypothesis found in many visual world paradigm studies. The linking hypothesis often used is that looks to an object represent belief that the object is the target of the referential utterance.
+
+As a first step, we re-implement eye-tracking studies as incremental deicision tasks. Therefore, instead of utterances being presented auditorily and measuring looks to an object, the utterance is presented in written format incrementally. Participants then read part of the sentence and click on the object they believe the utterance refers to. We take these clicks to an object as a measure of explicit belief that the object is the intended target. We can then compare looks to the object with explicit beliefs that the object is the intended target.
+
+We then implement a production task, using the same visual stimuli. However, unlike the incremental decision and eye-tracking tasks, in this task, the target is explicitly marked by a red box. Participants are then given an input box where they communicate to another (fictitious) participant what the target utterance is. We compute surprisal by comparing the instances where a word (adjective/quantifier or noun) occurred in the original experiment stimuli with how often (i.e. the probability) that that word is naturally produced by participants in this production task.
 
 In order to assess the linking hypothesis, we follow the following general pipeline. After running the incremental task, we calculate the correlation between looks to an object (from the original experiment) and clicks to the object (from the incremental task) given a specific utterance/stimulus. The higher the correlation, the more support we have for the linking hypothesis. After running the production task, to calculate surprisal, we take the negative log of the probability of a word being produced in the production task given a stimulus. In order to assess the role of surprisal, we calculate the correlation between the surprisal and the previously computed correlation between looks and selections. The higher this correlation, the more support we have for surprisal modulating how strongly the linking hypothesis holds.
 
@@ -47,15 +76,3 @@ The quantifiers used to refer to objects in the scene were: "all", "some", "two"
 **2_webgazer**: This is a replication of the original Sun and Breheny 2020 eye-tracking study, but as an online eye-tracking study. You can find the published report on this study in the output folder or [here](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf). You can find a copy of the analysis and the experiment in this repo.
 
 **3_production**: This is the production version of this study. It was published as Degen & Pophristic 2022. You can find the published version in the output folder (online link forthcoming). We ran 2 versions of this production experiment: the version labeled 3.1 had no exposure whereas the version labelled 3.2 had 4 exposure trials using all four quantifiers from the original Sun and Breheny experiment ("all", "some", "two", and "three"). You can find near duplicates of both the experimental files and the analyses for both of these versions in this repo. In the analysis folder there is likewise a cogsci_papers folder which stitches together the graphs from both individual experimental analyses.
-
-# Repo organization
-
-This repo is organized as follows:
-
-- **analysis**: folder containing all raw data, all processed/cleaned data, analysis scripts, and graphs
-- **experiments**: folder containing all experimental scripts. Opening the *index.html* file of any given experiment should allow you to run the experiment locally. Stimuli lists of each experiment can be found in *js>stimuli.js*.
-- **materials**: This folder contains copies of the original studies if they are not available elsewhere.
-- **output**: This folder contains finished papers, conference submissions, and presentations pertaining to this project.
-- **readings**: this folder contains copies of the original papers for easy access.
-
-Studies are labelled after the original study they are based off of: SunBreheny and RyskinEtAl. The individual experiments can be found in folders of the same name.

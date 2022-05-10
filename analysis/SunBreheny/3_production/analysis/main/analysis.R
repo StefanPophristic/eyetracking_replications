@@ -924,3 +924,57 @@ graphSurprisalCorr
 ggsave(filename = "../../graphs/surprisal_correlation.pdf", plot = graphSurprisalCorr,
        width = 5, height = 4, device = "pdf")
 
+
+##############################################
+## 
+## Correlation Statistics
+## 
+#############################################
+
+dfCorr_3.1 <- dfCorr %>%
+  filter(experiment == 1)
+
+dfCorr_3.2 <- dfCorr %>%
+  filter(experiment == 2)
+
+# Run linear model to test for how predictive surprisal is of correlation for simple exposure
+m_3.1 = lm(correlation ~ surprisal, data=dfCorr_3.1) 
+summary(m_3.1) 
+# surprisal estimate:  -0.005497
+# Suprisal estimate Pr(>|t|): 0.00015 ***
+# Adjusted R-squared:  0.2703
+
+# with the unique:
+# surprisal   -0.005514  p = 0.073 .
+# Adjusted R-squared:  0.2151
+
+# Run linear model to test for how predictive surprisal is of correlation for extra exposure
+m_3.2 = lm(correlation ~ surprisal, data=dfCorr_3.2) 
+summary(m_3.2) 
+# surprisal estimate:  -0.038322
+# Suprisal estimate Pr(>|t|): 8.75e-15 ***
+# Adjusted R-squared:  0.5479 
+
+# With the unique:
+# surprisal   -0.03852   p =  0.00635 ** 
+# Adjusted R-squared:  0.4959
+
+
+
+# Calculate correlation between surprisal and incremental study correlations
+dfCorrFinal_3.1 <- dfCorr_3.1 %>%
+  summarize(Correlation=round(cor.test(surprisal,correlation)$estimate,2),
+            P=round(cor.test(surprisal,correlation)$p.value,5))
+
+dfCorrFinal_3.1
+# Correlation       P
+# 1       -0.54 0.00015
+
+# Calculate correlation between surprisal and incremental study correlations
+dfCorrFinal_3.2 <- dfCorr_3.2 %>%
+  summarize(Correlation=round(cor.test(surprisal,correlation)$estimate,2),
+            P=round(cor.test(surprisal,correlation)$p.value,5))
+
+dfCorrFinal_3.2
+# Correlation P
+# -0.74        0

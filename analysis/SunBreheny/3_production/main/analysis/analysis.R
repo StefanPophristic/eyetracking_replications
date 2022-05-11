@@ -5,10 +5,55 @@
 # ALPS LAB
 # Sun and Breheny replication production study
 ##################### 
+# This script is an analysis for the Sun and Breheny 2020 replication production
+# study.
 #
-# Recreate a preamble
+# The script takes in a csv file of the raw response data, cleans up the data
+# be deleting participants with high error rates and incorrect trials, analyzes
+# the surprisal of each word that occured in the original Sun and Breheny study
+# based on the production data. It then takes the correlations from the Sun and 
+# Breheny Incremental replication study (Degen, Kursat, and Leigh 2021), and finds
+# how well the surprisal ratings are correlated to those correlations. 
+#
+# Surprisal is calculated as: 
+# Surprisal = -log(P(Utterance))
+# P(Utterance) = [number of instances of that utterance given a condition] / 
+#               [total number of utterances given a condition]
+#
+# Input: 
+#     production data:
+#         3.1-trials_cleaned.csv = cleaned production data from experiment 3.1
+#         3.2-trials_cleaned.csv = cleaned production data from experiment 3.2
+#     selection data (from Degen, Kursat, Leigh 2021):
+#         trials_merged.csv = raw data from incremental decision (selection) study
+#     eye tracking data (from Sun and Breheny 2020:
+#         exp200ms_beselinedata.csv = eyetracking data from "click on the" window
+#         exp200ms_genderdata.csv = eyetracking data from the gender window
+#         exp200ms_determiner.csv = eyetracking data from the determiner window
+#         exp200ms_namedata.csv = eyetracking data from the name window
+#         exp200ms_enddata.csv = eyetracking data from the noun window
+#
+#         
+# The production data csv files were run through the analyzeResposes.R script and then 
+# manually processed for any mistakes (as outlined in the SunBreheny > 3_production >
+# main > readme.md) prior to importing it into this analysis. 
 #
 #
+# Output:
+#     determiner_surprisal.pdf: plot of surprisal values for determines in experiments 3.1 and 3.2 
+#                                 = fig. 2 in Degen & Pophristic 2022
+#     surprisal_correlation.pdf: plot of correlation between surprisal of determiners and
+#                                 eyetracking and selection data correlations
+#                                 = fig. 3 in Degen & Pophristic 2022
+#     gender_surprisal_by_gender.pdf: plot of surprisal values for gender terms (boy/girl) in 
+#                                 experiments 3.1 and 3.2, faceted by the gender.
+#     gender_surprisal_by_size.pdf: plot of surprisal values for gender terms (boy/girl) in 
+#                                 experiments 3.1 and 3.2, faceted by the set size.
+#     noun_surprisal_exp1.pdf: plot of surprisal values for noun terms in experiment 3.1
+#     noun_surprisal_exp2.pdf: plot of surprisal values for noun terms in experiment 3.2
+#     
+#
+# all these output files can be found in the graphs folder
 ##################### 
 
 # Load necessary packages
@@ -18,18 +63,20 @@ library(lme4)
 library(boot)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-source("../../shared/helpers.R")
-theme_set(theme_bw())
+
+#load helper functions we use in ALPS lab analysis scripts
+source("../shared/helpers.R") 
 
 # color-blind-friendly palette
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+theme_set(theme_bw())
 
 #########
-# Import Data
+# Import Production Data
 #########
 
-df_3.1 = read.csv("../../data/3.1/3.1-trials_cleaned.csv", header = TRUE)
-df_3.2 = read.csv("../../data/3.2/3.2-trials_cleaned.csv", header = TRUE)
+df_3.1 = read.csv("../data/3.1/3.1-trials_cleaned.csv", header = TRUE)
+df_3.2 = read.csv("../data/3.2/3.2-trials_cleaned.csv", header = TRUE)
 
 
 #########
@@ -431,7 +478,7 @@ df <- df %>%
 #############################################
 #############################################
 #
-# Surprisal Graphs
+# Surprisal Calculations + Graphs
 #
 #############################################
 #############################################
@@ -576,7 +623,181 @@ graphSurprisalDetByNoun <- surprisalMeanAndCI %>%
   xlab("Quantifier")
 graphSurprisalDetByNoun
 
-ggsave(filename = "../../graphs/determiner_surprisal.pdf", plot = graphSurprisalDetByNoun,
+ggsave(filename = "../graphs/determiner_surprisal.pdf", plot = graphSurprisalDetByNoun,
+       width = 5, height = 4, device = "pdf")
+
+
+########
+# Gender Surprisal
+########
+
+# This is not reported in the cogsci paper
+
+# Create data frame with counts of all gender utterances
+# based off of size and target figure conditions
+gender <- df %>%
+  group_by(experiment, figure, genderUsed, size, condition) %>%
+  count()
+
+# Code all utterances that were not "boy" "girl" and "noGender" as "other"
+gender <- gender %>%
+  mutate(genderUsed = as.character(genderUsed)) %>%
+  mutate(genderUsed = case_when(
+    genderUsed != "boy" & genderUsed != "girl" & genderUsed != "noGender" ~ "other",
+    TRUE ~ genderUsed
+  ))
+
+# Resum values after collapsing different gender utterances into "other"
+gender <- gender %>%
+  group_by(experiment, figure, genderUsed, size, condition) %>%
+  summarize(n = sum(n))
+
+# Get number of instances of the target utterance (e.g. "boy" for boy-condition)
+# and append that as a new column
+genderTemp <- gender %>%
+  filter(figure == genderUsed) %>%
+  mutate(targetUtteranceN = n)
+
+gender <- left_join(gender, genderTemp, by = c("experiment", "figure", "size", "condition")) %>%
+  select(-c(genderUsed.y, n.y)) %>%
+  rename(genderUsed = genderUsed.x, n = n.x)
+
+# If no target utterances were observed, they will come up as NA in the targetUtteranceN
+# column --> replace those values with 0
+gender <- mutate_at(gender, "targetUtteranceN", ~replace(., is.na(.), 0))
+
+
+# In order to have correlation analysis, we have to have surprisals of not INF
+#   which means we can't have observations of target utterances of 0
+#   so we replace all observations of target utterances of 0 with 0.0001
+gender <- gender %>%
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
+
+# Calculate Surprisal
+# Surprisal = -log(P(Utterance))
+# P(Utterance) = [number of instances of that utterance given a condition] / [total number of utterances given a condition]
+surprisalGender<- gender %>%
+  group_by(experiment, figure, size, condition) %>%
+  summarize(surprisal = -log2(targetUtteranceN / sum(n))) %>%
+  distinct()
+
+
+########
+# Graph Gender Surprisal
+########
+
+graphSurprisalGenderBySize <- surprisalGender %>%
+  ggplot(aes(fill = condition, y=surprisal, x=figure, color = condition)) + 
+  facet_grid(experiment ~ size,
+             labeller = labeller(experiment = exp.labs)) +
+  geom_point(size = 4) +
+  scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) +
+  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  ylab("Surprisal") +
+  xlab("Expected Gender Term") +
+  ggtitle("Surprisal for two expected gender terms") 
+
+graphSurprisalGenderBySize
+ggsave(filename = "../graphs/gender_surprisal_by_size.pdf", plot = graphSurprisalGenderBySize,
+       width = 5, height = 4, device = "pdf")
+
+graphSurprisalGenderByGender <- surprisalGender %>%
+  ggplot(aes(fill = size, y=surprisal, x=condition, color = size)) + 
+  facet_grid(experiment ~ figure,
+             labeller = labeller(experiment = exp.labs)) +
+  geom_point(size = 4) +
+  scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) +
+  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  ylab("Surprisal") +
+  xlab("Condition") +
+  ggtitle("Surprisal for two expected gender terms") 
+
+graphSurprisalGenderByGender
+ggsave(filename = "../graphs/gender_surprisal_by_gender.pdf", plot = graphSurprisalGenderByGender,
+       width = 5, height = 4, device = "pdf")
+
+
+########
+# Calculate Noun Surprisal
+########
+
+# This is not reported in the cogsci paper
+
+# Create data frame with counts of all gender utterances
+# based off of size and target figure conditions
+noun <- df %>%
+  group_by(experiment, condition, size, figure, noun, correctNoun) %>%
+  count()
+
+# Get number of instances of the target utterance (e.g. "apples" for apples-condition)
+# and append that as a new column
+# The noun data frame contains counts of both the target utterance and other utterances
+#   per condition
+nounTemp <- noun %>%
+  filter(correctNoun == 1) %>%
+  mutate(targetUtteranceN = n)
+
+noun <- left_join(noun, nounTemp, by = c("experiment", "figure", "noun", "size", "condition")) %>%
+  select(-c(correctNoun.y, n.y)) %>%
+  rename(correctNoun = correctNoun.x, n = n.x)
+
+# If no target utterances were observed, they will come up as NA in the targetUtteranceN
+# column --> replace those values with 0
+noun <- mutate_at(noun, "targetUtteranceN", ~replace(., is.na(.), 0))
+
+
+# In order to have correlation analysis, we have to have surprisals of not INF
+#   which means we can't have observations of target utterances of 0
+#   so we replace all observations of target utterances of 0 with 0.0001
+noun <- noun %>%
+  mutate(targetUtteranceN = replace(targetUtteranceN, targetUtteranceN == 0, 0.0001))
+
+# Calculate Surprisal
+# Surprisal = -log(P(Utterance))
+# P(Utterance) = [number of instances of that utterance given a condition] / [total number of utterances given a condition]
+surprisalNoun <- noun %>%
+  group_by(experiment, noun, size, condition, figure) %>%
+  summarize(surprisal = -log2(targetUtteranceN / sum(n))) %>%
+  distinct()
+
+########
+# Graph Noun Surprisal
+########
+
+# Plot noun surprisal for Experiment 1
+graphSurprisalNounExp1 <- surprisalNoun %>%
+  filter(experiment == 1) %>%
+  ggplot(aes(fill=condition, y=surprisal, x=noun, color=condition, shape = condition)) + 
+  facet_grid(size ~ figure) + 
+  geom_point(size = 4) +
+  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
+  scale_shape_manual(values=c(19, 3, 4)) +
+  ylim(-1, 1) + 
+  ylab("Surprisal") +
+  xlab("Expected Noun") +
+  ggtitle("Surprisal for expected nouns for Experiment 1") 
+
+graphSurprisalNounExp1
+ggsave(filename = "../graphs/noun_surprisal_exp1.pdf", plot = graphSurprisalNounExp1,
+       width = 5, height = 4, device = "pdf")
+
+# Plot noun surprisal for Experiment 2
+graphSurprisalNounExp2 <- surprisalNoun %>%
+  filter(experiment == 2) %>%
+  ggplot(aes(fill=condition, y=surprisal, x=noun, color=condition, shape = condition)) + 
+  facet_grid(size ~ figure) + 
+  geom_point(size = 4) +
+  theme(text = element_text(size = 16), plot.title = element_text(hjust = 0.5, size = 20)) +
+  scale_color_manual(values=c("olivedrab", "lightsalmon3", "skyblue3")) + #"darkorange2", "steelblue4"
+  scale_shape_manual(values=c(19, 3, 4)) +
+  ylim(-1, 1) + 
+  ylab("Surprisal") +
+  xlab("Expected Noun") +
+  ggtitle("Surprisal for expected nouns for Experiment 2") 
+
+graphSurprisalNounExp2
+ggsave(filename = "../graphs/noun_surprisal_exp2.pdf", plot = graphSurprisalNounExp2,
        width = 5, height = 4, device = "pdf")
 
 ##############################################
@@ -710,11 +931,8 @@ gender = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_gend
 determiner = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_determiner.csv", header = TRUE)
 name = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_namedata.csv", header = TRUE)
 end = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_enddata.csv", header = TRUE)
-preview = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_previewdata.csv", header = TRUE)
 
-# order should be: baseline / gender / determiner + name / noun 
-# we ignore the "preview" window since there's no corresponding 
-# window in the incremental decision experiment
+# order should be: baseline / gender / determiner + name / noun
 g = rbind(baseline,gender,determiner,name,end)  %>%
   mutate(item=word(as.character(instruction), -1))
 
@@ -921,7 +1139,7 @@ graphSurprisalCorr <- dfCorr %>%
 
 graphSurprisalCorr
 
-ggsave(filename = "../../graphs/surprisal_correlation.pdf", plot = graphSurprisalCorr,
+ggsave(filename = "../graphs/surprisal_correlation.pdf", plot = graphSurprisalCorr,
        width = 5, height = 4, device = "pdf")
 
 

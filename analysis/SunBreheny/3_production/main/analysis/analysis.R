@@ -1099,27 +1099,24 @@ surprisalDet <- surprisalDet %>%
   rename(gender = figure) %>%
   mutate(condition=fct_recode(condition, "number"="num"))
 
+uniqueSurprisal = surprisalDet %>% 
+  select(experiment,condition,size,gender,surprisal) %>% 
+  unique() %>% 
+  rename(determiner=condition)
+
 # Merge surprisal and correlation data
-dfCorr <- surprisalDet %>%
-  select(experiment, condition, size, gender, surprisal) %>%
-  merge(cors_determiner, by = c("condition", "size", "gender")) %>%
-  unique()
+dfCorr <- uniqueSurprisal %>%
+  left_join(cors_determiner, by = c("determiner", "size", "gender"))
 
-dfCorr$experiment<- dfCorr$experiment%>%
-  factor()
-
-dfCorr$condition <- dfCorr$condition %>%
-  factor(levels = c('all', 'some', 'number'))
-
-dfCorr$size <- dfCorr$size %>%
-  factor(levels = c('small', 'big'))
+dfCorr = dfCorr %>%
+  mutate(determiner = fct_relevel(determiner, "all","some","number"), size=fct_relevel(size,"small","big"))
 
 # New facet label names for supp variable
 exp.labs <- c("Exp. 1", "Exp. 2")
 names(exp.labs) <- c("1", "2")
 
 graphSurprisalCorr <- dfCorr %>% 
-  ggplot(aes(x=surprisal, y=correlation, color=condition, shape = size,group=1)) + 
+  ggplot(aes(x=surprisal, y=Correlation, color=determiner, shape = size,group=1)) + 
   facet_grid(. ~ experiment, 
              scale = "free",
              labeller = labeller(experiment = exp.labs)) +
@@ -1156,7 +1153,7 @@ dfCorr_3.2 <- dfCorr %>%
   filter(experiment == 2)
 
 # Run linear model to test for how predictive surprisal is of correlation for simple exposure
-m_3.1 = lm(correlation ~ surprisal, data=dfCorr_3.1) 
+m_3.1 = lm(Correlation ~ surprisal, data=dfCorr_3.1) 
 summary(m_3.1) 
 # surprisal estimate:  -0.005497
 # Suprisal estimate Pr(>|t|): 0.00015 ***
@@ -1167,7 +1164,7 @@ summary(m_3.1)
 # Adjusted R-squared:  0.2151
 
 # Run linear model to test for how predictive surprisal is of correlation for extra exposure
-m_3.2 = lm(correlation ~ surprisal, data=dfCorr_3.2) 
+m_3.2 = lm(Correlation ~ surprisal, data=dfCorr_3.2) 
 summary(m_3.2) 
 # surprisal estimate:  -0.038322
 # Suprisal estimate Pr(>|t|): 8.75e-15 ***

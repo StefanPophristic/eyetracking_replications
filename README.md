@@ -28,8 +28,8 @@ The original studies along with our studies can be found here:
   - Incremental Decision Task ([Degen, Kursat, & Leigh 2021](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf))
   - Production Task ([Degen & Pophristic 2022](https://alpslab.stanford.edu//papers/2022_DegenPophristic.pdf))
 - Eye-tracking ([Leffel et al. 2016](http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/26.836))
-  -Incremental Decision Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
-  -Production Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
+  - Incremental Decision Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
+  - Production Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
 
 # Repo organization
 

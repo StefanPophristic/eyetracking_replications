@@ -1,19 +1,35 @@
 # Intro
-Welcome to Stefan's repo of eye-tracking replication studies
+Welcome to the ALPS Lab repo for testing the visual world paradigm.
+
+You can find the experimental files, raw and pre-processed data, and analysis files for the following experiments in this repo:
+
+1. Degen, Kursat, Leigh 2021
+    - Exp. 1
+      - [experimental files](experiments/SunBreheny/1_incremental/main/)
+      - [analysis + data](analysis/SunBreheny/1_incremental/main)
+    - Exp. 2
+      - [experimental files](experiments/SunBreheny/2_webgazer/main/)
+      - [analysis & data](analysis/SunBreheny/2_webgazer/main/)
+2. Degen & Pophristic 2022
+    - [Exp. 1 experimental files](experiments/SunBreheny/3_production/3.1/main/)
+    - [Exp. 2 experimental files](experiments/SunBreheny/3_production/3.2/main/)
+    - [All analysis & data](analysis/SunBreheny/3_production/main/)  
+3. Qing, Lassiter, Degen 2018
+    - All relevant files will be added shortly.   
 
 The goal of this project is to replicate visual world paradigm (eye-tracking) studies as incremental decision tasks and production tasks in order to test the role of surprisal in implicit linking hypotheses in eye-tracking tasks.
 
-The original visual world paradigm studies we base our studies off of are:
-- [Ryskin et al. 2019](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12769)
-- [Sun and Breheny 2020](https://www.tandfonline.com/doi/full/10.1080/23273798.2019.1678759)
-
-The final products of each study can be found in the links below or in the [output folder](output/).
-- Ryskin et al. 2019:
+The original studies along with our studies can be found here:
+- Eye-tracking ([Ryskin et al. 2019](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12769))
   - Incremental Decision Task — work in progress
   - Production Task - work in progress
-- Sun and Breheny 2020:
-  - [Incremental Decision Task](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf)
-  - Production Task (link will be added shortly)
+- Eye-tracking ([Sun and Breheny 2020](https://www.tandfonline.com/doi/full/10.1080/23273798.2019.1678759))
+  - Web based eye-tracking replication ([Degen, Kursat, & Leigh 2021](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf))
+  - Incremental Decision Task ([Degen, Kursat, & Leigh 2021](https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf))
+  - Production Task ([Degen & Pophristic 2022](https://alpslab.stanford.edu//papers/2022_DegenPophristic.pdf))
+- Eye-tracking ([Leffel et al. 2016](http://journals.linguisticsociety.org/proceedings/index.php/SALT/article/view/26.836))
+  -Incremental Decision Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
+  -Production Task ([Qing, Lassiter, Degen 2018](https://alpslab.stanford.edu//papers/2018_QingLassiterDegen.pdf))
 
 # Repo organization
 

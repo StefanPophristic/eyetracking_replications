@@ -1,0 +1,181 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "eagleSmall"
+        xmin = 0
+        xmax = 1.9225850340136055
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5125170080726713
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5125170080726713
+            xmax = 1.1895269186933037
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1895269186933037
+            xmax = 1.3280377325120167
+            text = ""
+        intervals [4]:
+            xmin = 1.3280377325120167
+            xmax = 1.8885491844868911
+            text = "noun"
+        intervals [5]:
+            xmin = 1.8885491844868911
+            xmax = 1.9225850340136055
+            text = ""
+    item [2]:
+        class = "IntervalTier"
+        name = "eggs"
+        xmin = 0
+        xmax = 1.183968253968254
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.022809187493166048
+            text = ""
+        intervals [2]:
+            xmin = 0.022809187493166048
+            xmax = 0.4720208969746051
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4720208969746051
+            xmax = 0.5396628146185284
+            text = ""
+        intervals [4]:
+            xmin = 0.5396628146185284
+            xmax = 1.0877357883487782
+            text = "noun"
+        intervals [5]:
+            xmin = 1.0877357883487782
+            xmax = 1.183968253968254
+            text = ""
+    item [3]:
+        class = "IntervalTier"
+        name = "eggsSmall"
+        xmin = 0
+        xmax = 1.709954648526077
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.024488518700367896
+            text = ""
+        intervals [2]:
+            xmin = 0.024488518700367896
+            xmax = 0.4436104116131796
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4436104116131796
+            xmax = 0.4473485919192781
+            text = ""
+        intervals [4]:
+            xmin = 0.4473485919192781
+            xmax = 0.9845656038296224
+            text = "adj"
+        intervals [5]:
+            xmin = 0.9845656038296224
+            xmax = 1.1225874967172578
+            text = ""
+        intervals [6]:
+            xmin = 1.1225874967172578
+            xmax = 1.6887019956999736
+            text = "noun"
+        intervals [7]:
+            xmin = 1.6887019956999736
+            xmax = 1.709954648526077
+            text = ""
+    item [4]:
+        class = "IntervalTier"
+        name = "elephant"
+        xmin = 0
+        xmax = 1.2431746031746032
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.005738397982614408
+            text = ""
+        intervals [2]:
+            xmin = 0.005738397982614408
+            xmax = 0.4974462461046418
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4974462461046418
+            xmax = 0.5793975541249796
+            text = ""
+        intervals [4]:
+            xmin = 0.5793975541249796
+            xmax = 1.1348453084850474
+            text = "noun"
+        intervals [5]:
+            xmin = 1.1348453084850474
+            xmax = 1.2431746031746032
+            text = ""
+    item [5]:
+        class = "IntervalTier"
+        name = "elephantBig"
+        xmin = 0
+        xmax = 1.842312925170068
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.016600447746549837
+            text = ""
+        intervals [2]:
+            xmin = 0.016600447746549837
+            xmax = 0.5185818065529887
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5185818065529887
+            xmax = 0.6211371379220462
+            text = ""
+        intervals [4]:
+            xmin = 0.6211371379220462
+            xmax = 0.9315019565389304
+            text = "adj"
+        intervals [5]:
+            xmin = 0.9315019565389304
+            xmax = 1.131214970257621
+            text = ""
+        intervals [6]:
+            xmin = 1.131214970257621
+            xmax = 1.8302105182730386
+            text = "noun"
+        intervals [7]:
+            xmin = 1.8302105182730386
+            xmax = 1.842312925170068
+            text = ""
+    item [6]:
+        class = "IntervalTier"
+        name = "eraserPink"
+        xmin = 0
+        xmax = 1.6277551020408163
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.012282624651467944
+            text = ""
+        intervals [2]:
+            xmin = 0.012282624651467944
+            xmax = 0.4200349273061694
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4200349273061694
+            xmax = 0.5130310665081188
+            text = ""
+        intervals [4]:
+            xmin = 0.5130310665081188
+            xmax = 0.8277872299608708
+            text = "adj"
+        intervals [5]:
+            xmin = 0.8277872299608708
+            xmax = 0.9160143363832332
+            text = ""
+        intervals [6]:
+            xmin = 0.9160143363832332
+            xmax = 1.5812944091356405
+            text = "noun"
+        intervals [7]:
+            xmin = 1.5812944091356405
+            xmax = 1.6277551020408163
+            text = ""

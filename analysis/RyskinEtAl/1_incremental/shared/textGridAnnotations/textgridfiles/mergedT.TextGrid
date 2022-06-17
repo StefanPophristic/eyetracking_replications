@@ -1,0 +1,678 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.095986394557823 
+tiers? <exists> 
+size = 31 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "table" 
+        xmin = 0 
+        xmax = 1.0542630385487528 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4311212232230722 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4311212232230722 
+            xmax = 0.5129745051113155 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5129745051113155 
+            xmax = 1.0542630385487528 
+            text = "noun" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "tableBig" 
+        xmin = 0 
+        xmax = 1.7399092970521541 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.612099803547998 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.612099803547998 
+            xmax = 0.6885641727342487 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6885641727342487 
+            xmax = 1.0020680863978773 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0020680863978773 
+            xmax = 1.1881313847510877 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1881313847510877 
+            xmax = 1.7399092970521541 
+            text = "noun" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "tacos" 
+        xmin = 0 
+        xmax = 1.3348526077097507 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5321750166089686 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5321750166089686 
+            xmax = 0.5830164643447794 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5830164643447794 
+            xmax = 1.3348526077097507 
+            text = "noun" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "tacosBig" 
+        xmin = 0 
+        xmax = 2.017482993197279 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5235579004384475 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5235579004384475 
+            xmax = 0.7038393178949249 
+            text = "" 
+        intervals [3]:
+            xmin = 0.7038393178949249 
+            xmax = 1.0673575858809368 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0673575858809368 
+            xmax = 1.2476390033374143 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2476390033374143 
+            xmax = 2.017482993197279 
+            text = "noun" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "tank" 
+        xmin = 0 
+        xmax = 1.1280045351473922 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5918181098896217 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5918181098896217 
+            xmax = 0.6661772923183338 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6661772923183338 
+            xmax = 1.1280045351473922 
+            text = "noun" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "tankSmall" 
+        xmin = 0 
+        xmax = 1.7399092970521541 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4311341298072042 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4311341298072042 
+            xmax = 1.0326538340723777 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0326538340723777 
+            xmax = 1.1957778216697128 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1957778216697128 
+            xmax = 1.7399092970521541 
+            text = "adj" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "tape" 
+        xmin = 0 
+        xmax = 1.0964625850340135 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5110205262687739 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5110205262687739 
+            xmax = 0.5929377526857471 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5929377526857471 
+            xmax = 1.0964625850340135 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "targetBig" 
+        xmin = 0 
+        xmax = 1.6271882086167802 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4985502790575187 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4985502790575187 
+            xmax = 0.5938977167122591 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5938977167122591 
+            xmax = 0.9419158641520617 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9419158641520617 
+            xmax = 1.0634838471618557 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0634838471618557 
+            xmax = 1.6271882086167802 
+            text = "noun" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "teabagSmall" 
+        xmin = 0 
+        xmax = 1.6896145124716553 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49045043991190057 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49045043991190057 
+            xmax = 1.0052785036747192 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0052785036747192 
+            xmax = 1.1092341703960575 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1092341703960575 
+            xmax = 1.6896145124716553 
+            text = "noun" 
+    item [10]:
+        class = "IntervalTier" 
+        name = "teapot" 
+        xmin = 0 
+        xmax = 1.1634013605442177 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46722990881053933 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.46722990881053933 
+            xmax = 0.5388096467964341 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5388096467964341 
+            xmax = 1.1634013605442177 
+            text = "noun" 
+    item [11]:
+        class = "IntervalTier" 
+        name = "teepee" 
+        xmin = 0 
+        xmax = 1.2348979591836735 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.48508933590729647 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.48508933590729647 
+            xmax = 0.5592589767874717 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5592589767874717 
+            xmax = 1.2348979591836735 
+            text = "noun" 
+    item [12]:
+        class = "IntervalTier" 
+        name = "teepeeSmall" 
+        xmin = 0 
+        xmax = 1.7934920634920635 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5915406175680664 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5915406175680664 
+            xmax = 0.6913782566391943 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6913782566391943 
+            xmax = 1.0066550116006507 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0066550116006507 
+            xmax = 1.1931937582861791 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1931937582861791 
+            xmax = 1.7934920634920635 
+            text = "noun" 
+    item [13]:
+        class = "IntervalTier" 
+        name = "telescope" 
+        xmin = 0 
+        xmax = 1.2533333333333334 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4097100889781861 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4097100889781861 
+            xmax = 0.46662676521239965 
+            text = "" 
+        intervals [3]:
+            xmin = 0.46662676521239965 
+            xmax = 1.2533333333333334 
+            text = "noun" 
+    item [14]:
+        class = "IntervalTier" 
+        name = "telescopeBig" 
+        xmin = 0 
+        xmax = 1.7347392290249433 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4857602822572773 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4857602822572773 
+            xmax = 0.5518324862881434 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5518324862881434 
+            xmax = 0.823745018261323 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.823745018261323 
+            xmax = 0.9304770401573375 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9304770401573375 
+            xmax = 1.7347392290249433 
+            text = "noun" 
+    item [15]:
+        class = "IntervalTier" 
+        name = "tie" 
+        xmin = 0 
+        xmax = 1.2460544217687075 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.600818678133567 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.600818678133567 
+            xmax = 0.6592301615328969 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6592301615328969 
+            xmax = 1.2460544217687075 
+            text = "noun" 
+    item [16]:
+        class = "IntervalTier" 
+        name = "tieSmall" 
+        xmin = 0 
+        xmax = 1.8422902494331066 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5104790498181191 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5104790498181191 
+            xmax = 1.1096107165921767 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1096107165921767 
+            xmax = 1.2337551160138283 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2337551160138283 
+            xmax = 1.8422902494331066 
+            text = "noun" 
+    item [17]:
+        class = "IntervalTier" 
+        name = "tireNarrow" 
+        xmin = 0 
+        xmax = 1.8415192743764173 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46980049259442597 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.46980049259442597 
+            xmax = 1.0471001353246525 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0471001353246525 
+            xmax = 1.122634668018327 
+            text = "" 
+        intervals [4]:
+            xmin = 1.122634668018327 
+            xmax = 1.8415192743764173 
+            text = "noun" 
+    item [18]:
+        class = "IntervalTier" 
+        name = "tissues" 
+        xmin = 0 
+        xmax = 1.4259183673469389 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5016378462988239 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5016378462988239 
+            xmax = 0.5705696828724316 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5705696828724316 
+            xmax = 1.4259183673469389 
+            text = "noun" 
+    item [19]:
+        class = "IntervalTier" 
+        name = "twoslotToaster" 
+        xmin = 0 
+        xmax = 1.8270294784580499 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4714567892972345 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4714567892972345 
+            xmax = 0.5517498579024033 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5517498579024033 
+            xmax = 1.0870369819368622 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0870369819368622 
+            xmax = 1.1967708423639263 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1967708423639263 
+            xmax = 1.8270294784580499 
+            text = "noun" 
+    item [20]:
+        class = "IntervalTier" 
+        name = "toothbrushRed" 
+        xmin = 0 
+        xmax = 1.9620861678004535 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4833133109960403 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4833133109960403 
+            xmax = 0.9690669103462282 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9690669103462282 
+            xmax = 1.1788894710122857 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1788894710122857 
+            xmax = 1.9620861678004535 
+            text = "noun" 
+    item [21]:
+        class = "IntervalTier" 
+        name = "toy" 
+        xmin = 0 
+        xmax = 1.1372108843537414 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49502762867130207 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49502762867130207 
+            xmax = 0.5686054421768707 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5686054421768707 
+            xmax = 1.1372108843537414 
+            text = "noun" 
+    item [22]:
+        class = "IntervalTier" 
+        name = "toyBig" 
+        xmin = 0 
+        xmax = 1.9751927437641723 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5183701024166844 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5183701024166844 
+            xmax = 0.6659376650645907 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6659376650645907 
+            xmax = 1.0478772389768192 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0478772389768192 
+            xmax = 1.3459058458931794 
+            text = "" 
+        intervals [5]:
+            xmin = 1.3459058458931794 
+            xmax = 1.9751927437641723 
+            text = "noun" 
+    item [23]:
+        class = "IntervalTier" 
+        name = "train" 
+        xmin = 0 
+        xmax = 1.2348979591836735 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5755401174684858 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5755401174684858 
+            xmax = 0.6189564926178567 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6189564926178567 
+            xmax = 1.2348979591836735 
+            text = "noun" 
+    item [24]:
+        class = "IntervalTier" 
+        name = "trainBig" 
+        xmin = 0 
+        xmax = 1.6319727891156464 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5550021984611871 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5550021984611871 
+            xmax = 0.636285825947773 
+            text = "" 
+        intervals [3]:
+            xmin = 0.636285825947773 
+            xmax = 0.930341301855128 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.930341301855128 
+            xmax = 1.059438827863235 
+            text = "" 
+        intervals [5]:
+            xmin = 1.059438827863235 
+            xmax = 1.6319727891156464 
+            text = "noun" 
+    item [25]:
+        class = "IntervalTier" 
+        name = "treesmall" 
+        xmin = 0 
+        xmax = 1.6806802721088436 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.480470924884018 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.480470924884018 
+            xmax = 1.0738242650806018 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0738242650806018 
+            xmax = 1.1649200061066334 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1649200061066334 
+            xmax = 1.6806802721088436 
+            text = "noun" 
+    item [26]:
+        class = "IntervalTier" 
+        name = "triangle" 
+        xmin = 0 
+        xmax = 1.3348299319727892 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5575862683491882 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5575862683491882 
+            xmax = 0.6045160382594486 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6045160382594486 
+            xmax = 1.3348299319727892 
+            text = "noun" 
+    item [27]:
+        class = "IntervalTier" 
+        name = "triangleSmall" 
+        xmin = 0 
+        xmax = 2.095986394557823 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4978738491485861 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4978738491485861 
+            xmax = 1.225566605466096 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.225566605466096 
+            xmax = 1.4067221861527337 
+            text = "" 
+        intervals [4]:
+            xmin = 1.4067221861527337 
+            xmax = 2.095986394557823 
+            text = "noun" 
+    item [28]:
+        class = "IntervalTier" 
+        name = "trophy" 
+        xmin = 0 
+        xmax = 1.1016326530612246 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.45856111341350564 
+            text = "adj" 
+        intervals [2]:
+            xmin = 0.45856111341350564 
+            xmax = 0.5021335464309147 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5021335464309147 
+            xmax = 1.1016326530612246 
+            text = "noun" 
+    item [29]:
+        class = "IntervalTier" 
+        name = "tupperwareRound" 
+        xmin = 0 
+        xmax = 1.923174603174603 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5108471742878109 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5108471742878109 
+            xmax = 1.0157532501792976 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0157532501792976 
+            xmax = 1.1425031688273974 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1425031688273974 
+            xmax = 1.923174603174603 
+            text = "noun" 
+    item [30]:
+        class = "IntervalTier" 
+        name = "turtle" 
+        xmin = 0 
+        xmax = 1.6089115646258503 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5094489280808479 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5094489280808479 
+            xmax = 0.6107961562990583 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6107961562990583 
+            xmax = 0.9714037357731556 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9714037357731556 
+            xmax = 1.0986769991169547 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0986769991169547 
+            xmax = 1.6089115646258503 
+            text = "noun" 
+    item [31]:
+        class = "IntervalTier" 
+        name = "tuxedoBig" 
+        xmin = 0 
+        xmax = 1.815668934240363 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5217211203231293 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5217211203231293 
+            xmax = 0.6201334773712873 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6201334773712873 
+            xmax = 0.9499478631543032 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9499478631543032 
+            xmax = 1.0643189808048652 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0643189808048652 
+            xmax = 1.815668934240363 
+            text = "noun" 

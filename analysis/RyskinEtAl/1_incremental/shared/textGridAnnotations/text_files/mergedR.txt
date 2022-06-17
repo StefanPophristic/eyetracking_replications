@@ -1,0 +1,201 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "radish"
+        xmin = 0
+        xmax = 1.1980272108843537
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4741158730362123
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4741158730362123
+            xmax = 1.1980272108843537
+            text = "noun"
+    item [2]:
+        class = "IntervalTier"
+        name = "radishSmall"
+        xmin = 0
+        xmax = 1.9048979591836734
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5000533554099978
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5000533554099978
+            xmax = 1.088139327490621
+            text = "adj"
+        intervals [3]:
+            xmin = 1.088139327490621
+            xmax = 1.2003389306655499
+            text = ""
+        intervals [4]:
+            xmin = 1.2003389306655499
+            xmax = 1.9048979591836734
+            text = "noun"
+    item [3]:
+        class = "IntervalTier"
+        name = "raspberry"
+        xmin = 0
+        xmax = 1.2201587301587302
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4131648241450715
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4131648241450715
+            xmax = 1.2201587301587302
+            text = "noun"
+    item [4]:
+        class = "IntervalTier"
+        name = "raspberrySmall"
+        xmin = 0
+        xmax = 1.8689795918367347
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.47954393971566817
+            text = "intro"
+        intervals [2]:
+            xmin = 0.47954393971566817
+            xmax = 1.040811144459219
+            text = "adj"
+        intervals [3]:
+            xmin = 1.040811144459219
+            xmax = 1.076403698906371
+            text = ""
+        intervals [4]:
+            xmin = 1.076403698906371
+            xmax = 1.8689795918367347
+            text = "noun"
+    item [5]:
+        class = "IntervalTier"
+        name = "recliner"
+        xmin = 0
+        xmax = 1.3075056689342404
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4963724883847053
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4963724883847053
+            xmax = 1.3075056689342404
+            text = "noun"
+    item [6]:
+        class = "IntervalTier"
+        name = "ribbonBig"
+        xmin = 0
+        xmax = 1.618049886621315
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.50760190613846
+            text = "intro"
+        intervals [2]:
+            xmin = 0.50760190613846
+            xmax = 0.6213762635507705
+            text = ""
+        intervals [3]:
+            xmin = 0.6213762635507705
+            xmax = 0.9816617286897538
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9816617286897538
+            xmax = 1.1049172825530902
+            text = ""
+        intervals [5]:
+            xmin = 1.1049172825530902
+            xmax = 1.618049886621315
+            text = "noun"
+    item [7]:
+        class = "IntervalTier"
+        name = "robotDog"
+        xmin = 0
+        xmax = 1.6508163265306122
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.48261615594761853
+            text = "intro"
+        intervals [2]:
+            xmin = 0.48261615594761853
+            xmax = 0.9821945504888235
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9821945504888235
+            xmax = 1.0934363059481829
+            text = ""
+        intervals [4]:
+            xmin = 1.0934363059481829
+            xmax = 1.6508163265306122
+            text = "noun"
+    item [8]:
+        class = "IntervalTier"
+        name = "rooster"
+        xmin = 0
+        xmax = 1.3148072562358277
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.6738579386139646
+            text = "intro"
+        intervals [2]:
+            xmin = 0.6738579386139646
+            xmax = 1.3148072562358277
+            text = "noun"
+    item [9]:
+        class = "IntervalTier"
+        name = "roosterBig"
+        xmin = 0
+        xmax = 1.8000226757369615
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5145883926740904
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5145883926740904
+            xmax = 0.5910577113329547
+            text = ""
+        intervals [3]:
+            xmin = 0.5910577113329547
+            xmax = 0.9575830662840626
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9575830662840626
+            xmax = 1.07360548080096
+            text = ""
+        intervals [5]:
+            xmin = 1.07360548080096
+            xmax = 1.8000226757369615
+            text = "noun"
+    item [10]:
+        class = "IntervalTier"
+        name = "ropeBig"
+        xmin = 0
+        xmax = 1.6304308390022675
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5090975252026759
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5090975252026759
+            xmax = 0.6189655860952303
+            text = ""
+        intervals [3]:
+            xmin = 0.6189655860952303
+            xmax = 0.9724541298364927
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9724541298364927
+            xmax = 1.0393303408145693
+            text = ""
+        intervals [5]:
+            xmin = 1.0393303408145693
+            xmax = 1.6304308390022675
+            text = "noun"

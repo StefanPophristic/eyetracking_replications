@@ -1,16 +1,15 @@
 import pandas as pd
 
 
-listNum = ["list1", "list2"]
+listNum = ["list1R1", "list1R2", "list2R1", "list2R2"]
 
 for list in listNum:
     trials = pd.read_csv(list + "_production.csv")
     cols=trials.columns
     ncol = cols.size
     output = ""
-
-    # i = iteration through columns (i.e. entries per trial)
-    # j = iteration through rows (i.e. through all the trials)
+    # i = iteration through rows (i.e. one per trial)
+    # j = iteration through columns (i.e. all entries per trial)
     for i in trials.index:
         trial = "{"
         for j in range(0,(ncol-1)):
@@ -41,7 +40,6 @@ for list in listNum:
         trial_tail = "\n\t" +  cols[ncol-1]+": \""+ str(trials[cols[ncol-1]][i]) + "\"\n},\n" #max line
         trial = trial + trial_tail
         output= output + trial
-
 
     file = open("stimuli_"+ list + ".js","w")
     file.write("exp.stims_cb = [ \n")

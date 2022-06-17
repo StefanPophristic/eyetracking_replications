@@ -1,0 +1,561 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "garbagebin"
+        xmin = 0
+        xmax = 1.4178911564625851
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5299701405770404
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5299701405770404
+            xmax = 0.6192847690389303
+            text = ""
+        intervals [3]:
+            xmin = 0.6192847690389303
+            xmax = 1.4085768345160972
+            text = "noun"
+        intervals [4]:
+            xmin = 1.4085768345160972
+            xmax = 1.4178911564625851
+            text = ""
+    item [2]:
+        class = "IntervalTier"
+        name = "garbagebinBin"
+        xmin = 0
+        xmax = 2.1020408163265305
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.018940766389793588
+            text = ""
+        intervals [2]:
+            xmin = 0.018940766389793588
+            xmax = 0.5239464190526958
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5239464190526958
+            xmax = 0.7025459791407953
+            text = ""
+        intervals [4]:
+            xmin = 0.7025459791407953
+            xmax = 1.0997760351988097
+            text = "adj"
+        intervals [5]:
+            xmin = 1.0997760351988097
+            xmax = 1.2352653566449543
+            text = ""
+        intervals [6]:
+            xmin = 1.2352653566449543
+            xmax = 2.082073615683357
+            text = "noun"
+        intervals [7]:
+            xmin = 2.082073615683357
+            xmax = 2.1020408163265305
+            text = ""
+    item [3]:
+        class = "IntervalTier"
+        name = "garlic"
+        xmin = 0
+        xmax = 1.1722222222222223
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.008845289777076165
+            text = ""
+        intervals [2]:
+            xmin = 0.008845289777076165
+            xmax = 0.5360260745551091
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5360260745551091
+            xmax = 0.584107709648871
+            text = ""
+        intervals [4]:
+            xmin = 0.584107709648871
+            xmax = 1.1610873307740146
+            text = "noun"
+        intervals [5]:
+            xmin = 1.1610873307740146
+            xmax = 1.1722222222222223
+            text = ""
+    item [4]:
+        class = "IntervalTier"
+        name = "garlicSmall"
+        xmin = 0
+        xmax = 1.7657142857142858
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4544320912406525
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4544320912406525
+            xmax = 1.0363865851895568
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0363865851895568
+            xmax = 1.151433929596523
+            text = ""
+        intervals [4]:
+            xmin = 1.151433929596523
+            xmax = 1.7463552228555026
+            text = "noun"
+        intervals [5]:
+            xmin = 1.7463552228555026
+            xmax = 1.7657142857142858
+            text = ""
+    item [5]:
+        class = "IntervalTier"
+        name = "giraffe"
+        xmin = 0
+        xmax = 1.2947392290249433
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.004079738547255878
+            text = ""
+        intervals [2]:
+            xmin = 0.004079738547255878
+            xmax = 0.518079413397104
+            text = "intro"
+        intervals [3]:
+            xmin = 0.518079413397104
+            xmax = 0.5408395466007873
+            text = ""
+        intervals [4]:
+            xmin = 0.5408395466007873
+            xmax = 1.2881305867883892
+            text = "noun"
+        intervals [5]:
+            xmin = 1.2881305867883892
+            xmax = 1.2947392290249433
+            text = ""
+    item [6]:
+        class = "IntervalTier"
+        name = "giraffeSmall"
+        xmin = 0
+        xmax = 2.0658049886621317
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5195769950292916
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5195769950292916
+            xmax = 1.1208372158264044
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1208372158264044
+            xmax = 1.2703491386298622
+            text = ""
+        intervals [4]:
+            xmin = 1.2703491386298622
+            xmax = 2.0546663078379774
+            text = "noun"
+        intervals [5]:
+            xmin = 2.0546663078379774
+            xmax = 2.0658049886621317
+            text = ""
+    item [7]:
+        class = "IntervalTier"
+        name = "glass"
+        xmin = 0
+        xmax = 1.191609977324263
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.47855868140166513
+            text = "intro"
+        intervals [2]:
+            xmin = 0.47855868140166513
+            xmax = 0.5326723616757265
+            text = ""
+        intervals [3]:
+            xmin = 0.5326723616757265
+            xmax = 1.183782127553949
+            text = "noun"
+        intervals [4]:
+            xmin = 1.183782127553949
+            xmax = 1.191609977324263
+            text = ""
+    item [8]:
+        class = "IntervalTier"
+        name = "glassBig"
+        xmin = 0
+        xmax = 1.9329251700680272
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5072773892751706
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5072773892751706
+            xmax = 0.626203051486094
+            text = ""
+        intervals [3]:
+            xmin = 0.626203051486094
+            xmax = 1.0084641085926336
+            text = "adj"
+        intervals [4]:
+            xmin = 1.0084641085926336
+            xmax = 1.1642000948212237
+            text = ""
+        intervals [5]:
+            xmin = 1.1642000948212237
+            xmax = 1.9145643921044309
+            text = "noun"
+        intervals [6]:
+            xmin = 1.9145643921044309
+            xmax = 1.9329251700680272
+            text = ""
+    item [9]:
+        class = "IntervalTier"
+        name = "glassesReading"
+        xmin = 0
+        xmax = 1.7714739229024943
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5467446298922016
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5467446298922016
+            xmax = 0.9899342729743674
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9899342729743674
+            xmax = 1.7714739229024943
+            text = "noun"
+    item [10]:
+        class = "IntervalTier"
+        name = "glove"
+        xmin = 0
+        xmax = 1.3676190476190475
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.679468736673774
+            text = "intro"
+        intervals [2]:
+            xmin = 0.679468736673774
+            xmax = 0.7155306605707726
+            text = ""
+        intervals [3]:
+            xmin = 0.7155306605707726
+            xmax = 1.3546280896342464
+            text = "noun"
+        intervals [4]:
+            xmin = 1.3546280896342464
+            xmax = 1.3676190476190475
+            text = ""
+    item [11]:
+        class = "IntervalTier"
+        name = "gloveSmall"
+        xmin = 0
+        xmax = 1.9127210884353743
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5271927206222616
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5271927206222616
+            xmax = 1.1716449475664263
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1716449475664263
+            xmax = 1.289327528138839
+            text = ""
+        intervals [4]:
+            xmin = 1.289327528138839
+            xmax = 1.9127210884353743
+            text = "noun"
+    item [12]:
+        class = "IntervalTier"
+        name = "graduationHat"
+        xmin = 0
+        xmax = 1.6936054421768707
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.010298533236486338
+            text = ""
+        intervals [2]:
+            xmin = 0.010298533236486338
+            xmax = 0.4543941821504722
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4543941821504722
+            xmax = 0.5114567515640012
+            text = ""
+        intervals [4]:
+            xmin = 0.5114567515640012
+            xmax = 1.6936054421768707
+            text = "noun"
+    item [13]:
+        class = "IntervalTier"
+        name = "graduationHatSmall"
+        xmin = 0
+        xmax = 2.21124716553288
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.3956813072100253
+            text = "intro"
+        intervals [2]:
+            xmin = 0.3956813072100253
+            xmax = 0.9657946478849866
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9657946478849866
+            xmax = 1.0986051420194947
+            text = ""
+        intervals [4]:
+            xmin = 1.0986051420194947
+            xmax = 2.20967830026672
+            text = "noun"
+        intervals [5]:
+            xmin = 2.20967830026672
+            xmax = 2.21124716553288
+            text = ""
+    item [14]:
+        class = "IntervalTier"
+        name = "grapesBig"
+        xmin = 0
+        xmax = 1.844716553287982
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.008515069179221641
+            text = ""
+        intervals [2]:
+            xmin = 0.008515069179221641
+            xmax = 0.4976396247764319
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4976396247764319
+            xmax = 0.5841146843295298
+            text = ""
+        intervals [4]:
+            xmin = 0.5841146843295298
+            xmax = 0.9867641803736421
+            text = "adj"
+        intervals [5]:
+            xmin = 0.9867641803736421
+            xmax = 1.1326908433694949
+            text = ""
+        intervals [6]:
+            xmin = 1.1326908433694949
+            xmax = 1.8190866285722096
+            text = "noun"
+        intervals [7]:
+            xmin = 1.8190866285722096
+            xmax = 1.844716553287982
+            text = ""
+    item [15]:
+        class = "IntervalTier"
+        name = "greenbean"
+        xmin = 0
+        xmax = 1.3233786848072562
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.008047245852273177
+            text = ""
+        intervals [2]:
+            xmin = 0.008047245852273177
+            xmax = 0.5780050601461881
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5780050601461881
+            xmax = 0.6400412848312401
+            text = ""
+        intervals [4]:
+            xmin = 0.6400412848312401
+            xmax = 1.3127465962597724
+            text = "noun"
+        intervals [5]:
+            xmin = 1.3127465962597724
+            xmax = 1.3233786848072562
+            text = ""
+    item [16]:
+        class = "IntervalTier"
+        name = "greenbeanBig"
+        xmin = 0
+        xmax = 1.8483219954648527
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.01665459341098668
+            text = ""
+        intervals [2]:
+            xmin = 0.01665459341098668
+            xmax = 0.4688283463349463
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4688283463349463
+            xmax = 0.5635953005405666
+            text = ""
+        intervals [4]:
+            xmin = 0.5635953005405666
+            xmax = 0.9020487084177818
+            text = "adj"
+        intervals [5]:
+            xmin = 0.9020487084177818
+            xmax = 1.0699215987248807
+            text = ""
+        intervals [6]:
+            xmin = 1.0699215987248807
+            xmax = 1.8307648596328603
+            text = "noun"
+        intervals [7]:
+            xmin = 1.8307648596328603
+            xmax = 1.8483219954648527
+            text = ""
+    item [17]:
+        class = "IntervalTier"
+        name = "grill"
+        xmin = 0
+        xmax = 1.065578231292517
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.01896742250287027
+            text = ""
+        intervals [2]:
+            xmin = 0.01896742250287027
+            xmax = 0.5169191798073994
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5169191798073994
+            xmax = 0.5512606803111602
+            text = ""
+        intervals [4]:
+            xmin = 0.5512606803111602
+            xmax = 1.058578301389442
+            text = "noun"
+        intervals [5]:
+            xmin = 1.058578301389442
+            xmax = 1.065578231292517
+            text = ""
+    item [18]:
+        class = "IntervalTier"
+        name = "guitarElectric"
+        xmin = 0
+        xmax = 1.8208390022675738
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4879670082160212
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4879670082160212
+            xmax = 0.9974037179902654
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9974037179902654
+            xmax = 1.1911960246009339
+            text = ""
+        intervals [4]:
+            xmin = 1.1911960246009339
+            xmax = 1.8208390022675738
+            text = "noun"
+    item [19]:
+        class = "IntervalTier"
+        name = "guitarSmall"
+        xmin = 0
+        xmax = 1.763310657596372
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4808453645967573
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4808453645967573
+            xmax = 1.0336273130764937
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0336273130764937
+            xmax = 1.051708965596859
+            text = ""
+        intervals [4]:
+            xmin = 1.051708965596859
+            xmax = 1.763310657596372
+            text = "noun"
+    item [20]:
+        class = "IntervalTier"
+        name = "gumballmachine"
+        xmin = 0
+        xmax = 1.7841496598639455
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.010849117576852793
+            text = ""
+        intervals [2]:
+            xmin = 0.010849117576852793
+            xmax = 0.6511861403954521
+            text = "intro"
+        intervals [3]:
+            xmin = 0.6511861403954521
+            xmax = 0.7165266529279622
+            text = ""
+        intervals [4]:
+            xmin = 0.7165266529279622
+            xmax = 1.7841496598639455
+            text = "noun"
+    item [21]:
+        class = "IntervalTier"
+        name = "gumballmachineBig"
+        xmin = 0
+        xmax = 2.2252154195011338
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4861938412822076
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4861938412822076
+            xmax = 0.5905056042882137
+            text = ""
+        intervals [3]:
+            xmin = 0.5905056042882137
+            xmax = 0.9947136859364873
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9947136859364873
+            xmax = 1.1381423600697456
+            text = ""
+        intervals [5]:
+            xmin = 1.1381423600697456
+            xmax = 2.2252154195011338
+            text = "noun"
+    item [22]:
+        class = "IntervalTier"
+        name = "gun"
+        xmin = 0
+        xmax = 1.0089569160997733
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.020915620399279126
+            text = ""
+        intervals [2]:
+            xmin = 0.020915620399279126
+            xmax = 0.482061637761448
+            text = "intro"
+        intervals [3]:
+            xmin = 0.482061637761448
+            xmax = 0.5559632431079494
+            text = ""
+        intervals [4]:
+            xmin = 0.5559632431079494
+            xmax = 0.9727682972622174
+            text = "noun"
+        intervals [5]:
+            xmin = 0.9727682972622174
+            xmax = 1.0089569160997733
+            text = ""

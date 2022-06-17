@@ -1,0 +1,435 @@
+item []:
+    item [1]:
+        class = "IntervalTier"
+        name = "dart"
+        xmin = 0
+        xmax = 1.0449886621315192
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.015539294842506468
+            text = ""
+        intervals [2]:
+            xmin = 0.015539294842506468
+            xmax = 0.4962153332142271
+            text = "intro"
+        intervals [3]:
+            xmin = 0.4962153332142271
+            xmax = 0.5696944728379296
+            text = ""
+        intervals [4]:
+            xmin = 0.5696944728379296
+            xmax = 0.9845454486300834
+            text = "noun"
+        intervals [5]:
+            xmin = 0.9845454486300834
+            xmax = 1.0449886621315192
+            text = ""
+    item [2]:
+        class = "IntervalTier"
+        name = "deer"
+        xmin = 0
+        xmax = 1.091315192743764
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.014629504593886929
+            text = ""
+        intervals [2]:
+            xmin = 0.014629504593886929
+            xmax = 0.5246083142592571
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5246083142592571
+            xmax = 0.5677726649205894
+            text = ""
+        intervals [4]:
+            xmin = 0.5677726649205894
+            xmax = 1.0074095698045291
+            text = "noun"
+        intervals [5]:
+            xmin = 1.0074095698045291
+            xmax = 1.091315192743764
+            text = ""
+    item [3]:
+        class = "IntervalTier"
+        name = "desk"
+        xmin = 0
+        xmax = 1.2251700680272108
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.00745005557475574
+            text = ""
+        intervals [2]:
+            xmin = 0.00745005557475574
+            xmax = 0.45973086990967454
+            text = "intro"
+        intervals [3]:
+            xmin = 0.45973086990967454
+            xmax = 0.529726710223412
+            text = ""
+        intervals [4]:
+            xmin = 0.529726710223412
+            xmax = 1.0753353116433138
+            text = "noun"
+        intervals [5]:
+            xmin = 1.0753353116433138
+            xmax = 1.2251700680272108
+            text = ""
+    item [4]:
+        class = "IntervalTier"
+        name = "dinosaur"
+        xmin = 0
+        xmax = 1.3126757369614512
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.013751022470555395
+            text = ""
+        intervals [2]:
+            xmin = 0.013751022470555395
+            xmax = 0.5271795148936441
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5271795148936441
+            xmax = 0.5637156248413545
+            text = ""
+        intervals [4]:
+            xmin = 0.5637156248413545
+            xmax = 1.2867460111749924
+            text = "noun"
+        intervals [5]:
+            xmin = 1.2867460111749924
+            xmax = 1.3126757369614512
+            text = ""
+    item [5]:
+        class = "IntervalTier"
+        name = "discoball"
+        xmin = 0
+        xmax = 1.4236281179138321
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.0024003804320235633
+            text = ""
+        intervals [2]:
+            xmin = 0.0024003804320235633
+            xmax = 0.5529693499486477
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5529693499486477
+            xmax = 0.5988500974083664
+            text = ""
+        intervals [4]:
+            xmin = 0.5988500974083664
+            xmax = 1.3788228042235837
+            text = "noun"
+        intervals [5]:
+            xmin = 1.3788228042235837
+            xmax = 1.4236281179138321
+            text = ""
+    item [6]:
+        class = "IntervalTier"
+        name = "discoballSmall"
+        xmin = 0
+        xmax = 2.1201587301587304
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.45392216552881215
+            text = "intro"
+        intervals [2]:
+            xmin = 0.45392216552881215
+            xmax = 1.127890290050435
+            text = "adj"
+        intervals [3]:
+            xmin = 1.127890290050435
+            xmax = 1.398098708637445
+            text = ""
+        intervals [4]:
+            xmin = 1.398098708637445
+            xmax = 2.1201587301587304
+            text = "noun"
+    item [7]:
+        class = "IntervalTier"
+        name = "dogBig"
+        xmin = 0
+        xmax = 1.4822448979591836
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4476273762784391
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4476273762784391
+            xmax = 0.5561952206808384
+            text = ""
+        intervals [3]:
+            xmin = 0.5561952206808384
+            xmax = 0.8514997574553645
+            text = "adj"
+        intervals [4]:
+            xmin = 0.8514997574553645
+            xmax = 1.0034947396187235
+            text = ""
+        intervals [5]:
+            xmin = 1.0034947396187235
+            xmax = 1.4334234034522249
+            text = "noun"
+        intervals [6]:
+            xmin = 1.4334234034522249
+            xmax = 1.4822448979591836
+            text = ""
+    item [8]:
+        class = "IntervalTier"
+        name = "doll"
+        xmin = 0
+        xmax = 1.091315192743764
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.014629504593886929
+            text = ""
+        intervals [2]:
+            xmin = 0.014629504593886929
+            xmax = 0.5373977514922444
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5373977514922444
+            xmax = 0.5517858683793552
+            text = ""
+        intervals [4]:
+            xmin = 0.5517858683793552
+            xmax = 1.0345871239246272
+            text = "noun"
+        intervals [5]:
+            xmin = 1.0345871239246272
+            xmax = 1.091315192743764
+            text = ""
+    item [9]:
+        class = "IntervalTier"
+        name = "dollarBillsOne"
+        xmin = 0
+        xmax = 1.8482766439909297
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5825343976374994
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5825343976374994
+            xmax = 0.8478753586975837
+            text = "adj"
+        intervals [3]:
+            xmin = 0.8478753586975837
+            xmax = 0.853290480351871
+            text = ""
+        intervals [4]:
+            xmin = 0.853290480351871
+            xmax = 1.7901065265435967
+            text = "noun"
+        intervals [5]:
+            xmin = 1.7901065265435967
+            xmax = 1.8482766439909297
+            text = ""
+    item [10]:
+        class = "IntervalTier"
+        name = "dolphin"
+        xmin = 0
+        xmax = 1.091315192743764
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4734505653273077
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4734505653273077
+            xmax = 0.5342003921839976
+            text = ""
+        intervals [3]:
+            xmin = 0.5342003921839976
+            xmax = 1.0601659983906018
+            text = "noun"
+        intervals [4]:
+            xmin = 1.0601659983906018
+            xmax = 1.091315192743764
+            text = ""
+    item [11]:
+        class = "IntervalTier"
+        name = "dominoSmall"
+        xmin = 0
+        xmax = 1.7371201814058956
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4479404488329633
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4479404488329633
+            xmax = 1.0114890707841353
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0114890707841353
+            xmax = 1.1226086196153262
+            text = ""
+        intervals [4]:
+            xmin = 1.1226086196153262
+            xmax = 1.7371201814058956
+            text = "noun"
+    item [12]:
+        class = "IntervalTier"
+        name = "donutGlazed"
+        xmin = 0
+        xmax = 1.8756916099773242
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.484013834794825
+            text = "intro"
+        intervals [2]:
+            xmin = 0.484013834794825
+            xmax = 0.5417159823674017
+            text = ""
+        intervals [3]:
+            xmin = 0.5417159823674017
+            xmax = 1.143466949909987
+            text = "adj"
+        intervals [4]:
+            xmin = 1.143466949909987
+            xmax = 1.286348458184939
+            text = ""
+        intervals [5]:
+            xmin = 1.286348458184939
+            xmax = 1.8756916099773242
+            text = "noun"
+    item [13]:
+        class = "IntervalTier"
+        name = "doorBig"
+        xmin = 0
+        xmax = 1.6170521541950114
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4551744798378594
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4551744798378594
+            xmax = 0.5617721683966355
+            text = ""
+        intervals [3]:
+            xmin = 0.5617721683966355
+            xmax = 0.9218354719729454
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9218354719729454
+            xmax = 1.0852852610964019
+            text = ""
+        intervals [5]:
+            xmin = 1.0852852610964019
+            xmax = 1.580372303513828
+            text = "noun"
+        intervals [6]:
+            xmin = 1.580372303513828
+            xmax = 1.6170521541950114
+            text = ""
+    item [14]:
+        class = "IntervalTier"
+        name = "doorknockerLion"
+        xmin = 0
+        xmax = 1.90859410430839
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.45632900773399643
+            text = "intro"
+        intervals [2]:
+            xmin = 0.45632900773399643
+            xmax = 1.0435590390417238
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0435590390417238
+            xmax = 1.0785466069807568
+            text = ""
+        intervals [4]:
+            xmin = 1.0785466069807568
+            xmax = 1.90859410430839
+            text = "noun"
+    item [15]:
+        class = "IntervalTier"
+        name = "dressBig"
+        xmin = 0
+        xmax = 1.901859410430839
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.6022085112116031
+            text = "intro"
+        intervals [2]:
+            xmin = 0.6022085112116031
+            xmax = 0.730367032576521
+            text = ""
+        intervals [3]:
+            xmin = 0.730367032576521
+            xmax = 1.1315589255449598
+            text = "adj"
+        intervals [4]:
+            xmin = 1.1315589255449598
+            xmax = 1.3042943239063711
+            text = ""
+        intervals [5]:
+            xmin = 1.3042943239063711
+            xmax = 1.8893658344853443
+            text = "noun"
+        intervals [6]:
+            xmin = 1.8893658344853443
+            xmax = 1.901859410430839
+            text = ""
+    item [16]:
+        class = "IntervalTier"
+        name = "drumSmall"
+        xmin = 0
+        xmax = 1.594172335600907
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.46975206018328697
+            text = "intro"
+        intervals [2]:
+            xmin = 0.46975206018328697
+            xmax = 1.032564330830639
+            text = "adj"
+        intervals [3]:
+            xmin = 1.032564330830639
+            xmax = 1.1143005527088852
+            text = ""
+        intervals [4]:
+            xmin = 1.1143005527088852
+            xmax = 1.594172335600907
+            text = "noun"
+    item [17]:
+        class = "IntervalTier"
+        name = "duckRubber"
+        xmin = 0
+        xmax = 1.431451247165533
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5036575456712612
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5036575456712612
+            xmax = 0.8988445854586534
+            text = "adj"
+        intervals [3]:
+            xmin = 0.8988445854586534
+            xmax = 0.9758020616277773
+            text = ""
+        intervals [4]:
+            xmin = 0.9758020616277773
+            xmax = 1.4198348960328702
+            text = "noun"
+        intervals [5]:
+            xmin = 1.4198348960328702
+            xmax = 1.431451247165533
+            text = ""

@@ -3,17 +3,12 @@
 
 This experiment assumes the following URL parameters:
 
-index.html?rotation={R1,R2}&list={list1, list2}
+index.html?rotation={R1,R2}&list={list1, list2}&pragContext={g, b}
+
+Figure out what the base cases for url are
+
+The data saved can be found in the readme file. 
 */
-
-
-
-var pragContext;
-var contexts = ["good", "bad"];
-pragContext = contexts[Math.floor(Math.random() * contexts.length)];
-console.log(pragContext);
-
-
 
 // Code that gets the url parameters
 var urlParams = window.location.search.substring(1);
@@ -43,11 +38,14 @@ console.log(rotation);
 var list = getUrlParameter('list');
 console.log(list);
 
-// variable to hold each trials instruction
-var instruction = "";
+var pragParameter = getUrlParameter('pragContext');
 
-// variable to hold whether each trial's instruction used a modifier or not
-var modifier_use = "";
+if (pragParameter == "g") {
+  pragContext = "good";
+} else {
+  pragContext = "bad";
+}
+console.log(pragContext);
 
 function make_slides(f) {
   var slides = {};
@@ -74,96 +72,43 @@ function make_slides(f) {
     },
 
     present_handle : function(stim) {
-      exp.selection_array=[];
-      exp.time_array=[];
+
       exp.trial_start = Date.now();
       console.log("time:"+(Date.now()-exp.trial_start));
       console.log(stim);
       $(".err").hide();
       $(".grid-container").show();
       $("#textInput").val(""); // make input textbox blank at start of trial
-      $(".loc").css( "border", "" ); // erase red border from previous target
+
+      // remove the html Class redSquare which has a red square border
+      // defined for it in the CSS document
+      $(".loc1").removeClass("redSquare");
+      $(".loc2").removeClass("redSquare");
+      $(".loc3").removeClass("redSquare");
+      $(".loc4").removeClass("redSquare");
 
       this.stim = stim; // store this information in the slide so you can record it later
 
-      // semantic_contrast fillers, test trials, training contrast set present pragmatic good,
-      // and training contrast set absent pragmatic bad conditions have the modifier
-      // all other trials do not
-
-      if (this.stim.trialType == "test" ||
-      (this.stim.trialType == "train" && this.stim.cond == "contrast" && pragContext == "good") ||
-      (this.stim.trialType == "train" && this.stim.cond == "no_contrast" && pragContext == "bad") ||
-      (this.stim.trialType == "filler" && this.stim.cond == "semantic_contrast")) {
-        modifier_use = "modifier";
-      }
-      else {
-        modifier_use = "no_modifier";
-      }
-
       loc_shuffled = _.shuffle([".loc1", ".loc2", ".loc3", ".loc4"]) //shuffles the ordering of the target and competitors between trials
       var loc_target = '<img src="images/'+stim.target_pic+'" style="width: 90%; height: 90%" class="img-scale-down">';
-      $(loc_shuffled[0]).html(loc_target);
       if (pragContext === "good") {
         var loc_contrast = '<img src="images/'+stim.target_contrast_good+'" style="width: 90%; height: 90%" class="img-scale-down">';
-        $(loc_shuffled[1]).html(loc_contrast);
       } else {
         var loc_contrast = '<img src="images/'+stim.target_contrast_bad+'" style="width: 90%; height: 90%" class="img-scale-down">';
-        $(loc_shuffled[1]).html(loc_contrast);
       }
       var loc_big_filler = '<img src="images/'+stim.big_filler+'" style="width: 90%; height: 90%" class="img-scale-down">';
-      $(loc_shuffled[2]).html(loc_big_filler);
       var loc_small_filler = '<img src="images/'+stim.small_filler+'" style="width: 90%; height: 90%" class="img-scale-down">';
+
+      // load images into their position
+      $(loc_shuffled[0]).html(loc_target);
+      $(loc_shuffled[1]).html(loc_contrast);
+      $(loc_shuffled[2]).html(loc_big_filler);
       $(loc_shuffled[3]).html(loc_small_filler);
 
-
-      // Randomly pick whether the target will be the real target from Ryskin et al.
-      // Or the competitor item to which the adjective applies to
-
-      // this variable will log whether the selection target for this experiment is
-      // a "ryskinTarget" or "ryskinCompetitor"
-      productionTargetType = "";
-      productionTarget = "";
-
-
-      // REDO THIS WITH A BALANCED LIST!!!!
-
-      // // This only applies to target and training trials:
-      // if (stim.trialType == "test" || (stim.trialType == "train" && stim.cond == "contrast")) {
-      //   // If a random int is 0: Selection target is the target from Ryskin et al.
-      //   // otherwise: the selection target is the competitor from Ryskin et al.
-      //   if (getRandomInt(2) == 0) {
-      //     // get location of target ("loc1", "loc2", "loc3", or "loc4")
-      //     classID = $(loc_shuffled[0]).selector;
-      //
-      //     productionTargetType = "ryskinTarget";
-      //     productionTarget = stim.target_pic;
-      //
-      //   } else {
-      //     productionTargetType = "ryskinCompetitor";
-      //
-      //     // if adjective used is big get location of big filler
-      //     // otherwise get location of small filler
-      //     if (stim.target_pic.includes("big")) {
-      //       classID = $(loc_shuffled[2]).selector;
-      //       productionTarget = stim.big_filler;
-      //     } else {
-      //       classID = $(loc_shuffled[3]).selector;
-      //       productionTarget = stim.small_filler;
-      //     }
-      //   }
-      // } else {
-      //   // If the item is not a test trial nor a training trial in the contrast condition
-      //   // then keep the original target
-      //
-      //   // get location of target ("loc1", "loc2", "loc3", or "loc4")
-      //   classID = $(loc_shuffled[0]).selector;
-      //
-      //   productionTargetType = "ryskinTarget";
-      //   productionTarget = stim.target_pic;
-      // }
-      //
-      // // add a red boundary around the target
-      // $(classID).css( "border", "5px solid red" );
+      // add the redSquare class to the target location <div>
+      // as defined in the CSS, and <div> with the redSquare class will have a
+      // red border around it
+      $(loc_shuffled[0]).addClass("redSquare");
 
       // If you press the enter key (keyCode = 13), act as if you pressed
       // the continue button
@@ -197,7 +142,8 @@ function make_slides(f) {
 
     log_responses : function() {
     exp.data_trials.push({
-        "trial" : this.stim.trial,
+      // XXX log whether this is "normal" or "switch", and the rotation list and all that stuff
+        "stim_trial_num" : this.stim.trial,
         "trialType" : this.stim.trialType,
         "trialID" : this.stim.trialID,
         "cond" : this.stim.cond,
@@ -210,16 +156,14 @@ function make_slides(f) {
         "loc_contrast": loc_shuffled[1],
         "loc_big_filler": loc_shuffled[2],
         "loc_small_filler": loc_shuffled[3],
-        "instruction" : instruction,
-        "response_times" : exp.time_array,
-        "response" : exp.selection_array,
         "trial_number": exp.phase,
         "pragContext": pragContext,
-        "modifier_use": modifier_use,
         "noun": this.stim.noun,
         "modifier": this.stim.modifier,
-        "productionTargetType": productionTargetType,
-        "productionTarget": productionTarget
+        "list": this.stim.counterbalance,
+        "rotationList":this.stim.target_rotation,
+        "productionList":this.stim.production_list,
+        "response": exp.response
     });
     }
   });
@@ -279,9 +223,7 @@ function init() {
   // specify which condition we should get stimuli from
   if (list == "list1") {
     if(rotation == "R1") {
-      console.log("enter");
       exp.stims_shuffled = _.shuffle(exp.stims_cb_list1_R1);
-      console.log(exp.stims_shuffled);
     } else {
       exp.stims_shuffled = _.shuffle(exp.stims_cb_list1_R2);
     }
@@ -292,7 +234,6 @@ function init() {
       exp.stims_shuffled = _.shuffle(exp.stims_cb_list2_R2);
     }
   }
-  console.log("exit if");
 
   //blocks of the experiment:
   //exp.structure=["i0", "instructions", "practice", "afterpractice", "trial", 'subj_info', 'thanks'];

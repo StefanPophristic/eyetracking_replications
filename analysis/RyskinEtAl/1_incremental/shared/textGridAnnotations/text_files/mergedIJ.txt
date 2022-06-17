@@ -1,0 +1,97 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "icecreamSmall"
+        xmin = 0
+        xmax = 1.9122675736961452
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.45983647657757143
+            text = "intro"
+        intervals [2]:
+            xmin = 0.45983647657757143
+            xmax = 1.1097385047022543
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1097385047022543
+            xmax = 1.23579708774368
+            text = ""
+        intervals [4]:
+            xmin = 1.23579708774368
+            xmax = 1.9122675736961452
+            text = "noun"
+    item [2]:
+        class = "IntervalTier"
+        name = "icecreamStrawberry"
+        xmin = 0
+        xmax = 1.9743990929705215
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4883835027713322
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4883835027713322
+            xmax = 1.2325646077037302
+            text = "adj"
+        intervals [3]:
+            xmin = 1.2325646077037302
+            xmax = 1.27508807633328
+            text = ""
+        intervals [4]:
+            xmin = 1.27508807633328
+            xmax = 1.968418933898223
+            text = "noun"
+        intervals [5]:
+            xmin = 1.968418933898223
+            xmax = 1.9743990929705215
+            text = ""
+    item [3]:
+        class = "IntervalTier"
+        name = "iglooSmall"
+        xmin = 0
+        xmax = 1.8548979591836734
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5294042835144239
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5294042835144239
+            xmax = 1.0873144702678719
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0873144702678719
+            xmax = 1.2911090051240073
+            text = ""
+        intervals [4]:
+            xmin = 1.2911090051240073
+            xmax = 1.8548979591836734
+            text = "noun"
+    item [4]:
+        class = "IntervalTier"
+        name = "jeepBig"
+        xmin = 0
+        xmax = 1.373265306122449
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.45696225877334296
+            text = "intro"
+        intervals [2]:
+            xmin = 0.45696225877334296
+            xmax = 0.5233487377061905
+            text = ""
+        intervals [3]:
+            xmin = 0.5233487377061905
+            xmax = 0.8230937486454112
+            text = "adj"
+        intervals [4]:
+            xmin = 0.8230937486454112
+            xmax = 0.9759838213392419
+            text = ""
+        intervals [5]:
+            xmin = 0.9759838213392419
+            xmax = 1.373265306122449
+            text = "noun"

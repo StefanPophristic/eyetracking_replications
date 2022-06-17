@@ -1,0 +1,1509 @@
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<script>
+// TODOs before each final release
+// 1. Use a fresh ut_id from uniqueturker.myleott.com
+// 2. Check the number of trials (variable lastTrial)
+// 3. Make sure that the content specification part and hidden value fields match this number
+
+//======checking workerID; no need to modify this block===========
+var expName = "${experimentName}"; 
+// in the actual MTurk experiment its value will be replaced
+// this default value is an indicator of an external debugging
+
+
+function UTWorkerLimitReached(ut_id, workerId, assignmentId) {
+    if (expName == ("$" + "{experimentName}") || expName == "debug"){
+      // debugging without checking workerID
+      return false; 
+    }
+    var assignmentId = turkGetParam('assignmentId', '');
+    if (assignmentId != '' && assignmentId != 'ASSIGNMENT_ID_NOT_AVAILABLE') {
+        var workerId = turkGetParam('workerId', '');
+        var url = '//uniqueturker.myleott.com/'+ut_id+'/'+workerId+'/'+assignmentId;
+
+        var response = turkGetParam('ut_response', '-1');
+        if (window.XDomainRequest) {
+            if (response == '-1') {
+                // Use Microsoft XDR
+                var xdr = new XDomainRequest();
+                xdr.open("get", url);
+                xdr.onload = function() {
+                    response = xdr.responseText;
+                    window.location.replace(window.location.href + "&ut_response="+response);
+                };
+                xdr.send();
+            }
+        } else {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);
+            request.send();
+            response = request.responseText;
+        }
+
+        if (response == '0') {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function checkWorker(){
+  if (expName == ("$" + "{experimentName}") || expName == "debug"){
+    // external debugging without checking workerID
+    return true; 
+  }
+  var workerId = turkGetParam("workerId", "");
+  
+  // preview mode still
+  if (workerId == "") { 
+    alert("Please first accept the HIT!");
+    return false;
+  }
+
+  return true;
+}
+//=========checking workerID ends============
+
+
+function checkAdjAttention(){
+
+  if ($("input[name=exCheck][value='B']").prop("checked")) {
+      return true;
+  }
+  else {
+      $("#adjFailed").val($('input[name=exCheck]:checked').val());
+      return false;
+  }
+};
+
+function checkWholeAttention(){
+
+  if ($("input[name=exCheck][value='B']").prop("checked")) {
+      return true;
+  }
+  else {
+      $("#wholeFailed").val($('input[name=exCheck]:checked').val());
+      return false;
+  }
+};
+
+function checkSelect(){
+  return ($("input[name=critCheck]").is(':checked'));
+}
+
+
+function shuffle(originalArray) {
+  var newArray = originalArray;
+  var counter = originalArray.length; 
+  var index = 0;
+  var temp;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter = counter - 1;
+
+    // And swap the last element with it
+    temp = newArray[counter];
+    newArray[counter] = newArray[index];
+    newArray[index] = temp;
+  }
+
+    return newArray;
+}
+
+function shufflePositions() {
+  return shuffle(["A", "B", "C", "D"]);
+}
+
+function shuffleOrder(n) {
+  var a=[], b=n;
+  while (b--) {
+    a[b]=b+1;
+  }
+
+  return shuffle(a);
+}
+
+
+$(document).ready(function(){
+  var ut_id = "9e67b821a9ab12929bef493b24e70d17";
+
+  // extract browser info
+  $("#navigatorUserAgent").val(navigator.userAgent);
+  $("#navigatorAppName").val(navigator.appName);
+
+  var folderURL = "https://ciyang.github.io/imprecise-adjectives/images/";
+
+  var curTrial = 0;
+
+  var startTimeWhole, startTimePrior, startTimeAdj;
+
+  var objTypes = ["Target", "Competitor", "Distractor", "Contrast"];
+
+  var scenePositionsString = "";
+
+  var curExampleMode = "prior";
+
+  var curCriticalMode = "";
+
+  var lastTrial = 120;
+
+  var trialOrder = shuffleOrder(lastTrial);
+
+  // Preload loading image
+  var loading_image = new Image();
+  loading_image.src = "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg";
+
+
+  // store randomized trial order as a string 
+  var trialOrderString = "";
+  for (var i = 0; i < lastTrial-1; i++){
+    trialOrderString = trialOrderString + trialOrder[i] + ";";
+  }
+  trialOrderString += trialOrder[lastTrial-1];
+  $("#turnOrder").val(trialOrderString);
+  
+  
+
+// content specification 
+
+  var allObjects;
+
+  var adjectives = ["bumpy", "open", "bent", "curved", "spotted", "striped", "bumpy", "curved", "spotted", "striped", 
+                      "flat", "closed", "straight", "full", "empty", "flat", "closed", "straight", "full", "empty", "long", 
+                      "short", "big", "small", "wide", "narrow", "tall", "short", "thick", "thin", "long ", "short", "big", 
+                      "small", "wide", "narrow", "tall", "short", "thick", "thin", "red", "green", "blue", "yellow", "red", 
+                      "green", "blue", "yellow", "red", "green", "yellow", "yellow", "green", "red", "red", "blue", "yellow", 
+                      "blue", "yellow", "red", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", 
+                      "red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "blue", "yellow", "none", "none", "none", 
+                      "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", 
+                      "none", "none", "none", "none", "blue", "yellow", "red", "green", "blue", "yellow", "red", "green", "blue", 
+                      "red", "yellow", "red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "red"];
+
+  var nouns = ["square", "circle", "line", "line", "circle", "square", "triangle", "line", "square", "triangle", "circle", "circle", 
+                       "line", "cube", "cube", "triangle", "circle", "line", "cylinder", "cylinder", "line", "line", "square", "triangle", 
+                       "oval", "rectangle", "spiral", "spiral", "line", "line", "line", "line", "triangle", "square", "rectangle", "oval",
+                       "cylinder", "cylinder", "line", "line", "square", "circle", "line", "triangle", "oval", "rectangle", "square", "circle",
+                       "line", "triangle", "oval", "rectangle", "square", "circle", "line", "triangle", "square", "circle", "line", "triangle",
+                       "square", "arrow", "star", "spiral", "cylinder", "heart", "triangle", "circle", "cloud", "cube", "square", "triangle", "line",
+                       "circle", "oval", "square", "triangle", "line", "square", "rectangle", "square", "circle", "triangle", "rectangle", "line",
+                       "oval", "triangle", "rectangle", "arrow", "oval", "square", "circle", "triangle", "arrow", "line", "oval", "rectangle", 
+                       "heart", "star", "sun", "square", "circle", "triangle", "rectangle", "line", "oval", "triangle", "rectangle", "arrow", "oval",
+                       "square", "circle", "triangle", "arrow", "line", "oval", "rectangle", "heart", "star", "sun"];
+
+  var objs_TlessC1 = [
+                   ["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                   ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                   ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                   ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                   ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                   ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                   ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                   ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                   ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                   ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                   ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                   ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                   ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                   ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                   ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                   ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                   ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                   ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                   ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                   ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                   ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                   ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                   ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                   ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                   ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                   ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                   ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                   ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                   ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                   ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                   ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                   ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                   ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                   ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                   ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                   ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                   ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                   ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                   ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"],
+                   ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "wide_yellowrectangle7.jpg"],
+                   ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "bent_greenline1.jpg"],
+                   ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "thick_blueline7.jpg"],
+                   ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "wide_greenoval7.jpg"],
+                   ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "red_wavyline.jpg"],
+                   ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "striped_yellowsquare1.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redtriangle1.jpg"],
+                   ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "long_blueline7.jpg"],
+                   ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "blue_star.jpg"],
+                   ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redoval7.jpg"],
+                   ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "long_greenarrow7.jpg"],
+                   ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "bumpy_bluesquare1.jpg"],
+                   ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "yellow_sun.jpg"],
+                   ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "long_greenline7.jpg"],
+                   ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "wide_redrectangle5.jpg"],
+                   ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bumpy_bluesquare1.jpg"],
+                   ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "yellow_arch.jpg"],
+                   ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "thick_redline2.jpg"],
+                   ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "green_lightingplain.jpg"],
+                   ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                   ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                   ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                   ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                   ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                   ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                   ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                   ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                   ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                   ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                   ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                   ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                   ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                   ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                   ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                   ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                   ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                   ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                   ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                   ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                   ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                   ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                   ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                   ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                   ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                   ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                   ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                   ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                   ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                   ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                   ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                   ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                   ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                   ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                   ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                   ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                   ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                   ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                   ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                   ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                   ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                   ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                   ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                   ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                   ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                   ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                   ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                   ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                   ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                   ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                   ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                   ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                   ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                   ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                   ];
+
+
+  var objs_TlessC2 = [["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "striped_bluetriangle1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "spotted_yellowcircle1.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "wide_greenoval7.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "green_lightingplain.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "wide_redrectangle5.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "open_yellowtriangle1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redcircle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "big_bluetriangle1.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redrectangle5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "wide_greenrectangle5.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "blue_star.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "spotted_yellowcircle1.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "full1_greensquare1.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bent_blueline5.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "wide_redoval1.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "spotted_greentriangle1.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+  var objs_TmoreC1 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "wide_yellowrectangle7.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "bent_greenline1.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "thick_blueline7.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "wide_greenoval7.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "red_wavyline.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "striped_yellowsquare1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redtriangle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "long_blueline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "blue_star.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redoval7.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "long_greenarrow7.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "bumpy_bluesquare1.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "yellow_sun.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "long_greenline7.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "wide_redrectangle5.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bumpy_bluesquare1.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "yellow_arch.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "thick_redline2.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "green_lightingplain.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+  var objs_TmoreC2 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "striped_bluetriangle1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "spotted_yellowcircle1.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "wide_greenoval7.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "green_lightingplain.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "wide_redrectangle5.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "open_yellowtriangle1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redcircle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "big_bluetriangle1.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redrectangle5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "wide_greenrectangle5.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "blue_star.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "spotted_yellowcircle1.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "full1_greensquare1.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bent_blueline5.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "wide_redoval1.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "spotted_greentriangle1.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+  var objsList = "${List}";
+
+  // assigning a default list for debugging
+  allObjects = objs_TlessC1;
+
+  if (objsList == "TlessC1"){
+    allObjects = objs_TlessC1;
+  }
+  else if (objsList == "TlessC2"){
+    allObjects = objs_TlessC2;
+  }
+  else if (objsList == "TmoreC1"){
+    allObjects = objs_TmoreC1;
+  }
+  else if (objsList == "TmoreC2"){
+    allObjects = objs_TmoreC2;
+  }
+
+// content specification ends
+
+  if (UTWorkerLimitReached(ut_id)) {
+    $("#previewPage").html("You have done this task before. Please return the HIT. Thank you!");
+  }
+
+
+  $("#startButton").click(function(){
+    if (checkWorker()){
+      $("#previewPage").hide();
+      $("#mainExperiment").show();
+    }
+  });
+
+  $("input").change(function(){
+
+    var alertMessage = "Are you sure? Please read the instructions carefully and try again.";
+    var curObjects = allObjects[0]; 
+    var objectPositions = shufflePositions();
+    var currentID = "choiceWhole1";
+    var selectedItem = "";
+    var curTimeString;
+
+    if (curExampleMode == "prior"){
+      // store example prior value
+      selectedItem = $('input[name=exCheck]:checked').val();
+      $("#choiceExPrior").val(selectedItem);
+
+      // update page
+      $('input[name=exCheck]').attr('checked',false);  // uncheck the radio buttons
+      curExampleMode = "adj";
+      $("#exPrior, #exPriorSentence").hide();
+      $("#exAdj, #exAdjSentence").show();
+    }
+    else if (curExampleMode == "adj"){
+      if (checkAdjAttention()){
+        // update page
+        $('input[name=exCheck]').attr('checked',false);  // uncheck the radio buttons
+        curExampleMode = "whole";
+        $("#exAdj, #exAdjSentence").hide();
+        $("#exWhole, #exWholeSentence").show();
+      }
+      else{
+        alert("Are you sure? Please read the instructions carefully and try again.");
+      }
+    }
+    else {
+      // curExampleMode is either "whole" or "passed"
+
+      if (curExampleMode == "whole"){
+        if (checkWholeAttention()){
+          curExampleMode = "passed";
+          curCriticalMode = "whole";
+        }
+        else{
+          alert("Are you sure? Please read the instructions carefully and try again.");
+        }
+      }
+
+      if (curCriticalMode == "whole"){
+        
+
+        if (curTrial != 0){
+          // store current response to whole sentence 
+          selectedItem = $('input[name=critCheck]:checked').val();
+          currentID = "#choiceWhole" + trialOrder[curTrial-1].toString();
+          $(currentID).val(selectedItem);
+
+          curTimeString = $("#timeWhole").val();
+          curTimeString = curTimeString + ((new Date()).getTime() - startTimeWhole).toString();
+          if (curTrial < lastTrial) {
+            curTimeString += ";";
+          }
+
+          $("#timeWhole").val(curTimeString);
+        }
+
+        // update page
+        curTrial = curTrial + 1;
+
+        if (curTrial <= lastTrial) {
+          curCriticalMode = "prior";
+          startTimePrior = (new Date()).getTime();
+
+          if (curTrial == 1) {
+              // show the critial trial page
+              $("#ex1").hide();
+              $("#critical").show();
+          }
+
+          $('input[name=critCheck]').attr('checked',false);  // uncheck the radio buttons
+
+          // update objects display
+          curObjects = allObjects[trialOrder[curTrial-1] - 1]; 
+          objectPositions = shufflePositions();
+
+
+          // record scene configurations
+          if (curTrial < lastTrial){
+            scenePositionsString = scenePositionsString + objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3] +";";
+          }
+          else {
+            scenePositionsString = scenePositionsString + objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3];
+          }
+          $("#sceneConfigs").val(scenePositionsString);
+
+          $("#turn").html("Turn " + curTrial.toString());
+
+          imageNameA = curObjects[objectPositions.indexOf("A")];
+          imageNameB = curObjects[objectPositions.indexOf("B")];
+          imageNameC = curObjects[objectPositions.indexOf("C")];
+          imageNameD = curObjects[objectPositions.indexOf("D")];
+
+          $("#critImageA").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+          $("#critImageB").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+          $("#critImageC").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+          $("#critImageD").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+
+          $("#critImageA").hide();
+          $("#critImageB").hide();
+          $("#critImageC").hide();
+          $("#critImageD").hide();
+
+
+          $("#criticalWhole").hide();
+          $("#wholeSentence").hide();
+          setTimeout(function(){$("#critImageA").attr({"src" : folderURL + imageNameA});
+                                $("#critImageB").attr({"src" : folderURL + imageNameB});
+                                $("#critImageC").attr({"src" : folderURL + imageNameC});
+                                $("#critImageD").attr({"src" : folderURL + imageNameD});}, 
+                     100);
+
+          setTimeout(function(){$("#critImageA").show();
+                                $("#critImageB").show();
+                                $("#critImageC").show();
+                                $("#critImageD").show();
+                                $("#criticalPrior").show();
+                                $("#priorSentence").show();}, 
+                     1000);
+
+          $("#buttonA").attr({"value" : objTypes[objectPositions.indexOf("A")]});
+          $("#buttonB").attr({"value" : objTypes[objectPositions.indexOf("B")]});
+          $("#buttonC").attr({"value" : objTypes[objectPositions.indexOf("C")]});
+          $("#buttonD").attr({"value" : objTypes[objectPositions.indexOf("D")]});
+
+        }
+        else {
+          $("#mainExperiment").hide();
+          $("#submitPage").show();
+        }
+      }
+      else if (curCriticalMode == "prior") {
+        // store current response to the prior condition
+
+        curTimeString = $("#timePrior").val();
+        curTimeString = curTimeString + ((new Date()).getTime() - startTimePrior).toString();
+        if (curTrial < lastTrial) {
+          curTimeString += ";";
+        }
+
+        $("#timePrior").val(curTimeString);
+
+        selectedItem = $('input[name=critCheck]:checked').val();
+        currentID = "#choicePrior" + trialOrder[curTrial-1].toString();
+        $(currentID).val(selectedItem);
+
+        // update page
+        $('input[name=critCheck]').attr('checked',false);  // uncheck the radio buttons
+        $('input[name=critCheck]').attr('disabled',true);  // disable the radio buttons
+
+        if (adjectives[trialOrder[curTrial-1] - 1] == "none"){
+          // no adjective, directly go to whole sentence condition 
+
+          curTimeString = $("#timeAdj").val();
+          curTimeString += "NA";
+          if (curTrial < lastTrial) {
+            curTimeString += ";";
+          }
+          $("#timeAdj").val(curTimeString);
+
+          curCriticalMode = "whole";
+          startTimeWhole = (new Date()).getTime();
+          $("#wholeSentence").html('"Please click on the ' + nouns[trialOrder[curTrial-1] - 1] + '."');
+          $("#criticalPrior").hide();
+          $("#priorSentence").hide();
+          setTimeout(function(){$("#criticalWhole").show();
+                                $("#wholeSentence").show();
+                                $('input[name=critCheck]').attr('disabled', false);  // enable the radio buttons
+                               }, 
+                     500);
+        }
+        else {
+          // go to adjective condition 
+          curCriticalMode = "adj";
+          startTimeAdj = (new Date()).getTime();
+          $("#adjSentence").html('"Please click on the ' + adjectives[trialOrder[curTrial-1] - 1] + ' ..."');
+          $("#criticalPrior").hide();
+          $("#priorSentence").hide();
+          setTimeout(function(){$("#criticalAdj").show();
+                                $("#adjSentence").show();
+                                $('input[name=critCheck]').attr('disabled', false);  // enable the radio buttons
+                               }, 
+                     500);
+        }
+      }
+      else if (curCriticalMode == "adj"){
+        // store current response to the adjective condition
+        curTimeString = $("#timeAdj").val();
+        curTimeString = curTimeString + ((new Date()).getTime() - startTimeAdj).toString();
+        if (curTrial < lastTrial) {
+          curTimeString += ";";
+        }
+
+        $("#timeAdj").val(curTimeString);
+
+        selectedItem = $('input[name=critCheck]:checked').val();
+        currentID = "#choiceAdj" + trialOrder[curTrial-1].toString();
+        $(currentID).val(selectedItem);
+
+        // update page
+        curCriticalMode = "whole";
+        startTimeWhole = (new Date()).getTime();
+        $('input[name=critCheck]').attr('checked',false);  // uncheck the radio buttons
+        $('input[name=critCheck]').attr('disabled',true);  // disable the radio buttons
+        $("#wholeSentence").html('"Please click on the ' + adjectives[trialOrder[curTrial-1] - 1] + " " + nouns[trialOrder[curTrial-1] - 1] + '."');
+        $("#criticalAdj").hide();
+        $("#adjSentence").hide();
+        setTimeout(function(){$("#criticalWhole").show();
+                              $("#wholeSentence").show();
+                              $('input[name=critCheck]').attr('disabled', false);  // enable the radio buttons
+                             }, 
+                   500);
+      }
+    }
+  });
+
+
+
+});
+</script>
+<div style="width:960px;overflow:auto;margin:0 auto;">
+<form><!--- Preview Only ---->
+<div id="previewPage" style="width:560px;margin:0 auto;">
+
+<p>In this task, you will be playing an online game with another Turker. In each turn both of you see four objects on your screens. Your task is to follow the other player's instruction to click on the target object on your screen.</p>
+
+<p>Please first accept the HIT and then click the &quot;Start&quot; button below to start the task.</p>
+<p><button id="startButton" type="button">Start</button>&nbsp; (You may accept <b>ONLY 1 HIT</b> for this task.)</p>
+<br/>
+<p><b>Legal information:</b> We invite you to participate in a research study on language production and comprehension. Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game.</p>
+<p>There are no risks or benefits of any kind involved in this study. </p>
+<p>You will be paid for your participation at the posted rate. </p>
+<p>If you have read this form and have decided to participate in this experiment, please
+understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written data resulting from the study.   
+You may print this form for your records.</p>
+<p><b>CONTACT INFORMATION:</b><br />
+<p>If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should contact one of the Protocol Director Penelope Eckert (650)-725-1564</p>
+<p>If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA.</p>
+<p>If you agree to participate, please proceed to the study tasks.</p>
+
+</div>
+
+
+<!--- Main Experiment ---->
+<div id="mainExperiment" style="width:960px;height:560px;overflow:auto;display:none">
+
+<h4>You are playing an online game with another Turker. In each turn both of you see four objects on your screens. Your task is to follow the other player's instruction to click on the target object on your screen.</h4>
+
+<!--- Example Item 1 ---->
+<div id="ex1" style="width:960px;margin-left:auto;margin-right:auto;">
+
+<div style="width:500px;float:left;">
+<span>The other player says to you:</span>
+<p>
+<b id="exPriorSentence" style="font-size:14pt">"Please click on the ..."</b>
+<b id="exAdjSentence" style="font-size:14pt;display:none;">"Please click on the blue ..."</b>
+<b id="exWholeSentence" style="font-size:14pt;display:none;">"Please click on the blue sun."</b>
+</p>
+
+<label>
+<input name="exCheck" type="radio" value="A" style="visibility:hidden" /> 
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/striped_greensquare1.jpg" style="cursor:pointer;" />
+</label>&nbsp; &nbsp; 
+
+<label>
+<input name="exCheck" type="radio" value="B" style="visibility:hidden" /> 
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/blue_sun.jpg" style="cursor:pointer;" />
+</label>
+<br />
+
+<label>
+<input name="exCheck" type="radio" value="C" style="visibility:hidden" /> 
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/open_redtriangle4.jpg" style="cursor:pointer;" />
+</label>&nbsp; &nbsp;
+
+<label>
+<input name="exCheck" type="radio" value="D" style="visibility:hidden" /> 
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/yellow_wavyline.jpg" style="cursor:pointer;" />
+</label>
+
+</div>
+
+<div style="width:420px;float:right;">
+
+<div id="exPrior">
+<p>This is an example to familiarize you with the task.</p>
+<br />
+<p>The objects and the other player's instructions are on the left. As you can see, sometimes the other player's instructions are incomplete, as explained below:</p>
+<p>&quot;Unfortunately, due to the slow connection, you have not heard the other player's full instructions.&quot;</p>
+</div>
+
+<div id="exAdj" style="display:none;">
+<p>The example continues...</p>
+<br />
+<p>Now you hear a bit more of the other player's instructions.</p>
+
+</div>
+
+<div id="exWhole" style="display:none;">
+<p>The example continues...</p>
+<br />
+<p>Now you hear the other player's full instructions.</p> 
+<br /><p>(The game officially starts next turn.)</p>
+</div>
+
+<br />
+
+<p>At this point, what do you think is the target object that the other player wants you to click on?
+<br/>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please click on the corresponding object.</b></p>
+
+<p>(<b>Please wait until all the images are loaded!</b> <br />If nothing happens when you click on an object, please click on it again.)</p>
+</div>
+
+
+
+</div>
+<!--- Example Item 1 ENDS---->
+
+<!--- Critical Trials---->
+<div id="critical" style="width:960px;margin-left:auto;margin-right:auto;display:none;">
+
+<!--- Items---->
+<div id="critical1" style="width:520px;float:left;">
+<span>The other player says to you:</span>
+
+<p><b id="priorSentence" style="font-size:14pt;display:none;">"Please click on the ..."</b>
+<b id="adjSentence" style="font-size:14pt;display:none;">"Please click on the adj ..."</b>
+<b id="wholeSentence" style="font-size:14pt;display:none;">"Please click on the ."</b>
+</p>
+
+<label>
+<input id="buttonA" name="critCheck" type="radio" value="A" style="visibility:hidden;" /> 
+<img id="critImageA" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/non.jpg" style="cursor:pointer;" />
+</label>
+&nbsp;&nbsp;
+<label>
+<input id="buttonB" name="critCheck" type="radio" value="B" style="visibility:hidden;" /> 
+<img id="critImageB" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/non.jpg" style="cursor:pointer;" />
+</label>
+<br />
+
+<label>
+<input id="buttonC" name="critCheck" type="radio" value="C" style="visibility:hidden;" /> 
+<img id="critImageC" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/non.jpg" style="cursor:pointer;" />
+</label>
+&nbsp;&nbsp;
+<label>
+<input id="buttonD" name="critCheck" type="radio" value="D" style="visibility:hidden;" /> 
+<img id="critImageD" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/non.jpg" style="cursor:pointer;" />
+</label>
+</div>
+<!--- End of Items---->
+
+
+<div style="width:420px;float:right;">
+<span id="turn">Turn 1</span> (120 in total)
+     
+<p id="criticalPrior" style="display:none;">Unfortunately, due to the slow connection, you have not heard the other player's full instructions.</p>
+<p id="criticalAdj" style="display:none;">Now you hear a bit more of the other player's instructions:</p>
+<p id="criticalWhole" style="display:none;">Now you hear the other player's full instructions.</p>
+<br />
+
+<p>At this point, what do you think is the target object that the other player wants you to click on? <br />
+<b>Please click on the corresponding object.</b></p>
+<br />
+<p>(<b>Please wait until all the images are loaded!</b> <br />If nothing happens when you click on an object, please click on it again.)</p>
+</div>
+
+
+
+</div>
+<!--- Critical Trials End---->
+
+</div>
+<!--- Experiment Ends ---->
+
+
+
+
+<!--- These hidden input fields store the responses---->
+<input id="navigatorAppName" name="navigatorAppName" type="hidden" value="" />
+<input id="navigatorUserAgent" name="navigatorUserAgent" type="hidden" value="" />
+
+<input id="adjFailed" name="wrongAdj" type="hidden" value="No" /> 
+<input id="wholeFailed" name="wrongShape" type="hidden" value="No" /> 
+<input id="choiceExPrior" name="choiceExPrior" type="hidden" value="" />
+<input id="turnOrder" name="turnOrder" type="hidden" value="" />
+<input id="sceneConfigs" name="sceneConfigs" type="hidden" value="" />
+<input id="timePrior" name="timePrior" type="hidden" value="" />
+<input id="timeAdj" name="timeAdj" type="hidden" value="" />
+<input id="timeWhole" name="timeWhole" type="hidden" value="" />
+
+<input id="choicePrior1" name="choicePrior1" type="hidden" value="" />
+<input id="choicePrior2" name="choicePrior2" type="hidden" value="" />
+<input id="choicePrior3" name="choicePrior3" type="hidden" value="" />
+<input id="choicePrior4" name="choicePrior4" type="hidden" value="" />
+<input id="choicePrior5" name="choicePrior5" type="hidden" value="" />
+<input id="choicePrior6" name="choicePrior6" type="hidden" value="" />
+<input id="choicePrior7" name="choicePrior7" type="hidden" value="" />
+<input id="choicePrior8" name="choicePrior8" type="hidden" value="" />
+<input id="choicePrior9" name="choicePrior9" type="hidden" value="" />
+<input id="choicePrior10" name="choicePrior10" type="hidden" value="" />
+<input id="choicePrior11" name="choicePrior11" type="hidden" value="" />
+<input id="choicePrior12" name="choicePrior12" type="hidden" value="" />
+<input id="choicePrior13" name="choicePrior13" type="hidden" value="" />
+<input id="choicePrior14" name="choicePrior14" type="hidden" value="" />
+<input id="choicePrior15" name="choicePrior15" type="hidden" value="" />
+<input id="choicePrior16" name="choicePrior16" type="hidden" value="" />
+<input id="choicePrior17" name="choicePrior17" type="hidden" value="" />
+<input id="choicePrior18" name="choicePrior18" type="hidden" value="" />
+<input id="choicePrior19" name="choicePrior19" type="hidden" value="" />
+<input id="choicePrior20" name="choicePrior20" type="hidden" value="" />
+<input id="choicePrior21" name="choicePrior21" type="hidden" value="" />
+<input id="choicePrior22" name="choicePrior22" type="hidden" value="" />
+<input id="choicePrior23" name="choicePrior23" type="hidden" value="" />
+<input id="choicePrior24" name="choicePrior24" type="hidden" value="" />
+<input id="choicePrior25" name="choicePrior25" type="hidden" value="" />
+<input id="choicePrior26" name="choicePrior26" type="hidden" value="" />
+<input id="choicePrior27" name="choicePrior27" type="hidden" value="" />
+<input id="choicePrior28" name="choicePrior28" type="hidden" value="" />
+<input id="choicePrior29" name="choicePrior29" type="hidden" value="" />
+<input id="choicePrior30" name="choicePrior30" type="hidden" value="" />
+<input id="choicePrior31" name="choicePrior31" type="hidden" value="" />
+<input id="choicePrior32" name="choicePrior32" type="hidden" value="" />
+<input id="choicePrior33" name="choicePrior33" type="hidden" value="" />
+<input id="choicePrior34" name="choicePrior34" type="hidden" value="" />
+<input id="choicePrior35" name="choicePrior35" type="hidden" value="" />
+<input id="choicePrior36" name="choicePrior36" type="hidden" value="" />
+<input id="choicePrior37" name="choicePrior37" type="hidden" value="" />
+<input id="choicePrior38" name="choicePrior38" type="hidden" value="" />
+<input id="choicePrior39" name="choicePrior39" type="hidden" value="" />
+<input id="choicePrior40" name="choicePrior40" type="hidden" value="" />
+<input id="choicePrior41" name="choicePrior41" type="hidden" value="" />
+<input id="choicePrior42" name="choicePrior42" type="hidden" value="" />
+<input id="choicePrior43" name="choicePrior43" type="hidden" value="" />
+<input id="choicePrior44" name="choicePrior44" type="hidden" value="" />
+<input id="choicePrior45" name="choicePrior45" type="hidden" value="" />
+<input id="choicePrior46" name="choicePrior46" type="hidden" value="" />
+<input id="choicePrior47" name="choicePrior47" type="hidden" value="" />
+<input id="choicePrior48" name="choicePrior48" type="hidden" value="" />
+<input id="choicePrior49" name="choicePrior49" type="hidden" value="" />
+<input id="choicePrior50" name="choicePrior50" type="hidden" value="" />
+<input id="choicePrior51" name="choicePrior51" type="hidden" value="" />
+<input id="choicePrior52" name="choicePrior52" type="hidden" value="" />
+<input id="choicePrior53" name="choicePrior53" type="hidden" value="" />
+<input id="choicePrior54" name="choicePrior54" type="hidden" value="" />
+<input id="choicePrior55" name="choicePrior55" type="hidden" value="" />
+<input id="choicePrior56" name="choicePrior56" type="hidden" value="" />
+<input id="choicePrior57" name="choicePrior57" type="hidden" value="" />
+<input id="choicePrior58" name="choicePrior58" type="hidden" value="" />
+<input id="choicePrior59" name="choicePrior59" type="hidden" value="" />
+<input id="choicePrior60" name="choicePrior60" type="hidden" value="" />
+<input id="choicePrior61" name="choicePrior61" type="hidden" value="" />
+<input id="choicePrior62" name="choicePrior62" type="hidden" value="" />
+<input id="choicePrior63" name="choicePrior63" type="hidden" value="" />
+<input id="choicePrior64" name="choicePrior64" type="hidden" value="" />
+<input id="choicePrior65" name="choicePrior65" type="hidden" value="" />
+<input id="choicePrior66" name="choicePrior66" type="hidden" value="" />
+<input id="choicePrior67" name="choicePrior67" type="hidden" value="" />
+<input id="choicePrior68" name="choicePrior68" type="hidden" value="" />
+<input id="choicePrior69" name="choicePrior69" type="hidden" value="" />
+<input id="choicePrior70" name="choicePrior70" type="hidden" value="" />
+<input id="choicePrior71" name="choicePrior71" type="hidden" value="" />
+<input id="choicePrior72" name="choicePrior72" type="hidden" value="" />
+<input id="choicePrior73" name="choicePrior73" type="hidden" value="" />
+<input id="choicePrior74" name="choicePrior74" type="hidden" value="" />
+<input id="choicePrior75" name="choicePrior75" type="hidden" value="" />
+<input id="choicePrior76" name="choicePrior76" type="hidden" value="" />
+<input id="choicePrior77" name="choicePrior77" type="hidden" value="" />
+<input id="choicePrior78" name="choicePrior78" type="hidden" value="" />
+<input id="choicePrior79" name="choicePrior79" type="hidden" value="" />
+<input id="choicePrior80" name="choicePrior80" type="hidden" value="" />
+<input id="choicePrior81" name="choicePrior81" type="hidden" value="" />
+<input id="choicePrior82" name="choicePrior82" type="hidden" value="" />
+<input id="choicePrior83" name="choicePrior83" type="hidden" value="" />
+<input id="choicePrior84" name="choicePrior84" type="hidden" value="" />
+<input id="choicePrior85" name="choicePrior85" type="hidden" value="" />
+<input id="choicePrior86" name="choicePrior86" type="hidden" value="" />
+<input id="choicePrior87" name="choicePrior87" type="hidden" value="" />
+<input id="choicePrior88" name="choicePrior88" type="hidden" value="" />
+<input id="choicePrior89" name="choicePrior89" type="hidden" value="" />
+<input id="choicePrior90" name="choicePrior90" type="hidden" value="" />
+<input id="choicePrior91" name="choicePrior91" type="hidden" value="" />
+<input id="choicePrior92" name="choicePrior92" type="hidden" value="" />
+<input id="choicePrior93" name="choicePrior93" type="hidden" value="" />
+<input id="choicePrior94" name="choicePrior94" type="hidden" value="" />
+<input id="choicePrior95" name="choicePrior95" type="hidden" value="" />
+<input id="choicePrior96" name="choicePrior96" type="hidden" value="" />
+<input id="choicePrior97" name="choicePrior97" type="hidden" value="" />
+<input id="choicePrior98" name="choicePrior98" type="hidden" value="" />
+<input id="choicePrior99" name="choicePrior99" type="hidden" value="" />
+<input id="choicePrior100" name="choicePrior100" type="hidden" value="" />
+<input id="choicePrior101" name="choicePrior101" type="hidden" value="" />
+<input id="choicePrior102" name="choicePrior102" type="hidden" value="" />
+<input id="choicePrior103" name="choicePrior103" type="hidden" value="" />
+<input id="choicePrior104" name="choicePrior104" type="hidden" value="" />
+<input id="choicePrior105" name="choicePrior105" type="hidden" value="" />
+<input id="choicePrior106" name="choicePrior106" type="hidden" value="" />
+<input id="choicePrior107" name="choicePrior107" type="hidden" value="" />
+<input id="choicePrior108" name="choicePrior108" type="hidden" value="" />
+<input id="choicePrior109" name="choicePrior109" type="hidden" value="" />
+<input id="choicePrior110" name="choicePrior110" type="hidden" value="" />
+<input id="choicePrior111" name="choicePrior111" type="hidden" value="" />
+<input id="choicePrior112" name="choicePrior112" type="hidden" value="" />
+<input id="choicePrior113" name="choicePrior113" type="hidden" value="" />
+<input id="choicePrior114" name="choicePrior114" type="hidden" value="" />
+<input id="choicePrior115" name="choicePrior115" type="hidden" value="" />
+<input id="choicePrior116" name="choicePrior116" type="hidden" value="" />
+<input id="choicePrior117" name="choicePrior117" type="hidden" value="" />
+<input id="choicePrior118" name="choicePrior118" type="hidden" value="" />
+<input id="choicePrior119" name="choicePrior119" type="hidden" value="" />
+<input id="choicePrior120" name="choicePrior120" type="hidden" value="" />
+
+<input id="choiceAdj1" name="choiceAdj1" type="hidden" value="" />
+<input id="choiceAdj2" name="choiceAdj2" type="hidden" value="" />
+<input id="choiceAdj3" name="choiceAdj3" type="hidden" value="" />
+<input id="choiceAdj4" name="choiceAdj4" type="hidden" value="" />
+<input id="choiceAdj5" name="choiceAdj5" type="hidden" value="" />
+<input id="choiceAdj6" name="choiceAdj6" type="hidden" value="" />
+<input id="choiceAdj7" name="choiceAdj7" type="hidden" value="" />
+<input id="choiceAdj8" name="choiceAdj8" type="hidden" value="" />
+<input id="choiceAdj9" name="choiceAdj9" type="hidden" value="" />
+<input id="choiceAdj10" name="choiceAdj10" type="hidden" value="" />
+<input id="choiceAdj11" name="choiceAdj11" type="hidden" value="" />
+<input id="choiceAdj12" name="choiceAdj12" type="hidden" value="" />
+<input id="choiceAdj13" name="choiceAdj13" type="hidden" value="" />
+<input id="choiceAdj14" name="choiceAdj14" type="hidden" value="" />
+<input id="choiceAdj15" name="choiceAdj15" type="hidden" value="" />
+<input id="choiceAdj16" name="choiceAdj16" type="hidden" value="" />
+<input id="choiceAdj17" name="choiceAdj17" type="hidden" value="" />
+<input id="choiceAdj18" name="choiceAdj18" type="hidden" value="" />
+<input id="choiceAdj19" name="choiceAdj19" type="hidden" value="" />
+<input id="choiceAdj20" name="choiceAdj20" type="hidden" value="" />
+<input id="choiceAdj21" name="choiceAdj21" type="hidden" value="" />
+<input id="choiceAdj22" name="choiceAdj22" type="hidden" value="" />
+<input id="choiceAdj23" name="choiceAdj23" type="hidden" value="" />
+<input id="choiceAdj24" name="choiceAdj24" type="hidden" value="" />
+<input id="choiceAdj25" name="choiceAdj25" type="hidden" value="" />
+<input id="choiceAdj26" name="choiceAdj26" type="hidden" value="" />
+<input id="choiceAdj27" name="choiceAdj27" type="hidden" value="" />
+<input id="choiceAdj28" name="choiceAdj28" type="hidden" value="" />
+<input id="choiceAdj29" name="choiceAdj29" type="hidden" value="" />
+<input id="choiceAdj30" name="choiceAdj30" type="hidden" value="" />
+<input id="choiceAdj31" name="choiceAdj31" type="hidden" value="" />
+<input id="choiceAdj32" name="choiceAdj32" type="hidden" value="" />
+<input id="choiceAdj33" name="choiceAdj33" type="hidden" value="" />
+<input id="choiceAdj34" name="choiceAdj34" type="hidden" value="" />
+<input id="choiceAdj35" name="choiceAdj35" type="hidden" value="" />
+<input id="choiceAdj36" name="choiceAdj36" type="hidden" value="" />
+<input id="choiceAdj37" name="choiceAdj37" type="hidden" value="" />
+<input id="choiceAdj38" name="choiceAdj38" type="hidden" value="" />
+<input id="choiceAdj39" name="choiceAdj39" type="hidden" value="" />
+<input id="choiceAdj40" name="choiceAdj40" type="hidden" value="" />
+<input id="choiceAdj41" name="choiceAdj41" type="hidden" value="" />
+<input id="choiceAdj42" name="choiceAdj42" type="hidden" value="" />
+<input id="choiceAdj43" name="choiceAdj43" type="hidden" value="" />
+<input id="choiceAdj44" name="choiceAdj44" type="hidden" value="" />
+<input id="choiceAdj45" name="choiceAdj45" type="hidden" value="" />
+<input id="choiceAdj46" name="choiceAdj46" type="hidden" value="" />
+<input id="choiceAdj47" name="choiceAdj47" type="hidden" value="" />
+<input id="choiceAdj48" name="choiceAdj48" type="hidden" value="" />
+<input id="choiceAdj49" name="choiceAdj49" type="hidden" value="" />
+<input id="choiceAdj50" name="choiceAdj50" type="hidden" value="" />
+<input id="choiceAdj51" name="choiceAdj51" type="hidden" value="" />
+<input id="choiceAdj52" name="choiceAdj52" type="hidden" value="" />
+<input id="choiceAdj53" name="choiceAdj53" type="hidden" value="" />
+<input id="choiceAdj54" name="choiceAdj54" type="hidden" value="" />
+<input id="choiceAdj55" name="choiceAdj55" type="hidden" value="" />
+<input id="choiceAdj56" name="choiceAdj56" type="hidden" value="" />
+<input id="choiceAdj57" name="choiceAdj57" type="hidden" value="" />
+<input id="choiceAdj58" name="choiceAdj58" type="hidden" value="" />
+<input id="choiceAdj59" name="choiceAdj59" type="hidden" value="" />
+<input id="choiceAdj60" name="choiceAdj60" type="hidden" value="" />
+<input id="choiceAdj61" name="choiceAdj61" type="hidden" value="" />
+<input id="choiceAdj62" name="choiceAdj62" type="hidden" value="" />
+<input id="choiceAdj63" name="choiceAdj63" type="hidden" value="" />
+<input id="choiceAdj64" name="choiceAdj64" type="hidden" value="" />
+<input id="choiceAdj65" name="choiceAdj65" type="hidden" value="" />
+<input id="choiceAdj66" name="choiceAdj66" type="hidden" value="" />
+<input id="choiceAdj67" name="choiceAdj67" type="hidden" value="" />
+<input id="choiceAdj68" name="choiceAdj68" type="hidden" value="" />
+<input id="choiceAdj69" name="choiceAdj69" type="hidden" value="" />
+<input id="choiceAdj70" name="choiceAdj70" type="hidden" value="" />
+<input id="choiceAdj71" name="choiceAdj71" type="hidden" value="" />
+<input id="choiceAdj72" name="choiceAdj72" type="hidden" value="" />
+<input id="choiceAdj73" name="choiceAdj73" type="hidden" value="" />
+<input id="choiceAdj74" name="choiceAdj74" type="hidden" value="" />
+<input id="choiceAdj75" name="choiceAdj75" type="hidden" value="" />
+<input id="choiceAdj76" name="choiceAdj76" type="hidden" value="" />
+<input id="choiceAdj77" name="choiceAdj77" type="hidden" value="" />
+<input id="choiceAdj78" name="choiceAdj78" type="hidden" value="" />
+<input id="choiceAdj79" name="choiceAdj79" type="hidden" value="" />
+<input id="choiceAdj80" name="choiceAdj80" type="hidden" value="" />
+<input id="choiceAdj81" name="choiceAdj81" type="hidden" value="" />
+<input id="choiceAdj82" name="choiceAdj82" type="hidden" value="" />
+<input id="choiceAdj83" name="choiceAdj83" type="hidden" value="" />
+<input id="choiceAdj84" name="choiceAdj84" type="hidden" value="" />
+<input id="choiceAdj85" name="choiceAdj85" type="hidden" value="" />
+<input id="choiceAdj86" name="choiceAdj86" type="hidden" value="" />
+<input id="choiceAdj87" name="choiceAdj87" type="hidden" value="" />
+<input id="choiceAdj88" name="choiceAdj88" type="hidden" value="" />
+<input id="choiceAdj89" name="choiceAdj89" type="hidden" value="" />
+<input id="choiceAdj90" name="choiceAdj90" type="hidden" value="" />
+<input id="choiceAdj91" name="choiceAdj91" type="hidden" value="" />
+<input id="choiceAdj92" name="choiceAdj92" type="hidden" value="" />
+<input id="choiceAdj93" name="choiceAdj93" type="hidden" value="" />
+<input id="choiceAdj94" name="choiceAdj94" type="hidden" value="" />
+<input id="choiceAdj95" name="choiceAdj95" type="hidden" value="" />
+<input id="choiceAdj96" name="choiceAdj96" type="hidden" value="" />
+<input id="choiceAdj97" name="choiceAdj97" type="hidden" value="" />
+<input id="choiceAdj98" name="choiceAdj98" type="hidden" value="" />
+<input id="choiceAdj99" name="choiceAdj99" type="hidden" value="" />
+<input id="choiceAdj100" name="choiceAdj100" type="hidden" value="" />
+<input id="choiceAdj101" name="choiceAdj101" type="hidden" value="" />
+<input id="choiceAdj102" name="choiceAdj102" type="hidden" value="" />
+<input id="choiceAdj103" name="choiceAdj103" type="hidden" value="" />
+<input id="choiceAdj104" name="choiceAdj104" type="hidden" value="" />
+<input id="choiceAdj105" name="choiceAdj105" type="hidden" value="" />
+<input id="choiceAdj106" name="choiceAdj106" type="hidden" value="" />
+<input id="choiceAdj107" name="choiceAdj107" type="hidden" value="" />
+<input id="choiceAdj108" name="choiceAdj108" type="hidden" value="" />
+<input id="choiceAdj109" name="choiceAdj109" type="hidden" value="" />
+<input id="choiceAdj110" name="choiceAdj110" type="hidden" value="" />
+<input id="choiceAdj111" name="choiceAdj111" type="hidden" value="" />
+<input id="choiceAdj112" name="choiceAdj112" type="hidden" value="" />
+<input id="choiceAdj113" name="choiceAdj113" type="hidden" value="" />
+<input id="choiceAdj114" name="choiceAdj114" type="hidden" value="" />
+<input id="choiceAdj115" name="choiceAdj115" type="hidden" value="" />
+<input id="choiceAdj116" name="choiceAdj116" type="hidden" value="" />
+<input id="choiceAdj117" name="choiceAdj117" type="hidden" value="" />
+<input id="choiceAdj118" name="choiceAdj118" type="hidden" value="" />
+<input id="choiceAdj119" name="choiceAdj119" type="hidden" value="" />
+<input id="choiceAdj120" name="choiceAdj120" type="hidden" value="" />
+
+<input id="choiceWhole1" name="choiceWhole1" type="hidden" value="" />
+<input id="choiceWhole2" name="choiceWhole2" type="hidden" value="" />
+<input id="choiceWhole3" name="choiceWhole3" type="hidden" value="" />
+<input id="choiceWhole4" name="choiceWhole4" type="hidden" value="" />
+<input id="choiceWhole5" name="choiceWhole5" type="hidden" value="" />
+<input id="choiceWhole6" name="choiceWhole6" type="hidden" value="" />
+<input id="choiceWhole7" name="choiceWhole7" type="hidden" value="" />
+<input id="choiceWhole8" name="choiceWhole8" type="hidden" value="" />
+<input id="choiceWhole9" name="choiceWhole9" type="hidden" value="" />
+<input id="choiceWhole10" name="choiceWhole10" type="hidden" value="" />
+<input id="choiceWhole11" name="choiceWhole11" type="hidden" value="" />
+<input id="choiceWhole12" name="choiceWhole12" type="hidden" value="" />
+<input id="choiceWhole13" name="choiceWhole13" type="hidden" value="" />
+<input id="choiceWhole14" name="choiceWhole14" type="hidden" value="" />
+<input id="choiceWhole15" name="choiceWhole15" type="hidden" value="" />
+<input id="choiceWhole16" name="choiceWhole16" type="hidden" value="" />
+<input id="choiceWhole17" name="choiceWhole17" type="hidden" value="" />
+<input id="choiceWhole18" name="choiceWhole18" type="hidden" value="" />
+<input id="choiceWhole19" name="choiceWhole19" type="hidden" value="" />
+<input id="choiceWhole20" name="choiceWhole20" type="hidden" value="" />
+<input id="choiceWhole21" name="choiceWhole21" type="hidden" value="" />
+<input id="choiceWhole22" name="choiceWhole22" type="hidden" value="" />
+<input id="choiceWhole23" name="choiceWhole23" type="hidden" value="" />
+<input id="choiceWhole24" name="choiceWhole24" type="hidden" value="" />
+<input id="choiceWhole25" name="choiceWhole25" type="hidden" value="" />
+<input id="choiceWhole26" name="choiceWhole26" type="hidden" value="" />
+<input id="choiceWhole27" name="choiceWhole27" type="hidden" value="" />
+<input id="choiceWhole28" name="choiceWhole28" type="hidden" value="" />
+<input id="choiceWhole29" name="choiceWhole29" type="hidden" value="" />
+<input id="choiceWhole30" name="choiceWhole30" type="hidden" value="" />
+<input id="choiceWhole31" name="choiceWhole31" type="hidden" value="" />
+<input id="choiceWhole32" name="choiceWhole32" type="hidden" value="" />
+<input id="choiceWhole33" name="choiceWhole33" type="hidden" value="" />
+<input id="choiceWhole34" name="choiceWhole34" type="hidden" value="" />
+<input id="choiceWhole35" name="choiceWhole35" type="hidden" value="" />
+<input id="choiceWhole36" name="choiceWhole36" type="hidden" value="" />
+<input id="choiceWhole37" name="choiceWhole37" type="hidden" value="" />
+<input id="choiceWhole38" name="choiceWhole38" type="hidden" value="" />
+<input id="choiceWhole39" name="choiceWhole39" type="hidden" value="" />
+<input id="choiceWhole40" name="choiceWhole40" type="hidden" value="" />
+<input id="choiceWhole41" name="choiceWhole41" type="hidden" value="" />
+<input id="choiceWhole42" name="choiceWhole42" type="hidden" value="" />
+<input id="choiceWhole43" name="choiceWhole43" type="hidden" value="" />
+<input id="choiceWhole44" name="choiceWhole44" type="hidden" value="" />
+<input id="choiceWhole45" name="choiceWhole45" type="hidden" value="" />
+<input id="choiceWhole46" name="choiceWhole46" type="hidden" value="" />
+<input id="choiceWhole47" name="choiceWhole47" type="hidden" value="" />
+<input id="choiceWhole48" name="choiceWhole48" type="hidden" value="" />
+<input id="choiceWhole49" name="choiceWhole49" type="hidden" value="" />
+<input id="choiceWhole50" name="choiceWhole50" type="hidden" value="" />
+<input id="choiceWhole51" name="choiceWhole51" type="hidden" value="" />
+<input id="choiceWhole52" name="choiceWhole52" type="hidden" value="" />
+<input id="choiceWhole53" name="choiceWhole53" type="hidden" value="" />
+<input id="choiceWhole54" name="choiceWhole54" type="hidden" value="" />
+<input id="choiceWhole55" name="choiceWhole55" type="hidden" value="" />
+<input id="choiceWhole56" name="choiceWhole56" type="hidden" value="" />
+<input id="choiceWhole57" name="choiceWhole57" type="hidden" value="" />
+<input id="choiceWhole58" name="choiceWhole58" type="hidden" value="" />
+<input id="choiceWhole59" name="choiceWhole59" type="hidden" value="" />
+<input id="choiceWhole60" name="choiceWhole60" type="hidden" value="" />
+<input id="choiceWhole61" name="choiceWhole61" type="hidden" value="" />
+<input id="choiceWhole62" name="choiceWhole62" type="hidden" value="" />
+<input id="choiceWhole63" name="choiceWhole63" type="hidden" value="" />
+<input id="choiceWhole64" name="choiceWhole64" type="hidden" value="" />
+<input id="choiceWhole65" name="choiceWhole65" type="hidden" value="" />
+<input id="choiceWhole66" name="choiceWhole66" type="hidden" value="" />
+<input id="choiceWhole67" name="choiceWhole67" type="hidden" value="" />
+<input id="choiceWhole68" name="choiceWhole68" type="hidden" value="" />
+<input id="choiceWhole69" name="choiceWhole69" type="hidden" value="" />
+<input id="choiceWhole70" name="choiceWhole70" type="hidden" value="" />
+<input id="choiceWhole71" name="choiceWhole71" type="hidden" value="" />
+<input id="choiceWhole72" name="choiceWhole72" type="hidden" value="" />
+<input id="choiceWhole73" name="choiceWhole73" type="hidden" value="" />
+<input id="choiceWhole74" name="choiceWhole74" type="hidden" value="" />
+<input id="choiceWhole75" name="choiceWhole75" type="hidden" value="" />
+<input id="choiceWhole76" name="choiceWhole76" type="hidden" value="" />
+<input id="choiceWhole77" name="choiceWhole77" type="hidden" value="" />
+<input id="choiceWhole78" name="choiceWhole78" type="hidden" value="" />
+<input id="choiceWhole79" name="choiceWhole79" type="hidden" value="" />
+<input id="choiceWhole80" name="choiceWhole80" type="hidden" value="" />
+<input id="choiceWhole81" name="choiceWhole81" type="hidden" value="" />
+<input id="choiceWhole82" name="choiceWhole82" type="hidden" value="" />
+<input id="choiceWhole83" name="choiceWhole83" type="hidden" value="" />
+<input id="choiceWhole84" name="choiceWhole84" type="hidden" value="" />
+<input id="choiceWhole85" name="choiceWhole85" type="hidden" value="" />
+<input id="choiceWhole86" name="choiceWhole86" type="hidden" value="" />
+<input id="choiceWhole87" name="choiceWhole87" type="hidden" value="" />
+<input id="choiceWhole88" name="choiceWhole88" type="hidden" value="" />
+<input id="choiceWhole89" name="choiceWhole89" type="hidden" value="" />
+<input id="choiceWhole90" name="choiceWhole90" type="hidden" value="" />
+<input id="choiceWhole91" name="choiceWhole91" type="hidden" value="" />
+<input id="choiceWhole92" name="choiceWhole92" type="hidden" value="" />
+<input id="choiceWhole93" name="choiceWhole93" type="hidden" value="" />
+<input id="choiceWhole94" name="choiceWhole94" type="hidden" value="" />
+<input id="choiceWhole95" name="choiceWhole95" type="hidden" value="" />
+<input id="choiceWhole96" name="choiceWhole96" type="hidden" value="" />
+<input id="choiceWhole97" name="choiceWhole97" type="hidden" value="" />
+<input id="choiceWhole98" name="choiceWhole98" type="hidden" value="" />
+<input id="choiceWhole99" name="choiceWhole99" type="hidden" value="" />
+<input id="choiceWhole100" name="choiceWhole100" type="hidden" value="" />
+<input id="choiceWhole101" name="choiceWhole101" type="hidden" value="" />
+<input id="choiceWhole102" name="choiceWhole102" type="hidden" value="" />
+<input id="choiceWhole103" name="choiceWhole103" type="hidden" value="" />
+<input id="choiceWhole104" name="choiceWhole104" type="hidden" value="" />
+<input id="choiceWhole105" name="choiceWhole105" type="hidden" value="" />
+<input id="choiceWhole106" name="choiceWhole106" type="hidden" value="" />
+<input id="choiceWhole107" name="choiceWhole107" type="hidden" value="" />
+<input id="choiceWhole108" name="choiceWhole108" type="hidden" value="" />
+<input id="choiceWhole109" name="choiceWhole109" type="hidden" value="" />
+<input id="choiceWhole110" name="choiceWhole110" type="hidden" value="" />
+<input id="choiceWhole111" name="choiceWhole111" type="hidden" value="" />
+<input id="choiceWhole112" name="choiceWhole112" type="hidden" value="" />
+<input id="choiceWhole113" name="choiceWhole113" type="hidden" value="" />
+<input id="choiceWhole114" name="choiceWhole114" type="hidden" value="" />
+<input id="choiceWhole115" name="choiceWhole115" type="hidden" value="" />
+<input id="choiceWhole116" name="choiceWhole116" type="hidden" value="" />
+<input id="choiceWhole117" name="choiceWhole117" type="hidden" value="" />
+<input id="choiceWhole118" name="choiceWhole118" type="hidden" value="" />
+<input id="choiceWhole119" name="choiceWhole119" type="hidden" value="" />
+<input id="choiceWhole120" name="choiceWhole120" type="hidden" value="" />
+
+
+
+<!--- Hidden input fields end---->
+
+<!--- Submission and Feedback ---->
+<div id="submitPage" style="width:560px;margin-left:auto;margin-right:auto;display:none;text-align:center">
+<p><b>Are you a native speaker of English?</b> (Please answer truthfully, we will not reject your submission because of your answer here.)<br />
+<input name="EnglishNative" type="radio" value="Yes" required /> Yes &nbsp; &nbsp;
+<input name="EnglishNative" type="radio" value="No" required /> No (Please specify in the comment box below)
+</p>
+
+<p>(Optional) Please leave your comments or suggestions here.<br />
+<textarea cols="40" name="comment" rows="5"></textarea></p>
+
+<p>You have finished the task. Please submit the result.<br />
+Note that you may take part in this task <b>ONLY ONCE</b> so please do <b>NOT</b> accept another HIT afterwards!</p>
+<p>Thank you very much for your participation!<br />
+<input id="submitButton" type="submit" value="Submit" /></p>
+</div>
+<!--- Submission Ends ---->
+
+</form>
+</div>
+

@@ -1,0 +1,929 @@
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<script>
+// TODOs before each final release
+// 1. Use a fresh ut_id from uniqueturker.myleott.com
+// 2. Check the number of trials (variable lastTrial)
+// 3. Make sure that the content specification part and hidden value fields match this number
+
+//======checking workerID; no need to modify this block===========
+var expName = "${experimentName}"; 
+// in the actual MTurk experiment its value will be replaced
+// this default value is an indicator of an external debugging
+
+
+function UTWorkerLimitReached(ut_id, workerId, assignmentId) {
+    if (expName == ("$" + "{experimentName}") || expName == "debug"){
+      // debugging without checking workerID
+      return false; 
+    }
+    var assignmentId = turkGetParam('assignmentId', '');
+    if (assignmentId != '' && assignmentId != 'ASSIGNMENT_ID_NOT_AVAILABLE') {
+        var workerId = turkGetParam('workerId', '');
+        var url = '//uniqueturker.myleott.com/'+ut_id+'/'+workerId+'/'+assignmentId;
+
+        var response = turkGetParam('ut_response', '-1');
+        if (window.XDomainRequest) {
+            if (response == '-1') {
+                // Use Microsoft XDR
+                var xdr = new XDomainRequest();
+                xdr.open("get", url);
+                xdr.onload = function() {
+                    response = xdr.responseText;
+                    window.location.replace(window.location.href + "&ut_response="+response);
+                };
+                xdr.send();
+            }
+        } else {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);
+            request.send();
+            response = request.responseText;
+        }
+
+        if (response == '0') {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function checkWorker(){
+  if (expName == ("$" + "{experimentName}") || expName == "debug"){
+    // external debugging without checking workerID
+    return true; 
+  }
+  var workerId = turkGetParam("workerId", "");
+  
+  // preview mode still
+  if (workerId == "") { 
+    alert("Please first accept the HIT!");
+    return false;
+  }
+
+  return true;
+}
+//=========checking workerID ends============
+
+function containColor(str){
+  var colorList = ['alabaster', 'aqua', 'azure', 'beige', 'black', 'blond', 'blue', 'blush', 'bronze', 'brown', 'burgundy', 'buff', 'canary', 'cardinal', 'carmine', 
+                   'carnation', 'cerise', 'cerulean',  'claret', 'coffee', 'copper', 'crimson', 'grey', 'drab', 'dun', 'ebony', 'ecru', 'fawn', 'frostiness', 'fuchsia', 
+                   'gamboge', 'gold', 'gray', 'green', 'hazel',  'henna', 'hoariness', 'indigo', 'lac', 'lavender', 'lazuline', 'magenta', 'mahogany', 'maroon', 'mauve', 
+                   'mocha', 'navy', 'ocher', 'pastel', 'peroxide', 'pink', 'puce', 'purple', 'red', 'rosy', 'ruddy', 'sable', 'saffron', 'salmon', 'sanguine', 'scarlet', 
+                   'sepia', 'sienna', 'silver', 'snuff-color', 'tan', 'taupe', 'tawny', 'teal', 'tie-dye', 'ultramarine', 'umber', 'verdigris', 'vermilion', 'violet', 
+                   'white', 'yellow', 'orchil'];
+
+  for (var i = 0; i < colorList.length; i++){
+    var colorRegStr = "\\b" + colorList[i] + "\\b";
+    var colorRegExp = new RegExp(colorRegStr);
+    
+    if (colorRegExp.test(str)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function checkAttention(){
+  var answer = $("#freeGenCheck").val();
+  answer = answer.toLowerCase();
+
+  if (answer == "" || answer == " " || answer == "  ") {
+    return false;
+  }
+
+  if (containColor(answer)){
+    return false;
+  }
+
+  if ($("input[name=shapeCheck][value='sun']").prop("checked")) {
+    return true;
+  }
+  else {
+    $("#shapeFailed").val(1);
+    return false;
+  }
+};
+
+function checkFreeGen(){
+  var answer = $("#freeGenCritical").val();
+  answer = answer.toLowerCase();
+  if (answer == "" || answer == " " || answer == "  ") {
+    return false;
+  }
+
+  if (containColor(answer)){
+    return false;
+  }
+
+  return true;
+};
+
+function shuffle(originalArray) {
+  var newArray = originalArray;
+  var counter = originalArray.length; 
+  var index = 0;
+  var temp;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter = counter - 1;
+
+    // And swap the last element with it
+    temp = newArray[counter];
+    newArray[counter] = newArray[index];
+    newArray[index] = temp;
+  }
+
+    return newArray;
+}
+
+function shufflePositions() {
+  return shuffle(["A", "B", "C", "D"]);
+}
+
+function shuffleOrder(n) {
+  var a=[], b=n;
+  while (b--) {
+    a[b]=b+1;
+  }
+
+  return shuffle(a);
+}
+
+
+$(document).ready(function(){
+  var ut_id = "9e67b821a9ab12929bef493b24e70d17";
+  var folderURL = "https://ciyang.github.io/imprecise-adjectives/images/";
+
+  // Preload loading image
+  var loading_image = new Image();
+  loading_image.src = "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg";
+
+  // handling listener practice trials
+
+  var objs_listener = [
+                   ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "wide_yellowrectangle7.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redtriangle1.jpg"],
+                   ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bumpy_bluesquare1.jpg"],
+                   ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                   ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                   ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"]
+                   ];
+
+  var msgs_listener = ["red square", "green circle", "yellow circle", "yellow square", "triangle", "circle", "blue square", "red triangle"];
+
+  var curListenerTrial = 1;
+  var listenerLastTrial = 8;
+  var listenerTrialOrder = shuffleOrder(listenerLastTrial);
+
+  var listenerScenePositionsString = "";
+
+  // store randomized listener trial order as a string 
+  var listenerTrialOrderString = "";
+  for (var i = 0; i < listenerLastTrial-1; i++){
+    listenerTrialOrderString += listenerTrialOrder[i] + ";";
+  }
+  listenerTrialOrderString += listenerTrialOrder[listenerLastTrial-1];
+  $("#listenerTurnOrder").val(listenerTrialOrderString);
+
+  function updateListenerScene(){
+    $("#listenerImageA").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+    $("#listenerImageB").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+    $("#listenerImageC").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+    $("#listenerImageD").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg"});
+
+    var curObjects = objs_listener[listenerTrialOrder[curListenerTrial-1] - 1]; 
+    var objectPositions = shufflePositions();
+
+    // record listener scene configurations
+    if (curListenerTrial < listenerLastTrial){
+      listenerScenePositionsString += objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3] +";";
+    }
+    else {
+      listenerScenePositionsString += objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3];
+    }
+    $("#listenerSceneConfigs").val(listenerScenePositionsString);
+
+    $("#listenerTurn").html("Turn " + curListenerTrial.toString());
+
+    var imageNameA = curObjects[objectPositions.indexOf("A")];
+    var imageNameB = curObjects[objectPositions.indexOf("B")];
+    var imageNameC = curObjects[objectPositions.indexOf("C")];
+    var imageNameD = curObjects[objectPositions.indexOf("D")];
+
+    setTimeout(function(){
+      $("#listenerImageA").attr({"src" : folderURL + imageNameA});
+      $("#listenerImageB").attr({"src" : folderURL + imageNameB});
+      $("#listenerImageC").attr({"src" : folderURL + imageNameC});
+      $("#listenerImageD").attr({"src" : folderURL + imageNameD});
+      },
+    100
+    );
+
+    $("#buttonA").attr({"value" : (objectPositions.indexOf("A") + 1).toString()});
+    $("#buttonB").attr({"value" : (objectPositions.indexOf("B") + 1).toString()});
+    $("#buttonC").attr({"value" : (objectPositions.indexOf("C") + 1).toString()});
+    $("#buttonD").attr({"value" : (objectPositions.indexOf("D") + 1).toString()});
+
+
+    $("#listenerSentence").html("Please click on the " + msgs_listener[listenerTrialOrder[curListenerTrial-1] - 1]);
+  }
+
+  // handling critical speaker trails
+
+  var curTrial = 0;
+  var startTimeScene;
+
+  var lastTrial = 40;
+
+  var trialOrder = shuffleOrder(lastTrial);
+
+
+
+
+  var scenePositionsString = "";
+
+  // store randomized trial order as a string 
+  var trialOrderString = "";
+  for (var i = 0; i < lastTrial-1; i++){
+    trialOrderString = trialOrderString + trialOrder[i] + ";";
+  }
+  trialOrderString += trialOrder[lastTrial-1];
+  $("#turnOrder").val(trialOrderString);
+
+  // store randomized referent types as a string 
+  // type of the referent, 1: target; 2: competitor; 3: distractor; 4: (possible) contrast
+  var referentTypes = new Array(lastTrial);
+  var refTypesString = "";
+  // in this version only we only elicit responses for target and competitor 
+  // because in previous version nobody uses the gradable adjective of interest to describe the distractor or contrast
+  var eliciteFirstNTypes = 2;
+  for (var i = 0; i < lastTrial-1; i++){
+    referentTypes[i] = Math.floor(Math.random() * eliciteFirstNTypes) + 1;   
+    refTypesString = refTypesString + referentTypes[i].toString() + ";";
+  }
+  referentTypes[lastTrial-1] = Math.floor(Math.random() * eliciteFirstNTypes) + 1;
+  refTypesString += referentTypes[lastTrial-1].toString();
+  $("#refTypes").val(refTypesString);
+
+// content specification 
+
+  var allObjects;
+
+  var objs_TlessC1 = [
+                   ["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                   ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                   ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                   ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                   ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                   ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                   ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                   ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                   ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                   ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                   ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                   ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                   ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                   ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                   ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                   ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                   ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                   ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                   ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                   ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                   ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                   ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                   ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                   ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                   ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                   ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                   ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                   ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                   ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                   ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                   ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                   ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                   ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                   ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                   ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                   ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                   ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                   ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                   ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"]
+                   ];
+
+  var objs_TlessC2 = [["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"]
+                     ];
+
+  var objs_TmoreC1 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"]
+                     ];
+
+  var objs_TmoreC2 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"]
+                     ];
+
+  var objsList = "${List}";
+
+  // assigning a default list for debugging
+  allObjects = objs_TlessC1;
+
+  if (objsList == "TlessC1"){
+    allObjects = objs_TlessC1;
+  }
+  else if (objsList == "TlessC2"){
+    allObjects = objs_TlessC2;
+  }
+  else if (objsList == "TmoreC1"){
+    allObjects = objs_TmoreC1;
+  }
+  else if (objsList == "TmoreC2"){
+    allObjects = objs_TmoreC2;
+  }
+
+// content specification ends
+
+  if (UTWorkerLimitReached(ut_id)) {
+    $("#previewPage").html("You have done this task. Please return the HIT. Thank you!");
+  }
+
+  $("#startButton").click(function(){
+    if (checkWorker()){
+      $("#previewPage").hide();
+      updateListenerScene();
+      $("#mainExperiment").show();
+    }
+  });
+
+
+  $('input[name=listenerChoice]').change(function(){
+    // store the current choice
+    selectedType = $('input[name=listenerChoice]:checked').val();
+    currentID = "#listenerChoice" + listenerTrialOrder[curListenerTrial-1].toString();
+    $(currentID).val($(currentID).val() + selectedType);
+
+    // uncheck the radio buttons
+    $('input[name=listenerChoice]').attr('checked',false);
+
+    if (selectedType != "1"){
+      alert("Sorry, this is not the target object the speaker wants you to click on. Please try again.");
+      return false;
+    }
+
+    curListenerTrial += 1;
+
+    if (curListenerTrial <= listenerLastTrial) {
+    // update scene configurations
+      updateListenerScene();
+    }
+    else {
+      $("#ex1").hide();
+      $("#ex2").show();
+    }
+  });
+
+
+  $('#freeGenCheck').keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      e.stopPropagation();
+      $("#toCritical").click();
+    }
+  });
+
+  $('#freeGenCritical').keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      e.stopPropagation();
+      $("#toNextCritical").click();
+    }
+  });
+
+
+
+
+  $("#toCritical, #toNextCritical").click(function(){
+    var checkValidity = checkAttention();
+    var alertMessage = "Are you sure? Please read the instructions carefully and try again.";
+    var word = "";
+    var currentVal = "";
+    var curObjects = allObjects[0]; 
+    var objectPositions = shufflePositions();
+    var curReferentLabel = "B"; 
+    var curTimeString;
+
+    if (curTrial == 0){
+      checkValidity = checkAttention();
+      alertMessage = "Are you sure? Please read the instructions carefully and try again. Remember that your answer in the box may not mention location or color and don't forget to answer question 1!";
+    }
+    else{
+      checkValidity = checkFreeGen();
+      alertMessage = "Please fill in the box and remember that you may not mention location or color!";
+    }
+
+    if (checkValidity){
+      if (curTrial != 0){
+        // store current value
+        curTimeString = $("#sceneTime").val();
+        curTimeString = curTimeString + ((new Date()).getTime() - startTimeScene).toString();
+        if (curTrial < lastTrial) {
+          curTimeString += ";";
+        }
+
+        $("#sceneTime").val(curTimeString);
+
+        word = $("#freeGenCritical").val();
+
+        currentVal = "#freeGenCritical" + trialOrder[curTrial-1].toString();
+        $(currentVal).val(word);
+      }
+
+      // update page
+      curTrial = curTrial + 1;
+
+      if (curTrial <= lastTrial) {
+        startTimeScene = (new Date()).getTime();
+        if (curTrial == 1) {
+          // show the critial trial page
+          $("#ex2").hide();
+          $("#critical").show();
+        }
+
+        // update objects display
+
+        $("#critImageA").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg",
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageB").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg",
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageC").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg",
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageD").attr({"src" : "https://ciyang.github.io/imprecise-adjectives/images/loading.jpg",
+                               "style" : "border:2px dashed transparent;"
+                              });
+
+        curObjects = allObjects[trialOrder[curTrial-1] - 1]; 
+        objectPositions = shufflePositions();
+
+
+        // record scene configurations
+        if (curTrial < lastTrial){
+          scenePositionsString = scenePositionsString + objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3] +";";
+        }
+        else {
+          scenePositionsString = scenePositionsString + objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3];
+        }
+        $("#sceneConfigs").val(scenePositionsString);
+
+
+        curReferentLabel = objectPositions[referentTypes[trialOrder[curTrial-1] - 1] - 1]; 
+
+        $("#turn").html("Turn " + curTrial.toString());
+        $("#freeGenCritical").val(""); // reset temp storage #freeGenCritical to empty string to avoid confusion
+
+        imageNameA = curObjects[objectPositions.indexOf("A")];
+        imageNameB = curObjects[objectPositions.indexOf("B")];
+        imageNameC = curObjects[objectPositions.indexOf("C")];
+        imageNameD = curObjects[objectPositions.indexOf("D")];
+
+        setTimeout(function(){
+        $("#critImageA").attr({"src" : folderURL + imageNameA,
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageB").attr({"src" : folderURL + imageNameB,
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageC").attr({"src" : folderURL + imageNameC,
+                               "style" : "border:2px dashed transparent;"
+                              });
+        $("#critImageD").attr({"src" : folderURL + imageNameD,
+                               "style" : "border:2px dashed transparent;"
+                              });
+ 
+        // highlight current referent
+        $("#critImage" + curReferentLabel).attr({"style" : "border:2px dashed #CCCCCC;"});
+        },
+        100
+        );
+
+      }
+      else {
+        $("#freeGenCritical").val(""); // reset temp storage #freeGenCritical to empty string to avoid confusion
+        $("#mainExperiment").hide();
+        $("#submitPage").show();
+      }
+    }
+    else {
+      alert(alertMessage);
+    }
+  });
+
+});
+</script>
+<div style="width:960px;overflow:auto;margin:0 auto;">
+<form><!--- Preview Only ---->
+<div id="previewPage" style="width:560px;margin:0 auto;">
+
+<p>In this task, you will be playing an online game with another Turker.
+In each turn both of you will see four objects on your screens. Your task is to instruct the other player to click on the target object on his/her screen. </p>
+
+<p>Please first accept the HIT and then click the &quot;Start&quot; button below to start the task.</p>
+<p><button id="startButton" type="button">Start</button>&nbsp; (You may accept <b>ONLY 1 HIT</b> for this task.)</p>
+<br />
+
+<p><b>Legal information</b>: We invite you to participate in a research study on language production and comprehension. Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game.</p>
+<p>There are no risks or benefits of any kind involved in this study. </p>
+<p>You will be paid for your participation at the posted rate. </p>
+<p>If you have read this form and have decided to participate in this experiment, please
+understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written data resulting from the study.   
+You may print this form for your records.</p>
+<p><b>CONTACT INFORMATION:</b><br />
+<p>If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should contact one of the Protocol Director Penelope Eckert (650)-725-1564</p>
+<p>If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA.</p>
+<p>If you agree to participate, please proceed to the study tasks.</p>
+</div>
+
+
+<!--- Main Experiment ---->
+<div id="mainExperiment" style="width:960px;height:520px;overflow:auto;display:none">
+
+<h4>You are playing an online game with another Turker. In each turn both of you will see four objects on your screens. Your task is to instruct the other player to click on the target object on his/her screen.</h4>
+
+<!--- Example Item 1: listener trials ---->
+<div id="ex1" style="width:960px;margin-left:auto;margin-right:auto;">
+
+<div style="width:480px;float:left;">
+
+<label>
+<input id="buttonA" name="listenerChoice" type="radio" value="A" style="visibility:hidden;" /> 
+<img id="listenerImageA" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="cursor:pointer;" />
+</label>
+&nbsp;&nbsp;
+<label>
+<input id="buttonB" name="listenerChoice" type="radio" value="B" style="visibility:hidden;" /> 
+<img id="listenerImageB" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="cursor:pointer;" />
+</label>
+<br />
+
+<label>
+<input id="buttonC" name="listenerChoice" type="radio" value="C" style="visibility:hidden;" /> 
+<img id="listenerImageC" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="cursor:pointer;" />
+</label>
+&nbsp;&nbsp;
+<label>
+<input id="buttonD" name="listenerChoice" type="radio" value="D" style="visibility:hidden;" /> 
+<img id="listenerImageD" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="cursor:pointer;" />
+</label>
+
+</div>
+
+<div style="width:440px;float:right;">
+
+<p>First, let's play a few turns as the listener to get familiar with the game.</p>
+
+<p><span id="listenerTurn">Turn 1</span> (8 turns in total)<br />
+(<b>Please wait until all the images are loaded</b>)</p>
+
+<span>The other player says to you:</span>
+
+<p><b id="listenerSentence" style="font-size:14pt">Please click on the </b></p>
+
+
+<p>Given this message, what do you think is the target object that the other player wants you to click on?
+Please click on the corresponding object.</p>
+</div>
+</div>
+<!--- Example Item 1 ENDS---->
+<!--- Example Item 2: free production practice ---->
+<div id="ex2" style="width:960px;margin-left:auto;margin-right:auto;display:none;">
+<div style="width:480px;float:left;">
+<p>The target object is surrounded by the grey dashed line</p>
+
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/striped_greensquare1.jpg" style="border:2px dashed transparent;" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/blue_sun.jpg" style="border:2px dashed #CCCCCC;" />
+
+<br />
+
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/open_redtriangle4.jpg" style="border:2px dashed transparent;" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/yellow_wavyline.jpg" style="border:2px dashed transparent;" />
+
+</div>
+
+<div style="width:440px;float:right;">
+
+<p>Great job! Now you will play as the speaker for the rest of the game. Here is an example.</p>
+<ol>
+	<li>What is the shape of the target object?<br />
+	<input name="shapeCheck" type="radio" value="square" />A square &nbsp; &nbsp; 
+        <input name="shapeCheck" type="radio" value="wavyline" />A wavy line &nbsp; &nbsp; <br />
+        <input name="shapeCheck" type="radio" value="sun" />A sun &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  
+        <input name="shapeCheck" type="radio" value="triangle" />A triangle  <br /><br />
+        </li>
+
+	<li><b>To make the game more challenging, from now on you are not allowed to use "top left," "red," or anything else about location or color.</b>
+What would you say to the other player to instruct him/her to click on the target object on his/her screen? Please fill in the box below.<br />
+        <p><b style="font-size:14pt">Please click on the </b> <input id="freeGenCheck" name="freeWordCheck" size="10" type="text" /></p>
+        </li>
+</ol>
+
+<p>When you are ready, please click on the "Next" button below to start the experiment.</p>
+<button id="toCritical" type="button">Next</button>
+</div>
+</div>
+<!--- Example Item 2 ENDS---->
+
+<!--- Critical Trials---->
+<div id="critical" style="width:960px;margin-left:auto;margin-right:auto;display:none;">
+
+
+<div style="width:480px;float:left;">
+<p>The target object is surrounded by the grey dashed line</p>
+
+<img id="critImageA" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="border:2px dashed transparent;" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img id="critImageB" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="border:2px dashed transparent;" />
+
+<br />
+
+<img id="critImageC" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="border:2px dashed transparent;" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img id="critImageD" alt="Image Not Found" height="180px" width="180px" src="https://ciyang.github.io/imprecise-adjectives/images/loading.jpg" style="border:2px dashed transparent;" />
+
+</div>
+
+<div style="width:440px;float:right;">
+<p><span id="turn">Turn 1</span> (40 turns in total)</p>
+<p>(<b>Please wait until all the images are loaded</b>)</p>
+<p>What would you say to the other player to instruct him/her to click on the target object on his/her screen? Please fill in the box below.</p>
+<p><b style="font-size:14pt">Please click on the </b> <input id="freeGenCritical" name="freeGenCrit" size="10" type="text" /></p>
+<br />
+<p>(Remember that the other player does not see the dashed line, and <b>you cannot say "top left," "red," or anything else about location or color!</b>)</p>
+<p>When you finish typing the instruction, press Enter to go to the next turn.</p>
+<button id="toNextCritical" type="button">Next</button>
+</br>(Use this button if pressing Enter does not work.)
+</div>
+
+</div>
+<!--- Critical Trials End---->
+
+</div>
+<!--- Experiment Ends ---->
+
+
+
+
+<!--- These hidden input fields store the responses---->
+<input id="shapeFailed" name="wrongShape" type="hidden" value="0" /> 
+<input id="listenerTurnOrder" name="listenerTurnOrder" type="hidden" value="" />
+<input id="listenerSceneConfigs" name="listenerSceneConfigs" type="hidden" value="" />
+<input id="turnOrder" name="turnOrder" type="hidden" value="" />
+<input id="sceneConfigs" name="sceneConfigs" type="hidden" value="" />
+<input id="sceneTime" name="sceneTime" type="hidden" value="" />
+<input id="refTypes" name="refTypes" type="hidden" value="" />
+
+<input id="listenerChoice1" name="litChoice1" type="hidden" value="" />
+<input id="listenerChoice2" name="litChoice2" type="hidden" value="" />
+<input id="listenerChoice3" name="litChoice3" type="hidden" value="" />
+<input id="listenerChoice4" name="litChoice4" type="hidden" value="" />
+<input id="listenerChoice5" name="litChoice5" type="hidden" value="" />
+<input id="listenerChoice6" name="litChoice6" type="hidden" value="" />
+<input id="listenerChoice7" name="litChoice7" type="hidden" value="" />
+<input id="listenerChoice8" name="litChoice8" type="hidden" value="" />
+
+<input id="freeGenCritical1" name="freeGenCrit1" type="hidden" value="" />
+<input id="freeGenCritical2" name="freeGenCrit2" type="hidden" value="" />
+<input id="freeGenCritical3" name="freeGenCrit3" type="hidden" value="" />
+<input id="freeGenCritical4" name="freeGenCrit4" type="hidden" value="" />
+<input id="freeGenCritical5" name="freeGenCrit5" type="hidden" value="" />
+<input id="freeGenCritical6" name="freeGenCrit6" type="hidden" value="" />
+<input id="freeGenCritical7" name="freeGenCrit7" type="hidden" value="" />
+<input id="freeGenCritical8" name="freeGenCrit8" type="hidden" value="" />
+<input id="freeGenCritical9" name="freeGenCrit9" type="hidden" value="" />
+<input id="freeGenCritical10" name="freeGenCrit10" type="hidden" value="" />
+<input id="freeGenCritical11" name="freeGenCrit11" type="hidden" value="" />
+<input id="freeGenCritical12" name="freeGenCrit12" type="hidden" value="" />
+<input id="freeGenCritical13" name="freeGenCrit13" type="hidden" value="" />
+<input id="freeGenCritical14" name="freeGenCrit14" type="hidden" value="" />
+<input id="freeGenCritical15" name="freeGenCrit15" type="hidden" value="" />
+<input id="freeGenCritical16" name="freeGenCrit16" type="hidden" value="" />
+<input id="freeGenCritical17" name="freeGenCrit17" type="hidden" value="" />
+<input id="freeGenCritical18" name="freeGenCrit18" type="hidden" value="" />
+<input id="freeGenCritical19" name="freeGenCrit19" type="hidden" value="" />
+<input id="freeGenCritical20" name="freeGenCrit20" type="hidden" value="" />
+<input id="freeGenCritical21" name="freeGenCrit21" type="hidden" value="" />
+<input id="freeGenCritical22" name="freeGenCrit22" type="hidden" value="" />
+<input id="freeGenCritical23" name="freeGenCrit23" type="hidden" value="" />
+<input id="freeGenCritical24" name="freeGenCrit24" type="hidden" value="" />
+<input id="freeGenCritical25" name="freeGenCrit25" type="hidden" value="" />
+<input id="freeGenCritical26" name="freeGenCrit26" type="hidden" value="" />
+<input id="freeGenCritical27" name="freeGenCrit27" type="hidden" value="" />
+<input id="freeGenCritical28" name="freeGenCrit28" type="hidden" value="" />
+<input id="freeGenCritical29" name="freeGenCrit29" type="hidden" value="" />
+<input id="freeGenCritical30" name="freeGenCrit30" type="hidden" value="" />
+<input id="freeGenCritical31" name="freeGenCrit31" type="hidden" value="" />
+<input id="freeGenCritical32" name="freeGenCrit32" type="hidden" value="" />
+<input id="freeGenCritical33" name="freeGenCrit33" type="hidden" value="" />
+<input id="freeGenCritical34" name="freeGenCrit34" type="hidden" value="" />
+<input id="freeGenCritical35" name="freeGenCrit35" type="hidden" value="" />
+<input id="freeGenCritical36" name="freeGenCrit36" type="hidden" value="" />
+<input id="freeGenCritical37" name="freeGenCrit37" type="hidden" value="" />
+<input id="freeGenCritical38" name="freeGenCrit38" type="hidden" value="" />
+<input id="freeGenCritical39" name="freeGenCrit39" type="hidden" value="" />
+<input id="freeGenCritical40" name="freeGenCrit40" type="hidden" value="" />
+
+<!--- Submission and Feedback ---->
+<div id="submitPage" style="width:640px;margin-left:auto;margin-right:auto;display:none;text-align:center">
+<p><b>Are you a native speaker of English?</b> (English was spoken at home when you were a child)<br />
+<input name="nativeEnglish" type="radio" value="yes" required>Yes  &nbsp; &nbsp; <input name="nativeEnglish" type="radio" value="no">No &nbsp; 
+(Please answer truthfully. The payment will <b>NOT</b> be affected.)<br />
+Native language(s) other than English, if any: <input type="text" name="othernativelanguage"/></p>
+
+<p><b>Answering the following questions is optional, but will help us improve future HITs.</b></p>
+
+<p>Did you read the instructions and do you think you did the HIT correctly?<br />
+      <label><input type="radio"  name="assess" value="No"/>No</label>
+      <label><input type="radio"  name="assess" value="Yes"/>Yes</label>
+      <label><input type="radio"  name="assess" value="Confused"/>I was confused</label>
+</p>
+
+      <p>Were there any problems or bugs in the experiment?<br />
+      <textarea name="problems" rows="1" cols="60"></textarea>
+</p>
+
+      <p>What do you think is a fair price for the work you did?
+      <input type="text" name="fairprice"/> </p>
+
+      <p>Did you enjoy the hit?
+      <select name="enjoyment">
+        <label><option value="99"></option></label>
+        <label><option value="-1">Worse than the Average HIT</option></label>
+        <label><option value="0" >An Average HIT</option></label>
+        <label><option value="1">Better than average HIT</option></label>
+      </select>
+      </p>
+
+      <p>Gender:
+        <select name="gender">
+          <label><option value=""/></label>
+          <label><option value="Male"/>Male</label>
+          <label><option value="Female"/>Female</label>
+          <label><option value="Other"/>Other</label>
+        </select> &nbsp;
+     Age: <input type="text" name="age"/> &nbsp;
+     Level Of Education:
+        <select name="education">
+          <label><option value="-1"/></label>
+          <label><option value="0"/>Some High School</label>
+          <label><option value="1"/>Graduated High School</label>
+          <label><option value="2"/>Some College</label>
+          <label><option value="3"/>Graduated College</label>
+          <label><option value="4"/>Hold a higher degree</label>
+        </select>
+      </p>
+
+      <p>Any additional comments about this experiment:<br />
+      <textarea name="comments" rows="2" cols="60"></textarea></p>
+
+
+
+<p>You have finished the task. Please submit the result.<br />
+Note that you may take part in this task <b>ONLY ONCE</b> so please do <b>NOT</b> accept another HIT afterwards!</p>
+
+<p>Thank you very much for your participation!<br />
+<input id="submitButton" type="submit" value="Submit" /></p>
+</div>
+<!--- Submission Ends ---->
+
+</form>
+</div>
+

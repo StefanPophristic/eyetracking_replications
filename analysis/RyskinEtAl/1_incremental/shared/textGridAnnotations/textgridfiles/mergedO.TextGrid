@@ -1,0 +1,184 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.071519274376417 
+tiers? <exists> 
+size = 8 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "onionSmall" 
+        xmin = 0 
+        xmax = 2.071519274376417 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6893104504215579 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6893104504215579 
+            xmax = 1.3478167878962721 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.3478167878962721 
+            xmax = 1.4934771759091123 
+            text = "" 
+        intervals [4]:
+            xmin = 1.4934771759091123 
+            xmax = 2.06701495370967 
+            text = "noun" 
+        intervals [5]:
+            xmin = 2.06701495370967 
+            xmax = 2.071519274376417 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "orangeBig" 
+        xmin = 0 
+        xmax = 1.9686167800453516 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5339473952841758 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5339473952841758 
+            xmax = 0.706978300413162 
+            text = "" 
+        intervals [3]:
+            xmin = 0.706978300413162 
+            xmax = 1.1280201695603618 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.1280201695603618 
+            xmax = 1.295283377851715 
+            text = "" 
+        intervals [5]:
+            xmin = 1.295283377851715 
+            xmax = 1.9686167800453516 
+            text = "noun" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "origami" 
+        xmin = 0 
+        xmax = 1.386031746031746 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5322748294926467 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5322748294926467 
+            xmax = 0.5789743326636051 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5789743326636051 
+            xmax = 1.386031746031746 
+            text = "noun" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "oragamiBig" 
+        xmin = 0 
+        xmax = 1.7600907029478459 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5237996968161548 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5237996968161548 
+            xmax = 0.6269347476217814 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6269347476217814 
+            xmax = 0.9543885339296455 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9543885339296455 
+            xmax = 0.9956425542518962 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9956425542518962 
+            xmax = 1.7600907029478459 
+            text = "noun" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "ovenMit" 
+        xmin = 0 
+        xmax = 1.4523809523809523 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.8364715356937839 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.8364715356937839 
+            xmax = 1.4523809523809523 
+            text = "noun" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "ovenmitBig" 
+        xmin = 0 
+        xmax = 1.683106575963719 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47623335106502435 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47623335106502435 
+            xmax = 0.5526669936595479 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5526669936595479 
+            xmax = 0.9299040038841314 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9299040038841314 
+            xmax = 0.9915440382345536 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9915440382345536 
+            xmax = 1.683106575963719 
+            text = "noun" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "owl" 
+        xmin = 0 
+        xmax = 1.12859410430839 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5524484742325462 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5524484742325462 
+            xmax = 0.6433794210731079 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6433794210731079 
+            xmax = 1.12859410430839 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "owlSmall" 
+        xmin = 0 
+        xmax = 1.7698185941043083 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4722495369380531 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4722495369380531 
+            xmax = 1.086702080270254 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.086702080270254 
+            xmax = 1.1929997776399597 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1929997776399597 
+            xmax = 1.7698185941043083 
+            text = "noun" 

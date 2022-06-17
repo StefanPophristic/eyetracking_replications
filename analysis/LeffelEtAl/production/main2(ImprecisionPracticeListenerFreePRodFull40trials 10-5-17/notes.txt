@@ -1,0 +1,102 @@
+# Raw MTurk data files
+
+- Batch_2962714_batch_results.csv
+
+A pilot of 24 participants; some demographic information was not recorded possibly because an old version was used
+
+
+- Batch_2978795_batch_results – practice trials 24 subjects 10-20-17.csv
+
+First batch of 24 participants to make sure that everything works as intended
+
+
+- Batch_2983980_batch_results - practice trials 96 subjects - 10-25-17.csv
+
+Second batch of 96 participants
+
+
+- imprecision_freeprod_oct2017_120participants_raw.csv
+
+The aggregate of the above two batches, with worker IDs masked.
+(This will be the version to use when we release the data)
+
+- imprecision_freeprod_oct2017_120participants_long.csv
+
+Long form data without annotation, obtained by running preprocessWideToLong.R
+
+- imprecision_freeprod_oct2017_120participants_long_annotated.csv
+
+Annotated with type of target modification
+
+>> 0 means no modification relating to target adj
+
+>> 1 means target adj is used in positive form; most likely it is the 1st word,
+but it can be preceded by some other intersective adjectives,
+e.g., horizontal thick line
+
+>> N means the nominal form of the target adj is used, 
+e.g., bumpy -> with bumps; spotted -> with spots
+bent arrow -> arrow bend; curved line -> curve
+
+Note that some of these might be just typos: e.g., curve arrow
+
+>> C means comparative form of the target adj is used
+
+>> S means superlative form of the target adj is used
+
+>> M means the target adjective is further modified 
+e.g., almost straight, mostly empty
+
+>> MS means the superlative form is modified 
+
+e.g., second longest
+
+>> ! means that the response seems obviously wrong, possibly due to misunderstanding or technical errors. If a participant systematically makes such responses we might consider removing them (e.g., participants #44, #65, #76, #103)
+
+
+>> U means underinformative; possibly due to error  
+(the annotation quality on this might be less good because sometimes it is not clear 
+whether the description is truly underinformative)
+
+>> A means some sort of antonym is used (rare)
+e.g., "flat circle" -> single bump circle
+
+
+Sometimes it can get tricky: big/large; bent/curved/curvy/curving; thick/wide/fat; antonyms
+Right now the standard is quite strict; but the annotation scheme can be further revised
+
+
+ExactMatch
+
+First word matches the target word
+
+InitialMatch
+
+Description and target word phonetically share the same initial sequence
+E.g., curved/curve/curvy/curving
+
+MorphemeIncluded
+E.g., bent arrow/arrowed bend
+
+SynFirst: a synonym is used as the first word
+E.g., for "spotted circle," "dotted circle" is included, but "circle with dots" is not 
+
+
+>> bc for bent/curved    
+>> bca for bent/crooked/angled/angular   (angle as a noun not included)
+>> sd for spotted/dotted  (amongst other such as mottled, dappled, speckled, flecked, freckled, freckly, stippled, brindle, brindled)
+>> ca for curved/curvy/arc/arch/arcing/arching
+>> ff for full/filled
+>> bl for big/large
+>> wtf for wide/thick/fat
+>> nts for narrow/thin/skinny/slim
+
+SynIncluded: a synonym is included somewhere
+
+Maybe stripes and lines lined should also be included?  
+Flat and straight?
+
+
+
+
+

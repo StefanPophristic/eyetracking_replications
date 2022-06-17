@@ -1,0 +1,361 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "hammerSmall"
+        xmin = 0
+        xmax = 1.9141043083900227
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5359859473726345
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5359859473726345
+            xmax = 1.2341800794399276
+            text = "adj"
+        intervals [3]:
+            xmin = 1.2341800794399276
+            xmax = 1.279043959412123
+            text = ""
+        intervals [4]:
+            xmin = 1.279043959412123
+            xmax = 1.9141043083900227
+            text = "noun"
+    item [2]:
+        class = "IntervalTier"
+        name = "bigHammock"
+        xmin = 0
+        xmax = 1.834580498866213
+        intervals: size = 7
+        intervals [1]:
+            xmin = 0
+            xmax = 0.016530773514199033
+            text = ""
+        intervals [2]:
+            xmin = 0.016530773514199033
+            xmax = 0.5217802458347002
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5217802458347002
+            xmax = 0.6346551279488547
+            text = ""
+        intervals [4]:
+            xmin = 0.6346551279488547
+            xmax = 0.9894047574504832
+            text = "adj"
+        intervals [5]:
+            xmin = 0.9894047574504832
+            xmax = 1.126467114303385
+            text = ""
+        intervals [6]:
+            xmin = 1.126467114303385
+            xmax = 1.822528887340671
+            text = "noun"
+        intervals [7]:
+            xmin = 1.822528887340671
+            xmax = 1.834580498866213
+            text = ""
+    item [3]:
+        class = "IntervalTier"
+        name = "hangerWood"
+        xmin = 0
+        xmax = 1.6892290249433106
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5175588154571531
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5175588154571531
+            xmax = 0.9159646203953742
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9159646203953742
+            xmax = 1.0570151227648064
+            text = ""
+        intervals [4]:
+            xmin = 1.0570151227648064
+            xmax = 1.6806068174507174
+            text = "noun"
+        intervals [5]:
+            xmin = 1.6806068174507174
+            xmax = 1.6892290249433106
+            text = ""
+    item [4]:
+        class = "IntervalTier"
+        name = "harpSmall"
+        xmin = 0
+        xmax = 1.6671201814058958
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.46682565098370016
+            text = "intro"
+        intervals [2]:
+            xmin = 0.46682565098370016
+            xmax = 1.0969087949186567
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0969087949186567
+            xmax = 1.1970382867842893
+            text = ""
+        intervals [4]:
+            xmin = 1.1970382867842893
+            xmax = 1.6671201814058958
+            text = "noun"
+    item [5]:
+        class = "IntervalTier"
+        name = "hatBig"
+        xmin = 0
+        xmax = 1.540090702947846
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4876573548320018
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4876573548320018
+            xmax = 0.6004621470990809
+            text = ""
+        intervals [3]:
+            xmin = 0.6004621470990809
+            xmax = 0.9321082363642933
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9321082363642933
+            xmax = 1.0494252203220555
+            text = ""
+        intervals [5]:
+            xmin = 1.0494252203220555
+            xmax = 1.5344858270704953
+            text = "noun"
+        intervals [6]:
+            xmin = 1.5344858270704953
+            xmax = 1.540090702947846
+            text = ""
+    item [6]:
+        class = "IntervalTier"
+        name = "hawk"
+        xmin = 0
+        xmax = 1.0726984126984127
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4804764811109731
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4804764811109731
+            xmax = 1.0111296484332353
+            text = "noun"
+        intervals [3]:
+            xmin = 1.0111296484332353
+            xmax = 1.0726984126984127
+            text = ""
+    item [7]:
+        class = "IntervalTier"
+        name = "hawkBig"
+        xmin = 0
+        xmax = 1.709954648526077
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5539680663231138
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5539680663231138
+            xmax = 0.6491554599573758
+            text = ""
+        intervals [3]:
+            xmin = 0.6491554599573758
+            xmax = 1.0198853088487119
+            text = "adj"
+        intervals [4]:
+            xmin = 1.0198853088487119
+            xmax = 1.1050529768372621
+            text = ""
+        intervals [5]:
+            xmin = 1.1050529768372621
+            xmax = 1.709954648526077
+            text = "noun"
+    item [8]:
+        class = "IntervalTier"
+        name = "helmet"
+        xmin = 0
+        xmax = 1.111904761904762
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4367754748749386
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4367754748749386
+            xmax = 1.0964562989482534
+            text = "noun"
+        intervals [3]:
+            xmin = 1.0964562989482534
+            xmax = 1.111904761904762
+            text = ""
+    item [9]:
+        class = "IntervalTier"
+        name = "highlighterYellow"
+        xmin = 0
+        xmax = 1.6014739229024944
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.42029123692028486
+            text = "intro"
+        intervals [2]:
+            xmin = 0.42029123692028486
+            xmax = 0.8730724794761476
+            text = "adj"
+        intervals [3]:
+            xmin = 0.8730724794761476
+            xmax = 1.6014739229024944
+            text = "noun"
+    item [10]:
+        class = "IntervalTier"
+        name = "hippo"
+        xmin = 0
+        xmax = 1.0501360544217686
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4894294493120153
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4894294493120153
+            xmax = 1.0501360544217686
+            text = "noun"
+    item [11]:
+        class = "IntervalTier"
+        name = "hippoBig"
+        xmin = 0
+        xmax = 1.6152607709750566
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.447571594014328
+            text = "intro"
+        intervals [2]:
+            xmin = 0.447571594014328
+            xmax = 0.542220126274534
+            text = ""
+        intervals [3]:
+            xmin = 0.542220126274534
+            xmax = 0.8782224157982654
+            text = "adj"
+        intervals [4]:
+            xmin = 0.8782224157982654
+            xmax = 0.9657723081389561
+            text = ""
+        intervals [5]:
+            xmin = 0.9657723081389561
+            xmax = 1.6152607709750566
+            text = "noun"
+    item [12]:
+        class = "IntervalTier"
+        name = "horse"
+        xmin = 0
+        xmax = 1.1759183673469389
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5067091395211932
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5067091395211932
+            xmax = 1.1759183673469389
+            text = "noun"
+    item [13]:
+        class = "IntervalTier"
+        name = "horseSmall"
+        xmin = 0
+        xmax = 1.9327437641723355
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5355427574890462
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5355427574890462
+            xmax = 1.1555969411918041
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1555969411918041
+            xmax = 1.2093915963988926
+            text = ""
+        intervals [4]:
+            xmin = 1.2093915963988926
+            xmax = 1.9327437641723355
+            text = "noun"
+    item [14]:
+        class = "IntervalTier"
+        name = "hotdog"
+        xmin = 0
+        xmax = 1.3978684807256236
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5421142650899311
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5421142650899311
+            xmax = 1.3784469257665752
+            text = "noun"
+        intervals [3]:
+            xmin = 1.3784469257665752
+            xmax = 1.3978684807256236
+            text = ""
+    item [15]:
+        class = "IntervalTier"
+        name = "hotdogSmall"
+        xmin = 0
+        xmax = 2.1020408163265305
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5054706024918578
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5054706024918578
+            xmax = 1.1829172097225802
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1829172097225802
+            xmax = 1.2845342008071885
+            text = ""
+        intervals [4]:
+            xmin = 1.2845342008071885
+            xmax = 2.1020408163265305
+            text = "noun"
+    item [16]:
+        class = "IntervalTier"
+        name = "houseBig"
+        xmin = 0
+        xmax = 1.6480725623582766
+        intervals: size = 6
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4687347910174403
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4687347910174403
+            xmax = 0.587034494423487
+            text = ""
+        intervals [3]:
+            xmin = 0.587034494423487
+            xmax = 0.9346907656575835
+            text = "adj"
+        intervals [4]:
+            xmin = 0.9346907656575835
+            xmax = 0.9829763588845413
+            text = ""
+        intervals [5]:
+            xmin = 0.9829763588845413
+            xmax = 1.6444889860938634
+            text = "noun"
+        intervals [6]:
+            xmin = 1.6444889860938634
+            xmax = 1.6480725623582766
+            text = ""

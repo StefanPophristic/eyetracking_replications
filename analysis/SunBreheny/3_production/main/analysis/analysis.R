@@ -78,9 +78,10 @@ theme_set(theme_bw())
 df_3.1 = read.csv("../data/3.1/3.1-trials_cleaned.csv", header = TRUE)
 df_3.2 = read.csv("../data/3.2/3.2-trials_cleaned.csv", header = TRUE)
 
+# Import all data sets here 
 
 #########
-# Experiment Information
+# Production Experiment Information
 #########
 
 nrow(df_3.1) # 2550 data points
@@ -302,46 +303,6 @@ df_3.2 <- participantExclusion(df_3.2)
 #############################################
 #############################################
 #
-# Response Time Analysis
-#
-#############################################
-#############################################
-
-# Response Time Graph Function
-#
-# Plot graph of response times
-# Input: data frame with raw data
-# Output: ggplot of response time distribution
-
-responseTimeGraph <- function(DF) {
-  # log-transform response times
-  DF$logRT = log(DF$response_times)
-  
-  # get mean response time and potential SD cutoff, in this case 2.5 SDs
-  mean_rt = mean(DF$logRT)
-  sd_cutoff = 2.5*sd(DF$logRT)
-  
-  # see trials that would get cut off
-  View(DF[DF$response_times < exp(mean_rt-sd_cutoff),]) # there is nobody on the low end, but if you search for response times < 2500 (ie 2.5 seconds), you'll see this is mostly one person who never typed the gender. we may want to exclude participants who never or rarely produced gender, since they are arguably not doing the same task as the others (these appear to be workers 95 and 128)
-  View(DF[DF$response_times > exp(mean_rt+sd_cutoff),]) # the very slow people produce reasonable referring expressions. my hunch is that because we're having people type and there are big differences in how fast people type, some are just turning up as very slow, but they shouldn't be excluded.
-  
-  
-  # show what would get cut off
-  ggplot(DF, aes(x=logRT)) + 
-    geom_histogram(binwidth=.1) +
-    geom_vline(xintercept=mean_rt-sd_cutoff) +
-    geom_vline(xintercept=mean_rt+sd_cutoff) %>%
-    return()
-}
-
-# Commented out to make running the rest of the code faster
-#responseTimeGraph(df_3.1)
-#responseTimeGraph(df_3.2)
-
-
-#############################################
-#############################################
-#
 # Trial Exclusions
 #
 #############################################
@@ -420,6 +381,12 @@ trialExclusion <- function(DF) {
   return(DF)
 }
 
+# ADD COUNTER THROUGHOUT THE ABOVE THING TO CLEAN IT UP
+# add X - y into print function
+
+## ADD PROPORTION OF TRIALS
+# Relative to overall input data set (X include excluded to participants excluded)
+
 df_3.1 <- trialExclusion(df_3.1)
 # "Number of trials pre exclusions:  1836"
 # "Number of trials excluded due to wrong Noun:  17"
@@ -451,7 +418,7 @@ df_3.1 <- df_3.1 %>%
 df_3.2 <- df_3.2 %>%
   mutate(experiment = 2)
 
-df <- rbind(df_3.1, df_3.2)
+df <- bind_rows(df_3.1, df_3.2)
 
 # Change target object labels for convenience
 df <- df %>%
@@ -518,13 +485,13 @@ dfDet <- right_join(dfDet, allCombinations, by = c("experiment", "size", "noun",
 dfDet <- dfDet %>%
   mutate(n = replace(n, is.na(n), 0))
 
-# Count occurances
-occuranceCount <- dfDet %>%
+# Count occurences
+occurrenceCount <- dfDet %>%
   group_by(experiment, detUsed) %>%
   mutate(newN = sum(n)) %>%
   select(experiment, detUsed, newN) %>%
   unique()
-occuranceCount
+occurrenceCount
 # experiment detUsed  newN
 # <dbl> <chr>   <dbl>
 # 1 noDet     566

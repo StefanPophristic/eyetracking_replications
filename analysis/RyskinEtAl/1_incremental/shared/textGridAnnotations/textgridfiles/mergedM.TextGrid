@@ -1,0 +1,294 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.9773015873015873 
+tiers? <exists> 
+size = 15 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "mailboxBarn" 
+        xmin = 0 
+        xmax = 1.9031292517006804 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4739490165268713 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4739490165268713 
+            xmax = 0.5808384243272675 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5808384243272675 
+            xmax = 0.9664948960823274 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9664948960823274 
+            xmax = 1.9031292517006804 
+            text = "noun" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "maskSmall" 
+        xmin = 0 
+        xmax = 1.948843537414966 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47434153887157626 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47434153887157626 
+            xmax = 1.1338193681318682 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1338193681318682 
+            xmax = 1.2051914275756228 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2051914275756228 
+            xmax = 1.948843537414966 
+            text = "mask" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "microphone" 
+        xmin = 0 
+        xmax = 1.2560544217687075 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4363597143794372 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4363597143794372 
+            xmax = 1.2560544217687075 
+            text = "noun" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "microscope" 
+        xmin = 0 
+        xmax = 1.3229478458049886 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4201313951965112 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4201313951965112 
+            xmax = 1.3229478458049886 
+            text = "noun" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "microwave" 
+        xmin = 0 
+        xmax = 1.3538548752834467 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47084770472152554 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47084770472152554 
+            xmax = 1.3538548752834467 
+            text = "noun" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "mirrorHand" 
+        xmin = 0 
+        xmax = 1.7275963718820861 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5167864066984755 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5167864066984755 
+            xmax = 1.0608121399263204 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0608121399263204 
+            xmax = 1.1100434330476219 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1100434330476219 
+            xmax = 1.7275963718820861 
+            text = "noun" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "mixerGreen" 
+        xmin = 0 
+        xmax = 1.857936507936508 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.48487563342285833 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.48487563342285833 
+            xmax = 0.5855789651502106 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5855789651502106 
+            xmax = 1.0727653537771311 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0727653537771311 
+            xmax = 1.2034075138558582 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2034075138558582 
+            xmax = 1.857936507936508 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "monkeySmall" 
+        xmin = 0 
+        xmax = 1.869591836734694 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4851786012661381 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4851786012661381 
+            xmax = 1.1671362375597487 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1671362375597487 
+            xmax = 1.268471308013016 
+            text = "" 
+        intervals [4]:
+            xmin = 1.268471308013016 
+            xmax = 1.869591836734694 
+            text = "noun" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "motorcycle" 
+        xmin = 0 
+        xmax = 1.3639229024943311 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5197883658507894 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5197883658507894 
+            xmax = 1.3639229024943311 
+            text = "noun" 
+    item [10]:
+        class = "IntervalTier" 
+        name = "motorcycleSmall" 
+        xmin = 0 
+        xmax = 1.9773015873015873 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5391995440893064 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5391995440893064 
+            xmax = 1.0547891622758463 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0547891622758463 
+            xmax = 1.12141029271568 
+            text = "" 
+        intervals [4]:
+            xmin = 1.12141029271568 
+            xmax = 1.9773015873015873 
+            text = "noun" 
+    item [11]:
+        class = "IntervalTier" 
+        name = "muffin" 
+        xmin = 0 
+        xmax = 1.1582312925170068 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4990876900085524 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4990876900085524 
+            xmax = 1.1582312925170068 
+            text = "noun" 
+    item [12]:
+        class = "IntervalTier" 
+        name = "mug" 
+        xmin = 0 
+        xmax = 0.9574603174603175 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.43782116204690835 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.43782116204690835 
+            xmax = 0.9574603174603175 
+            text = "noun" 
+    item [13]:
+        class = "IntervalTier" 
+        name = "mushroomBig" 
+        xmin = 0 
+        xmax = 1.7301360544217688 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5123507541399167 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5123507541399167 
+            xmax = 0.6061270830282459 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6061270830282459 
+            xmax = 0.9305424910743576 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9305424910743576 
+            xmax = 1.026853315338047 
+            text = "" 
+        intervals [5]:
+            xmin = 1.026853315338047 
+            xmax = 1.7301360544217688 
+            text = "noun" 
+    item [14]:
+        class = "IntervalTier" 
+        name = "musicsheet" 
+        xmin = 0 
+        xmax = 1.2643990929705216 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.420736374055937 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.420736374055937 
+            xmax = 1.2643990929705216 
+            text = "noun" 
+    item [15]:
+        class = "IntervalTier" 
+        name = "musicsheetBig" 
+        xmin = 0 
+        xmax = 1.9309297052154195 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47563865667248545 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47563865667248545 
+            xmax = 0.5661551433130659 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5661551433130659 
+            xmax = 0.8716482857250251 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.8716482857250251 
+            xmax = 1.035709417761077 
+            text = "" 
+        intervals [5]:
+            xmin = 1.035709417761077 
+            xmax = 1.9309297052154195 
+            text = "noun" 

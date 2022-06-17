@@ -14,7 +14,7 @@
 	align-items: center;
 	justify-items: center;*/
 }
-  
+
 .grid-container > div {
 	/* background-color: rgba(255, 255, 255, 0.8); */
 	text-align: center;
@@ -27,6 +27,17 @@
     height: 100%;
     object-fit: scale-down;
     overflow: hidden;
+}
+
+/* Define a red border that will be put around the target image */
+.redSquare {
+	border-width: 10px;
+	border-style: solid;
+	border-color: #b30000;
+}
+
+.err {
+	color: red;
 }
 
 /*change_cb */

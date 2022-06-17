@@ -1,0 +1,278 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.06 
+tiers? <exists> 
+size = 9 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.850204081632653 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.0031196304827901407 
+            text = " " 
+        intervals [2]:
+            xmin = 0.0031196304827901407 
+            xmax = 0.46527890380332315 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.46527890380332315 
+            xmax = 0.4667798061811881 
+            text = "" 
+        intervals [4]:
+            xmin = 0.4667798061811881 
+            xmax = 1.062879912032264 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.062879912032264 
+            xmax = 1.1387706738823544 
+            text = "" 
+        intervals [6]:
+            xmin = 1.1387706738823544 
+            xmax = 1.8461809896992665 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.8461809896992665 
+            xmax = 1.850204081632653 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.8406802721088436 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46419358430082713 
+            text = " onset" 
+        intervals [2]:
+            xmin = 0.46419358430082713 
+            xmax = 0.47932368333854575 
+            text = "" 
+        intervals [3]:
+            xmin = 0.47932368333854575 
+            xmax = 0.9183584623196155 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9183584623196155 
+            xmax = 0.9457981360059323 
+            text = "noun" 
+        intervals [5]:
+            xmin = 0.9457981360059323 
+            xmax = 1.831285023152487 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.831285023152487 
+            xmax = 1.8406802721088436 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.453061224489796 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.015221640033740257 
+            text = "nounadjo" 
+        intervals [2]:
+            xmin = 0.015221640033740257 
+            xmax = 0.5098987605260721 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.5098987605260721 
+            xmax = 0.5171834184701799 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5171834184701799 
+            xmax = 0.9096815203917843 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.9096815203917843 
+            xmax = 0.9772569652717481 
+            text = "" 
+        intervals [6]:
+            xmin = 0.9772569652717481 
+            xmax = 1.415843995290424 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.415843995290424 
+            xmax = 1.453061224489796 
+            text = "" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.6108843537414965 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.009795520044987006 
+            text = "onset" 
+        intervals [2]:
+            xmin = 0.009795520044987006 
+            xmax = 0.6021058834555637 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.6021058834555637 
+            xmax = 0.6045504318775812 
+            text = "" 
+        intervals [4]:
+            xmin = 0.6045504318775812 
+            xmax = 1.569624803767661 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.569624803767661 
+            xmax = 1.6108843537414965 
+            text = "" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 2.06 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01764282809749504 
+            text = "adj" 
+        intervals [2]:
+            xmin = 0.01764282809749504 
+            xmax = 0.5699792862974076 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.5699792862974076 
+            xmax = 0.5757662721826374 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5757662721826374 
+            xmax = 0.9202137807616797 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.9202137807616797 
+            xmax = 1.045881012275321 
+            text = "" 
+        intervals [6]:
+            xmin = 1.045881012275321 
+            xmax = 2.022659387351735 
+            text = "noun" 
+        intervals [7]:
+            xmin = 2.022659387351735 
+            xmax = 2.06 
+            text = "" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.4436961451247166 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.006663989937967158 
+            text = "" 
+        intervals [2]:
+            xmin = 0.006663989937967158 
+            xmax = 0.5861428622073113 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.5861428622073113 
+            xmax = 0.613636385344178 
+            text = "" 
+        intervals [4]:
+            xmin = 0.613636385344178 
+            xmax = 1.4109485563133117 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.4109485563133117 
+            xmax = 1.4436961451247166 
+            text = "" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 2.0597732426303854 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.0228977799689333 
+            text = "" 
+        intervals [2]:
+            xmin = 0.0228977799689333 
+            xmax = 0.49278610567336883 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.49278610567336883 
+            xmax = 0.4938219802201215 
+            text = "" 
+        intervals [4]:
+            xmin = 0.4938219802201215 
+            xmax = 1.065340096471318 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.065340096471318 
+            xmax = 1.2918961776185791 
+            text = "" 
+        intervals [6]:
+            xmin = 1.2918961776185791 
+            xmax = 2.0597732426303854 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.0449886621315192 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.020131741068987876 
+            text = "" 
+        intervals [2]:
+            xmin = 0.020131741068987876 
+            xmax = 0.43192108604348745 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.43192108604348745 
+            xmax = 0.5023385948495357 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5023385948495357 
+            xmax = 1.0449886621315192 
+            text = "noun" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "Annotations" 
+        xmin = 0 
+        xmax = 1.682108843537415 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.011429010323336979 
+            text = "" 
+        intervals [2]:
+            xmin = 0.011429010323336979 
+            xmax = 0.41525163784555696 
+            text = "onset" 
+        intervals [3]:
+            xmin = 0.41525163784555696 
+            xmax = 0.41596567207951896 
+            text = "" 
+        intervals [4]:
+            xmin = 0.41596567207951896 
+            xmax = 0.9810369182304032 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.9810369182304032 
+            xmax = 1.1079455235650588 
+            text = "" 
+        intervals [6]:
+            xmin = 1.1079455235650588 
+            xmax = 1.6800275792215371 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.6800275792215371 
+            xmax = 1.682108843537415 
+            text = "" 

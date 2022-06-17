@@ -1,0 +1,468 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.1805668934240363 
+tiers? <exists> 
+size = 18 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "fanSmall" 
+        xmin = 0 
+        xmax = 1.882018140589569 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.471861422149945 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.471861422149945 
+            xmax = 1.1114828973875717 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1114828973875717 
+            xmax = 1.2024635382618891 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2024635382618891 
+            xmax = 1.8613839373213406 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.8613839373213406 
+            xmax = 1.882018140589569 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "featherSmall" 
+        xmin = 0 
+        xmax = 1.8224943310657595 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49965422714723096 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49965422714723096 
+            xmax = 1.1270553548485986 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1270553548485986 
+            xmax = 1.193800155667893 
+            text = "" 
+        intervals [4]:
+            xmin = 1.193800155667893 
+            xmax = 1.8158616993037169 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.8158616993037169 
+            xmax = 1.8224943310657595 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "firealarm" 
+        xmin = 0 
+        xmax = 1.3126757369614512 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.006059209849984777 
+            text = "" 
+        intervals [2]:
+            xmin = 0.006059209849984777 
+            xmax = 0.42141709136079814 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.42141709136079814 
+            xmax = 0.44449252922251 
+            text = "" 
+        intervals [4]:
+            xmin = 0.44449252922251 
+            xmax = 1.3040525895712762 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.3040525895712762 
+            xmax = 1.3126757369614512 
+            text = "" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "fireHydrant" 
+        xmin = 0 
+        xmax = 1.5955102040816327 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5122173363217275 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5122173363217275 
+            xmax = 0.5659747874393731 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5659747874393731 
+            xmax = 1.5149106636899883 
+            text = "noun" 
+        intervals [4]:
+            xmin = 1.5149106636899883 
+            xmax = 1.5955102040816327 
+            text = "" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "firehydrantBig" 
+        xmin = 0 
+        xmax = 2.174512471655329 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.522897614849614 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.522897614849614 
+            xmax = 0.6662436427556099 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6662436427556099 
+            xmax = 1.0070886424432002 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0070886424432002 
+            xmax = 1.1217654647679969 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1217654647679969 
+            xmax = 2.1411149965439678 
+            text = "noun" 
+        intervals [6]:
+            xmin = 2.1411149965439678 
+            xmax = 2.174512471655329 
+            text = "" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "fishSmall" 
+        xmin = 0 
+        xmax = 1.77281179138322 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.48083926131948196 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.48083926131948196 
+            xmax = 1.0417937524040903 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0417937524040903 
+            xmax = 1.2287785827656266 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2287785827656266 
+            xmax = 1.7663599700550427 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.7663599700550427 
+            xmax = 1.77281179138322 
+            text = "" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "flag" 
+        xmin = 0 
+        xmax = 1.065578231292517 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01896742250287027 
+            text = "" 
+        intervals [2]:
+            xmin = 0.01896742250287027 
+            xmax = 0.4497971560955037 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4497971560955037 
+            xmax = 0.5044313614423956 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5044313614423956 
+            xmax = 1.032041687363809 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.032041687363809 
+            xmax = 1.065578231292517 
+            text = "" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "flashlight" 
+        xmin = 0 
+        xmax = 1.377936507936508 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.000304785396506486 
+            text = "" 
+        intervals [2]:
+            xmin = 0.000304785396506486 
+            xmax = 0.5049433798555302 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.5049433798555302 
+            xmax = 0.523110369256055 
+            text = "" 
+        intervals [4]:
+            xmin = 0.523110369256055 
+            xmax = 1.3709032079472148 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.3709032079472148 
+            xmax = 1.377936507936508 
+            text = "" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "flashlightSmall" 
+        xmin = 0 
+        xmax = 2.1805668934240363 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49241013629116986 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49241013629116986 
+            xmax = 1.1408604409150287 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1408604409150287 
+            xmax = 1.3101602741419474 
+            text = "" 
+        intervals [4]:
+            xmin = 1.3101602741419474 
+            xmax = 2.1694367861804595 
+            text = "noun" 
+        intervals [5]:
+            xmin = 2.1694367861804595 
+            xmax = 2.1805668934240363 
+            text = "" 
+    item [10]:
+        class = "IntervalTier" 
+        name = "flowerSmall" 
+        xmin = 0 
+        xmax = 1.7819954648526077 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4807196817863197 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4807196817863197 
+            xmax = 1.0628533315809103 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0628533315809103 
+            xmax = 1.1672719234723168 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1672719234723168 
+            xmax = 1.7702892916451884 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.7702892916451884 
+            xmax = 1.7819954648526077 
+            text = "" 
+    item [11]:
+        class = "IntervalTier" 
+        name = "fluteBig" 
+        xmin = 0 
+        xmax = 1.5444444444444445 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5274979848354383 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5274979848354383 
+            xmax = 0.6134719850267892 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6134719850267892 
+            xmax = 0.9799927226846538 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9799927226846538 
+            xmax = 0.9980925121986224 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9980925121986224 
+            xmax = 1.5410861976176808 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.5410861976176808 
+            xmax = 1.5444444444444445 
+            text = "" 
+    item [12]:
+        class = "IntervalTier" 
+        name = "footballSmall" 
+        xmin = 0 
+        xmax = 2.0918367346938775 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5183386351455049 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5183386351455049 
+            xmax = 1.2108827947439023 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.2108827947439023 
+            xmax = 1.3855510119877459 
+            text = "" 
+        intervals [4]:
+            xmin = 1.3855510119877459 
+            xmax = 2.078095171586143 
+            text = "noun" 
+        intervals [5]:
+            xmin = 2.078095171586143 
+            xmax = 2.0918367346938775 
+            text = "" 
+    item [13]:
+        class = "IntervalTier" 
+        name = "fork" 
+        xmin = 0 
+        xmax = 1.2317233560090703 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5596256317631818 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5596256317631818 
+            xmax = 1.2200232656990753 
+            text = "noun" 
+        intervals [3]:
+            xmin = 1.2200232656990753 
+            xmax = 1.2317233560090703 
+            text = "" 
+    item [14]:
+        class = "IntervalTier" 
+        name = "forkPlastic" 
+        xmin = 0 
+        xmax = 1.656077097505669 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.44432533077596714 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.44432533077596714 
+            xmax = 0.5243835153485907 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5243835153485907 
+            xmax = 1.0920688241362848 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0920688241362848 
+            xmax = 1.656077097505669 
+            text = "noun" 
+    item [15]:
+        class = "IntervalTier" 
+        name = "forkSMall" 
+        xmin = 0 
+        xmax = 1.9389342403628118 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4974929467043707 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4974929467043707 
+            xmax = 1.164978989435183 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.164978989435183 
+            xmax = 1.221786312220784 
+            text = "" 
+        intervals [4]:
+            xmin = 1.221786312220784 
+            xmax = 1.9205163824836766 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.9205163824836766 
+            xmax = 1.9389342403628118 
+            text = "" 
+    item [16]:
+        class = "IntervalTier" 
+        name = "fountain" 
+        xmin = 0 
+        xmax = 1.091315192743764 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.013030824939763512 
+            text = "" 
+        intervals [2]:
+            xmin = 0.013030824939763512 
+            xmax = 0.439878292590716 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.439878292590716 
+            xmax = 0.5054241584097761 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5054241584097761 
+            xmax = 1.0601659983906018 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.0601659983906018 
+            xmax = 1.091315192743764 
+            text = "" 
+    item [17]:
+        class = "IntervalTier" 
+        name = "frenchfries" 
+        xmin = 0 
+        xmax = 1.5443310657596372 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.013915435760268526 
+            text = "" 
+        intervals [2]:
+            xmin = 0.013915435760268526 
+            xmax = 0.48673772406853105 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.48673772406853105 
+            xmax = 0.5093608000641417 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5093608000641417 
+            xmax = 1.50477614387101 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.50477614387101 
+            xmax = 1.5443310657596372 
+            text = "" 
+    item [18]:
+        class = "IntervalTier" 
+        name = "fridge" 
+        xmin = 0 
+        xmax = 1.183968253968254 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.015871554914302123 
+            text = "" 
+        intervals [2]:
+            xmin = 0.015871554914302123 
+            xmax = 0.46681767254045714 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.46681767254045714 
+            xmax = 0.5466004471973922 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5466004471973922 
+            xmax = 1.1449712571244055 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.1449712571244055 
+            xmax = 1.183968253968254 
+            text = "" 

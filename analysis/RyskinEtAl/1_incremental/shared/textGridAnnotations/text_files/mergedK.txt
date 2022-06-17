@@ -1,0 +1,239 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "kangaroo"
+        xmin = 0
+        xmax = 1.3538548752834467
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4703360908980413
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4703360908980413
+            xmax = 0.5100016294728282
+            text = ""
+        intervals [3]:
+            xmin = 0.5100016294728282
+            xmax = 1.3538548752834467
+            text = "noun"
+    item [2]:
+        class = "IntervalTier"
+        name = "kangarooSmall"
+        xmin = 0
+        xmax = 1.7768027210884354
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.41424741496842715
+            text = "intro"
+        intervals [2]:
+            xmin = 0.41424741496842715
+            xmax = 0.9244075613518944
+            text = "adj"
+        intervals [3]:
+            xmin = 0.9244075613518944
+            xmax = 0.9972875822638183
+            text = ""
+        intervals [4]:
+            xmin = 0.9972875822638183
+            xmax = 1.7768027210884354
+            text = "noun"
+    item [3]:
+        class = "IntervalTier"
+        name = "kayakBig"
+        xmin = 0
+        xmax = 1.978888888888889
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5860147310323384
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5860147310323384
+            xmax = 0.7135661613805971
+            text = ""
+        intervals [3]:
+            xmin = 0.7135661613805971
+            xmax = 1.1484005830223882
+            text = "adj"
+        intervals [4]:
+            xmin = 1.1484005830223882
+            xmax = 1.2962442863805972
+            text = ""
+        intervals [5]:
+            xmin = 1.2962442863805972
+            xmax = 1.978888888888889
+            text = "noun"
+    item [4]:
+        class = "IntervalTier"
+        name = "kazoo"
+        xmin = 0
+        xmax = 1.127981859410431
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4430908376094411
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4430908376094411
+            xmax = 1.127981859410431
+            text = "noun"
+    item [5]:
+        class = "IntervalTier"
+        name = "kazooSmall"
+        xmin = 0
+        xmax = 1.8714739229024944
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.5843625622378688
+            text = "intro"
+        intervals [2]:
+            xmin = 0.5843625622378688
+            xmax = 1.0970310614802754
+            text = "adj"
+        intervals [3]:
+            xmin = 1.0970310614802754
+            xmax = 1.1655696308977093
+            text = ""
+        intervals [4]:
+            xmin = 1.1655696308977093
+            xmax = 1.8714739229024944
+            text = "noun"
+    item [6]:
+        class = "IntervalTier"
+        name = "kettleElectric"
+        xmin = 0
+        xmax = 1.6946938775510203
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4944074210970267
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4944074210970267
+            xmax = 1.172150598069308
+            text = "adj"
+        intervals [3]:
+            xmin = 1.172150598069308
+            xmax = 1.2441452945242393
+            text = ""
+        intervals [4]:
+            xmin = 1.2441452945242393
+            xmax = 1.6946938775510203
+            text = "noun"
+    item [7]:
+        class = "IntervalTier"
+        name = "keySmall"
+        xmin = 0
+        xmax = 1.9841950113378686
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.532359336449132
+            text = "intro"
+        intervals [2]:
+            xmin = 0.532359336449132
+            xmax = 1.244493276125749
+            text = "adj"
+        intervals [3]:
+            xmin = 1.244493276125749
+            xmax = 1.439240108608742
+            text = ""
+        intervals [4]:
+            xmin = 1.439240108608742
+            xmax = 1.9841950113378686
+            text = "noun"
+    item [8]:
+        class = "IntervalTier"
+        name = "keyboard"
+        xmin = 0
+        xmax = 1.194331065759637
+        intervals: size = 3
+        intervals [1]:
+            xmin = 0
+            xmax = 0.44465971420858824
+            text = "intro"
+        intervals [2]:
+            xmin = 0.44465971420858824
+            xmax = 0.49889696520829924
+            text = ""
+        intervals [3]:
+            xmin = 0.49889696520829924
+            xmax = 1.194331065759637
+            text = "noun"
+    item [9]:
+        class = "IntervalTier"
+        name = "keyboardBig"
+        xmin = 0
+        xmax = 1.8269160997732425
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4821326105564213
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4821326105564213
+            xmax = 0.5731257745929889
+            text = ""
+        intervals [3]:
+            xmin = 0.5731257745929889
+            xmax = 0.8969543877819499
+            text = "adj"
+        intervals [4]:
+            xmin = 0.8969543877819499
+            xmax = 1.097674602568496
+            text = ""
+        intervals [5]:
+            xmin = 1.097674602568496
+            xmax = 1.8269160997732425
+            text = "noun"
+    item [10]:
+        class = "IntervalTier"
+        name = "kiwi"
+        xmin = 0
+        xmax = 1.1695464852607709
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.02938447779011146
+            text = ""
+        intervals [2]:
+            xmin = 0.02938447779011146
+            xmax = 0.5022501819420364
+            text = "intro"
+        intervals [3]:
+            xmin = 0.5022501819420364
+            xmax = 0.5673548803397652
+            text = ""
+        intervals [4]:
+            xmin = 0.5673548803397652
+            xmax = 1.1695464852607709
+            text = "noun"
+    item [11]:
+        class = "IntervalTier"
+        name = "kiwiBig"
+        xmin = 0
+        xmax = 1.648684807256236
+        intervals: size = 5
+        intervals [1]:
+            xmin = 0
+            xmax = 0.44234197999162367
+            text = "intro"
+        intervals [2]:
+            xmin = 0.44234197999162367
+            xmax = 0.543779394908796
+            text = ""
+        intervals [3]:
+            xmin = 0.543779394908796
+            xmax = 0.8601675223885481
+            text = "adj"
+        intervals [4]:
+            xmin = 0.8601675223885481
+            xmax = 1.0437209398577172
+            text = ""
+        intervals [5]:
+            xmin = 1.0437209398577172
+            xmax = 1.648684807256236
+            text = "noun"

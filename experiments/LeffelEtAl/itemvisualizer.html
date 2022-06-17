@@ -1,0 +1,855 @@
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<script>
+// TODOs before each final release
+// 1. Use a fresh ut_id from uniqueturker.myleott.com
+// 2. Check the number of trials (variable lastTrial)
+// 3. Make sure that the content specification part and hidden value fields match this number
+
+
+
+
+
+function shuffle(originalArray) {
+  var newArray = originalArray;
+  var counter = originalArray.length; 
+  var index = 0;
+  var temp;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter = counter - 1;
+
+    // And swap the last element with it
+    temp = newArray[counter];
+    newArray[counter] = newArray[index];
+    newArray[index] = temp;
+  }
+
+    return newArray;
+}
+
+function shufflePositions() {
+  return shuffle(["A", "B", "C", "D"]);
+}
+
+function shuffleOrder(n) {
+  var a=[], b=n;
+  while (b--) {
+    a[b]=b+1;
+  }
+
+  return shuffle(a);
+}
+
+
+$(document).ready(function(){
+  var ut_id = "9e67b821a9ab12929bef493b24e70d17";
+
+  var folderURL = "https://ciyang.github.io/imprecise-adjectives/images/";
+  var curTrial = 0;
+
+  var startTimeWhole, startTimePrior, startTimeAdj;
+
+  var objTypes = ["Target", "Competitor", "Distractor", "Contrast"];
+
+  var scenePositionsString = "";
+
+  var curExampleMode = "prior";
+
+  var curCriticalMode = "";
+
+  var lastTrial = 120;
+
+  var trialOrder = shuffleOrder(lastTrial);
+
+  // Preload loading image
+  var loading_image = new Image();
+  loading_image.src = "https://dl.dropboxusercontent.com/u/140988683/Imprecision/images/loading.jpg";
+
+  
+
+// content specification 
+
+  var adjectives = ["bumpy", "open", "bent", "curved", "spotted", "striped", "bumpy", "curved", "spotted", "striped", 
+                      "flat", "closed", "straight", "full", "empty", "flat", "closed", "straight", "full", "empty", "long", 
+                      "short", "big", "small", "wide", "narrow", "tall", "short", "thick", "thin", "long ", "short", "big", 
+                      "small", "wide", "narrow", "tall", "short", "thick", "thin", "red", "green", "blue", "yellow", "red", 
+                      "green", "blue", "yellow", "red", "green", "yellow", "yellow", "green", "red", "red", "blue", "yellow", 
+                      "blue", "yellow", "red", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", 
+                      "red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "blue", "yellow", "none", "none", "none", 
+                      "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", 
+                      "none", "none", "none", "none", "blue", "yellow", "red", "green", "blue", "yellow", "red", "green", "blue", 
+                      "red", "yellow", "red", "green", "blue", "yellow", "red", "green", "blue", "yellow", "red"];
+
+  var nouns = ["square", "circle", "line", "line", "circle", "square", "triangle", "line", "square", "triangle", "circle", "circle", 
+                       "line", "cube", "cube", "triangle", "circle", "line", "cylinder", "cylinder", "line", "line", "square", "triangle", 
+                       "oval", "rectangle", "spiral", "spiral", "line", "line", "line", "line", "triangle", "square", "rectangle", "oval",
+                       "cylinder", "cylinder", "line", "line", "square", "circle", "line", "triangle", "oval", "rectangle", "square", "circle",
+                       "line", "triangle", "oval", "rectangle", "square", "circle", "line", "triangle", "square", "circle", "line", "triangle",
+                       "square", "arrow", "star", "spiral", "cylinder", "heart", "triangle", "circle", "cloud", "cube", "square", "triangle", "line",
+                       "circle", "oval", "square", "triangle", "line", "square", "rectangle", "square", "circle", "triangle", "rectangle", "line",
+                       "oval", "triangle", "rectangle", "arrow", "oval", "square", "circle", "triangle", "arrow", "line", "oval", "rectangle", 
+                       "heart", "star", "sun", "square", "circle", "triangle", "rectangle", "line", "oval", "triangle", "rectangle", "arrow", "oval",
+                       "square", "circle", "triangle", "arrow", "line", "oval", "rectangle", "heart", "star", "sun"];
+
+  var objs_TlessC1 = [
+                   ["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                   ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                   ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                   ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                   ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                   ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                   ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                   ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                   ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                   ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                   ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                   ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                   ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                   ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                   ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                   ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                   ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                   ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                   ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                   ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                   ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                   ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                   ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                   ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                   ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                   ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                   ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                   ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                   ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                   ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                   ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                   ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                   ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                   ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                   ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                   ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                   ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                   ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                   ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"],
+                   ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "wide_yellowrectangle7.jpg"],
+                   ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "bent_greenline1.jpg"],
+                   ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "thick_blueline7.jpg"],
+                   ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "wide_greenoval7.jpg"],
+                   ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "red_wavyline.jpg"],
+                   ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "striped_yellowsquare1.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redtriangle1.jpg"],
+                   ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "long_blueline7.jpg"],
+                   ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "blue_star.jpg"],
+                   ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redoval7.jpg"],
+                   ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "long_greenarrow7.jpg"],
+                   ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "bumpy_bluesquare1.jpg"],
+                   ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "yellow_sun.jpg"],
+                   ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "long_greenline7.jpg"],
+                   ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "wide_redrectangle5.jpg"],
+                   ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bumpy_bluesquare1.jpg"],
+                   ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "yellow_arch.jpg"],
+                   ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "thick_redline2.jpg"],
+                   ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "green_lightingplain.jpg"],
+                   ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                   ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                   ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                   ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                   ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                   ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                   ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                   ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                   ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                   ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                   ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                   ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                   ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                   ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                   ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                   ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                   ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                   ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                   ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                   ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                   ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                   ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                   ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                   ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                   ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                   ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                   ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                   ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                   ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                   ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                   ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                   ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                   ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                   ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                   ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                   ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                   ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                   ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                   ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                   ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                   ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                   ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                   ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                   ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                   ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                   ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                   ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                   ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                   ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                   ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                   ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                   ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                   ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                   ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                   ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                   ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                   ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                   ];
+
+
+  var objs_TlessC2 = [["bumpy_bluesquare6.jpg", "bumpy_greencircle7.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle6.jpg", "open_redtriangle7.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline6.jpg", "bent_redarrow7.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline6.jpg", "curved_greenarrow7.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle6.jpg", "spotted_redsquare7.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare6.jpg", "striped_bluetriangle7.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle6.jpg", "bumpy_bluesquare7.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline6.jpg", "curved_redarrow7.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare6.jpg", "spotted_greentriangle7.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle6.jpg", "striped_greensquare7.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle2.jpg", "bumpy_yellowtriangle1.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle2.jpg", "open_bluesquare1.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline2.jpg", "curved_greenarrow1.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube6.jpg", "full_redcylinder7.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle2.jpg", "bumpy_bluesquare1.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle2.jpg", "open_yellowtriangle1.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline2.jpg", "bent_greenarrow1.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder6.jpg", "full_greencube7.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline5.jpg", "long_greenarrow6.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline3.jpg", "long_redarrow2.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare5.jpg", "big_yellowtriangle6.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle3.jpg", "big_redsquare2.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval5.jpg", "wide_yellowrectangle6.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle3.jpg", "wide_yellowoval2.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral5.jpg", "tall_greencylinder6.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral3.jpg", "tall_yellowcylinder2.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline5.jpg", "thick_greenarrow6.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline3.jpg", "thick_redarrow2.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline5.jpg", "long_bluearrow6.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline3.jpg", "long_bluearrow2.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle5.jpg", "big_bluesquare6.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare3.jpg", "big_yellowtriangle2.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "wide_redoval6.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval3.jpg", "wide_greenrectangle2.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder5.jpg", "tall_bluespiral6.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder3.jpg", "tall_bluespiral2.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline5.jpg", "thick_redarrow6.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline3.jpg", "thick_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "striped_bluetriangle1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "spotted_yellowcircle1.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "wide_greenoval7.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "green_lightingplain.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "wide_redrectangle5.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "open_yellowtriangle1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redcircle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "big_bluetriangle1.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redrectangle5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "wide_greenrectangle5.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "blue_star.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "spotted_yellowcircle1.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "full1_greensquare1.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bent_blueline5.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "wide_redoval1.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "spotted_greentriangle1.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+  var objs_TmoreC1 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "bumpy_redsquare1.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "green_garabato.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "bent_blueline1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "striped_bluetriangle4.jpg "],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "spotted_greencircle1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "bumpy_greencircle4.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "green_lightning.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg  ", "spotted_redsquare1.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "bumpy_blueshape.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "bumpy_bluecircle5.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "yellow_wavyline.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "curved_redline5.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "tall_greenspiral2.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "full_bluecube5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "tall_redspiral7.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "open_greencircle5.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "full_bluecylinder7.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "full_yellowcylinder3.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "long_redline1.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "long_blueline3.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "green_heart.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "big_bluesquare3.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "diagonal_bluearrow.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "wide_redoval3.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "spotted_greenpentagon.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "tall_redspiral3.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "blue_sun.jpg", "full1_greensquare1.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "thick_blueline3.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "yellow_star.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "long_redline3.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "spotted_greencircle4.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "big_greentriangle3.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "red_wavyline.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "wide_greenrectangle3.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "yellow_sun.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "tall_greencylinder3.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "thick_yellowline3.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "bumpy_bluesquare4.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "wide_yellowrectangle7.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "bent_greenline1.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "thick_blueline7.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "wide_greenoval7.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "red_wavyline.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "striped_yellowsquare1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redtriangle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "long_blueline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "blue_star.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redoval7.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "long_greenarrow7.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "bumpy_bluesquare1.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "yellow_sun.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "long_greenline7.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "wide_redrectangle5.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bumpy_bluesquare1.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "yellow_arch.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "thick_redline2.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "green_lightingplain.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+  var objs_TmoreC2 = [["bumpy_bluesquare7.jpg", "bumpy_greencircle6.jpg", "tall_yellowcylinder3.jpg", "striped_redtriangle4.jpg"],
+                      ["open_bluecircle7.jpg", "open_redtriangle6.jpg", "yellow_cloud.jpg", "open_greencircle1.jpg"],
+                      ["bent_greenline7.jpg", "bent_redarrow6.jpg", "yellow_cloud.jpg", "big_bluesquare1.jpg"],
+                      ["curved_redline7.jpg", "curved_greenarrow6.jpg", "yellow_star.jpg", "curved_blueline1.jpg"],
+                      ["spotted_yellowcircle7.jpg", "spotted_redsquare6.jpg", "striped_bluetriangle4.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare7.jpg", "striped_bluetriangle6.jpg", "spotted_redstar.jpg", "striped_greensquare1.jpg"],
+                      ["bumpy_redtriangle7.jpg", "bumpy_bluesquare6.jpg", "spotted_greencircle4.jpg", "full_yellowcylinder2.jpg"],
+                      ["curved_blueline7.jpg", "curved_redarrow6.jpg", "bumpy_yellowtriangle1.jpg", "curved_greenline1.jpg"],
+                      ["spotted_yellowsquare7.jpg", "spotted_greentriangle6.jpg", "diagonal_bluearrow.jpg", "striped_redcircle5.jpg"],
+                      ["striped_redtriangle7.jpg", "striped_greensquare6.jpg", "chereos_yellowoval.jpg", "striped_bluetriangle1.jpg"],
+                      ["bumpy_greencircle1.jpg", "bumpy_yellowtriangle2.jpg", "full_cube8.jpg", "tall_bluespiral7.jpg"],
+                      ["open_greencircle1.jpg", "open_bluesquare2.jpg", "bumpy_redline.jpg", "open_yellowcircle5.jpg"],
+                      ["curved_blueline1.jpg", "curved_greenarrow2.jpg", "spotted_yellowcircle4.jpg", "red_cloud.jpg"],
+                      ["full_yellowcube7.jpg", "full_redcylinder6.jpg", "diagonal_bluearrow.jpg", "full_greencube3.jpg"],
+                      ["full_bluecube1.jpg", "empty_cylinder.jpg", "curved_greenline4.jpg", "blue_bumpyline.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "bumpy_bluesquare2.jpg", "green_sphere.jpg", "bumpy_redtriangle5.jpg"],
+                      ["open_bluecircle1.jpg", "open_yellowtriangle2.jpg", "long_redline7.jpg", "green_wavyline.jpg"],
+                      ["bent_redline1.jpg", "bent_greenarrow2.jpg", "chereos_yellowoval.jpg", "bent_blueline5.jpg"],
+                      ["full_bluecylinder7.jpg", "full_greencube6.jpg", "tall_redspiral4.jpg", "thick_yellowline1.jpg"],
+                      ["full_yellowcylinder1.jpg", "empty_cube.jpg", "yellow_cloud.jpg", "full_redcylinder5.jpg"],
+                      ["long_redline6.jpg", "long_greenarrow5.jpg", "yellow_sun.jpg", "open_bluecircle1.jpg"],
+                      ["long_blueline2.jpg", "long_redarrow3.jpg", "yellow_star.jpg", "long_greenline5.jpg"],
+                      ["big_redsquare6.jpg", "big_yellowtriangle5.jpg", "green_wavyline.jpg", "curved_blueline4.jpg"],
+                      ["big_yellowtriangle2.jpg", "big_redsquare3.jpg", "green_wavyline.jpg", "big_bluetriangle5.jpg"],
+                      ["wide_greenoval6.jpg", "wide_yellowrectangle5.jpg", "open_bluesquare7.jpg", "bent_redline4.jpg"],
+                      ["wide_redrectangle2.jpg", "wide_yellowoval3.jpg", "blue_star.jpg", "wide_greenrectangle5.jpg"],
+                      ["tall_bluespiral6.jpg", "tall_greencylinder5.jpg", "chereos_yellowoval.jpg", "curved_redline4.jpg"],
+                      ["tall_redspiral2.jpg", "tall_yellowcylinder3.jpg", "full_cube8.jpg", "tall_greenspiral5.jpg"],
+                      ["thick_yellowline6.jpg", "thick_greenarrow5.jpg", "red_sun.jpg", "bumpy_blueshape.jpg"],
+                      ["thick_blueline2.jpg", "thick_redarrow3.jpg", "bumpy_greencircle4.jpg", "thick_yellowline5.jpg"],
+                      ["long_greenline6.jpg", "long_bluearrow5.jpg", "yellow_cloud.jpg", "spotted_redstar.jpg"],
+                      ["long_redline2.jpg", "long_bluearrow3.jpg", "full_yellowcube7.jpg", "long_greenline5.jpg"],
+                      ["big_yellowtriangle6.jpg", "big_bluesquare5.jpg", "long_redline4.jpg", "green_garabato.jpg"],
+                      ["big_bluesquare2.jpg", "big_yellowtriangle3.jpg", "green_garabato.jpg", "big_redsquare5.jpg"],
+                      ["wide_yellowrectangle6.jpg", "wide_redoval5.jpg", "open_bluetriangle7.jpg", "bent_greenline4.jpg"],
+                      ["wide_redoval2.jpg", "wide_greenrectangle3.jpg", "full1_bluesquare2.jpg", "wide_yellowoval5.jpg"],
+                      ["tall_yellowcylinder6.jpg", "tall_bluespiral5.jpg", "bent_redline1.jpg", "green_wavyline.jpg"],
+                      ["tall_greencylinder2.jpg", "tall_bluespiral3.jpg", "yellow_cloud.jpg", "tall_redcylinder5.jpg"],
+                      ["thick_blueline6.jpg", "thick_redarrow5.jpg", "green_star.jpg", "spotted_yellowsquare4.jpg"],
+                      ["thick_redline2.jpg", "thick_greenarrow3.jpg", "spotted_yellowcircle4.jpg", "thick_blueline5.jpg"],
+                      ["bumpy_redsquare1.jpg", "striped_redcircle1.jpg", "yellow_cloud.jpg", "striped_bluetriangle1.jpg"],
+                      ["spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "long_blueline7.jpg", "spotted_yellowcircle1.jpg"],
+                      ["bent_blueline1.jpg", "striped_bluetriangle1.jpg", "big_redsquare1.jpg", "wide_greenoval7.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "yellow_star.jpg", "bumpy_greencircle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_redoval7.jpg", "spotted_redsquare1.jpg", "long_blueline1.jpg", "green_lightingplain.jpg"],
+                      ["wide_greenrectangle5.jpg", "green_heart.jpg", "bumpy_yellowtriangle1.jpg", "wide_redrectangle5.jpg"],
+                      ["bumpy_bluesquare1.jpg", "blue_thick_bumpyline.jpg", "striped_redcircle1.jpg", "open_yellowtriangle1.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_yellowrectangle7.jpg", "long_greenarrow7.jpg", "striped_redcircle1.jpg"],
+                      ["long_redline7.jpg", "big_redsquare1.jpg", "wide_yellowoval1.jpg", "big_bluetriangle1.jpg"],
+                      ["spotted_greentriangle1.jpg", "thick_greenarrow7.jpg", "wide_redoval1.jpg", "striped_bluetriangle1.jpg"],
+                      ["wide_yellowoval7.jpg", "bumpy_yellowtriangle1.jpg", "green_heart.jpg", "wide_redrectangle5.jpg"],
+                      ["wide_yellowrectangle5.jpg", "bumpy_yellowtriangle1.jpg", "blue_thick_bumpyline.jpg", "wide_greenrectangle5.jpg"],
+                      ["striped_greensquare1.jpg", "spotted_greencircle1.jpg", "red_wavyline.jpg", "blue_star.jpg"],
+                      ["striped_redcircle1.jpg", "thick_redarrow7.jpg", "wide_greenrectangle5.jpg", "spotted_yellowcircle1.jpg"],
+                      ["long_redline7.jpg", "striped_redcircle1.jpg", "bumpy_yellowtriangle1.jpg", "full1_greensquare1.jpg"],
+                      ["striped_bluetriangle1.jpg", "blue_wavyline.jpg", "spotted_greencircle1.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_yellowsquare1.jpg", "wide_yellowoval5.jpg", "open_redtriangle1.jpg", "bent_blueline5.jpg"],
+                      ["bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "spotted_redsquare1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["thick_yellowline2.jpg", "big_yellowtriangle3.jpg", "big_bluesquare3.jpg", "wide_redoval1.jpg"],
+                      ["striped_redtriangle1.jpg", "thick_redarrow7.jpg", "yellow_wavyline.jpg", "spotted_greentriangle1.jpg"],
+                      ["striped_greensquare1.jpg", "blue_sun.jpg", "open_redtriangle4.jpg", "yellow_wavyline.jpg"],
+                      ["curved_bluearrow4.jpg", "spotted_greenpentagon.jpg", "big_yellowtriangle1.jpg", "wide_redoval7.jpg"],
+                      ["yellow_star.jpg", "wide_greenrectangle1.jpg", "open_bluesquare5.jpg", "long_redarrow1.jpg"],
+                      ["tall_redspiral7.jpg", "big_bluesquare7.jpg", "spotted_greencircle4.jpg", "yellow_cloud.jpg"],
+                      ["tall_greencylinder6.jpg", "thick_blueline7.jpg", "big_redsquare3.jpg", "chereos_yellowoval.jpg"],
+                      ["blue_heart.jpg", "spotted_yellowcircle4.jpg", "wide_redrectangle7.jpg", "full_greencylinder5.jpg"],
+                      ["bumpy_yellowtriangle1.jpg", "long_blueline7.jpg", "tall_redcylinder1.jpg", "green_lightingplain.jpg"],
+                      ["striped_redcircle1.jpg", "full1_bluesquare2.jpg", "big_greentriangle3.jpg", "yellow_sun.jpg"],
+                      ["red_cloud.jpg", "striped_greensquare4.jpg", "bumpy_bluecircle5.jpg", "tall_yellowcylinder7.jpg"],
+                      ["full_greencube7.jpg", "spotted_yellowcircle4.jpg", "tall_bluespiral2.jpg", "bumpy_redtriangle4.jpg"],
+                      ["fnewbumpy_redsquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewspotted_greentriangle1.jpg", "wide_redrectangle7.jpg", "striped_redcircle1.jpg", "spotted_yellowcircle1.jpg"],
+                      ["fnewbent_blueline1.jpg", "bumpy_yellowtriangle1.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewspotted_yellowcircle1.jpg", "long_greenarrow7.jpg", "long_greenline7.jpg", "long_redline7.jpg"],
+                      ["fnewwide_redoval3.jpg", "spotted_greentriangle1.jpg", "wide_greenrectangle5.jpg", "wide_yellowrectangle5.jpg"],
+                      ["fnewstriped_greensquare1.jpg", "striped_redcircle1.jpg", "striped_redtriangle1.jpg", "striped_bluetriangle1.jpg"],
+                      ["fnewstriped_bluetriangle1.jpg", "wide_yellowoval5.jpg", "striped_yellowsquare1.jpg", "striped_greensquare1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "big_bluetriangle1.jpg", "open_bluecircle1.jpg", "open_greencircle1.jpg"],
+                      ["fnewbumpy_bluesquare1.jpg", "bumpy_yellowtriangle1.jpg", "wide_yellowoval5.jpg", "wide_redoval5.jpg"],
+                      ["fnewwide_yellowrectangle1.jpg", "bumpy_bluecircle1.jpg", "striped_bluetriangle1.jpg", "striped_redtriangle1.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["striped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["striped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["thick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["thick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["wide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["blue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["yellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["red_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"],
+                      ["bumpy_bluesquare1.jpg", "spotted_greencircle1.jpg", "spotted_greentriangle1.jpg", "bent_redline4.jpg"],
+                      ["spotted_yellowcircle1.jpg", "wide_redrectangle5.jpg", "red_cloud.jpg", "open_bluetriangle7.jpg"],
+                      ["striped_redtriangle1.jpg", "full1_bluesquare2.jpg", "diagonal_bluearrow.jpg", "yellow_cloud.jpg"],
+                      ["wide_greenrectangle7.jpg", "spotted_yellowcircle1.jpg", "open_yellowtriangle1.jpg", "curved_bluearrow4.jpg"],
+                      ["long_blueline1.jpg", "spotted_greentriangle1.jpg", "wide_greenoval7.jpg", "red_sun.jpg"],
+                      ["wide_yellowoval5.jpg", "full1_bluesquare2.jpg", "blue_star.jpg", "curved_greenline4.jpg"],
+                      ["striped_redtriangle1.jpg", "yellow_arch.jpg", "thick_yellowline7.jpg", "green_heart.jpg"],
+                      ["wide_greenrectangle5.jpg", "striped_redtriangle1.jpg", "red_wavyline.jpg", "yellow_star.jpg"],
+                      ["bent_bluearrow1.jpg", "open_redtriangle4.jpg", "wide_redoval5.jpg", "striped_yellowsquare1.jpg"],
+                      ["wide_redoval5.jpg", "striped_bluetriangle1.jpg", "bumpy_bluesquare1.jpg", "thick_greenarrow1.jpg"],
+                      ["fnewstriped_yellowsquare1.jpg", "spotted_greentriangle1.jpg", "thick_blueline3.jpg", "striped_redtriangle1.jpg"],
+                      ["fnewstriped_redcircle1.jpg", "long_blueline7.jpg", "striped_yellowsquare1.jpg", "long_greenline7.jpg"],
+                      ["fnew2spotted_greentriangle1.jpg", "wide_redoval1.jpg", "curved_bluearrow4.jpg", "wide_yellowoval1.jpg"],
+                      ["fnewthick_bluearrow1.jpg", "open_yellowtriangle1.jpg", "spotted_greencircle1.jpg", "open_redtriangle1.jpg"],
+                      ["fnewthick_yellowline1.jpg", "striped_greensquare1.jpg", "red_cloud.jpg", "bumpy_bluesquare1.jpg"],
+                      ["fnew2wide_redoval3.jpg", "long_greenline1.jpg", "striped_yellowsquare1.jpg", "long_blueline1.jpg"],
+                      ["fnewwide_greenrectangle5.jpg", "yellow_wavyline.jpg", "bumpy_bluecircle1.jpg", "red_wavyline.jpg"],
+                      ["fnewblue_heart.jpg", "striped_redtriangle1.jpg", "thick_greenarrow7.jpg", "bumpy_yellowtriangle1.jpg"],
+                      ["fnewyellow_star.jpg", "bumpy_bluesquare1.jpg", "bent_greenline4.jpg", "bumpy_redsquare1.jpg"],
+                      ["fnewred_sun.jpg", "curved_greenarrow4.jpg", "wide_yellowrectangle5.jpg", "curved_bluearrow4.jpg"]
+                     ];
+
+
+  // assigning a default list for debugging
+  var allObjects = objs_TlessC1;
+
+  var sceneID = 0;
+
+  var curObjects = allObjects[sceneID]; 
+  var objectPositions = shufflePositions();
+
+  imageNameA = curObjects[objectPositions.indexOf("A")];
+  imageNameB = curObjects[objectPositions.indexOf("B")];
+  imageNameC = curObjects[objectPositions.indexOf("C")];
+  imageNameD = curObjects[objectPositions.indexOf("D")];
+
+  $("#critImageA").attr({"src" : folderURL + imageNameA});
+  $("#critImageB").attr({"src" : folderURL + imageNameB});
+  $("#critImageC").attr({"src" : folderURL + imageNameC});
+  $("#critImageD").attr({"src" : folderURL + imageNameD});
+
+  capStringA = objTypes[objectPositions.indexOf("A")];
+  capStringB = objTypes[objectPositions.indexOf("B")];
+  capStringC = objTypes[objectPositions.indexOf("C")];
+  capStringD = objTypes[objectPositions.indexOf("D")];
+
+  $("#captionA").html(capStringA);
+  $("#captionB").html(capStringB);
+  $("#captionC").html(capStringC);
+  $("#captionD").html(capStringD);
+
+  objectPositionsString = objectPositions[0] + objectPositions[1] + objectPositions[2] + objectPositions[3];
+  $("#objpos").val(objectPositionsString);
+
+  $("#adjSentence").html('"Please click on the ' + adjectives[sceneID] + ' ..."');
+  $("#wholeSentence").html('"Please click on the ' + adjectives[sceneID] + " " + nouns[sceneID] + '."');
+
+
+  var objsList = "TlessC1";
+  $("#curList").html(objsList);
+  $("#curScene").html(sceneID + 1);
+  $("#curObjPos").html(objectPositionsString);
+  
+
+
+// content specification ends
+
+  $("#updatePos").click(function(){
+    var objsList = $('input[name=list]:checked').val();
+    var allObjects;
+
+    if (objsList == "TlessC1"){
+      allObjects = objs_TlessC1;
+    }
+    else if (objsList == "TlessC2"){
+      allObjects = objs_TlessC2;
+    }
+    else if (objsList == "TmoreC1"){
+      allObjects = objs_TmoreC1;
+    }
+    else if (objsList == "TmoreC2"){
+      allObjects = objs_TmoreC2;
+    }
+
+    var sceneID = parseInt($("#sceneID").val()) - 1;
+    var curObjects = allObjects[sceneID]; 
+
+    var objectPositionsString = $("#objpos").val();
+    var objectPositions = (objectPositionsString.toUpperCase()).split("");
+
+    $("#curList").html(objsList);
+    $("#curScene").html(sceneID + 1);
+    $("#curObjPos").html(objectPositionsString);
+
+    if (adjectives[sceneID] != "none"){
+      $("#adjSentence").html('"Please click on the ' + adjectives[sceneID] + ' ..."');
+    }
+    else {
+      $("#adjSentence").html('"Please click on the ..."');
+    }
+    if (adjectives[sceneID] != "none"){
+      $("#wholeSentence").html('"Please click on the ' + adjectives[sceneID] + " " + nouns[sceneID] + '."');
+    }
+    else{
+      $("#wholeSentence").html('"Please click on the ' + nouns[sceneID] + '."');
+    }
+
+    function isValidPos(element, index, array) {
+      return ["A", "B", "C", "D"].includes(element);
+    }
+
+    function hasUnique(a) {
+      var i, j;
+      for (i = 0; i < a.length - 1; i++) {
+        for (j = i + 1; j < a.length; j++) {
+            if (a[i] == a[j]) return false;
+          }
+      }
+      return true;
+    }
+
+    if (objectPositions.length != 4 || !objectPositions.every(isValidPos) || !hasUnique(objectPositions)){
+      alert("You must enter a permutation of 'ABCD'");
+    }
+    else {
+      imageNameA = curObjects[objectPositions.indexOf("A")];
+      imageNameB = curObjects[objectPositions.indexOf("B")];
+      imageNameC = curObjects[objectPositions.indexOf("C")];
+      imageNameD = curObjects[objectPositions.indexOf("D")];
+
+      $("#critImageA").attr({"src" : folderURL + imageNameA});
+      $("#critImageB").attr({"src" : folderURL + imageNameB});
+      $("#critImageC").attr({"src" : folderURL + imageNameC});
+      $("#critImageD").attr({"src" : folderURL + imageNameD});
+
+      capStringA = objTypes[objectPositions.indexOf("A")];
+      capStringB = objTypes[objectPositions.indexOf("B")];
+      capStringC = objTypes[objectPositions.indexOf("C")];
+      capStringD = objTypes[objectPositions.indexOf("D")];
+
+      $("#captionA").html(capStringA);
+      $("#captionB").html(capStringB);
+      $("#captionC").html(capStringC);
+      $("#captionD").html(capStringD);
+    }
+  });
+
+  $('input[name=stage]').change(function(){
+    var curStage = $('input[name=stage]:checked').val();
+    if (curStage == "prior"){
+      $("#priorSentence").show();
+      $("#adjSentence").hide();
+      $("#wholeSentence").hide();
+    }
+    if (curStage == "adjective"){
+      $("#priorSentence").hide();
+      $("#adjSentence").show();
+      $("#wholeSentence").hide();
+    }
+    if (curStage == "whole"){
+      $("#priorSentence").hide();
+      $("#adjSentence").hide();
+      $("#wholeSentence").show();
+    }
+
+  });
+
+  $('input[name=cbox]').click(function(){
+    if (!$("#cbox").prop("checked")){
+      $("#captionA").hide();
+      $("#captionB").hide();
+      $("#captionC").hide();
+      $("#captionD").hide();
+    }
+    else {
+      $("#captionA").show();
+      $("#captionB").show();
+      $("#captionC").show();
+      $("#captionD").show();
+    }
+
+  });
+
+  $('input[name=list]').change(function(){
+    $("#updatePos").click();
+  });
+
+  $('#toNext').click(function(){
+    var sceneID = parseInt($("#sceneID").val()) + 1;
+    if (sceneID > 120) {
+      sceneID = 1;
+    }
+    $("#sceneID").val(sceneID);
+    $("#updatePos").click();
+  });
+
+});
+
+</script>
+
+<div style="width:960px;overflow:auto;margin:0 auto;">
+<form>
+
+<!--- Main Experiment ---->
+<div id="mainExperiment" style="width:960px;height:620px;overflow:auto;">
+
+<h4>You are playing an online game with another Turker. In each turn both of you see four objects on your screens. Your task is to follow the other player's instruction to click on the target object on your screen.</h4>
+
+<!--- Critical Trials---->
+<div id="critical" style="width:960px;margin-left:auto;margin-right:auto;">
+
+<!--- Items---->
+<div id="critical1" style="width:520px;float:left;">
+<span>The other player says to you:</span>
+
+<p><b id="priorSentence" style="font-size:14pt;display:none;">"Please click on the ..."</b>
+<b id="adjSentence" style="font-size:14pt;display:none;">"Please click on the adj ..."</b>
+<b id="wholeSentence" style="font-size:14pt;">"Please click on the ."</b>
+</p>
+
+<figure style="display: inline-block;">
+<img id="critImageA" alt="Image Not Found" height="170px" width="170px" src="https://dl.dropboxusercontent.com/u/140988683/Imprecision/images/non.jpg" style="cursor:pointer;" />
+<figcaption>A. <span id="captionA"></span></figcaption>
+</figure>
+<figure style="display: inline-block;">
+<img id="critImageB" alt="Image Not Found" height="170px" width="170px" src="https://dl.dropboxusercontent.com/u/140988683/Imprecision/images/non.jpg" style="cursor:pointer;" />
+<figcaption>B. <span id="captionB"></span></figcaption>
+</figure>
+<br />
+
+<figure style="display: inline-block;">
+<img id="critImageC" alt="Image Not Found" height="170px" width="170px" src="https://dl.dropboxusercontent.com/u/140988683/Imprecision/images/non.jpg" style="cursor:pointer;" />
+<figcaption>C. <span id="captionC"></span></figcaption>
+</figure>
+<figure style="display: inline-block;">
+<img id="critImageD" alt="Image Not Found" height="170px" width="170px" src="https://dl.dropboxusercontent.com/u/140988683/Imprecision/images/non.jpg" style="cursor:pointer;" />
+<figcaption>D. <span id="captionD"></span></figcaption>
+</figure>
+</div>
+<!--- End of Items---->
+
+
+<div style="width:420px;float:right;">
+<p>Current display</p>
+<p>List: <span id="curList"></span> &nbsp; &nbsp; &nbsp; &nbsp;  Scene ID: <span id="curScene"></span> <br />
+Object positions: <span id="curObjPos"></span><br />
+(Target/Competitor/Distractor/Contrast)
+</p> 
+
+
+<p>Stage:
+<input id="stagePrior" name="stage" type="radio" value="prior" /> Prior
+<input id="stageAdj" name="stage" type="radio" value="adjective" /> Adjective
+<input id="stageWhole" name="stage" type="radio" value="whole" checked /> Whole
+</p>
+<p>===============================</p>
+<p>List:<br />
+<input id="listTlessC1" name="list" type="radio" value="TlessC1" checked /> TlessC1
+<input id="listTlessC2" name="list" type="radio" value="TlessC2" /> TlessC2
+<input id="listTmoreC1" name="list" type="radio" value="TmoreC1" /> TmoreC1
+<input id="listTmoreC2" name="list" type="radio" value="TmoreC2" /> TmoreC2
+</p>
+
+<p>Scene ID: <input id="sceneID" name="sceneID" size="6" type="text" value="1" /> </p>
+
+<p>Object positions: <input id="objpos" name="objectPositions" size="6" type="text" />   </p>
+<p><button id="updatePos" type="button">Update</button> <input type="checkbox" name="cbox" id="cbox" checked> display item type</p>
+<p>===============================</p>
+<p>Shortcut: <button id="toNext" type="button">Next scene</button></p>
+
+</div>
+
+
+
+</div>
+<!--- Critical Trials End---->
+
+</div>
+<!--- Experiment Ends ---->
+
+
+
+
+</form>
+</div>
+

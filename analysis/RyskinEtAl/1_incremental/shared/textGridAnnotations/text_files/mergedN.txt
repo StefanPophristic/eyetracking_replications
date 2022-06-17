@@ -1,0 +1,95 @@
+item []: 
+    item [1]:
+        class = "IntervalTier"
+        name = "necklaceSmall"
+        xmin = 0
+        xmax = 2.0376643990929706
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.47805023634525584
+            text = "intro"
+        intervals [2]:
+            xmin = 0.47805023634525584
+            xmax = 1.1466895726308608
+            text = "adj"
+        intervals [3]:
+            xmin = 1.1466895726308608
+            xmax = 1.1825095370747325
+            text = ""
+        intervals [4]:
+            xmin = 1.1825095370747325
+            xmax = 2.0376643990929706
+            text = "noun"
+    item [2]:
+        class = "IntervalTier"
+        name = "nest"
+        xmin = 0
+        xmax = 1.1067573696145125
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4587917146490553
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4587917146490553
+            xmax = 1.1067573696145125
+            text = "noun"
+    item [3]:
+        class = "IntervalTier"
+        name = "nutSmall"
+        xmin = 0
+        xmax = 1.4943990929705215
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.4644328266072504
+            text = "intro"
+        intervals [2]:
+            xmin = 0.4644328266072504
+            xmax = 1.068641456436909
+            text = "adj"
+        intervals [3]:
+            xmin = 1.068641456436909
+            xmax = 1.1080463670779739
+            text = ""
+        intervals [4]:
+            xmin = 1.1080463670779739
+            xmax = 1.4943990929705215
+            text = "noun"
+    item [4]:
+        class = "IntervalTier"
+        name = "nutcracker"
+        xmin = 0
+        xmax = 1.2754421768707482
+        intervals: size = 2
+        intervals [1]:
+            xmin = 0
+            xmax = 0.43188466360065847
+            text = "intro"
+        intervals [2]:
+            xmin = 0.43188466360065847
+            xmax = 1.2754421768707482
+            text = "noun"
+    item [5]:
+        class = "IntervalTier"
+        name = "nutcrackerSmall"
+        xmin = 0
+        xmax = 1.9412471655328798
+        intervals: size = 4
+        intervals [1]:
+            xmin = 0
+            xmax = 0.43083435771840417
+            text = "intro"
+        intervals [2]:
+            xmin = 0.43083435771840417
+            xmax = 1.001430921762362
+            text = "adj"
+        intervals [3]:
+            xmin = 1.001430921762362
+            xmax = 1.0760507467346279
+            text = ""
+        intervals [4]:
+            xmin = 1.0760507467346279
+            xmax = 1.9412471655328798
+            text = "noun"

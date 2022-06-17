@@ -14,8 +14,6 @@
 #   the train and filler trials we chose
 
 
-
-
 library(tidyverse)
 library(lme4)
 library(stringr)
@@ -83,7 +81,7 @@ prior_df = prior_df %>%
 rm(pragtrain3_list1, pragtrain3_list2)
 
 # expt2 reading in adj+noun window data for glmm
-pragtrain3_data = read_tsv('../../../shared/Ryskin_original_eyetracking_data/PragTrain3_adjnoun_for_GLMM_timesummLongForm.txt',
+pragtrain3_data = read_tsv('../../../shared/Ryskin_original_eyetracking_data/PragTrain3_adjnoun_window_timesummLongForm.txt',
                            col_names=c('target_dur','contrast_dur','compet_dur','other_dur','currsubj','subject','trialnum','order','timebin','trialID','condWith','condBet','targ_loc','contrast_loc','compet_loc','list','trialType','accuracy','target_fix','target_AR1','compet_fix','compet_AR1')) %>% 
   mutate(contrast_cond = case_when(
     condWith == 0 ~ 'filler', 
@@ -156,10 +154,20 @@ contrasts(pragtrain3_crit$contrast_cond)<-c(0.5,-0.5)
 contrasts(pragtrain3_crit$prag_context_cond)
 contrasts(pragtrain3_crit$contrast_cond)
 
-
-
 test <- pragtrain3_crit %>%
   filter(prag_context_cond == "unreliable" & noun == "bottle" & feature == "glass")
+
+# Filler trial "competitor looks" are dummy coded
+# since filler trials don't have objects of the same features
+
+# code competitor fixations as other fixations for filler trials
+# target_fix and compet_fix are the only columns that are used to determine looks
+# in our final calculation, so we only change the values of those columns
+pragtrain3_crit <- pragtrain3_crit %>%
+  mutate(compet_fix = case_when(
+    trial_type == "filler" ~ 0,
+    TRUE ~ compet_fix
+  ))
 
 ##############
 # Wrangle raw selection data
@@ -378,9 +386,12 @@ d_test <- d_test %>%
   rename(list = proliferate.condition) %>%
   mutate(list = case_when(list == "List1" ~ 1,
                           list == "List2" ~ 2))
+
+
 ##############
 # Merge Eyetracking and selection data
 ##############
+
 
 # Eye tracking data
 toplot_eye = pragtrain3_crit %>% 
@@ -403,7 +414,8 @@ toplot_select =  d_test %>%
   pivot_longer(names_to = "window", values_to = "selection",cols=click_prior:click_noun) %>% 
   mutate(target = case_when(loc_target_pic==selection ~ 1,
                             TRUE ~ 0)) %>% 
-  mutate(competitor = case_when(loc_competitor_pic==selection ~ 1,
+  mutate(competitor = case_when(trialType == "filler" ~ 0,
+                                loc_competitor_pic==selection ~ 1,
                                 TRUE ~ 0)) %>% 
   mutate(other = case_when(target + competitor == 0 ~ 1,
                                 TRUE ~ 0)) %>% 
@@ -465,6 +477,11 @@ df_merged_opposite %>%
 df_merged <- df_merged %>%
   filter(!is.na(prop_looks))
 
+# get rid of rows coding for looks to the competitor
+# in filler trials
+# as there is no competitor in these trials
+df_merged <- df_merged %>%
+  filter(!(trialType == "filler" & Region == "competitor"))
 
 write.csv(df_merged,"../data/analysis_by_item_data.csv", row.names = FALSE)
 

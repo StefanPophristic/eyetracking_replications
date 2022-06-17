@@ -30,3 +30,5 @@ papers/cogsci2020/si_context_rt.pdf
 *.log
 *.synctex.gz
 analysis/RyskinEtAl/1_incremental/shared/Ryskin_original_eyetracking_data/*
+*RBJE/
+*sandbox/

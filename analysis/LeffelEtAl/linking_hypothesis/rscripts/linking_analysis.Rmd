@@ -1,0 +1,264 @@
+---
+title: "Predicting proportion of looks from click data beliefs and utterance expectations"
+author: "jdegen"
+date: "Nov 11, 2017"
+output: html_document
+---
+
+## Loading and reformatting data
+
+Load libraries and data (eye movements, click data, production data). CLick data taken from same as Data/InterpretationTlessC_01262017/Jan-26-2017-Batch_2666254_batch_results_intp_preprocessed.csv. Production data taken from Data/ImprecisionPracticeListenerFreeProdFull40trials 10-5-17imprecision_freeprod_oct2017_120participants_117native_prodprobs.csv.
+```{r}
+require(tidyverse)
+library(forcats)
+library(scales)
+library(knitr)
+source("helpers.R")
+
+eyedat = read.csv("../data/eyedata.csv")
+clickdat = read.csv("../data/clickdata.csv")
+proddat = read.csv("../data/production.csv")
+```
+
+Reformat eye movement data so it can be merged.
+```{r}
+ed = eyedat %>%
+  select(condition, itemid, Window, Region, totalLooks, Proportion) %>%
+  rename(prop.eye = Proportion, freq.eye = totalLooks) %>%
+  mutate(Region = recode(Region, distractor.contrast = "contrast"))
+```
+
+Reformat click data and compute belief distributions by scene/condition/window combination. Join eye and click data and assign zero probabilties to NA values.
+```{r}
+cd = clickdat %>%
+  filter(Condition %in% c("Contrast","NoContrast")) %>%
+  select(SceneID, Condition, Answer.choicePrior, Answer.choiceAdj, Answer.choiceWhole) %>%
+  gather(Window, Region, -SceneID, -Condition) %>%
+  mutate(Region = tolower(Region), Condition = tolower(Condition)) %>%
+  mutate(Window = recode(Window, Answer.choicePrior = "prior",  Answer.choiceAdj = "adjective", Answer.choiceWhole = "noun")) %>%
+  group_by(SceneID, Condition, Window, Region) %>%
+  summarise (n = n()) %>%
+  mutate(freq = n / sum(n)) %>%
+  rename(condition = Condition, itemid = SceneID, prop.click=freq, freq.click=n)
+
+ecd = full_join(ed,cd,by=c("condition","itemid","Window","Region")) %>%
+  filter(!is.na(prop.eye)) %>%
+  replace_na(list(prop.click = 0, freq.click = 0))
+```
+
+Reformat production data. Add small (.000001) smoothing probability to each probability to allow for computing non-infinite surprisal values.
+```{r}
+prod = proddat %>%
+  rename(condition = Condition, itemid = SceneID) %>% 
+  mutate(condition = tolower(condition))
+prod[,c(8,9,10,11,12,13,14,15,16,17)] = prod[,c(8,9,10,11,12,13,14,15,16,17)] + .000001
+prod = prod %>%
+  mutate(surpExactFirstWordUniPrior = -log(ExactFirstWordUniPrior), surpInitialMatchUniPrior = -log(InitialMatchUniPrior), surpMorphemeIncludedUniPrior = -log(MorphemeIncludedUniPrior), surpSynFirstUniPrior = -log(SynFirstUniPrior), surpSynIncludedUniPrior = -log(SynIncludedUniPrior), surpExactFirstWordEmpPrior = -log(ExactFirstWordEmpPrior), surpInitialMatchEmpPrior = -log(InitialMatchEmpPrior), surpMorphemeIncludedEmpPrior = -log(MorphemeIncludedEmpPrior), surpSynFirstEmpPrior = -log(SynFirstEmpPrior), surpSynIncludedEmpPrior = -log(SynIncludedEmpPrior))
+```
+
+Join the production dataset with the eye and click data.
+```{r}
+fulld = full_join(ecd,prod,by=c("condition","itemid")) %>%
+  filter(!is.na(Region)) %>%
+  droplevels()
+nrow(fulld)
+head(fulld)
+summary(fulld)
+```
+
+## Pairwise comparison of production probabilities.
+
+Start by computing the correlation between the pairwise production probability estimates computed on the uniforma versus empirical prior. Generally, the correlation between the different ways of estimating probs (pairwise) is high (>.9).
+
+### Correlation between exact first word probs for uniform and empirical prior
+```{r}
+cor(prod$ExactFirstWordEmpPrior,prod$ExactFirstWordUniPrior)
+ggplot(prod, aes(x=ExactFirstWordUniPrior, y=ExactFirstWordEmpPrior, color=TargetAdjective)) +
+  geom_point() +
+  xlim(0,.2) +
+  ylim(0,.2) +
+  geom_abline(intercept=0, slope=1, linetype="dashed", color="gray60")
+```
+
+### Correlation between initial match word probs for uniform and empirical prior
+```{r}
+cor(prod$InitialMatchUniPrior,prod$InitialMatchEmpPrior)
+ggplot(prod, aes(x=InitialMatchUniPrior, y=InitialMatchEmpPrior, color=TargetAdjective)) +
+  geom_point() +
+  xlim(0,.3) +
+  ylim(0,.3) +
+  geom_abline(intercept=0, slope=1, linetype="dashed", color="gray60")
+```
+
+### Correlation between "morpheme included" word probs for uniform and empirical prior
+
+```{r}
+cor(prod$MorphemeIncludedUniPrior,prod$MorphemeIncludedEmpPrior)
+ggplot(prod, aes(x=MorphemeIncludedUniPrior, y=MorphemeIncludedEmpPrior, color=TargetAdjective)) +
+  geom_point() +
+  xlim(0,.3) +
+  ylim(0,.3) +
+  geom_abline(intercept=0, slope=1, linetype="dashed", color="gray60")
+```
+
+### Correlation between "synonym first" word probs for uniform and empirical prior
+```{r}
+cor(prod$SynFirstUniPrior,prod$SynFirstEmpPrior)
+ggplot(prod, aes(x=SynFirstUniPrior, y=SynFirstEmpPrior, color=TargetAdjective)) +
+  geom_point() +
+  xlim(0,.3) +
+  ylim(0,.3) +
+  geom_abline(intercept=0, slope=1, linetype="dashed", color="gray60")
+```
+
+### Correlation between "synonym included" word probs for uniform and empirical prior
+```{r}
+cor(prod$SynIncludedUniPrior,prod$SynIncludedEmpPrior) 
+ggplot(prod, aes(x=SynIncludedUniPrior, y=SynIncludedEmpPrior, color=TargetAdjective)) +
+  geom_point() +
+  xlim(0,.35) +
+  ylim(0,.35) +
+  geom_abline(intercept=0, slope=1, linetype="dashed", color="gray60")
+```
+
+## Deeper exploration of production probabilities
+
+We ultimately want to weight the empirical and the backoff (uniform) prior by beta and 1-beta, respectively. How to determine beta?
+
+In principle we can consider both the **probability**  and the **surprisal** of the target adjective as determining this weight in some way. The easiest way would be to take probabilities directly. However, given that production probabilities are generally low (ie lower than .4), this would yield a very strong bias towards uniform, which is clearly not right. For the sake of making things as comparable as possible, I'm therefore **rescaling both the probabilities and the surprisals to fall in the interval [0,1]**, and am further inverting the scale for surprisal values so a greater transformed value means a greater expectation for the adjective, ie more reliance on empirical beliefs when weighting. 
+
+```{r}
+probmeasures = c("ExactFirstWordEmpPrior", "ExactFirstWordUniPrior", "InitialMatchUniPrior", "InitialMatchEmpPrior", "MorphemeIncludedEmpPrior", "MorphemeIncludedUniPrior", "SynFirstEmpPrior", "SynFirstUniPrior", "SynIncludedEmpPrior", "SynIncludedUniPrior")
+gprod = prod[,c(2,3,5,7:27)] %>%
+  gather(Measure, Value, -AdjectiveType, -itemid, -condition, -TargetAdjective) %>%
+  group_by(Measure) %>%
+  mutate(RescaledWeight=rescale(Value)) %>%
+  mutate(MeasureType=ifelse(Measure %in% probmeasures, "probability", "surprisal"), Prior=gsub('^surp',"",Measure,perl=T)) 
+gprod[gprod$MeasureType == "surprisal",]$RescaledWeight = 1 - gprod[gprod$MeasureType == "surprisal",]$RescaledWeight
+```
+
+
+To get a sense of the distribution of (rescaled) adjective expectations:
+```{r fig.height=10}
+ggplot(gprod, aes(x=RescaledWeight,color=MeasureType)) +
+  geom_density() +
+  facet_wrap(~Measure, scales="free", nrow=5) +
+  theme(legend.position="top")
+```
+
+Is there a difference in mean expectation by adjective type with raw values (probs and surprisals)? Yes. Incidentally, this includes the min adjectives, for which we don't have the eye movement data. Interestingly, the min adjectives seem to have been overall the most expected of all. This makes it all the more interesting to get our hands on the min adjective eye movement data.
+```{r fig.width=10}
+agr = gprod %>%
+  group_by(AdjectiveType, MeasureType, Prior) %>%
+  summarize(MeanProductionProbability = mean(Value), CILow=ci.low(Value), CIHigh=ci.high(Value)) %>%
+  mutate(Ymin=MeanProductionProbability-CILow, Ymax=MeanProductionProbability+CIHigh)
+
+ggplot(agr, aes(x=AdjectiveType, y=MeanProductionProbability)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Ymin,ymax=Ymax),width=.25) +
+  facet_grid(MeasureType~Prior, scales="free")
+```
+
+Difference between contrast and no-contrast displays?
+
+```{r fig.width=10}
+agr = gprod %>%
+  group_by(AdjectiveType, MeasureType, Prior,condition) %>%
+  summarize(MeanProductionProbability = mean(Value), CILow=ci.low(Value), CIHigh=ci.high(Value)) %>%
+  mutate(Ymin=MeanProductionProbability-CILow, Ymax=MeanProductionProbability+CIHigh) %>%
+  filter(MeasureType == "probability")
+
+ggplot(agr, aes(x=AdjectiveType, y=MeanProductionProbability)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=Ymin,ymax=Ymax),width=.25) +
+  facet_grid(condition~Prior, scales="free")
+```
+
+
+The same thing with rescaled adjective expectations between 0 and 1 (ie probs and surprisals projected into [0,1] interval).
+```{r fig.width=10}
+agr = gprod %>%
+  group_by(AdjectiveType, MeasureType, Prior) %>%
+  summarize(MeanProductionProbability = mean(RescaledWeight), CILow=ci.low(RescaledWeight), CIHigh=ci.high(RescaledWeight)) %>%
+  mutate(Ymin=MeanProductionProbability-CILow, Ymax=MeanProductionProbability+CIHigh)
+
+ggplot(agr, aes(x=AdjectiveType, y=MeanProductionProbability)) +
+  geom_bar(stat="identity") +
+  xlab("Mean rescaled probability / surprisal of adjective") +
+  geom_errorbar(aes(ymin=Ymin,ymax=Ymax),width=.25) +
+  facet_grid(MeasureType~Prior, scales="free")
+```
+
+
+## Testing the main hypothesis
+
+What we're testing: is the proportion of looks in the adjective better explained by raw referent probability (as estimated from click data), or by a weighting between the empirical belief distribution and a backoff prior (currently assumed to be uniform). Let's see.
+
+First, the overall correlations of click and eye data in different windows as a baseline:
+```
+fulld %>%
+  group_by(Window) %>%
+  summarize(Cor = cor(prop.click,prop.eye))
+```
+
+Correlations of click and eye data in different windows, separately for max and rel adjectives:
+```{r}
+fulld %>%
+  group_by(AdjectiveType, Window) %>%
+  summarize(Cor = cor(prop.click,prop.eye))
+```
+
+Plots of the eye data against the click data.
+```{r}
+ggplot(fulld, aes(x=prop.click,y=prop.eye,color=Region)) +
+  geom_abline(intercept=0,slope=1,linetype="dashed",color="gray40") +
+  geom_point() +
+  geom_smooth(method="lm",aes(group=1)) +
+  facet_grid(Window~AdjectiveType)
+
+ggplot(fulld, aes(x=prop.click,y=prop.eye,color=Region)) +
+  geom_abline(intercept=0,slope=1,linetype="dashed",color="gray40") +
+  geom_point() +
+  geom_text(aes(label=TargetAdjective), size=2.5,color="black") +
+  geom_smooth(method="lm",aes(group=1)) +
+  facet_grid(Window~AdjectiveType)
+```
+
+Join the rescaled production expectations and the eye / click data (looking only at the adjective window, ie getting rid of the noun and prior window eye and click data). Compute the predicted proportion of looks per region by mixing empirical (prop.click) and uniform (.25) probabilities according to rescaled weight derived from adjective production expectations.
+```{r}
+testd = fulld %>%
+  filter(Window == "adjective") %>%
+  select(condition,itemid,Region,prop.eye,prop.click,TargetAdjective) %>%
+  full_join(gprod, by=c("itemid","condition","TargetAdjective")) %>%
+  rowwise() %>%
+  mutate(predicted.prop.eye = weighted.mean(x=c(prop.click,0.25),w=c(RescaledWeight, 1-RescaledWeight))) %>%
+  filter(!is.na(predicted.prop.eye) & !is.na(prop.click)) %>%
+  droplevels()
+```
+
+The money plot: predicted data against eye data. Do any of these do better than the baseline above? Nope :(
+
+```{r fig.height=30}
+results = testd %>%
+  group_by(AdjectiveType,Measure) %>%
+  summarize(Correlation=cor(prop.eye,predicted.prop.eye)) %>%
+  arrange(Correlation)
+results
+
+ggplot(testd, aes(x=predicted.prop.eye,y=prop.eye,color=Region)) +
+  geom_abline(intercept=0,slope=1,linetype="dashed",color="gray40") +
+  geom_point() +
+  xlim(0,1) +
+  ylim(0,1) +
+  geom_smooth(method="lm",aes(group=1)) +
+  facet_grid(Measure~AdjectiveType)
+```
+
+## Going forward
+
+Overall, mixing doesn't appear to improve our ability to predict the eye movement data; if anything, it makes it worse. Visually, this is because of the "band of .25s", ie the fact that we have lots of cases of adjectives with zero probability, which get assigned an empirical weight of 0 and a uniform weight of 1. So...
+
+1. What are plausible alternative backoff priors?
+2. Should we do more generous smoothing? Currently I'm adding prob of .000001. 
+3. What are plausible alternative ways of rescaling/transforming the mixing weight?
+4. Other options?

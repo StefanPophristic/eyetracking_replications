@@ -1,0 +1,1242 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.193786848072562 
+tiers? <exists> 
+size = 45 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "cabbageGreen" 
+        xmin = 0 
+        xmax = 1.711156462585034 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01040525807481432 
+            text = "" 
+        intervals [2]:
+            xmin = 0.01040525807481432 
+            xmax = 0.45910311928876035 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.45910311928876035 
+            xmax = 0.5317971861893438 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5317971861893438 
+            xmax = 0.9930285072137351 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.9930285072137351 
+            xmax = 1.0431623464555169 
+            text = "" 
+        intervals [6]:
+            xmin = 1.0431623464555169 
+            xmax = 1.6898888726745003 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.6898888726745003 
+            xmax = 1.711156462585034 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "cactus" 
+        xmin = 0 
+        xmax = 1.3606122448979592 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.002294129321504729 
+            text = "" 
+        intervals [2]:
+            xmin = 0.002294129321504729 
+            xmax = 0.46271775620767835 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.46271775620767835 
+            xmax = 0.5643697257799504 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5643697257799504 
+            xmax = 1.3357287890048386 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.3357287890048386 
+            xmax = 1.3606122448979592 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "cactusSmall" 
+        xmin = 0 
+        xmax = 1.964920634920635 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01194835583415342 
+            text = "" 
+        intervals [2]:
+            xmin = 0.01194835583415342 
+            xmax = 0.4609840434674158 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4609840434674158 
+            xmax = 0.46961934515267084 
+            text = "" 
+        intervals [4]:
+            xmin = 0.46961934515267084 
+            xmax = 1.074090463120524 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.074090463120524 
+            xmax = 1.2180121578747747 
+            text = "" 
+        intervals [6]:
+            xmin = 1.2180121578747747 
+            xmax = 1.9232284621706033 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.9232284621706033 
+            xmax = 1.964920634920635 
+            text = "" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "cake" 
+        xmin = 0 
+        xmax = 1.137936507936508 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.02859028731684983 
+            text = "" 
+        intervals [2]:
+            xmin = 0.02859028731684983 
+            xmax = 0.47867373511904776 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.47867373511904776 
+            xmax = 0.5686904246794873 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5686904246794873 
+            xmax = 1.0487794356684983 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.0487794356684983 
+            xmax = 1.137936507936508 
+            text = "" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "camelSmall" 
+        xmin = 0 
+        xmax = 1.65437641723356 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.480221752135125 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.480221752135125 
+            xmax = 1.0158184009065738 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0158184009065738 
+            xmax = 1.1224530278112967 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1224530278112967 
+            xmax = 1.6241204771130608 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.6241204771130608 
+            xmax = 1.65437641723356 
+            text = "" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "cameraBig" 
+        xmin = 0 
+        xmax = 1.7267120181405895 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5315726189988051 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5315726189988051 
+            xmax = 0.6352812771405922 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6352812771405922 
+            xmax = 1.0045852793040295 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0045852793040295 
+            xmax = 1.1588835267832738 
+            text = "" 
+        intervals [5]:
+            xmin = 1.1588835267832738 
+            xmax = 1.7128395300284294 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.7128395300284294 
+            xmax = 1.7267120181405895 
+            text = "" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "candyHeart" 
+        xmin = 0 
+        xmax = 1.6398412698412699 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4687959183307365 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4687959183307365 
+            xmax = 0.5408625648372152 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5408625648372152 
+            xmax = 1.021306874880406 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.021306874880406 
+            xmax = 1.0285135395310536 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0285135395310536 
+            xmax = 1.6398412698412699 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "candyWrapped" 
+        xmin = 0 
+        xmax = 1.6934467120181407 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.00781681927148013 
+            text = "" 
+        intervals [2]:
+            xmin = 0.00781681927148013 
+            xmax = 0.5213318112025236 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.5213318112025236 
+            xmax = 0.575908283774905 
+            text = "" 
+        intervals [4]:
+            xmin = 0.575908283774905 
+            xmax = 1.000116320587506 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.000116320587506 
+            xmax = 1.0869425269526585 
+            text = "" 
+        intervals [6]:
+            xmin = 1.0869425269526585 
+            xmax = 1.647591745196213 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.647591745196213 
+            xmax = 1.6934467120181407 
+            text = "" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "cane" 
+        xmin = 0 
+        xmax = 1.1221995464852608 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.008467831430074907 
+            text = "" 
+        intervals [2]:
+            xmin = 0.008467831430074907 
+            xmax = 0.4704100495242587 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4704100495242587 
+            xmax = 0.5312351814441334 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5312351814441334 
+            xmax = 1.0540025314581918 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.0540025314581918 
+            xmax = 1.1221995464852608 
+            text = "" 
+    item [10]:
+        class = "IntervalTier" 
+        name = "carConvertible" 
+        xmin = 0 
+        xmax = 1.8482539682539683 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.013946452831993889 
+            text = "" 
+        intervals [2]:
+            xmin = 0.013946452831993889 
+            xmax = 0.44715087030506817 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.44715087030506817 
+            xmax = 0.495886367270789 
+            text = "" 
+        intervals [4]:
+            xmin = 0.495886367270789 
+            xmax = 1.1863059076185012 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.1863059076185012 
+            xmax = 1.253994097848669 
+            text = "" 
+        intervals [6]:
+            xmin = 1.253994097848669 
+            xmax = 1.792792092080805 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.792792092080805 
+            xmax = 1.8482539682539683 
+            text = "" 
+    item [11]:
+        class = "IntervalTier" 
+        name = "castle" 
+        xmin = 0 
+        xmax = 1.1427891156462584 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.037082629374223866 
+            text = "" 
+        intervals [2]:
+            xmin = 0.037082629374223866 
+            xmax = 0.45727780652516464 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.45727780652516464 
+            xmax = 0.5158707595143397 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5158707595143397 
+            xmax = 1.0616222644992268 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.0616222644992268 
+            xmax = 1.1427891156462584 
+            text = "" 
+    item [12]:
+        class = "IntervalTier" 
+        name = "castleSmall" 
+        xmin = 0 
+        xmax = 1.7990702947845805 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4352517899977156 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4352517899977156 
+            xmax = 0.4431582237092599 
+            text = "" 
+        intervals [3]:
+            xmin = 0.4431582237092599 
+            xmax = 1.0730374427289575 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0730374427289575 
+            xmax = 1.2232596832482996 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2232596832482996 
+            xmax = 1.758261697729465 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.758261697729465 
+            xmax = 1.7990702947845805 
+            text = "" 
+    item [13]:
+        class = "IntervalTier" 
+        name = "catSmall" 
+        xmin = 0 
+        xmax = 1.6503401360544219 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.010035444100142937 
+            text = "" 
+        intervals [2]:
+            xmin = 0.010035444100142937 
+            xmax = 0.46937972055929156 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.46937972055929156 
+            xmax = 1.0399336639506551 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0399336639506551 
+            xmax = 1.2551001934499404 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2551001934499404 
+            xmax = 1.6443340277126925 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.6443340277126925 
+            xmax = 1.6503401360544219 
+            text = "" 
+    item [14]:
+        class = "IntervalTier" 
+        name = "caterpillar" 
+        xmin = 0 
+        xmax = 1.32297052154195 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.45379260654390924 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.45379260654390924 
+            xmax = 0.535190038682666 
+            text = "" 
+        intervals [3]:
+            xmin = 0.535190038682666 
+            xmax = 1.3065276099023133 
+            text = "noun" 
+        intervals [4]:
+            xmin = 1.3065276099023133 
+            xmax = 1.32297052154195 
+            text = "" 
+    item [15]:
+        class = "IntervalTier" 
+        name = "char" 
+        xmin = 0 
+        xmax = 1.1485714285714286 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.005301717032967041 
+            text = "" 
+        intervals [2]:
+            xmin = 0.005301717032967041 
+            xmax = 0.48987754120879135 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.48987754120879135 
+            xmax = 0.5723227335164837 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5723227335164837 
+            xmax = 1.082136881868132 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.082136881868132 
+            xmax = 1.1485714285714286 
+            text = "" 
+    item [16]:
+        class = "IntervalTier" 
+        name = "chairBig" 
+        xmin = 0 
+        xmax = 2.023514739229025 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.006376118756199391 
+            text = "" 
+        intervals [2]:
+            xmin = 0.006376118756199391 
+            xmax = 0.4925162420213494 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4925162420213494 
+            xmax = 0.6703723846793311 
+            text = "" 
+        intervals [4]:
+            xmin = 0.6703723846793311 
+            xmax = 1.0586916294825912 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.0586916294825912 
+            xmax = 1.3432614577353619 
+            text = "" 
+        intervals [6]:
+            xmin = 1.3432614577353619 
+            xmax = 1.9568651499053986 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.9568651499053986 
+            xmax = 2.023514739229025 
+            text = "" 
+    item [17]:
+        class = "IntervalTier" 
+        name = "champagne" 
+        xmin = 0 
+        xmax = 1.2457596371882087 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.023999600530510725 
+            text = "" 
+        intervals [2]:
+            xmin = 0.023999600530510725 
+            xmax = 0.42365861857802833 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.42365861857802833 
+            xmax = 0.4254835456010764 
+            text = "" 
+        intervals [4]:
+            xmin = 0.4254835456010764 
+            xmax = 1.2430508519265917 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.2430508519265917 
+            xmax = 1.2457596371882087 
+            text = "" 
+    item [18]:
+        class = "IntervalTier" 
+        name = "champagneBig" 
+        xmin = 0 
+        xmax = 1.676530612244898 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.53577189290254 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.53577189290254 
+            xmax = 0.6192748107602686 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6192748107602686 
+            xmax = 0.9017111505731743 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9017111505731743 
+            xmax = 1.676530612244898 
+            text = "noun" 
+    item [19]:
+        class = "IntervalTier" 
+        name = "checkerboardSmall" 
+        xmin = 0 
+        xmax = 2.0345804988662133 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.48924864949926594 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.48924864949926594 
+            xmax = 1.1270712405764547 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1270712405764547 
+            xmax = 1.2075441843104924 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2075441843104924 
+            xmax = 2.0345804988662133 
+            text = "noun" 
+    item [20]:
+        class = "IntervalTier" 
+        name = "cherry" 
+        xmin = 0 
+        xmax = 1.2374603174603174 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.007524790539062935 
+            text = "" 
+        intervals [2]:
+            xmin = 0.007524790539062935 
+            xmax = 0.5169129520665903 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.5169129520665903 
+            xmax = 0.5857981838745833 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5857981838745833 
+            xmax = 1.1676971157263136 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.1676971157263136 
+            xmax = 1.2374603174603174 
+            text = "" 
+    item [21]:
+        class = "IntervalTier" 
+        name = "cherrySmall" 
+        xmin = 0 
+        xmax = 1.8029931972789115 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4758192328194195 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4758192328194195 
+            xmax = 1.0621710955622206 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0621710955622206 
+            xmax = 1.1704613044471521 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1704613044471521 
+            xmax = 1.7541719425830036 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.7541719425830036 
+            xmax = 1.8029931972789115 
+            text = "" 
+    item [22]:
+        class = "IntervalTier" 
+        name = "chocolateBar" 
+        xmin = 0 
+        xmax = 1.754671201814059 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.002958552422834815 
+            text = "" 
+        intervals [2]:
+            xmin = 0.002958552422834815 
+            xmax = 0.928315938373771 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.928315938373771 
+            xmax = 0.9617316217553326 
+            text = "" 
+        intervals [4]:
+            xmin = 0.9617316217553326 
+            xmax = 1.7457149626304311 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.7457149626304311 
+            xmax = 1.754671201814059 
+            text = "" 
+    item [23]:
+        class = "IntervalTier" 
+        name = "chocolatebarNuts" 
+        xmin = 0 
+        xmax = 1.9908616780045352 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.545813743353972 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.545813743353972 
+            xmax = 1.175763749797422 
+            text = "noun" 
+        intervals [3]:
+            xmin = 1.175763749797422 
+            xmax = 1.9908616780045352 
+            text = "adj" 
+    item [24]:
+        class = "IntervalTier" 
+        name = "chocolatebarSmall" 
+        xmin = 0 
+        xmax = 1.8638095238095238 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4099595226135805 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4099595226135805 
+            xmax = 0.9505619151836969 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9505619151836969 
+            xmax = 0.9969772721215353 
+            text = "" 
+        intervals [4]:
+            xmin = 0.9969772721215353 
+            xmax = 1.8269930667746432 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.8269930667746432 
+            xmax = 1.8638095238095238 
+            text = "" 
+    item [25]:
+        class = "IntervalTier" 
+        name = "chocolateBarRound" 
+        xmin = 0 
+        xmax = 2.193786848072562 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4921817306960098 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4921817306960098 
+            xmax = 1.0610070790816326 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0610070790816326 
+            xmax = 1.0835029968143974 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0835029968143974 
+            xmax = 2.1761618581201136 
+            text = "noun" 
+        intervals [5]:
+            xmin = 2.1761618581201136 
+            xmax = 2.193786848072562 
+            text = "" 
+    item [26]:
+        class = "IntervalTier" 
+        name = "cinnamonroll" 
+        xmin = 0 
+        xmax = 1.5039909297052154 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6823438405699807 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6823438405699807 
+            xmax = 1.4963142194004468 
+            text = "noun" 
+        intervals [3]:
+            xmin = 1.4963142194004468 
+            xmax = 1.5039909297052154 
+            text = "" 
+    item [27]:
+        class = "IntervalTier" 
+        name = "cinnamonrollBig" 
+        xmin = 0 
+        xmax = 1.874126984126984 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46988294371207157 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.46988294371207157 
+            xmax = 0.5769546854498114 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5769546854498114 
+            xmax = 0.8844427642863977 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.8844427642863977 
+            xmax = 0.9613147839955443 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9613147839955443 
+            xmax = 1.8398521521000764 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.8398521521000764 
+            xmax = 1.874126984126984 
+            text = "" 
+    item [28]:
+        class = "IntervalTier" 
+        name = "coffinOpen" 
+        xmin = 0 
+        xmax = 1.6551020408163266 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4780078042626351 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4780078042626351 
+            xmax = 0.5628680070262894 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5628680070262894 
+            xmax = 0.9556495169609177 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9556495169609177 
+            xmax = 0.9968673297318354 
+            text = "" 
+        intervals [5]:
+            xmin = 0.9968673297318354 
+            xmax = 1.6345311390701518 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.6345311390701518 
+            xmax = 1.6551020408163266 
+            text = "" 
+    item [29]:
+        class = "IntervalTier" 
+        name = "coinsFivecent" 
+        xmin = 0 
+        xmax = 2.1005668934240362 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4435733013821201 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4435733013821201 
+            xmax = 0.5943533374996096 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5943533374996096 
+            xmax = 1.2313220615061469 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.2313220615061469 
+            xmax = 1.295942076985071 
+            text = "" 
+        intervals [5]:
+            xmin = 1.295942076985071 
+            xmax = 2.0129165344417044 
+            text = "noun" 
+        intervals [6]:
+            xmin = 2.0129165344417044 
+            xmax = 2.1005668934240362 
+            text = "" 
+    item [30]:
+        class = "IntervalTier" 
+        name = "comb" 
+        xmin = 0 
+        xmax = 1.1486621315192744 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.0053021357107711125 
+            text = "" 
+        intervals [2]:
+            xmin = 0.0053021357107711125 
+            xmax = 0.48823353913321943 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.48823353913321943 
+            xmax = 0.577415993423776 
+            text = "" 
+        intervals [4]:
+            xmin = 0.577415993423776 
+            xmax = 1.105779967899904 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.105779967899904 
+            xmax = 1.1486621315192744 
+            text = "" 
+    item [31]:
+        class = "IntervalTier" 
+        name = "combBig" 
+        xmin = 0 
+        xmax = 1.8483446712018141 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.013947137253293981 
+            text = "" 
+        intervals [2]:
+            xmin = 0.013947137253293981 
+            xmax = 0.5121566657489633 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.5121566657489633 
+            xmax = 0.6827392760491109 
+            text = "" 
+        intervals [4]:
+            xmin = 0.6827392760491109 
+            xmax = 1.0726423853065912 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.0726423853065912 
+            xmax = 1.2540556375305578 
+            text = "" 
+        intervals [6]:
+            xmin = 1.2540556375305578 
+            xmax = 1.8037107151643668 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.8037107151643668 
+            xmax = 1.8483446712018141 
+            text = "" 
+    item [32]:
+        class = "IntervalTier" 
+        name = "cone" 
+        xmin = 0 
+        xmax = 1.0346938775510204 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01387047384252209 
+            text = "" 
+        intervals [2]:
+            xmin = 0.01387047384252209 
+            xmax = 0.4594964066783431 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4594964066783431 
+            xmax = 0.5186100508300335 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5186100508300335 
+            xmax = 1.0278968312138288 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.0278968312138288 
+            xmax = 1.0346938775510204 
+            text = "" 
+    item [33]:
+        class = "IntervalTier" 
+        name = "cookieSmall" 
+        xmin = 0 
+        xmax = 1.5883219954648526 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4633746495763921 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4633746495763921 
+            xmax = 1.047388999310258 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.047388999310258 
+            xmax = 1.1497660167934856 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1497660167934856 
+            xmax = 1.5825415906998563 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.5825415906998563 
+            xmax = 1.5883219954648526 
+            text = "" 
+    item [34]:
+        class = "IntervalTier" 
+        name = "coolerPInk" 
+        xmin = 0 
+        xmax = 1.787936507936508 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.010872144770652244 
+            text = "" 
+        intervals [2]:
+            xmin = 0.010872144770652244 
+            xmax = 0.4797031982942432 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4797031982942432 
+            xmax = 0.5844699141654367 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5844699141654367 
+            xmax = 1.0375859603083486 
+            text = "adj" 
+        intervals [5]:
+            xmin = 1.0375859603083486 
+            xmax = 1.2078318735990379 
+            text = "" 
+        intervals [6]:
+            xmin = 1.2078318735990379 
+            xmax = 1.770952971406703 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.770952971406703 
+            xmax = 1.787936507936508 
+            text = "" 
+    item [35]:
+        class = "IntervalTier" 
+        name = "cork" 
+        xmin = 0 
+        xmax = 0.9832199546485261 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.021822424377328432 
+            text = "" 
+        intervals [2]:
+            xmin = 0.021822424377328432 
+            xmax = 0.44816002991322823 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.44816002991322823 
+            xmax = 0.5043328901020799 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5043328901020799 
+            xmax = 0.9551561013613252 
+            text = "noun" 
+        intervals [5]:
+            xmin = 0.9551561013613252 
+            xmax = 0.9832199546485261 
+            text = "" 
+    item [36]:
+        class = "IntervalTier" 
+        name = "cornBig" 
+        xmin = 0 
+        xmax = 1.6590702947845806 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47915387037780105 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47915387037780105 
+            xmax = 0.576369484809567 
+            text = "" 
+        intervals [3]:
+            xmin = 0.576369484809567 
+            xmax = 0.9069025738775708 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9069025738775708 
+            xmax = 1.0867514605763375 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0867514605763375 
+            xmax = 1.6214373399510495 
+            text = "noun" 
+        intervals [6]:
+            xmin = 1.6214373399510495 
+            xmax = 1.6590702947845806 
+            text = "" 
+    item [37]:
+        class = "IntervalTier" 
+        name = "couch" 
+        xmin = 0 
+        xmax = 1.0284580498866214 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.012280280614685606 
+            text = "" 
+        intervals [2]:
+            xmin = 0.012280280614685606 
+            xmax = 0.4190621544577935 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.4190621544577935 
+            xmax = 0.47480633716962684 
+            text = "" 
+        intervals [4]:
+            xmin = 0.47480633716962684 
+            xmax = 0.9930765764364012 
+            text = "noun" 
+        intervals [5]:
+            xmin = 0.9930765764364012 
+            xmax = 1.0284580498866214 
+            text = "" 
+    item [38]:
+        class = "IntervalTier" 
+        name = "couchSmall" 
+        xmin = 0 
+        xmax = 1.5488662131519275 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4077696960631822 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4077696960631822 
+            xmax = 0.9175179456920891 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9175179456920891 
+            xmax = 1.0440601392932318 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0440601392932318 
+            xmax = 1.5273467421160485 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.5273467421160485 
+            xmax = 1.5488662131519275 
+            text = "" 
+    item [39]:
+        class = "IntervalTier" 
+        name = "cowSpotted" 
+        xmin = 0 
+        xmax = 1.8208616780045352 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5454789519520861 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5454789519520861 
+            xmax = 1.1804138335115097 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1804138335115097 
+            xmax = 1.271424318821377 
+            text = "" 
+        intervals [4]:
+            xmin = 1.271424318821377 
+            xmax = 1.7956526056473627 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.7956526056473627 
+            xmax = 1.8208616780045352 
+            text = "" 
+    item [40]:
+        class = "IntervalTier" 
+        name = "crackerRound" 
+        xmin = 0 
+        xmax = 1.8153741496598639 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5448023657494055 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5448023657494055 
+            xmax = 1.1093553295385319 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1093553295385319 
+            xmax = 1.2183891551612036 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2183891551612036 
+            xmax = 1.8061080688834088 
+            text = "noun" 
+        intervals [5]:
+            xmin = 1.8061080688834088 
+            xmax = 1.8153741496598639 
+            text = "" 
+    item [41]:
+        class = "IntervalTier" 
+        name = "crib" 
+        xmin = 0 
+        xmax = 0.9883673469387755 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.023384540223236258 
+            text = "" 
+        intervals [2]:
+            xmin = 0.023384540223236258 
+            xmax = 0.45774560626274047 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.45774560626274047 
+            xmax = 0.514212544847876 
+            text = "" 
+        intervals [4]:
+            xmin = 0.514212544847876 
+            xmax = 0.971739534409487 
+            text = "noun" 
+        intervals [5]:
+            xmin = 0.971739534409487 
+            xmax = 0.9883673469387755 
+            text = "" 
+    item [42]:
+        class = "IntervalTier" 
+        name = "cribSmall" 
+        xmin = 0 
+        xmax = 1.8213378684807255 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.55067000600015 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.55067000600015 
+            xmax = 1.1373718421371288 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1373718421371288 
+            xmax = 1.2170555118222663 
+            text = "" 
+        intervals [4]:
+            xmin = 1.2170555118222663 
+            xmax = 1.8213378684807255 
+            text = "noun" 
+    item [43]:
+        class = "IntervalTier" 
+        name = "cucumber" 
+        xmin = 0 
+        xmax = 1.2791383219954648 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4425053552635177 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4425053552635177 
+            xmax = 0.49684624622667684 
+            text = "" 
+        intervals [3]:
+            xmin = 0.49684624622667684 
+            xmax = 1.2163945955319557 
+            text = "noun" 
+        intervals [4]:
+            xmin = 1.2163945955319557 
+            xmax = 1.2791383219954648 
+            text = "" 
+    item [44]:
+        class = "IntervalTier" 
+        name = "cucumberBig" 
+        xmin = 0 
+        xmax = 1.776780045351474 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.01340712884752065 
+            text = "" 
+        intervals [2]:
+            xmin = 0.01340712884752065 
+            xmax = 0.5313692385306592 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.5313692385306592 
+            xmax = 0.5938370306532488 
+            text = "" 
+        intervals [4]:
+            xmin = 0.5938370306532488 
+            xmax = 0.9035731665944221 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.9035731665944221 
+            xmax = 1.0154946274807284 
+            text = "" 
+        intervals [6]:
+            xmin = 1.0154946274807284 
+            xmax = 1.7677109576235779 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.7677109576235779 
+            xmax = 1.776780045351474 
+            text = "" 
+    item [45]:
+        class = "IntervalTier" 
+        name = "cupCoffee" 
+        xmin = 0 
+        xmax = 1.244965986394558 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.005746666869244836 
+            text = "" 
+        intervals [2]:
+            xmin = 0.005746666869244836 
+            xmax = 0.40697483382489064 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.40697483382489064 
+            xmax = 0.4635115300777316 
+            text = "" 
+        intervals [4]:
+            xmin = 0.4635115300777316 
+            xmax = 0.819145587152054 
+            text = "adj" 
+        intervals [5]:
+            xmin = 0.819145587152054 
+            xmax = 0.8629159326381245 
+            text = "" 
+        intervals [6]:
+            xmin = 0.8629159326381245 
+            xmax = 1.2367876336649761 
+            text = "noun" 
+        intervals [7]:
+            xmin = 1.2367876336649761 
+            xmax = 1.244965986394558 
+            text = "" 

@@ -1,0 +1,71 @@
+---
+title: "InterpretationTlessC"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Imprecision Interpretation TlessC preliminary analysis
+
+Loading preprocessed data and extract critical trials
+
+```{r tlessc}
+df <- read.csv("Jan-26-2017-Batch_2666254_batch_results_intp_preprocessed.csv")
+dfcrit <- df[df$SceneID %in% 1:40, ]
+
+# drop levels in filler conditions
+dfcrit$Condition <- factor(dfcrit$Condition)
+dfcrit$Answer.choicePrior <- factor(dfcrit$Answer.choicePrior)
+dfcrit$Answer.choiceAdj <- factor(dfcrit$Answer.choiceAdj)
+dfcrit$Answer.choiceWhole <- factor(dfcrit$Answer.choiceWhole)
+dfcrit$AdjectiveType <- factor(dfcrit$AdjectiveType)
+
+```
+
+## Choices after adjectives
+
+
+```{r}
+xtabs(~Condition + Answer.choiceAdj + AdjectiveType, dfcrit)
+```
+
+We can see that in general the presence of contrast boosts the chance of choosing the target, espeically
+ for relative adjectives. 
+ 
+## Choices after whole sentences
+ 
+
+```{r}
+dfwrong <- dfcrit[dfcrit$Answer.choiceWhole != "Target", ]
+sort(table(as.factor(dfwrong$SceneID)), decreasing = TRUE)
+``` 
+
+We can see that 86 out of 100 participants made the "wrong" choice for Scene 86 even after seeing the whole sentence! 
+And 74 got it wrong for Scene 13. What happened?!
+
+Using the item visualizer (or just checking the stimuli lists), we find that in both cases, the participants chose the perfectly
+ straight arrow when they were told to click on the straight line. 
+In fact, the top 8 scenes in this list are all include lines and arrows and many participants just did not seem to make a distinction.
+
+```{r}
+sort(table(dfwrong$WorkerId), decreasing = TRUE)
+``` 
+There is at least a small group of participants who do not distinguish between
+lines and arrows. 
+I do not have a good sense of how likely an English speaker will make such a distinction, but I think it could be 
+that the participants "learned" to ignore such a distinction to accomodate the speaker. (One participant commented "You used arrow and line interchangeably and I found that confusing.")
+
+Note that participants seemed more willing to give up this distinction when the adjective is "straight" then when it is a relative adjective.
+However, it is unclear what the overall effect is, since there are more relative adjectives scenes using lines than absolute adjectives.
+
+```{r}
+itemResponses <- function(df, id){
+  r = rbind(table(df$Answer.choicePrior[df$SceneID==id]), 
+        table(df$Answer.choiceAdj[df$SceneID==id]), 
+        table(df$Answer.choiceWhole[df$SceneID==id]))
+  rownames(r) = c('prior', 'adj', 'noun')
+  return(r)
+}
+```

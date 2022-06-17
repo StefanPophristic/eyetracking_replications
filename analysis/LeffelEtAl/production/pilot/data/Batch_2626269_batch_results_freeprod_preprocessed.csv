@@ -1,0 +1,961 @@
+WorkerId,Answer.wrongShape,Input.List,SceneID,Input.Condition,Input.Referent,Input.Noun,Input.Adj,Input.Target,Input.Competitor,Input.Distractor,Input.Contrast,Answer.freeGenCrit,ReferentImage,turnOrder,sceneConfigs
+4ycec7dxyh,0,TlessC2,1,NoContrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,yellow cylinder,%23tall_yellowcylinder3.jpg,2,CADB
+4ycec7dxyh,0,TlessC2,2,Contrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,red triangle part,open_redtriangle7.jpg,13,BACD
+4ycec7dxyh,0,TlessC2,3,NoContrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,red arrow,bent_redarrow7.jpg,35,ACBD
+4ycec7dxyh,0,TlessC2,4,Contrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,green arrow,curved_greenarrow7.jpg,27,ABCD
+4ycec7dxyh,0,TlessC2,5,NoContrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,yellow circle,spotted_yellowcircle6.jpg,4,CBDA
+4ycec7dxyh,0,TlessC2,6,Contrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,blue triangle,striped_bluetriangle7.jpg,12,BCDA
+4ycec7dxyh,0,TlessC2,7,NoContrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,yellow cylinder,full_yellowcylinder2.jpg,11,BCDA
+4ycec7dxyh,0,TlessC2,8,Contrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,blue line,curved_blueline6.jpg,15,ABDC
+4ycec7dxyh,0,TlessC2,9,NoContrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,blue line,diagonal_bluearrow.jpg,23,DCBA
+4ycec7dxyh,0,TlessC2,10,Contrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,green square,striped_greensquare7.jpg,29,CABD
+4ycec7dxyh,0,TlessC2,11,NoContrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,blue spiral,%23tall_bluespiral7.jpg,36,CBAD
+4ycec7dxyh,0,TlessC2,12,Contrast,1,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,green circle,open_greencircle2.jpg,34,DABC
+4ycec7dxyh,0,TlessC2,13,NoContrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,green arrow,curved_greenarrow1.jpg,31,ACBD
+4ycec7dxyh,0,TlessC2,14,Contrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,blue line,diagonal_bluearrow.jpg,6,BADC
+4ycec7dxyh,0,TlessC2,15,NoContrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,green line,curved_greenline4.jpg,14,CDAB
+4ycec7dxyh,0,TlessC2,16,Contrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,yellow triangle,bumpy_yellowtriangle2.jpg,10,DABC
+4ycec7dxyh,0,TlessC2,17,NoContrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,green wave,green_wavyline.jpg,38,DCBA
+4ycec7dxyh,0,TlessC2,18,Contrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,red line,bent_redline2.jpg,25,BACD
+4ycec7dxyh,0,TlessC2,19,NoContrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,yellow line,%23thick_yellowline1.jpg,21,BCDA
+4ycec7dxyh,0,TlessC2,20,Contrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,yellow cylinder,full_yellowcylinder1.jpg,24,BCAD
+4ycec7dxyh,0,TlessC2,21,NoContrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,red arrow,long_redline5.jpg,18,BDCA
+4ycec7dxyh,0,TlessC2,22,Contrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,blue line,long_blueline3.jpg,37,BADC
+4ycec7dxyh,0,TlessC2,23,NoContrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,yellow triangle,big_yellowtriangle6.jpg,26,ACBD
+4ycec7dxyh,0,TlessC2,24,Contrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,blue triangle,big_bluetriangle5.jpg,3,CDAB
+4ycec7dxyh,0,TlessC2,25,NoContrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,yellow square,wide_yellowrectangle6.jpg,28,DABC
+4ycec7dxyh,0,TlessC2,26,Contrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,blue star,blue_star.jpg,40,BCAD
+4ycec7dxyh,0,TlessC2,27,NoContrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,green cylindar,%23tall_greencylinder6.jpg,22,DCBA
+4ycec7dxyh,0,TlessC2,28,Contrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,yellow cylindar,%23tall_yellowcylinder2.jpg,30,BDCA
+4ycec7dxyh,0,TlessC2,29,NoContrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,red sun,red_sun.jpg,39,CBDA
+4ycec7dxyh,0,TlessC2,30,Contrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,green circle,bumpy_greencircle4.jpg,8,CABD
+4ycec7dxyh,0,TlessC2,31,NoContrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,green line,long_greenline5.jpg,5,ACBD
+4ycec7dxyh,0,TlessC2,32,Contrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,green line,long_greenline5.jpg,9,BDAC
+4ycec7dxyh,0,TlessC2,33,NoContrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,blue square,big_bluesquare6.jpg,16,ABCD
+4ycec7dxyh,0,TlessC2,34,Contrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,green line,green_garabato.jpg,19,BCDA
+4ycec7dxyh,0,TlessC2,35,NoContrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,red oval,wide_redoval6.jpg,7,CABD
+4ycec7dxyh,0,TlessC2,36,Contrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,yellow oval,wide_yellowoval5.jpg,17,BCDA
+4ycec7dxyh,0,TlessC2,37,NoContrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,red line,bent_redline1.jpg,20,ABCD
+4ycec7dxyh,0,TlessC2,38,Contrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,green cylindar,%23tall_greencylinder3.jpg,33,DBAC
+4ycec7dxyh,0,TlessC2,39,NoContrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,blue rectangle,%23thick_blueline5.jpg,1,DBAC
+4ycec7dxyh,0,TlessC2,40,Contrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,blue rectangle,%23thick_blueline5.jpg,32,BDAC
+a1ldq3vavt,0,TlessC1,1,Contrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,circle,bumpy_greencircle7.jpg,34,BCDA
+a1ldq3vavt,0,TlessC1,2,NoContrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,wavy line,green_garabato.jpg,13,ACDB
+a1ldq3vavt,0,TlessC1,3,Contrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,bet line with arrow,bent_redarrow7.jpg,19,DABC
+a1ldq3vavt,0,TlessC1,4,NoContrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,arrowless curve,curved_redline6.jpg,15,BDCA
+a1ldq3vavt,0,TlessC1,5,Contrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,triangle,striped_bluetriangle4.jpg,6,CABD
+a1ldq3vavt,0,TlessC1,6,NoContrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,square,striped_yellowsquare6.jpg,22,CABD
+a1ldq3vavt,0,TlessC1,7,Contrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,circle,spotted_greencircle4.jpg,2,ACBD
+a1ldq3vavt,0,TlessC1,8,NoContrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,thunderbolt,green_lightning.jpg,32,ACBD
+a1ldq3vavt,0,TlessC1,9,Contrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,dotted square,spotted_yellowsquare6.jpg,16,CDBA
+a1ldq3vavt,0,TlessC1,10,NoContrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,lego pentagon,bumpy_blueshape.jpg,9,DBAC
+a1ldq3vavt,0,TlessC1,11,Contrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,sqaure prism,full_cube8.jpg,5,ACDB
+a1ldq3vavt,0,TlessC1,12,NoContrast,4,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,squiggly,yellow_wavyline.jpg,38,ADBC
+a1ldq3vavt,0,TlessC1,13,Contrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,yellow circle,spotted_yellowcircle4.jpg,18,BADC
+a1ldq3vavt,0,TlessC1,14,NoContrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,cylinder,full_redcylinder7.jpg,10,ACBD
+a1ldq3vavt,0,TlessC1,15,Contrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,cylinder,empty_cylinder.jpg,36,DABC
+a1ldq3vavt,0,TlessC1,16,NoContrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,square,bumpy_bluesquare1.jpg,28,BACD
+a1ldq3vavt,0,TlessC1,17,Contrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,line,long_redline7.jpg,25,DABC
+a1ldq3vavt,0,TlessC1,18,NoContrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,arrow,bent_greenarrow1.jpg,29,DCAB
+a1ldq3vavt,0,TlessC1,19,Contrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,squiggly ribbon,%23tall_redspiral4.jpg,4,CDAB
+a1ldq3vavt,0,TlessC1,20,NoContrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,line,long_redline1.jpg,7,BDCA
+a1ldq3vavt,0,TlessC1,21,Contrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,shorter line,long_blueline3.jpg,20,BADC
+a1ldq3vavt,0,TlessC1,22,NoContrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,heart,green_heart.jpg,8,BADC
+a1ldq3vavt,0,TlessC1,23,Contrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,smaller square,big_bluesquare3.jpg,40,DCAB
+a1ldq3vavt,0,TlessC1,24,NoContrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,triangle,big_yellowtriangle3.jpg,24,DABC
+a1ldq3vavt,0,TlessC1,25,Contrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,incomplete line square,open_bluesquare7.jpg,31,ACDB
+a1ldq3vavt,0,TlessC1,26,NoContrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,star,blue_star.jpg,11,ABCD
+a1ldq3vavt,0,TlessC1,27,Contrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,circle,chereos_yellowoval.jpg,17,CBAD
+a1ldq3vavt,0,TlessC1,28,NoContrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,squiggly ribbon,%23tall_redspiral3.jpg,37,ADBC
+a1ldq3vavt,0,TlessC1,29,Contrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,thicker rectangle,%23thick_yellowline5.jpg,30,ADBC
+a1ldq3vavt,0,TlessC1,30,NoContrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,corcle,bumpy_greencircle4.jpg,35,BCDA
+a1ldq3vavt,0,TlessC1,31,Contrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,cloud,yellow_cloud.jpg,23,CABD
+a1ldq3vavt,0,TlessC1,32,NoContrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,circle,spotted_greencircle4.jpg,1,CADB
+a1ldq3vavt,0,TlessC1,33,Contrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,line,long_redline4.jpg,26,ACDB
+a1ldq3vavt,0,TlessC1,34,NoContrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,blue square,big_bluesquare3.jpg,21,DCBA
+a1ldq3vavt,0,TlessC1,35,Contrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,imcomplete triangle,open_bluetriangle7.jpg,3,CBAD
+a1ldq3vavt,0,TlessC1,36,NoContrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,thin rectangle,wide_greenrectangle2.jpg,39,BCAD
+a1ldq3vavt,0,TlessC1,37,Contrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,taller cylinder,%23tall_yellowcylinder5.jpg,14,ACBD
+a1ldq3vavt,0,TlessC1,38,NoContrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,cylinder,%23tall_greencylinder3.jpg,12,CBDA
+a1ldq3vavt,0,TlessC1,39,Contrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,thickest line with no arrow,%23thick_blueline5.jpg,27,ACBD
+a1ldq3vavt,0,TlessC1,40,NoContrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,square,bumpy_bluesquare4.jpg,33,BCAD
+yc87avq34n,0,TlessC2,1,NoContrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,triangle,striped_redtriangle4.jpg,35,DCBA
+yc87avq34n,0,TlessC2,2,Contrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,cloud,yellow_cloud.jpg,5,CDAB
+yc87avq34n,0,TlessC2,3,NoContrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,red arrow,bent_redarrow7.jpg,15,DACB
+yc87avq34n,0,TlessC2,4,Contrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,star,yellow_star.jpg,2,CADB
+yc87avq34n,0,TlessC2,5,NoContrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,triangle,striped_bluetriangle4.jpg,29,DCBA
+yc87avq34n,0,TlessC2,6,Contrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,star,spotted_redstar.jpg,1,BDAC
+yc87avq34n,0,TlessC2,7,NoContrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,cylinder,full_yellowcylinder2.jpg,7,CDBA
+yc87avq34n,0,TlessC2,8,Contrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,curved blue line,curved_blueline6.jpg,39,CDAB
+yc87avq34n,0,TlessC2,9,NoContrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,blue line,diagonal_bluearrow.jpg,27,CBDA
+yc87avq34n,0,TlessC2,10,Contrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,square,striped_greensquare7.jpg,30,BDCA
+yc87avq34n,0,TlessC2,11,NoContrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,circle,bumpy_greencircle2.jpg,6,DBCA
+yc87avq34n,0,TlessC2,12,Contrast,4,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,yellow shape,open_yellowcircle5.jpg,8,ADCB
+yc87avq34n,0,TlessC2,13,NoContrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,circle,spotted_yellowcircle4.jpg,20,ABDC
+yc87avq34n,0,TlessC2,14,Contrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,yellow box,full_yellowcube6.jpg,34,CADB
+yc87avq34n,0,TlessC2,15,NoContrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,blue line,blue_bumpyline.jpg,33,ACDB
+yc87avq34n,0,TlessC2,16,Contrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,triangle,bumpy_yellowtriangle2.jpg,16,ADBC
+yc87avq34n,0,TlessC2,17,NoContrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,red line,long_redline7.jpg,23,BACD
+yc87avq34n,0,TlessC2,18,Contrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,oval,chereos_yellowoval.jpg,22,ACBD
+yc87avq34n,0,TlessC2,19,NoContrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,curly red object,%23tall_redspiral4.jpg,17,BCDA
+yc87avq34n,0,TlessC2,20,Contrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,cloud,yellow_cloud.jpg,13,BCDA
+yc87avq34n,0,TlessC2,21,NoContrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,blue circle,open_bluecircle1.jpg,25,BACD
+yc87avq34n,0,TlessC2,22,Contrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,blue line,long_blueline3.jpg,18,CABD
+yc87avq34n,0,TlessC2,23,NoContrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,green stroke,green_wavyline.jpg,26,ABDC
+yc87avq34n,0,TlessC2,24,Contrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,blue triangle,big_bluetriangle5.jpg,28,CBDA
+yc87avq34n,0,TlessC2,25,NoContrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,oval,wide_greenoval5.jpg,38,BADC
+yc87avq34n,0,TlessC2,26,Contrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,red rectangle,wide_redrectangle3.jpg,37,BDAC
+yc87avq34n,0,TlessC2,27,NoContrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,curved line,curved_redline4.jpg,3,ADBC
+yc87avq34n,0,TlessC2,28,Contrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,curly green object,%23tall_greenspiral5.jpg,11,CDBA
+yc87avq34n,0,TlessC2,29,NoContrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,yellow line,%23thick_yellowline5.jpg,14,ACBD
+yc87avq34n,0,TlessC2,30,Contrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,yellow line,%23thick_yellowline5.jpg,9,BDAC
+yc87avq34n,0,TlessC2,31,NoContrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,blue arrow,long_bluearrow6.jpg,19,DBCA
+yc87avq34n,0,TlessC2,32,Contrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,red line,long_redline3.jpg,21,BCAD
+yc87avq34n,0,TlessC2,33,NoContrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,triangle,big_yellowtriangle5.jpg,12,BCDA
+yc87avq34n,0,TlessC2,34,Contrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,triangle,big_yellowtriangle2.jpg,32,ADBC
+yc87avq34n,0,TlessC2,35,NoContrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,circle,wide_redoval6.jpg,36,DBCA
+yc87avq34n,0,TlessC2,36,Contrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,green rectangle,wide_greenrectangle2.jpg,31,ACBD
+yc87avq34n,0,TlessC2,37,NoContrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,green stroke,green_wavyline.jpg,24,ADBC
+yc87avq34n,0,TlessC2,38,Contrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,cloud,yellow_cloud.jpg,10,ACDB
+yc87avq34n,0,TlessC2,39,NoContrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,blue line,%23thick_blueline5.jpg,40,BDAC
+yc87avq34n,0,TlessC2,40,Contrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,red line,%23thick_redline3.jpg,4,ACBD
+bctm3jurg6,0,TlessC2,1,NoContrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,green,bumpy_greencircle7.jpg,12,ADBC
+bctm3jurg6,0,TlessC2,2,Contrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,blue,open_bluecircle6.jpg,24,DBAC
+bctm3jurg6,0,TlessC2,3,NoContrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,yellow,yellow_cloud.jpg,38,DCAB
+bctm3jurg6,0,TlessC2,4,Contrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,green,curved_greenarrow7.jpg,10,BCAD
+bctm3jurg6,0,TlessC2,5,NoContrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,arrow,%23thick_greenarrow1.jpg,21,DABC
+bctm3jurg6,0,TlessC2,6,Contrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,triangle,striped_bluetriangle7.jpg,30,BDAC
+bctm3jurg6,0,TlessC2,7,NoContrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,red,bumpy_redtriangle6.jpg,15,BADC
+bctm3jurg6,0,TlessC2,8,Contrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,red,curved_redarrow7.jpg,25,BDCA
+bctm3jurg6,0,TlessC2,9,NoContrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,triangle,spotted_greentriangle7.jpg,18,BCAD
+bctm3jurg6,0,TlessC2,10,Contrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,blue,striped_bluetriangle1.jpg,22,CDAB
+bctm3jurg6,0,TlessC2,11,NoContrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,blue,%23tall_bluespiral7.jpg,14,DABC
+bctm3jurg6,0,TlessC2,12,Contrast,3,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,red,bumpy_redline.jpg,11,DBAC
+bctm3jurg6,0,TlessC2,13,NoContrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,blue,curved_blueline2.jpg,40,DACB
+bctm3jurg6,0,TlessC2,14,Contrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,red,full_redcylinder7.jpg,19,BCAD
+bctm3jurg6,0,TlessC2,15,NoContrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,cube,full_bluecube1.jpg,4,BDCA
+bctm3jurg6,0,TlessC2,16,Contrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,green,green_sphere.jpg,23,ACDB
+bctm3jurg6,0,TlessC2,17,NoContrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,green,green_wavyline.jpg,32,BADC
+bctm3jurg6,0,TlessC2,18,Contrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,blue,bent_blueline5.jpg,29,BACD
+bctm3jurg6,0,TlessC2,19,NoContrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,green,full_greencube7.jpg,9,DCAB
+bctm3jurg6,0,TlessC2,20,Contrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,yellow cylinder,full_yellowcylinder1.jpg,27,DBCA
+bctm3jurg6,0,TlessC2,21,NoContrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,green arrow,long_greenarrow6.jpg,35,ADBC
+bctm3jurg6,0,TlessC2,22,Contrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,blue,long_redarrow2.jpg,39,BDCA
+bctm3jurg6,0,TlessC2,23,NoContrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,blue,curved_blueline4.jpg,37,DABC
+bctm3jurg6,0,TlessC2,24,Contrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,red,big_redsquare2.jpg,13,BDAC
+bctm3jurg6,0,TlessC2,25,NoContrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,blue,open_bluesquare7.jpg,34,CDBA
+bctm3jurg6,0,TlessC2,26,Contrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,star,blue_star.jpg,26,DBAC
+bctm3jurg6,0,TlessC2,27,NoContrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,oval,chereos_yellowoval.jpg,28,CBDA
+bctm3jurg6,0,TlessC2,28,Contrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,cube,full_cube8.jpg,6,BDAC
+bctm3jurg6,0,TlessC2,29,NoContrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,green,%23thick_greenarrow6.jpg,20,DBAC
+bctm3jurg6,0,TlessC2,30,Contrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,blue line,%23thick_blueline3.jpg,5,BADC
+bctm3jurg6,0,TlessC2,31,NoContrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,yellow,yellow_cloud.jpg,17,DACB
+bctm3jurg6,0,TlessC2,32,Contrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,yellow,full_yellowcube7.jpg,36,BCAD
+bctm3jurg6,0,TlessC2,33,NoContrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,blue,big_bluesquare6.jpg,2,BDAC
+bctm3jurg6,0,TlessC2,34,Contrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,blue,big_bluesquare3.jpg,7,ACDB
+bctm3jurg6,0,TlessC2,35,NoContrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,blue,open_bluetriangle7.jpg,16,CABD
+bctm3jurg6,0,TlessC2,36,Contrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,red,wide_redoval3.jpg,31,ABCD
+bctm3jurg6,0,TlessC2,37,NoContrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,blue,%23tall_bluespiral6.jpg,33,DCAB
+bctm3jurg6,0,TlessC2,38,Contrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,orange,%23tall_redcylinder5.jpg,8,DBCA
+bctm3jurg6,0,TlessC2,39,NoContrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,square,spotted_yellowsquare4.jpg,1,BACD
+bctm3jurg6,0,TlessC2,40,Contrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,yellow,spotted_yellowcircle4.jpg,3,ADBC
+ovc3k2yktt,0,TlessC1,1,Contrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,circle,bumpy_greencircle7.jpg,4,BADC
+ovc3k2yktt,0,TlessC1,2,NoContrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,incomplete triangle,open_redtriangle7.jpg,29,CBAD
+ovc3k2yktt,0,TlessC1,3,Contrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,cloud,yellow_cloud.jpg,3,CDBA
+ovc3k2yktt,0,TlessC1,4,NoContrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,triangle,striped_bluetriangle4.jpg,32,DCBA
+ovc3k2yktt,0,TlessC1,5,Contrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,square,spotted_redsquare7.jpg,7,DCAB
+ovc3k2yktt,0,TlessC1,6,NoContrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,star,spotted_redstar.jpg,27,ADCB
+ovc3k2yktt,0,TlessC1,7,Contrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,30,DCAB
+ovc3k2yktt,0,TlessC1,8,NoContrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,triangle,bumpy_yellowtriangle1.jpg,17,DACB
+ovc3k2yktt,0,TlessC1,9,Contrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,dotted square,spotted_yellowsquare6.jpg,5,BDCA
+ovc3k2yktt,0,TlessC1,10,NoContrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,square,striped_greensquare7.jpg,16,ACBD
+ovc3k2yktt,0,TlessC1,11,Contrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,cube,full_cube8.jpg,19,BCAD
+ovc3k2yktt,0,TlessC1,12,NoContrast,4,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,wavy line,yellow_wavyline.jpg,31,DCBA
+ovc3k2yktt,0,TlessC1,13,Contrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,arrow,curved_greenarrow1.jpg,22,CDAB
+ovc3k2yktt,0,TlessC1,14,NoContrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,cube,full_yellowcube6.jpg,13,DCBA
+ovc3k2yktt,0,TlessC1,15,Contrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,cylinder,empty_cylinder.jpg,40,CBAD
+ovc3k2yktt,0,TlessC1,16,NoContrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,spiral,%23tall_redspiral7.jpg,21,ACDB
+ovc3k2yktt,0,TlessC1,17,Contrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,green arch,open_greencircle5.jpg,14,CABD
+ovc3k2yktt,0,TlessC1,18,NoContrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,oval,chereos_yellowoval.jpg,12,DACB
+ovc3k2yktt,0,TlessC1,19,Contrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,cube,full_greencube7.jpg,24,DCAB
+ovc3k2yktt,0,TlessC1,20,NoContrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cloud,yellow_cloud.jpg,11,BACD
+ovc3k2yktt,0,TlessC1,21,Contrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,red line,long_redline5.jpg,38,ABDC
+ovc3k2yktt,0,TlessC1,22,NoContrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,blue l ine,long_blueline3.jpg,23,DCAB
+ovc3k2yktt,0,TlessC1,23,Contrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,wavy line,green_wavyline.jpg,39,BDAC
+ovc3k2yktt,0,TlessC1,24,NoContrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,wavy line,green_wavyline.jpg,8,DACB
+ovc3k2yktt,0,TlessC1,25,Contrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,blue object,open_bluesquare7.jpg,37,ABDC
+ovc3k2yktt,0,TlessC1,26,NoContrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,rectangle,wide_redrectangle3.jpg,18,BACD
+ovc3k2yktt,0,TlessC1,27,Contrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,cylinder,%23tall_greencylinder6.jpg,28,ADCB
+ovc3k2yktt,0,TlessC1,28,NoContrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,square,full1_greensquare1.jpg,9,CBDA
+ovc3k2yktt,0,TlessC1,29,Contrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,arrow,%23thick_greenarrow6.jpg,25,CDAB
+ovc3k2yktt,0,TlessC1,30,NoContrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,arrow,%23thick_redarrow2.jpg,6,BDCA
+ovc3k2yktt,0,TlessC1,31,Contrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,arrow,long_bluearrow6.jpg,20,ADCB
+ovc3k2yktt,0,TlessC1,32,NoContrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,cube,full_yellowcube7.jpg,36,DBAC
+ovc3k2yktt,0,TlessC1,33,Contrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,small triangle,big_greentriangle3.jpg,35,BACD
+ovc3k2yktt,0,TlessC1,34,NoContrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,wavy line,red_wavyline.jpg,10,CBDA
+ovc3k2yktt,0,TlessC1,35,Contrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,oval,wide_redoval6.jpg,33,BCDA
+ovc3k2yktt,0,TlessC1,36,NoContrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,rectangle,wide_greenrectangle2.jpg,1,ADCB
+ovc3k2yktt,0,TlessC1,37,Contrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,spiral,%23tall_bluespiral6.jpg,15,ADCB
+ovc3k2yktt,0,TlessC1,38,NoContrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,cloud,yellow_cloud.jpg,34,CBAD
+ovc3k2yktt,0,TlessC1,39,Contrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,blue line,%23thick_blueline5.jpg,2,BADC
+ovc3k2yktt,0,TlessC1,40,NoContrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,red line,%23thick_redline3.jpg,26,BADC
+uekkcfl2qi,0,TlessC2,1,NoContrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,blue square,bumpy_bluesquare6.jpg,22,ACDB
+uekkcfl2qi,0,TlessC2,2,Contrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,blue line,open_bluecircle6.jpg,38,DACB
+uekkcfl2qi,0,TlessC2,3,NoContrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,red line,bent_redarrow7.jpg,39,ADCB
+uekkcfl2qi,0,TlessC2,4,Contrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,red line,curved_redline6.jpg,11,BDCA
+uekkcfl2qi,0,TlessC2,5,NoContrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,yellow circle,spotted_yellowcircle6.jpg,30,ABDC
+uekkcfl2qi,0,TlessC2,6,Contrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,green square,striped_greensquare1.jpg,1,BACD
+uekkcfl2qi,0,TlessC2,7,NoContrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,red triangle,bumpy_redtriangle6.jpg,3,DBAC
+uekkcfl2qi,0,TlessC2,8,Contrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,green line,curved_greenline1.jpg,36,DABC
+uekkcfl2qi,0,TlessC2,9,NoContrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,yellow square,spotted_yellowsquare6.jpg,29,CBAD
+uekkcfl2qi,0,TlessC2,10,Contrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,green square,striped_greensquare7.jpg,10,ADBC
+uekkcfl2qi,0,TlessC2,11,NoContrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,40,ACBD
+uekkcfl2qi,0,TlessC2,12,Contrast,2,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,blue square,open_bluesquare1.jpg,28,DABC
+uekkcfl2qi,0,TlessC2,13,NoContrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,yellow circle,spotted_yellowcircle4.jpg,16,DBAC
+uekkcfl2qi,0,TlessC2,14,Contrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,red cylinder,full_redcylinder7.jpg,35,ADCB
+uekkcfl2qi,0,TlessC2,15,NoContrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,cylinder,empty_cylinder.jpg,32,DCAB
+uekkcfl2qi,0,TlessC2,16,Contrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,blue square,bumpy_bluesquare1.jpg,27,DACB
+uekkcfl2qi,0,TlessC2,17,NoContrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,blue almost circle,open_bluecircle2.jpg,14,ADCB
+uekkcfl2qi,0,TlessC2,18,Contrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,blue line,bent_blueline5.jpg,20,CDAB
+uekkcfl2qi,0,TlessC2,19,NoContrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,yellow line,%23thick_yellowline1.jpg,6,CBAD
+uekkcfl2qi,0,TlessC2,20,Contrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,yellow cloud,yellow_cloud.jpg,15,CBAD
+uekkcfl2qi,0,TlessC2,21,NoContrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,green line,long_greenarrow6.jpg,2,DABC
+uekkcfl2qi,0,TlessC2,22,Contrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,blue line,long_blueline3.jpg,25,ABCD
+uekkcfl2qi,0,TlessC2,23,NoContrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,yellow triangle,big_yellowtriangle6.jpg,24,BADC
+uekkcfl2qi,0,TlessC2,24,Contrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,green line,green_wavyline.jpg,8,DABC
+uekkcfl2qi,0,TlessC2,25,NoContrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,green oval,wide_greenoval5.jpg,37,DACB
+uekkcfl2qi,0,TlessC2,26,Contrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,green rectangle,wide_greenrectangle5.jpg,12,DCAB
+uekkcfl2qi,0,TlessC2,27,NoContrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,red line,curved_redline4.jpg,9,DABC
+uekkcfl2qi,0,TlessC2,28,Contrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,yellow cylinder,%23tall_yellowcylinder2.jpg,18,ACDB
+uekkcfl2qi,0,TlessC2,29,NoContrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,yellow line,%23thick_yellowline5.jpg,13,BADC
+uekkcfl2qi,0,TlessC2,30,Contrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,blue line,%23thick_blueline3.jpg,21,CABD
+uekkcfl2qi,0,TlessC2,31,NoContrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,green line,long_greenline5.jpg,31,DBCA
+uekkcfl2qi,0,TlessC2,32,Contrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,green line,long_greenline5.jpg,5,ABCD
+uekkcfl2qi,0,TlessC2,33,NoContrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,blue square,big_bluesquare6.jpg,23,CBAD
+uekkcfl2qi,0,TlessC2,34,Contrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,green line,green_garabato.jpg,4,CDBA
+uekkcfl2qi,0,TlessC2,35,NoContrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,green line,bent_greenline4.jpg,34,CDBA
+uekkcfl2qi,0,TlessC2,36,Contrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,yellow cirlce,wide_yellowoval5.jpg,7,ACBD
+uekkcfl2qi,0,TlessC2,37,NoContrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,blue tornado,%23tall_bluespiral6.jpg,26,BDAC
+uekkcfl2qi,0,TlessC2,38,Contrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,green cylinder,%23tall_greencylinder3.jpg,19,DACB
+uekkcfl2qi,0,TlessC2,39,NoContrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,green star,green_star.jpg,17,DCBA
+uekkcfl2qi,0,TlessC2,40,Contrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,yellow circle,spotted_yellowcircle4.jpg,33,CDAB
+joqu1gd14f,0,TlessC1,1,Contrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,blue square,bumpy_bluesquare6.jpg,5,BACD
+joqu1gd14f,0,TlessC1,2,NoContrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,blue curved line,open_bluecircle6.jpg,34,CADB
+joqu1gd14f,0,TlessC1,3,Contrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,green line,bent_greenline6.jpg,33,DACB
+joqu1gd14f,0,TlessC1,4,NoContrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,red line,curved_redline6.jpg,9,DBCA
+joqu1gd14f,0,TlessC1,5,Contrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,green circle,spotted_greencircle1.jpg,8,DABC
+joqu1gd14f,0,TlessC1,6,NoContrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,star,spotted_redstar.jpg,29,BCDA
+joqu1gd14f,0,TlessC1,7,Contrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,10,DBCA
+joqu1gd14f,0,TlessC1,8,NoContrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,blue line,curved_blueline6.jpg,26,CDAB
+joqu1gd14f,0,TlessC1,9,Contrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,triangle,spotted_greentriangle7.jpg,37,BDCA
+joqu1gd14f,0,TlessC1,10,NoContrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,oval,chereos_yellowoval.jpg,22,CADB
+joqu1gd14f,0,TlessC1,11,Contrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,cube,full_cube8.jpg,36,DBAC
+joqu1gd14f,0,TlessC1,12,NoContrast,4,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,yellow shape,yellow_wavyline.jpg,23,BCDA
+joqu1gd14f,0,TlessC1,13,Contrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,circle,spotted_yellowcircle4.jpg,38,DBAC
+joqu1gd14f,0,TlessC1,14,NoContrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,cube,full_yellowcube6.jpg,40,ADCB
+joqu1gd14f,0,TlessC1,15,Contrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,green line,curved_greenline4.jpg,6,CBAD
+joqu1gd14f,0,TlessC1,16,NoContrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,red ribbon,%23tall_redspiral7.jpg,19,DABC
+joqu1gd14f,0,TlessC1,17,Contrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,triangle,open_yellowtriangle1.jpg,21,DABC
+joqu1gd14f,0,TlessC1,18,NoContrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,green arrow,bent_greenarrow1.jpg,13,CADB
+joqu1gd14f,0,TlessC1,19,Contrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,blue cylinder,full_bluecylinder6.jpg,30,DABC
+joqu1gd14f,0,TlessC1,20,NoContrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cylinder,full_yellowcylinder1.jpg,4,BDCA
+joqu1gd14f,0,TlessC1,21,Contrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,green arrow,long_greenarrow6.jpg,32,ACDB
+joqu1gd14f,0,TlessC1,22,NoContrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,star,yellow_star.jpg,14,BADC
+joqu1gd14f,0,TlessC1,23,Contrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,triangle,big_yellowtriangle6.jpg,17,DABC
+joqu1gd14f,0,TlessC1,24,NoContrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,square,big_redsquare2.jpg,11,CBDA
+joqu1gd14f,0,TlessC1,25,Contrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,green oval,wide_greenoval5.jpg,16,BDCA
+joqu1gd14f,0,TlessC1,26,NoContrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,rectangle,wide_redrectangle3.jpg,1,ACBD
+joqu1gd14f,0,TlessC1,27,Contrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,blue ribbon,%23tall_bluespiral5.jpg,31,ADCB
+joqu1gd14f,0,TlessC1,28,NoContrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,red ribbon,%23tall_redspiral3.jpg,39,BCAD
+joqu1gd14f,0,TlessC1,29,Contrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,yellow line,%23thick_yellowline5.jpg,25,BDCA
+joqu1gd14f,0,TlessC1,30,NoContrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,circle,bumpy_greencircle4.jpg,20,CBDA
+joqu1gd14f,0,TlessC1,31,Contrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,blue arrow,long_bluearrow6.jpg,3,BCDA
+joqu1gd14f,0,TlessC1,32,NoContrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,arrow,long_bluearrow2.jpg,18,DBCA
+joqu1gd14f,0,TlessC1,33,Contrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,square,big_bluesquare6.jpg,27,DACB
+joqu1gd14f,0,TlessC1,34,NoContrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,Red shape,red_wavyline.jpg,7,BCDA
+joqu1gd14f,0,TlessC1,35,Contrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,oval,wide_redoval6.jpg,15,ABCD
+joqu1gd14f,0,TlessC1,36,NoContrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,oval,wide_redoval3.jpg,28,ABDC
+joqu1gd14f,0,TlessC1,37,Contrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,green cylinder,%23tall_greencylinder3.jpg,12,BCAD
+joqu1gd14f,0,TlessC1,38,NoContrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,blue ribbon,%23tall_bluespiral2.jpg,2,ACBD
+joqu1gd14f,0,TlessC1,39,Contrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,yellow line,%23thick_yellowline3.jpg,35,CDBA
+joqu1gd14f,0,TlessC1,40,NoContrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,square,bumpy_bluesquare4.jpg,24,DBAC
+vhhhc26cyk,0,TlessC2,1,NoContrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,blue square,bumpy_bluesquare6.jpg,36,CDBA
+vhhhc26cyk,0,TlessC2,2,Contrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,green circle,open_greencircle1.jpg,38,CBDA
+vhhhc26cyk,0,TlessC2,3,NoContrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,green line,bent_greenline6.jpg,22,BCDA
+vhhhc26cyk,0,TlessC2,4,Contrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,blue line,curved_blueline1.jpg,34,BADC
+vhhhc26cyk,0,TlessC2,5,NoContrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,green arrow,%23thick_greenarrow1.jpg,21,BDAC
+vhhhc26cyk,0,TlessC2,6,Contrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,yellow square,striped_yellowsquare6.jpg,11,CBDA
+vhhhc26cyk,0,TlessC2,7,NoContrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,red triangle,bumpy_redtriangle6.jpg,39,CDAB
+vhhhc26cyk,0,TlessC2,8,Contrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,red arrow,curved_redarrow7.jpg,17,ADCB
+vhhhc26cyk,0,TlessC2,9,NoContrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,red circle,striped_redcircle5.jpg,35,BDAC
+vhhhc26cyk,0,TlessC2,10,Contrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,dotted circle,chereos_yellowoval.jpg,16,DACB
+vhhhc26cyk,0,TlessC2,11,NoContrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,cube,full_cube8.jpg,4,ABCD
+vhhhc26cyk,0,TlessC2,12,Contrast,4,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,yellow half circle,open_yellowcircle5.jpg,24,DABC
+vhhhc26cyk,0,TlessC2,13,NoContrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,dotted circle,spotted_yellowcircle4.jpg,7,ABDC
+vhhhc26cyk,0,TlessC2,14,Contrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,green cube,full_greencube3.jpg,33,CABD
+vhhhc26cyk,0,TlessC2,15,NoContrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,blue line,blue_bumpyline.jpg,2,DCAB
+vhhhc26cyk,0,TlessC2,16,Contrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,square,bumpy_bluesquare1.jpg,18,DCBA
+vhhhc26cyk,0,TlessC2,17,NoContrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,triangle,open_yellowtriangle1.jpg,13,CDBA
+vhhhc26cyk,0,TlessC2,18,Contrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,green arrow,bent_greenarrow1.jpg,26,ADCB
+vhhhc26cyk,0,TlessC2,19,NoContrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,blue cylinder,full_bluecylinder6.jpg,30,CABD
+vhhhc26cyk,0,TlessC2,20,Contrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,red cylinder,full_redcylinder5.jpg,37,ABCD
+vhhhc26cyk,0,TlessC2,21,NoContrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,green arrow,long_greenarrow6.jpg,3,CBDA
+vhhhc26cyk,0,TlessC2,22,Contrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,red arrow,long_redarrow2.jpg,27,DBCA
+vhhhc26cyk,0,TlessC2,23,NoContrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,red square,big_redsquare5.jpg,10,DCBA
+vhhhc26cyk,0,TlessC2,24,Contrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,yellow triangle,big_yellowtriangle3.jpg,31,DCAB
+vhhhc26cyk,0,TlessC2,25,NoContrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,red curve,bent_redline4.jpg,23,CBDA
+vhhhc26cyk,0,TlessC2,26,Contrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,green rectangle,wide_greenrectangle5.jpg,1,BCDA
+vhhhc26cyk,0,TlessC2,27,NoContrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,red curve,curved_redline4.jpg,25,CADB
+vhhhc26cyk,0,TlessC2,28,Contrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,red tornado,%23tall_redspiral3.jpg,9,DABC
+vhhhc26cyk,0,TlessC2,29,NoContrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,green arrow,%23thick_greenarrow6.jpg,8,DCBA
+vhhhc26cyk,0,TlessC2,30,Contrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,blue line,%23thick_blueline3.jpg,29,BCAD
+vhhhc26cyk,0,TlessC2,31,NoContrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,blue arrow,long_bluearrow6.jpg,15,CBDA
+vhhhc26cyk,0,TlessC2,32,Contrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,red line,long_redline3.jpg,6,CADB
+vhhhc26cyk,0,TlessC2,33,NoContrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,green line,green_garabato.jpg,12,ABCD
+vhhhc26cyk,0,TlessC2,34,Contrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,blue square,big_bluesquare3.jpg,5,CDBA
+vhhhc26cyk,0,TlessC2,35,NoContrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,rectangle,wide_yellowrectangle5.jpg,32,CBAD
+vhhhc26cyk,0,TlessC2,36,Contrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,square,full1_bluesquare2.jpg,19,ABDC
+vhhhc26cyk,0,TlessC2,37,NoContrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,blue tornado,%23tall_bluespiral6.jpg,40,CADB
+vhhhc26cyk,0,TlessC2,38,Contrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,red cylinder,%23tall_redcylinder5.jpg,20,ADCB
+vhhhc26cyk,0,TlessC2,39,NoContrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,dotted square,spotted_yellowsquare4.jpg,14,ACBD
+vhhhc26cyk,0,TlessC2,40,Contrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,dotted circle,spotted_yellowcircle4.jpg,28,DABC
+82c6oi97b3,0,TlessC2,1,NoContrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,triangle,striped_redtriangle4.jpg,14,CDBA
+82c6oi97b3,0,TlessC2,2,Contrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,whole circle,open_greencircle1.jpg,18,DCAB
+82c6oi97b3,0,TlessC2,3,NoContrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,square,big_bluesquare1.jpg,5,DBAC
+82c6oi97b3,0,TlessC2,4,Contrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,curved line with arrow,curved_greenarrow7.jpg,38,BCDA
+82c6oi97b3,0,TlessC2,5,NoContrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,triangle,striped_bluetriangle4.jpg,13,DACB
+82c6oi97b3,0,TlessC2,6,Contrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,square with lines,striped_yellowsquare6.jpg,35,BADC
+82c6oi97b3,0,TlessC2,7,NoContrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,cylindar,full_yellowcylinder2.jpg,21,BADC
+82c6oi97b3,0,TlessC2,8,Contrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,triangle,bumpy_yellowtriangle1.jpg,2,ACDB
+82c6oi97b3,0,TlessC2,9,NoContrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,circle,striped_redcircle5.jpg,29,ACBD
+82c6oi97b3,0,TlessC2,10,Contrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,triangle with lines,striped_redtriangle6.jpg,37,ADCB
+82c6oi97b3,0,TlessC2,11,NoContrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,box,full_cube8.jpg,10,ACBD
+82c6oi97b3,0,TlessC2,12,Contrast,4,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,less complete circle,open_yellowcircle5.jpg,32,CDAB
+82c6oi97b3,0,TlessC2,13,NoContrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,cloud,red_cloud.jpg,28,DACB
+82c6oi97b3,0,TlessC2,14,Contrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,line,diagonal_bluearrow.jpg,27,DACB
+82c6oi97b3,0,TlessC2,15,NoContrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,curved line,curved_greenline4.jpg,17,CDAB
+82c6oi97b3,0,TlessC2,16,Contrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,one dot triangle,bumpy_yellowtriangle2.jpg,1,BDCA
+82c6oi97b3,0,TlessC2,17,NoContrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,triangle,open_yellowtriangle1.jpg,22,CBAD
+82c6oi97b3,0,TlessC2,18,Contrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,cookie,chereos_yellowoval.jpg,26,CDBA
+82c6oi97b3,0,TlessC2,19,NoContrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,tornado,%23tall_redspiral4.jpg,7,DACB
+82c6oi97b3,0,TlessC2,20,Contrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,emptier cylindar,full_yellowcylinder1.jpg,16,CADB
+82c6oi97b3,0,TlessC2,21,NoContrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,circle,open_bluecircle1.jpg,8,CDBA
+82c6oi97b3,0,TlessC2,22,Contrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,star,yellow_star.jpg,25,ADCB
+82c6oi97b3,0,TlessC2,23,NoContrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,small curved line,curved_blueline4.jpg,19,BADC
+82c6oi97b3,0,TlessC2,24,Contrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,large triangle,big_bluetriangle5.jpg,15,ACBD
+82c6oi97b3,0,TlessC2,25,NoContrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,smaller line,bent_redline4.jpg,20,ACDB
+82c6oi97b3,0,TlessC2,26,Contrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,small rectangle,wide_redrectangle3.jpg,40,DCAB
+82c6oi97b3,0,TlessC2,27,NoContrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,cookie,chereos_yellowoval.jpg,4,ADBC
+82c6oi97b3,0,TlessC2,28,Contrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,large tornado,%23tall_greenspiral5.jpg,3,ADBC
+82c6oi97b3,0,TlessC2,29,NoContrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,arrow,%23thick_greenarrow6.jpg,30,DCBA
+82c6oi97b3,0,TlessC2,30,Contrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,arrow,%23thick_redarrow2.jpg,6,BDAC
+82c6oi97b3,0,TlessC2,31,NoContrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,cloud,yellow_cloud.jpg,34,BCDA
+82c6oi97b3,0,TlessC2,32,Contrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,small line,long_redline3.jpg,12,ABCD
+82c6oi97b3,0,TlessC2,33,NoContrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,straight line,long_redline4.jpg,9,CABD
+82c6oi97b3,0,TlessC2,34,Contrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,traingle,big_yellowtriangle2.jpg,23,BCDA
+82c6oi97b3,0,TlessC2,35,NoContrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,rectangle,wide_yellowrectangle5.jpg,31,ACDB
+82c6oi97b3,0,TlessC2,36,Contrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,small oval,wide_redoval3.jpg,24,BCDA
+82c6oi97b3,0,TlessC2,37,NoContrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,not straight line,green_wavyline.jpg,36,DCBA
+82c6oi97b3,0,TlessC2,38,Contrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,cloud,yellow_cloud.jpg,39,BCDA
+82c6oi97b3,0,TlessC2,39,NoContrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,line no arrow,%23thick_blueline5.jpg,33,CBDA
+82c6oi97b3,0,TlessC2,40,Contrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,thicker line,%23thick_blueline5.jpg,11,BDCA
+2cmvkdn1w3,0,TlessC1,1,Contrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,YELLOW DISC,%23tall_yellowcylinder3.jpg,28,CDAB
+2cmvkdn1w3,0,TlessC1,2,NoContrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,RED HALF TRIANGLE,open_redtriangle7.jpg,1,CDBA
+2cmvkdn1w3,0,TlessC1,3,Contrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,YELLOW CLOUD,yellow_cloud.jpg,3,DCBA
+2cmvkdn1w3,0,TlessC1,4,NoContrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,YELLOW STAR,yellow_star.jpg,31,BCAD
+2cmvkdn1w3,0,TlessC1,5,Contrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,RED SQUARE,spotted_redsquare7.jpg,23,CABD
+2cmvkdn1w3,0,TlessC1,6,NoContrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,RED STAR,spotted_redstar.jpg,17,DBCA
+2cmvkdn1w3,0,TlessC1,7,Contrast,4,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,YELLOW TRIANGLE,bumpy_yellowtriangle1.jpg,21,CBAD
+2cmvkdn1w3,0,TlessC1,8,NoContrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,YELLOW TRIANGLE,bumpy_yellowtriangle1.jpg,33,ACDB
+2cmvkdn1w3,0,TlessC1,9,Contrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,BLUE ARROW,diagonal_bluearrow.jpg,11,CADB
+2cmvkdn1w3,0,TlessC1,10,NoContrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,GREEN BOX,striped_greensquare7.jpg,22,BADC
+2cmvkdn1w3,0,TlessC1,11,Contrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,GREEN CIRCLE,bumpy_greencircle2.jpg,20,DCAB
+2cmvkdn1w3,0,TlessC1,12,NoContrast,2,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,BLUE SQUARE,open_bluesquare1.jpg,7,BCAD
+2cmvkdn1w3,0,TlessC1,13,Contrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,RED ARCH,curved_redline5.jpg,27,CDAB
+2cmvkdn1w3,0,TlessC1,14,NoContrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,BLUE ARROW,diagonal_bluearrow.jpg,25,DACB
+2cmvkdn1w3,0,TlessC1,15,Contrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,GREEN ARCH,curved_greenline4.jpg,35,CADB
+2cmvkdn1w3,0,TlessC1,16,NoContrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,GREEN SPHERE,green_sphere.jpg,14,CADB
+2cmvkdn1w3,0,TlessC1,17,Contrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,GREEN U,open_greencircle5.jpg,5,DBAC
+2cmvkdn1w3,0,TlessC1,18,NoContrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,RED LINE,bent_redline2.jpg,40,DCAB
+2cmvkdn1w3,0,TlessC1,19,Contrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,GREEN CUBE,full_greencube7.jpg,19,DACB
+2cmvkdn1w3,0,TlessC1,20,NoContrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,CLEAR CUBE,empty_cube.jpg,12,CDBA
+2cmvkdn1w3,0,TlessC1,21,Contrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,GREEN ARROW,long_greenarrow6.jpg,6,ADCB
+2cmvkdn1w3,0,TlessC1,22,NoContrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,RED ARROW,long_redarrow2.jpg,18,ACBD
+2cmvkdn1w3,0,TlessC1,23,Contrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,GREEN OBJECT,green_wavyline.jpg,10,CDAB
+2cmvkdn1w3,0,TlessC1,24,NoContrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,BLUE ARROW,diagonal_bluearrow.jpg,9,ACDB
+2cmvkdn1w3,0,TlessC1,25,Contrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,RED OVAL,wide_redoval3.jpg,4,ACBD
+2cmvkdn1w3,0,TlessC1,26,NoContrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,GREEN OBJECT,spotted_greenpentagon.jpg,29,CDAB
+2cmvkdn1w3,0,TlessC1,27,Contrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,RED RIBBON,%23tall_redspiral3.jpg,30,BCAD
+2cmvkdn1w3,0,TlessC1,28,NoContrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,YELLOW DISC,%23tall_yellowcylinder2.jpg,38,DBAC
+2cmvkdn1w3,0,TlessC1,29,Contrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,RED SUN,red_sun.jpg,8,ABDC
+2cmvkdn1w3,0,TlessC1,30,NoContrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,BLUE LINE,%23thick_blueline3.jpg,15,ACDB
+2cmvkdn1w3,0,TlessC1,31,Contrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,BLUE ARROW,long_bluearrow6.jpg,37,BCAD
+2cmvkdn1w3,0,TlessC1,32,NoContrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,RED LINE,long_redline3.jpg,39,DABC
+2cmvkdn1w3,0,TlessC1,33,Contrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,SQUARE,big_bluesquare6.jpg,24,DABC
+2cmvkdn1w3,0,TlessC1,34,NoContrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,GREEN SQUIGGLE,green_garabato.jpg,2,BACD
+2cmvkdn1w3,0,TlessC1,35,Contrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,RED OVAL,wide_redoval6.jpg,16,ADCB
+2cmvkdn1w3,0,TlessC1,36,NoContrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,RED OVAL,wide_redoval3.jpg,13,BADC
+2cmvkdn1w3,0,TlessC1,37,Contrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,BLUE RIBBON,%23tall_bluespiral6.jpg,26,BCAD
+2cmvkdn1w3,0,TlessC1,38,NoContrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,YELLOW CLOUD,yellow_cloud.jpg,34,CDAB
+2cmvkdn1w3,0,TlessC1,39,Contrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,RED ARROW,%23thick_redarrow6.jpg,36,CDBA
+2cmvkdn1w3,0,TlessC1,40,NoContrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,RED LINE,%23thick_redline3.jpg,32,ACBD
+et681k8jnp,0,TlessC1,1,Contrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,yellow,%23tall_yellowcylinder3.jpg,14,CDBA
+et681k8jnp,0,TlessC1,2,NoContrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,green,green_garabato.jpg,15,CADB
+et681k8jnp,0,TlessC1,3,Contrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,red,bent_redarrow7.jpg,40,BCAD
+et681k8jnp,0,TlessC1,4,NoContrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,red,curved_redline6.jpg,29,ACBD
+et681k8jnp,0,TlessC1,5,Contrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,green,spotted_greencircle1.jpg,38,BCDA
+et681k8jnp,0,TlessC1,6,NoContrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,green,bumpy_greencircle4.jpg,3,BDAC
+et681k8jnp,0,TlessC1,7,Contrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,blue,bumpy_bluesquare7.jpg,21,DCAB
+et681k8jnp,0,TlessC1,8,NoContrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,green,green_lightning.jpg,1,BCDA
+et681k8jnp,0,TlessC1,9,Contrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,green,spotted_greentriangle7.jpg,23,CBAD
+et681k8jnp,0,TlessC1,10,NoContrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,red,striped_redtriangle6.jpg,26,CDAB
+et681k8jnp,0,TlessC1,11,Contrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,blue,bumpy_bluecircle5.jpg,8,ACBD
+et681k8jnp,0,TlessC1,12,NoContrast,2,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,square,open_bluesquare1.jpg,20,BCAD
+et681k8jnp,0,TlessC1,13,Contrast,3,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,circle,spotted_yellowcircle4.jpg,28,DBCA
+et681k8jnp,0,TlessC1,14,NoContrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,Circle,full_redcylinder7.jpg,33,CABD
+et681k8jnp,0,TlessC1,15,Contrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,low box,full_bluecube1.jpg,37,BCDA
+et681k8jnp,0,TlessC1,16,NoContrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,blue,bumpy_bluesquare1.jpg,12,ABCD
+et681k8jnp,0,TlessC1,17,Contrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,red,long_redline7.jpg,36,DBAC
+et681k8jnp,0,TlessC1,18,NoContrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,red,bent_redline2.jpg,5,BCAD
+et681k8jnp,0,TlessC1,19,Contrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,yellow,full_yellowcylinder3.jpg,6,BDAC
+et681k8jnp,0,TlessC1,20,NoContrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,box,empty_cube.jpg,35,BACD
+et681k8jnp,0,TlessC1,21,Contrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,blue,long_blueline3.jpg,2,DABC
+et681k8jnp,0,TlessC1,22,NoContrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,yellow,yellow_star.jpg,18,CBDA
+et681k8jnp,0,TlessC1,23,Contrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,blue,big_bluesquare3.jpg,27,BCDA
+et681k8jnp,0,TlessC1,24,NoContrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,red,big_redsquare2.jpg,31,ABDC
+et681k8jnp,0,TlessC1,25,Contrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,red,wide_redoval3.jpg,4,DABC
+et681k8jnp,0,TlessC1,26,NoContrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,yellow,wide_yellowoval2.jpg,32,CDAB
+et681k8jnp,0,TlessC1,27,Contrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,yellow,chereos_yellowoval.jpg,9,DCAB
+et681k8jnp,0,TlessC1,28,NoContrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,red,%23tall_redspiral3.jpg,25,ADCB
+et681k8jnp,0,TlessC1,29,Contrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,blue line,%23thick_blueline3.jpg,19,DBCA
+et681k8jnp,0,TlessC1,30,NoContrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,star,yellow_star.jpg,16,CBDA
+et681k8jnp,0,TlessC1,31,Contrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,red,long_redline3.jpg,39,DCBA
+et681k8jnp,0,TlessC1,32,NoContrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,blue,long_bluearrow2.jpg,22,DCAB
+et681k8jnp,0,TlessC1,33,Contrast,2,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,blue,big_bluesquare6.jpg,11,CDBA
+et681k8jnp,0,TlessC1,34,NoContrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,yellow,big_yellowtriangle2.jpg,30,BCDA
+et681k8jnp,0,TlessC1,35,Contrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,blue,open_bluetriangle7.jpg,13,BCDA
+et681k8jnp,0,TlessC1,36,NoContrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,sun,yellow_sun.jpg,34,CDBA
+et681k8jnp,0,TlessC1,37,Contrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,green,%23tall_greencylinder3.jpg,17,BADC
+et681k8jnp,0,TlessC1,38,NoContrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,green,%23tall_greencylinder3.jpg,7,BDCA
+et681k8jnp,0,TlessC1,39,Contrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,green,green_star.jpg,10,ABCD
+et681k8jnp,0,TlessC1,40,NoContrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,arrow,%23thick_greenarrow2.jpg,24,CABD
+65es4isuyq,0,TlessC1,1,Contrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,yellow image,%23tall_yellowcylinder3.jpg,3,BDCA
+65es4isuyq,0,TlessC1,2,NoContrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,red image,open_redtriangle7.jpg,24,ACBD
+65es4isuyq,0,TlessC1,3,Contrast,2,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,red arrow,bent_redarrow7.jpg,31,BCDA
+65es4isuyq,0,TlessC1,4,NoContrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,green arrow,curved_greenarrow7.jpg,18,CABD
+65es4isuyq,0,TlessC1,5,Contrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,square,spotted_redsquare7.jpg,36,BDCA
+65es4isuyq,0,TlessC1,6,NoContrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,ball,bumpy_greencircle4.jpg,32,DCBA
+65es4isuyq,0,TlessC1,7,Contrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,square,bumpy_bluesquare7.jpg,33,CADB
+65es4isuyq,0,TlessC1,8,NoContrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,red arrow,curved_redarrow7.jpg,6,BDCA
+65es4isuyq,0,TlessC1,9,Contrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,dotted square,spotted_yellowsquare6.jpg,23,ADCB
+65es4isuyq,0,TlessC1,10,NoContrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,blue cup,bumpy_blueshape.jpg,20,BDAC
+65es4isuyq,0,TlessC1,11,Contrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,blue ball,bumpy_bluecircle5.jpg,25,BADC
+65es4isuyq,0,TlessC1,12,NoContrast,1,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,circle,open_greencircle2.jpg,40,DCBA
+65es4isuyq,0,TlessC1,13,Contrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,red half circle,curved_redline5.jpg,12,ADBC
+65es4isuyq,0,TlessC1,14,NoContrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,ribbon,%23tall_greenspiral2.jpg,19,ADBC
+65es4isuyq,0,TlessC1,15,Contrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,empty cylinder,empty_cylinder.jpg,29,CBDA
+65es4isuyq,0,TlessC1,16,NoContrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,triangle,bumpy_yellowtriangle2.jpg,26,ACBD
+65es4isuyq,0,TlessC1,17,Contrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,line,long_redline7.jpg,5,ACDB
+65es4isuyq,0,TlessC1,18,NoContrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,red cylinder,full_bluecylinder7.jpg,30,DABC
+65es4isuyq,0,TlessC1,19,Contrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,yellow glass,full_yellowcylinder3.jpg,17,CDAB
+65es4isuyq,0,TlessC1,20,NoContrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cube,empty_cube.jpg,4,CDBA
+65es4isuyq,0,TlessC1,21,Contrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,red line,long_redline5.jpg,34,DABC
+65es4isuyq,0,TlessC1,22,NoContrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,blue line,long_blueline3.jpg,14,CBAD
+65es4isuyq,0,TlessC1,23,Contrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,red square,big_redsquare5.jpg,8,BCAD
+65es4isuyq,0,TlessC1,24,NoContrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,yellow triangle,big_yellowtriangle3.jpg,37,DABC
+65es4isuyq,0,TlessC1,25,Contrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,blue image,open_bluesquare7.jpg,7,ABDC
+65es4isuyq,0,TlessC1,26,NoContrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,pentagon,spotted_greenpentagon.jpg,21,BDAC
+65es4isuyq,0,TlessC1,27,Contrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,green cylinder,%23tall_greencylinder6.jpg,28,CBAD
+65es4isuyq,0,TlessC1,28,NoContrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,sun,blue_sun.jpg,1,ADBC
+65es4isuyq,0,TlessC1,29,Contrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,sun,red_sun.jpg,2,ABCD
+65es4isuyq,0,TlessC1,30,NoContrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,red arrow,%23thick_redarrow2.jpg,10,DCBA
+65es4isuyq,0,TlessC1,31,Contrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,yellow cloud,yellow_cloud.jpg,22,DBAC
+65es4isuyq,0,TlessC1,32,NoContrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,yellow cube,full_yellowcube7.jpg,16,DCAB
+65es4isuyq,0,TlessC1,33,Contrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,red line,long_redline4.jpg,15,ADCB
+65es4isuyq,0,TlessC1,34,NoContrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,triangle,big_yellowtriangle2.jpg,27,DACB
+65es4isuyq,0,TlessC1,35,Contrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,yellow rectangle,wide_yellowrectangle5.jpg,11,DACB
+65es4isuyq,0,TlessC1,36,NoContrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,blue photo,full1_bluesquare2.jpg,13,ADBC
+65es4isuyq,0,TlessC1,37,Contrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,line,bent_redline1.jpg,35,DACB
+65es4isuyq,0,TlessC1,38,NoContrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,cloud,yellow_cloud.jpg,38,BADC
+65es4isuyq,0,TlessC1,39,Contrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,red arrow,%23thick_redarrow6.jpg,9,ABCD
+65es4isuyq,0,TlessC1,40,NoContrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,green arrow,%23thick_greenarrow2.jpg,39,DBAC
+ddcgin1lio,0,TlessC2,1,NoContrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,blue square,bumpy_bluesquare6.jpg,11,CABD
+ddcgin1lio,0,TlessC2,2,Contrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,red partial triangle,open_redtriangle7.jpg,24,CDAB
+ddcgin1lio,0,TlessC2,3,NoContrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,blue box,big_bluesquare1.jpg,37,ACBD
+ddcgin1lio,0,TlessC2,4,Contrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,blue line,curved_blueline1.jpg,28,ACBD
+ddcgin1lio,0,TlessC2,5,NoContrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,yellow circle,spotted_yellowcircle6.jpg,12,CDBA
+ddcgin1lio,0,TlessC2,6,Contrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,yellow box,striped_yellowsquare6.jpg,8,DBCA
+ddcgin1lio,0,TlessC2,7,NoContrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,green circle,spotted_greencircle4.jpg,19,DCBA
+ddcgin1lio,0,TlessC2,8,Contrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,green flat line,curved_greenline1.jpg,16,ABDC
+ddcgin1lio,0,TlessC2,9,NoContrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,yellow box,spotted_yellowsquare6.jpg,15,CDAB
+ddcgin1lio,0,TlessC2,10,Contrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,yellow circle,chereos_yellowoval.jpg,5,BCDA
+ddcgin1lio,0,TlessC2,11,NoContrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,triangle,bumpy_yellowtriangle1.jpg,34,ABCD
+ddcgin1lio,0,TlessC2,12,Contrast,1,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,green circle,open_greencircle2.jpg,3,DCAB
+ddcgin1lio,0,TlessC2,13,NoContrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,green arrow,curved_greenarrow1.jpg,40,DBCA
+ddcgin1lio,0,TlessC2,14,Contrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,green box,full_greencube3.jpg,6,DABC
+ddcgin1lio,0,TlessC2,15,NoContrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,green arch,curved_greenline4.jpg,39,BCAD
+ddcgin1lio,0,TlessC2,16,Contrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,blue box,bumpy_bluesquare1.jpg,9,BDAC
+ddcgin1lio,0,TlessC2,17,NoContrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,blue circle,open_bluecircle2.jpg,25,DBAC
+ddcgin1lio,0,TlessC2,18,Contrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,green arrow,bent_greenarrow1.jpg,33,ABCD
+ddcgin1lio,0,TlessC2,19,NoContrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,blue cylinder,full_bluecylinder6.jpg,1,CBDA
+ddcgin1lio,0,TlessC2,20,Contrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,red cylinder,full_redcylinder5.jpg,10,ACDB
+ddcgin1lio,0,TlessC2,21,NoContrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,red line,long_redline5.jpg,4,DCAB
+ddcgin1lio,0,TlessC2,22,Contrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,star,yellow_star.jpg,2,CABD
+ddcgin1lio,0,TlessC2,23,NoContrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,red box,big_redsquare5.jpg,32,BDAC
+ddcgin1lio,0,TlessC2,24,Contrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,green wavy line,green_wavyline.jpg,29,CDAB
+ddcgin1lio,0,TlessC2,25,NoContrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,red line,bent_redline4.jpg,26,CDAB
+ddcgin1lio,0,TlessC2,26,Contrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,yellow circle,wide_yellowoval2.jpg,23,BACD
+ddcgin1lio,0,TlessC2,27,NoContrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,tornado,%23tall_bluespiral5.jpg,13,DBAC
+ddcgin1lio,0,TlessC2,28,Contrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,gold coin,%23tall_yellowcylinder2.jpg,21,ADCB
+ddcgin1lio,0,TlessC2,29,NoContrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,red sun,red_sun.jpg,35,BCDA
+ddcgin1lio,0,TlessC2,30,Contrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,red arrow,%23thick_redarrow2.jpg,7,CABD
+ddcgin1lio,0,TlessC2,31,NoContrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,red star,spotted_redstar.jpg,18,BACD
+ddcgin1lio,0,TlessC2,32,Contrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,green line,long_greenline5.jpg,30,DBCA
+ddcgin1lio,0,TlessC2,33,NoContrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,red line,long_redline4.jpg,38,DCBA
+ddcgin1lio,0,TlessC2,34,Contrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,green wave,green_garabato.jpg,20,ACBD
+ddcgin1lio,0,TlessC2,35,NoContrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,yellow square,wide_yellowrectangle5.jpg,14,CABD
+ddcgin1lio,0,TlessC2,36,Contrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,blue box,full1_bluesquare2.jpg,27,CDAB
+ddcgin1lio,0,TlessC2,37,NoContrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,yellow cup,%23tall_yellowcylinder5.jpg,36,ABCD
+ddcgin1lio,0,TlessC2,38,Contrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,green cylinder,%23tall_greencylinder3.jpg,17,ACDB
+ddcgin1lio,0,TlessC2,39,NoContrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,red arrow,%23thick_redarrow6.jpg,22,ABDC
+ddcgin1lio,0,TlessC2,40,Contrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,blue line,%23thick_blueline5.jpg,31,CDAB
+czaf3oc2m6,0,TlessC2,1,NoContrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,It's a green circle,bumpy_greencircle7.jpg,3,DABC
+czaf3oc2m6,0,TlessC2,2,Contrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,It's a cloud,yellow_cloud.jpg,22,ABDC
+czaf3oc2m6,0,TlessC2,3,NoContrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,It's a cloud.,yellow_cloud.jpg,23,CBAD
+czaf3oc2m6,0,TlessC2,4,Contrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,It's a yellow star,yellow_star.jpg,14,DBCA
+czaf3oc2m6,0,TlessC2,5,NoContrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,It's a green arrow,%23thick_greenarrow1.jpg,26,CADB
+czaf3oc2m6,0,TlessC2,6,Contrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,It's a red star,spotted_redstar.jpg,21,BCDA
+czaf3oc2m6,0,TlessC2,7,NoContrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,It's a green circle,spotted_greencircle4.jpg,16,DACB
+czaf3oc2m6,0,TlessC2,8,Contrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,It's a red arrow,curved_redarrow7.jpg,9,DCBA
+czaf3oc2m6,0,TlessC2,9,NoContrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,It's a green triangle with black dots,spotted_greentriangle7.jpg,6,DACB
+czaf3oc2m6,0,TlessC2,10,Contrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,It's a blue triangle,striped_bluetriangle1.jpg,7,CDAB
+czaf3oc2m6,0,TlessC2,11,NoContrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,It's a green circle,bumpy_greencircle2.jpg,19,BADC
+czaf3oc2m6,0,TlessC2,12,Contrast,1,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,It's a green circle,open_greencircle2.jpg,34,CDBA
+czaf3oc2m6,0,TlessC2,13,NoContrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,It's a green arrow,curved_greenarrow1.jpg,37,CBDA
+czaf3oc2m6,0,TlessC2,14,Contrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,It's full of green liquid,full_greencube3.jpg,8,BCAD
+czaf3oc2m6,0,TlessC2,15,NoContrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,It's a blue line with two dots,blue_bumpyline.jpg,39,BDAC
+czaf3oc2m6,0,TlessC2,16,Contrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,It's a red triangle,bumpy_redtriangle5.jpg,29,BDAC
+czaf3oc2m6,0,TlessC2,17,NoContrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,It's green,green_wavyline.jpg,35,DCBA
+czaf3oc2m6,0,TlessC2,18,Contrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,It's a green arrow,bent_greenarrow1.jpg,27,ADCB
+czaf3oc2m6,0,TlessC2,19,NoContrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,It's a green cube,full_greencube7.jpg,17,CDAB
+czaf3oc2m6,0,TlessC2,20,Contrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,It's a cylinder with red liquid,full_redcylinder5.jpg,18,DBAC
+czaf3oc2m6,0,TlessC2,21,NoContrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,It's a yellow sun,yellow_sun.jpg,5,ADBC
+czaf3oc2m6,0,TlessC2,22,Contrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,It's a green line,long_greenline5.jpg,12,DACB
+czaf3oc2m6,0,TlessC2,23,NoContrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,It's a red square,big_redsquare5.jpg,31,BDAC
+czaf3oc2m6,0,TlessC2,24,Contrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,It's a red square,big_redsquare2.jpg,32,BDCA
+czaf3oc2m6,0,TlessC2,25,NoContrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,It's a blue portion of a square,open_bluesquare7.jpg,28,DCAB
+czaf3oc2m6,0,TlessC2,26,Contrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,It's a blue star,blue_star.jpg,40,BACD
+czaf3oc2m6,0,TlessC2,27,NoContrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,It's a blue spiral,%23tall_bluespiral5.jpg,4,BDCA
+czaf3oc2m6,0,TlessC2,28,Contrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,It's a box,full_cube8.jpg,36,ACBD
+czaf3oc2m6,0,TlessC2,29,NoContrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,It's blue,bumpy_blueshape.jpg,11,CBDA
+czaf3oc2m6,0,TlessC2,30,Contrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,It's green,bumpy_greencircle4.jpg,1,CBDA
+czaf3oc2m6,0,TlessC2,31,NoContrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,It's a red star,spotted_redstar.jpg,20,BDCA
+czaf3oc2m6,0,TlessC2,32,Contrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,It's a blue arrow,long_bluearrow2.jpg,15,CBAD
+czaf3oc2m6,0,TlessC2,33,NoContrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,It's a green squiggly line,green_garabato.jpg,2,BDAC
+czaf3oc2m6,0,TlessC2,34,Contrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,It's a red square,big_redsquare5.jpg,38,BCDA
+czaf3oc2m6,0,TlessC2,35,NoContrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,It's blue,open_bluetriangle7.jpg,30,BACD
+czaf3oc2m6,0,TlessC2,36,Contrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,It's blue,full1_bluesquare2.jpg,24,CABD
+czaf3oc2m6,0,TlessC2,37,NoContrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,It's a yellow cylinder,%23tall_yellowcylinder5.jpg,25,DCAB
+czaf3oc2m6,0,TlessC2,38,Contrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,It's a blue spiral,%23tall_bluespiral2.jpg,13,ABDC
+czaf3oc2m6,0,TlessC2,39,NoContrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,It's a yellow square,spotted_yellowsquare4.jpg,33,DBCA
+czaf3oc2m6,0,TlessC2,40,Contrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,It's a red line,%23thick_redline3.jpg,10,ACBD
+hwgdrnrjf3,0,TlessC2,1,NoContrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,bottom left,bumpy_greencircle7.jpg,38,BADC
+hwgdrnrjf3,0,TlessC2,2,Contrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,bottom left,yellow_cloud.jpg,40,ACBD
+hwgdrnrjf3,0,TlessC2,3,NoContrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,top left,big_bluesquare1.jpg,3,DACB
+hwgdrnrjf3,0,TlessC2,4,Contrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,top right,yellow_star.jpg,37,CABD
+hwgdrnrjf3,0,TlessC2,5,NoContrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,top right,spotted_redsquare7.jpg,11,DCBA
+hwgdrnrjf3,0,TlessC2,6,Contrast,3,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,top right,spotted_redstar.jpg,8,ACBD
+hwgdrnrjf3,0,TlessC2,7,NoContrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,bottom left,spotted_greencircle4.jpg,26,DBAC
+hwgdrnrjf3,0,TlessC2,8,Contrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,bottom right,curved_greenline1.jpg,34,ABDC
+hwgdrnrjf3,0,TlessC2,9,NoContrast,1,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,top right,spotted_yellowsquare6.jpg,15,ACDB
+hwgdrnrjf3,0,TlessC2,10,Contrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,bottom left,striped_bluetriangle1.jpg,33,BDAC
+hwgdrnrjf3,0,TlessC2,11,NoContrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,bottom left,bumpy_yellowtriangle1.jpg,36,ADBC
+hwgdrnrjf3,0,TlessC2,12,Contrast,3,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,top right,bumpy_redline.jpg,14,CBDA
+hwgdrnrjf3,0,TlessC2,13,NoContrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,bottom left,red_cloud.jpg,5,DBCA
+hwgdrnrjf3,0,TlessC2,14,Contrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,botton left,full_yellowcube6.jpg,39,BACD
+hwgdrnrjf3,0,TlessC2,15,NoContrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,botton left,full_bluecube1.jpg,23,ADBC
+hwgdrnrjf3,0,TlessC2,16,Contrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,bottom left,bumpy_redtriangle5.jpg,17,CADB
+hwgdrnrjf3,0,TlessC2,17,NoContrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,tio left,long_redline7.jpg,19,DCAB
+hwgdrnrjf3,0,TlessC2,18,Contrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,top right,chereos_yellowoval.jpg,35,CABD
+hwgdrnrjf3,0,TlessC2,19,NoContrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,top right,full_greencube7.jpg,22,DCAB
+hwgdrnrjf3,0,TlessC2,20,Contrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,top right,empty_cube.jpg,29,DCBA
+hwgdrnrjf3,0,TlessC2,21,NoContrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,bottom left,yellow_sun.jpg,13,DCBA
+hwgdrnrjf3,0,TlessC2,22,Contrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,top right,yellow_star.jpg,6,DABC
+hwgdrnrjf3,0,TlessC2,23,NoContrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,bottom right,green_wavyline.jpg,7,ABDC
+hwgdrnrjf3,0,TlessC2,24,Contrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,top left,green_wavyline.jpg,4,CADB
+hwgdrnrjf3,0,TlessC2,25,NoContrast,3,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,bottom left,open_bluesquare7.jpg,10,DCBA
+hwgdrnrjf3,0,TlessC2,26,Contrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,top left,wide_redrectangle3.jpg,18,ACDB
+hwgdrnrjf3,0,TlessC2,27,NoContrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,top right,chereos_yellowoval.jpg,28,BACD
+hwgdrnrjf3,0,TlessC2,28,Contrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,bottom left,full_cube8.jpg,20,CDAB
+hwgdrnrjf3,0,TlessC2,29,NoContrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,top right,bumpy_blueshape.jpg,21,BCDA
+hwgdrnrjf3,0,TlessC2,30,Contrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,top right,%23thick_yellowline5.jpg,32,CABD
+hwgdrnrjf3,0,TlessC2,31,NoContrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,top left,yellow_cloud.jpg,12,CADB
+hwgdrnrjf3,0,TlessC2,32,Contrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,top right,long_bluearrow2.jpg,2,ABCD
+hwgdrnrjf3,0,TlessC2,33,NoContrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,top right,long_redline4.jpg,16,CDAB
+hwgdrnrjf3,0,TlessC2,34,Contrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,top right,big_yellowtriangle2.jpg,31,DCBA
+hwgdrnrjf3,0,TlessC2,35,NoContrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,bottom left,open_bluetriangle7.jpg,30,CBDA
+hwgdrnrjf3,0,TlessC2,36,Contrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,bottom left,wide_greenrectangle2.jpg,1,DABC
+hwgdrnrjf3,0,TlessC2,37,NoContrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,bottom right,%23tall_yellowcylinder5.jpg,9,ADCB
+hwgdrnrjf3,0,TlessC2,38,Contrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,bottom right,%23tall_bluespiral2.jpg,25,CADB
+hwgdrnrjf3,0,TlessC2,39,NoContrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,top left,%23thick_redarrow6.jpg,27,BDCA
+hwgdrnrjf3,0,TlessC2,40,Contrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,top right,%23thick_redline3.jpg,24,ADCB
+310n7drlst,0,TlessC2,1,NoContrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,yellow cylender,%23tall_yellowcylinder3.jpg,28,DABC
+310n7drlst,0,TlessC2,2,Contrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,green circle outline,open_greencircle1.jpg,27,CADB
+310n7drlst,0,TlessC2,3,NoContrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,green angle,bent_greenline6.jpg,36,BDCA
+310n7drlst,0,TlessC2,4,Contrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,red arch,curved_redline6.jpg,24,ADCB
+310n7drlst,0,TlessC2,5,NoContrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,red square with dots,spotted_redsquare7.jpg,15,ACBD
+310n7drlst,0,TlessC2,6,Contrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,gree square,striped_greensquare1.jpg,4,BADC
+310n7drlst,0,TlessC2,7,NoContrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,bue square with bumps,bumpy_bluesquare7.jpg,23,DCAB
+310n7drlst,0,TlessC2,8,Contrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,31,CABD
+310n7drlst,0,TlessC2,9,NoContrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,red circle with lines,striped_redcircle5.jpg,40,ACBD
+310n7drlst,0,TlessC2,10,Contrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,red triangle with lines,striped_redtriangle6.jpg,33,CADB
+310n7drlst,0,TlessC2,11,NoContrast,3,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,transluscent cube,full_cube8.jpg,17,BACD
+310n7drlst,0,TlessC2,12,Contrast,2,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,blue square outline,open_bluesquare1.jpg,26,ADBC
+310n7drlst,0,TlessC2,13,NoContrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,red cloud,red_cloud.jpg,8,BCAD
+310n7drlst,0,TlessC2,14,Contrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,blue double arrow,diagonal_bluearrow.jpg,34,BCAD
+310n7drlst,0,TlessC2,15,NoContrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,transluscent cylender,empty_cylinder.jpg,38,BCAD
+310n7drlst,0,TlessC2,16,Contrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,red triangle wit bumps,bumpy_redtriangle5.jpg,32,ADBC
+310n7drlst,0,TlessC2,17,NoContrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,yellow tringle outline,open_yellowtriangle1.jpg,21,DCAB
+310n7drlst,0,TlessC2,18,Contrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,red angle,bent_redline2.jpg,2,ABCD
+310n7drlst,0,TlessC2,19,NoContrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,yellow line,%23thick_yellowline1.jpg,1,ACDB
+310n7drlst,0,TlessC2,20,Contrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,transluscent cube,empty_cube.jpg,12,CDBA
+310n7drlst,0,TlessC2,21,NoContrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,yellow sun,yellow_sun.jpg,20,CDAB
+310n7drlst,0,TlessC2,22,Contrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,green line,long_greenline5.jpg,14,ADCB
+310n7drlst,0,TlessC2,23,NoContrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,yellow triangle,big_yellowtriangle6.jpg,30,CBDA
+310n7drlst,0,TlessC2,24,Contrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,yellow triangle,big_yellowtriangle3.jpg,13,BACD
+310n7drlst,0,TlessC2,25,NoContrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,yellow rectangle,wide_yellowrectangle6.jpg,5,ADCB
+310n7drlst,0,TlessC2,26,Contrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,green rectangle,wide_greenrectangle5.jpg,25,DBAC
+310n7drlst,0,TlessC2,27,NoContrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,Green cylender,%23tall_greencylinder6.jpg,39,BACD
+310n7drlst,0,TlessC2,28,Contrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,red swirrel,%23tall_redspiral3.jpg,7,DBAC
+310n7drlst,0,TlessC2,29,NoContrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,blue upsidedown trapazoid with bumps,bumpy_blueshape.jpg,37,CBAD
+310n7drlst,0,TlessC2,30,Contrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,green circle with bumps,bumpy_greencircle4.jpg,3,CABD
+310n7drlst,0,TlessC2,31,NoContrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,green line,long_greenline5.jpg,19,CABD
+310n7drlst,0,TlessC2,32,Contrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,blue arrow,long_bluearrow2.jpg,35,ACDB
+310n7drlst,0,TlessC2,33,NoContrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,green squiggle,green_garabato.jpg,18,BCDA
+310n7drlst,0,TlessC2,34,Contrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,red square,big_redsquare5.jpg,9,BACD
+310n7drlst,0,TlessC2,35,NoContrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,green angle,bent_greenline4.jpg,22,BDCA
+310n7drlst,0,TlessC2,36,Contrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,yellow oval,wide_yellowoval5.jpg,6,CDAB
+310n7drlst,0,TlessC2,37,NoContrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,red line,bent_redline1.jpg,11,BCAD
+310n7drlst,0,TlessC2,38,Contrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,blue swirrel,%23tall_bluespiral2.jpg,10,BCAD
+310n7drlst,0,TlessC2,39,NoContrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,green star,green_star.jpg,29,BCDA
+310n7drlst,0,TlessC2,40,Contrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,green arrow,%23thick_greenarrow2.jpg,16,BCAD
+7qmv0stvd9,1,TlessC2,1,NoContrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,Red Triangle,striped_redtriangle4.jpg,38,BDAC
+7qmv0stvd9,1,TlessC2,2,Contrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,Blue Semi-Circle,open_bluecircle6.jpg,16,CBDA
+7qmv0stvd9,1,TlessC2,3,NoContrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,Yellow Cloud,yellow_cloud.jpg,1,CDBA
+7qmv0stvd9,1,TlessC2,4,Contrast,1,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,Red Arch,curved_redline6.jpg,36,BCAD
+7qmv0stvd9,1,TlessC2,5,NoContrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,Blue Triangle,striped_bluetriangle4.jpg,34,BCAD
+7qmv0stvd9,1,TlessC2,6,Contrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,Green Square,striped_greensquare1.jpg,18,CBDA
+7qmv0stvd9,1,TlessC2,7,NoContrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,Blue Square,bumpy_bluesquare7.jpg,37,CDAB
+7qmv0stvd9,1,TlessC2,8,Contrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,Yellow Triangle,bumpy_yellowtriangle1.jpg,3,DBCA
+7qmv0stvd9,1,TlessC2,9,NoContrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,Green Triangle,spotted_greentriangle7.jpg,4,DBAC
+7qmv0stvd9,1,TlessC2,10,Contrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,Red Triangle,striped_redtriangle6.jpg,2,ABCD
+7qmv0stvd9,1,TlessC2,11,NoContrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,Green Circle,bumpy_greencircle2.jpg,31,DCAB
+7qmv0stvd9,1,TlessC2,12,Contrast,2,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,Blue Square,open_bluesquare1.jpg,30,DBCA
+7qmv0stvd9,1,TlessC2,13,NoContrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,Blue Line,curved_blueline2.jpg,28,CBDA
+7qmv0stvd9,1,TlessC2,14,Contrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,Red Cylinder,full_redcylinder7.jpg,10,DCAB
+7qmv0stvd9,1,TlessC2,15,NoContrast,2,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,Clear Cylinder,empty_cylinder.jpg,12,DCBA
+7qmv0stvd9,1,TlessC2,16,Contrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,Green Circle,green_sphere.jpg,9,BCDA
+7qmv0stvd9,1,TlessC2,17,NoContrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,Blue Circle,open_bluecircle2.jpg,39,ABCD
+7qmv0stvd9,1,TlessC2,18,Contrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,Blue Line,bent_blueline5.jpg,6,CADB
+7qmv0stvd9,1,TlessC2,19,NoContrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,Red Spiral,%23tall_redspiral4.jpg,20,CADB
+7qmv0stvd9,1,TlessC2,20,Contrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,Yellow Cloud,yellow_cloud.jpg,27,BCAD
+7qmv0stvd9,1,TlessC2,21,NoContrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,Blue Circle,open_bluecircle1.jpg,25,ADCB
+7qmv0stvd9,1,TlessC2,22,Contrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,Green Line,long_greenline5.jpg,40,BACD
+7qmv0stvd9,1,TlessC2,23,NoContrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,Blue Arch,curved_blueline4.jpg,17,BCAD
+7qmv0stvd9,1,TlessC2,24,Contrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,Red Square,big_redsquare2.jpg,8,CDAB
+7qmv0stvd9,1,TlessC2,25,NoContrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,Green Oval,wide_greenoval5.jpg,24,ABDC
+7qmv0stvd9,1,TlessC2,26,Contrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,Yellow Oval,wide_yellowoval2.jpg,7,DCBA
+7qmv0stvd9,1,TlessC2,27,NoContrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,Blue Spiral,%23tall_bluespiral5.jpg,11,CBDA
+7qmv0stvd9,1,TlessC2,28,Contrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,Green Spiral,%23tall_greenspiral5.jpg,21,ADCB
+7qmv0stvd9,1,TlessC2,29,NoContrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,Yellow Line,%23thick_yellowline5.jpg,14,ADBC
+7qmv0stvd9,1,TlessC2,30,Contrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,Red Arrow,%23thick_redarrow2.jpg,13,ACDB
+7qmv0stvd9,1,TlessC2,31,NoContrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,Red Star,spotted_redstar.jpg,33,CBDA
+7qmv0stvd9,1,TlessC2,32,Contrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,Yellow Cube,full_yellowcube7.jpg,22,DCBA
+7qmv0stvd9,1,TlessC2,33,NoContrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,Yellow Triangle,big_yellowtriangle5.jpg,35,ACDB
+7qmv0stvd9,1,TlessC2,34,Contrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,Red Square,big_redsquare5.jpg,23,ABDC
+7qmv0stvd9,1,TlessC2,35,NoContrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,Green Crooked Line,bent_greenline4.jpg,26,CABD
+7qmv0stvd9,1,TlessC2,36,Contrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,Red Oval,wide_redoval3.jpg,15,CADB
+7qmv0stvd9,1,TlessC2,37,NoContrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,Green Wave,green_wavyline.jpg,19,CABD
+7qmv0stvd9,1,TlessC2,38,Contrast,3,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,Yellow Cloud,yellow_cloud.jpg,32,ADCB
+7qmv0stvd9,1,TlessC2,39,NoContrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,Green Star,green_star.jpg,5,DBAC
+7qmv0stvd9,1,TlessC2,40,Contrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,Green Arrow,%23thick_greenarrow2.jpg,29,DABC
+20tx3x0tc7,0,TlessC2,1,NoContrast,3,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,striped_redtriangle4.jpg,yellow sphere,%23tall_yellowcylinder3.jpg,40,DACB
+20tx3x0tc7,0,TlessC2,2,Contrast,2,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,open_greencircle1.jpg,red partial triangle,open_redtriangle7.jpg,8,CBDA
+20tx3x0tc7,0,TlessC2,3,NoContrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,big_bluesquare1.jpg,green angled line,bent_greenline6.jpg,31,ACBD
+20tx3x0tc7,0,TlessC2,4,Contrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,curved_blueline1.jpg,blue line,curved_blueline1.jpg,27,ACBD
+20tx3x0tc7,0,TlessC2,5,NoContrast,2,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,%23thick_greenarrow1.jpg,red square with dots,spotted_redsquare7.jpg,15,BADC
+20tx3x0tc7,0,TlessC2,6,Contrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,striped_greensquare1.jpg,blue triangle with black bars,striped_bluetriangle7.jpg,2,CABD
+20tx3x0tc7,0,TlessC2,7,NoContrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,full_yellowcylinder2.jpg,blue square lego,bumpy_bluesquare7.jpg,37,CDAB
+20tx3x0tc7,0,TlessC2,8,Contrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,curved_greenline1.jpg,blue curved line,curved_blueline6.jpg,36,DACB
+20tx3x0tc7,0,TlessC2,9,NoContrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,striped_redcircle5.jpg,blue arrow,diagonal_bluearrow.jpg,4,BACD
+20tx3x0tc7,0,TlessC2,10,Contrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,striped_bluetriangle1.jpg,yellow circle with black circles,chereos_yellowoval.jpg,22,CDAB
+20tx3x0tc7,0,TlessC2,11,NoContrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,%23tall_bluespiral7.jpg,blue curled ribbon,%23tall_bluespiral7.jpg,16,CBAD
+20tx3x0tc7,0,TlessC2,12,Contrast,3,circle,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,open_yellowcircle5.jpg,red line/baton,bumpy_redline.jpg,32,DCBA
+20tx3x0tc7,0,TlessC2,13,NoContrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,red_cloud.jpg,blue curved line,curved_blueline2.jpg,30,CADB
+20tx3x0tc7,0,TlessC2,14,Contrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,full_greencube3.jpg,cube with yellow liquid,full_yellowcube6.jpg,39,BACD
+20tx3x0tc7,0,TlessC2,15,NoContrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,blue_bumpyline.jpg,cube with water,full_bluecube1.jpg,38,ACBD
+20tx3x0tc7,0,TlessC2,16,Contrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,bumpy_redtriangle5.jpg,green circle,green_sphere.jpg,29,CBDA
+20tx3x0tc7,0,TlessC2,17,NoContrast,3,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,green_wavyline.jpg,red line,long_redline7.jpg,24,CBDA
+20tx3x0tc7,0,TlessC2,18,Contrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,bent_blueline5.jpg,red angled line,bent_redline2.jpg,7,BDCA
+20tx3x0tc7,0,TlessC2,19,NoContrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,%23thick_yellowline1.jpg,sphere with blue liquid,full_bluecylinder6.jpg,12,ABDC
+20tx3x0tc7,0,TlessC2,20,Contrast,2,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,full_redcylinder5.jpg,cube,empty_cube.jpg,19,ACBD
+20tx3x0tc7,0,TlessC2,21,NoContrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,open_bluecircle1.jpg,red line,long_redline5.jpg,5,BDCA
+20tx3x0tc7,0,TlessC2,22,Contrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,long_greenline5.jpg,red arrow,long_redarrow2.jpg,13,ADCB
+20tx3x0tc7,0,TlessC2,23,NoContrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,curved_blueline4.jpg,green leaf,green_wavyline.jpg,10,CBAD
+20tx3x0tc7,0,TlessC2,24,Contrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,big_bluetriangle5.jpg,yellow triangle,big_yellowtriangle3.jpg,1,DABC
+20tx3x0tc7,0,TlessC2,25,NoContrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,bent_redline4.jpg,yellow rectangle,wide_yellowrectangle6.jpg,11,DACB
+20tx3x0tc7,0,TlessC2,26,Contrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,wide_greenrectangle5.jpg,yellow oval,wide_yellowoval2.jpg,25,ABCD
+20tx3x0tc7,0,TlessC2,27,NoContrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,curved_redline4.jpg,green sphere,%23tall_greencylinder6.jpg,20,ACDB
+20tx3x0tc7,0,TlessC2,28,Contrast,1,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,full_cube8.jpg,%23tall_greenspiral5.jpg,red curled ribbon,%23tall_redspiral3.jpg,28,DBCA
+20tx3x0tc7,0,TlessC2,29,NoContrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,bumpy_blueshape.jpg,red sun,red_sun.jpg,35,ADCB
+20tx3x0tc7,0,TlessC2,30,Contrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,%23thick_yellowline5.jpg,yellow line,%23thick_yellowline5.jpg,23,BACD
+20tx3x0tc7,0,TlessC2,31,NoContrast,2,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,spotted_redstar.jpg,blue arrow,long_bluearrow6.jpg,26,BCAD
+20tx3x0tc7,0,TlessC2,32,Contrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,long_greenline5.jpg,yellow cube,full_yellowcube7.jpg,18,BADC
+20tx3x0tc7,0,TlessC2,33,NoContrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,green_garabato.jpg,yellow triangle,big_yellowtriangle5.jpg,3,ABDC
+20tx3x0tc7,0,TlessC2,34,Contrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,big_redsquare5.jpg,blue box,big_bluesquare3.jpg,21,ACBD
+20tx3x0tc7,0,TlessC2,35,NoContrast,2,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,bent_greenline4.jpg,red oval,wide_redoval6.jpg,6,ADCB
+20tx3x0tc7,0,TlessC2,36,Contrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,wide_yellowoval5.jpg,green rectrangle,wide_greenrectangle2.jpg,14,CDBA
+20tx3x0tc7,0,TlessC2,37,NoContrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,green_wavyline.jpg,red line,bent_redline1.jpg,9,DACB
+20tx3x0tc7,0,TlessC2,38,Contrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,%23tall_redcylinder5.jpg,red sphere,%23tall_redcylinder5.jpg,33,ADCB
+20tx3x0tc7,0,TlessC2,39,NoContrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,spotted_yellowsquare4.jpg,red arrow,%23thick_redarrow6.jpg,34,DABC
+20tx3x0tc7,0,TlessC2,40,Contrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,%23thick_blueline5.jpg,green arrow,%23thick_greenarrow2.jpg,17,BDCA
+ylk1b6pmg0,0,TlessC1,1,Contrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,red square,bumpy_redsquare1.jpg,10,CDBA
+ylk1b6pmg0,0,TlessC1,2,NoContrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,yellow cloud,yellow_cloud.jpg,16,CABD
+ylk1b6pmg0,0,TlessC1,3,Contrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,green line,bent_greenline6.jpg,32,CDBA
+ylk1b6pmg0,0,TlessC1,4,NoContrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,blue triangle,striped_bluetriangle4.jpg,30,ACDB
+ylk1b6pmg0,0,TlessC1,5,Contrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,yellow circle,spotted_yellowcircle6.jpg,1,BCDA
+ylk1b6pmg0,0,TlessC1,6,NoContrast,4,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,green circle,bumpy_greencircle4.jpg,9,CADB
+ylk1b6pmg0,0,TlessC1,7,Contrast,2,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,blue square,bumpy_bluesquare7.jpg,36,BCDA
+ylk1b6pmg0,0,TlessC1,8,NoContrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,blue curve,curved_blueline6.jpg,28,DCAB
+ylk1b6pmg0,0,TlessC1,9,Contrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,red square,spotted_redsquare1.jpg,21,DCAB
+ylk1b6pmg0,0,TlessC1,10,NoContrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,triangle,striped_redtriangle6.jpg,31,ACDB
+ylk1b6pmg0,0,TlessC1,11,Contrast,4,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,blue circle,bumpy_bluecircle5.jpg,18,BDAC
+ylk1b6pmg0,0,TlessC1,12,NoContrast,3,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,red line,bumpy_redline.jpg,8,ADBC
+ylk1b6pmg0,0,TlessC1,13,Contrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,green arrow,curved_greenarrow1.jpg,13,BACD
+ylk1b6pmg0,0,TlessC1,14,NoContrast,1,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,yellow square,full_yellowcube6.jpg,7,CDBA
+ylk1b6pmg0,0,TlessC1,15,Contrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,blue square,full_bluecube5.jpg,40,BCAD
+ylk1b6pmg0,0,TlessC1,16,NoContrast,4,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,wavy thing,%23tall_redspiral7.jpg,33,CBAD
+ylk1b6pmg0,0,TlessC1,17,Contrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,blue circle,open_bluecircle2.jpg,35,BCAD
+ylk1b6pmg0,0,TlessC1,18,NoContrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,blue cylinder,full_bluecylinder7.jpg,4,BDAC
+ylk1b6pmg0,0,TlessC1,19,Contrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,blue cylinder,full_bluecylinder6.jpg,3,DBCA
+ylk1b6pmg0,0,TlessC1,20,NoContrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,yellow cylinder,full_yellowcylinder1.jpg,5,DCBA
+ylk1b6pmg0,0,TlessC1,21,Contrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,yellow sun,yellow_sun.jpg,23,ACDB
+ylk1b6pmg0,0,TlessC1,22,NoContrast,3,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,yellow star,yellow_star.jpg,38,BCDA
+ylk1b6pmg0,0,TlessC1,23,Contrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,yellow triangle,big_yellowtriangle6.jpg,26,BDAC
+ylk1b6pmg0,0,TlessC1,24,NoContrast,2,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,red square,big_redsquare2.jpg,22,CBAD
+ylk1b6pmg0,0,TlessC1,25,Contrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,yellow rectangle,wide_yellowrectangle6.jpg,24,CADB
+ylk1b6pmg0,0,TlessC1,26,NoContrast,1,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,red rectangle,wide_redrectangle3.jpg,14,CBAD
+ylk1b6pmg0,0,TlessC1,27,Contrast,2,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,green cylinder,%23tall_greencylinder6.jpg,29,DBAC
+ylk1b6pmg0,0,TlessC1,28,NoContrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,blue sun,blue_sun.jpg,39,BCDA
+ylk1b6pmg0,0,TlessC1,29,Contrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,green arrow,%23thick_greenarrow6.jpg,19,ACDB
+ylk1b6pmg0,0,TlessC1,30,NoContrast,2,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,red line,%23thick_redarrow2.jpg,27,DCBA
+ylk1b6pmg0,0,TlessC1,31,Contrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,red line,long_redline3.jpg,11,BACD
+ylk1b6pmg0,0,TlessC1,32,NoContrast,3,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,yellow cube,full_yellowcube7.jpg,20,DACB
+ylk1b6pmg0,0,TlessC1,33,Contrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,yellow triangle,big_yellowtriangle5.jpg,17,CADB
+ylk1b6pmg0,0,TlessC1,34,NoContrast,4,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,red line,red_wavyline.jpg,2,CBDA
+ylk1b6pmg0,0,TlessC1,35,Contrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,green rectangle,wide_greenrectangle3.jpg,6,ACBD
+ylk1b6pmg0,0,TlessC1,36,NoContrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,yellow sun,yellow_sun.jpg,37,DBCA
+ylk1b6pmg0,0,TlessC1,37,Contrast,4,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,green cylinder,%23tall_greencylinder3.jpg,15,DBAC
+ylk1b6pmg0,0,TlessC1,38,NoContrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,red star,spotted_redstar.jpg,12,ABCD
+ylk1b6pmg0,0,TlessC1,39,Contrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,green staer,green_star.jpg,34,ACBD
+ylk1b6pmg0,0,TlessC1,40,NoContrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,yellow circle,spotted_yellowcircle4.jpg,25,BDCA
+t5wvp8ybd7,0,TlessC1,1,Contrast,2,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,green circle,bumpy_greencircle7.jpg,40,BDCA
+t5wvp8ybd7,0,TlessC1,2,NoContrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,cloud,yellow_cloud.jpg,7,CDBA
+t5wvp8ybd7,0,TlessC1,3,Contrast,3,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,cloud,yellow_cloud.jpg,28,ADCB
+t5wvp8ybd7,0,TlessC1,4,NoContrast,4,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,triangle,striped_bluetriangle4.jpg,4,BDCA
+t5wvp8ybd7,0,TlessC1,5,Contrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,triangle,striped_bluetriangle4.jpg,10,ACBD
+t5wvp8ybd7,0,TlessC1,6,NoContrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,blue triangle,striped_bluetriangle7.jpg,30,BDCA
+t5wvp8ybd7,0,TlessC1,7,Contrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,circle,spotted_greencircle4.jpg,20,DBAC
+t5wvp8ybd7,0,TlessC1,8,NoContrast,3,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,triangle,bumpy_yellowtriangle1.jpg,38,ADCB
+t5wvp8ybd7,0,TlessC1,9,Contrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,line,diagonal_bluearrow.jpg,36,DBCA
+t5wvp8ybd7,0,TlessC1,10,NoContrast,1,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,red triangle,striped_redtriangle6.jpg,33,DCBA
+t5wvp8ybd7,0,TlessC1,11,Contrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,green circle,bumpy_greencircle2.jpg,11,DCBA
+t5wvp8ybd7,0,TlessC1,12,NoContrast,3,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,red line,bumpy_redline.jpg,34,DBAC
+t5wvp8ybd7,0,TlessC1,13,Contrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,blue line,curved_blueline2.jpg,6,ACBD
+t5wvp8ybd7,0,TlessC1,14,NoContrast,2,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,red shape,full_redcylinder7.jpg,39,BDCA
+t5wvp8ybd7,0,TlessC1,15,Contrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,empty cube,full_bluecube1.jpg,2,ABCD
+t5wvp8ybd7,0,TlessC1,16,NoContrast,2,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,blue square,bumpy_bluesquare1.jpg,37,DCAB
+t5wvp8ybd7,0,TlessC1,17,Contrast,4,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,green object,open_greencircle5.jpg,1,CBDA
+t5wvp8ybd7,0,TlessC1,18,NoContrast,1,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,red line,bent_redline2.jpg,14,CBDA
+t5wvp8ybd7,0,TlessC1,19,Contrast,2,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,cube,full_greencube7.jpg,17,CADB
+t5wvp8ybd7,0,TlessC1,20,NoContrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cloud,yellow_cloud.jpg,23,ACDB
+t5wvp8ybd7,0,TlessC1,21,Contrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,sun,yellow_sun.jpg,25,ACDB
+t5wvp8ybd7,0,TlessC1,22,NoContrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,heart,green_heart.jpg,27,BCAD
+t5wvp8ybd7,0,TlessC1,23,Contrast,4,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,blue square,big_bluesquare3.jpg,3,ADCB
+t5wvp8ybd7,0,TlessC1,24,NoContrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,green shape,green_wavyline.jpg,8,DCBA
+t5wvp8ybd7,0,TlessC1,25,Contrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,yellow square,wide_yellowrectangle6.jpg,32,BADC
+t5wvp8ybd7,0,TlessC1,26,NoContrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,yellow circle,wide_yellowoval2.jpg,12,ABDC
+t5wvp8ybd7,0,TlessC1,27,Contrast,3,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,yellow circle,chereos_yellowoval.jpg,31,BADC
+t5wvp8ybd7,0,TlessC1,28,NoContrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,yellow disk,%23tall_yellowcylinder2.jpg,19,CBDA
+t5wvp8ybd7,0,TlessC1,29,Contrast,2,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,green arrow,%23thick_greenarrow6.jpg,22,BDCA
+t5wvp8ybd7,0,TlessC1,30,NoContrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,blue line,%23thick_blueline3.jpg,5,BDAC
+t5wvp8ybd7,0,TlessC1,31,Contrast,4,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,red line,long_redline3.jpg,13,BDAC
+t5wvp8ybd7,0,TlessC1,32,NoContrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,red line,long_redline3.jpg,15,ABCD
+t5wvp8ybd7,0,TlessC1,33,Contrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,yellow triangle,big_yellowtriangle5.jpg,18,ABDC
+t5wvp8ybd7,0,TlessC1,34,NoContrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,green line,green_garabato.jpg,26,DACB
+t5wvp8ybd7,0,TlessC1,35,Contrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,green square,wide_greenrectangle3.jpg,16,ACDB
+t5wvp8ybd7,0,TlessC1,36,NoContrast,4,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,sun,yellow_sun.jpg,24,ADBC
+t5wvp8ybd7,0,TlessC1,37,Contrast,2,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,tornado,%23tall_bluespiral6.jpg,21,ABDC
+t5wvp8ybd7,0,TlessC1,38,NoContrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,star,spotted_redstar.jpg,9,BCAD
+t5wvp8ybd7,0,TlessC1,39,Contrast,3,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,star,green_star.jpg,35,CABD
+t5wvp8ybd7,0,TlessC1,40,NoContrast,1,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,red line,%23thick_redline3.jpg,29,ADCB
+car7056uni,0,TlessC1,1,Contrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,blue square,bumpy_bluesquare6.jpg,13,BADC
+car7056uni,0,TlessC1,2,NoContrast,3,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,yellow cloud,yellow_cloud.jpg,4,DABC
+car7056uni,0,TlessC1,3,Contrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,blue dash,bent_blueline1.jpg,2,ABCD
+car7056uni,0,TlessC1,4,NoContrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,green arrow,curved_greenarrow7.jpg,6,ACDB
+car7056uni,0,TlessC1,5,Contrast,3,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,blue triangle,striped_bluetriangle4.jpg,30,BACD
+car7056uni,0,TlessC1,6,NoContrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,blue triangle,striped_bluetriangle7.jpg,29,DACB
+car7056uni,0,TlessC1,7,Contrast,3,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,green cookie,spotted_greencircle4.jpg,27,DABC
+car7056uni,0,TlessC1,8,NoContrast,1,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,blue arc,curved_blueline6.jpg,3,BCDA
+car7056uni,0,TlessC1,9,Contrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,orange box,spotted_redsquare1.jpg,37,BDCA
+car7056uni,0,TlessC1,10,NoContrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,yellow circle,chereos_yellowoval.jpg,8,BCAD
+car7056uni,0,TlessC1,11,Contrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,31,BADC
+car7056uni,0,TlessC1,12,NoContrast,3,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,red line,bumpy_redline.jpg,40,ADBC
+car7056uni,0,TlessC1,13,Contrast,4,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,red arc,curved_redline5.jpg,33,CBAD
+car7056uni,0,TlessC1,14,NoContrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,green ribbon,%23tall_greenspiral2.jpg,32,ACDB
+car7056uni,0,TlessC1,15,Contrast,3,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,green arc,curved_greenline4.jpg,24,CABD
+car7056uni,0,TlessC1,16,NoContrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,green ball,green_sphere.jpg,34,ADCB
+car7056uni,0,TlessC1,17,Contrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,yellow triangle,open_yellowtriangle1.jpg,7,DABC
+car7056uni,0,TlessC1,18,NoContrast,2,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,green dash,bent_greenarrow1.jpg,25,BADC
+car7056uni,0,TlessC1,19,Contrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,red ribbon,%23tall_redspiral4.jpg,23,CDAB
+car7056uni,0,TlessC1,20,NoContrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,red dash,long_redline1.jpg,15,CDAB
+car7056uni,0,TlessC1,21,Contrast,3,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,sun,yellow_sun.jpg,10,ABCD
+car7056uni,0,TlessC1,22,NoContrast,4,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,green heart,green_heart.jpg,36,BACD
+car7056uni,0,TlessC1,23,Contrast,2,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,yellow triangle,big_yellowtriangle6.jpg,17,ACBD
+car7056uni,0,TlessC1,24,NoContrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,blue line,diagonal_bluearrow.jpg,16,ACBD
+car7056uni,0,TlessC1,25,Contrast,2,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,yellow box,wide_yellowrectangle6.jpg,26,DCAB
+car7056uni,0,TlessC1,26,NoContrast,4,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,green shape,spotted_greenpentagon.jpg,12,BADC
+car7056uni,0,TlessC1,27,Contrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,red ribbon,%23tall_redspiral3.jpg,38,CDAB
+car7056uni,0,TlessC1,28,NoContrast,3,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,blue sun,blue_sun.jpg,5,ABCD
+car7056uni,0,TlessC1,29,Contrast,1,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,yellow line,%23thick_yellowline5.jpg,20,BADC
+car7056uni,0,TlessC1,30,NoContrast,1,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,blue line,%23thick_blueline3.jpg,11,ADCB
+car7056uni,0,TlessC1,31,Contrast,3,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,yellow cloud,yellow_cloud.jpg,28,CDAB
+car7056uni,0,TlessC1,32,NoContrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,green circle,spotted_greencircle4.jpg,18,ADCB
+car7056uni,0,TlessC1,33,Contrast,3,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,red dash,long_redline4.jpg,21,DCAB
+car7056uni,0,TlessC1,34,NoContrast,3,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,green line,green_garabato.jpg,39,BACD
+car7056uni,0,TlessC1,35,Contrast,4,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,green rectangle,wide_greenrectangle3.jpg,9,DCAB
+car7056uni,0,TlessC1,36,NoContrast,1,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,red oval,wide_redoval3.jpg,19,CBAD
+car7056uni,0,TlessC1,37,Contrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,red line,bent_redline1.jpg,35,CBAD
+car7056uni,0,TlessC1,38,NoContrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,blue ribbon,%23tall_bluespiral2.jpg,14,DABC
+car7056uni,0,TlessC1,39,Contrast,2,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,green arrow,%23thick_redarrow6.jpg,1,ACDB
+car7056uni,0,TlessC1,40,NoContrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,yellow cookie,spotted_yellowcircle4.jpg,22,ACBD
+wau0idwswl,0,TlessC1,1,Contrast,1,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,suqare with pegs,bumpy_bluesquare6.jpg,9,DCAB
+wau0idwswl,0,TlessC1,2,NoContrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,horseshoe,open_bluecircle6.jpg,1,BADC
+wau0idwswl,0,TlessC1,3,Contrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,long line,bent_blueline1.jpg,36,ABDC
+wau0idwswl,0,TlessC1,4,NoContrast,2,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,curved line with arrow,curved_greenarrow7.jpg,18,DBAC
+wau0idwswl,0,TlessC1,5,Contrast,4,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,plain circle,spotted_greencircle1.jpg,37,ADBC
+wau0idwswl,0,TlessC1,6,NoContrast,2,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,triangle,striped_bluetriangle7.jpg,38,CABD
+wau0idwswl,0,TlessC1,7,Contrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,triangle with pegs,bumpy_redtriangle6.jpg,6,ACDB
+wau0idwswl,0,TlessC1,8,NoContrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,arrow line,curved_redarrow7.jpg,21,CBDA
+wau0idwswl,0,TlessC1,9,Contrast,2,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,triangle,spotted_greentriangle7.jpg,11,ACBD
+wau0idwswl,0,TlessC1,10,NoContrast,3,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,oval,chereos_yellowoval.jpg,32,BDCA
+wau0idwswl,0,TlessC1,11,Contrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,triangle,bumpy_yellowtriangle1.jpg,16,CBAD
+wau0idwswl,0,TlessC1,12,NoContrast,1,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,circle,open_greencircle2.jpg,17,CABD
+wau0idwswl,0,TlessC1,13,Contrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,less curved line,curved_blueline2.jpg,19,ADCB
+wau0idwswl,0,TlessC1,14,NoContrast,4,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,ribbon,%23tall_greenspiral2.jpg,12,DABC
+wau0idwswl,0,TlessC1,15,Contrast,1,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,near-empty cube,full_bluecube1.jpg,10,CDAB
+wau0idwswl,0,TlessC1,16,NoContrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,triangle,bumpy_yellowtriangle2.jpg,27,BACD
+wau0idwswl,0,TlessC1,17,Contrast,2,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,triangle,open_yellowtriangle1.jpg,33,ADBC
+wau0idwswl,0,TlessC1,18,NoContrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,oval,chereos_yellowoval.jpg,34,ADCB
+wau0idwswl,0,TlessC1,19,Contrast,4,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,half-full cylinder,full_yellowcylinder3.jpg,30,CADB
+wau0idwswl,0,TlessC1,20,NoContrast,3,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cloud,yellow_cloud.jpg,14,BCDA
+wau0idwswl,0,TlessC1,21,Contrast,1,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,lone line with no arrow,long_redline5.jpg,39,BCAD
+wau0idwswl,0,TlessC1,22,NoContrast,1,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,line with NO arrow,long_blueline3.jpg,26,CABD
+wau0idwswl,0,TlessC1,23,Contrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,big square,big_redsquare5.jpg,13,BDAC
+wau0idwswl,0,TlessC1,24,NoContrast,3,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,curvy shape,green_wavyline.jpg,35,DBAC
+wau0idwswl,0,TlessC1,25,Contrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,thick oval,wide_greenoval5.jpg,8,ACDB
+wau0idwswl,0,TlessC1,26,NoContrast,2,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,oval,wide_yellowoval2.jpg,23,ACBD
+wau0idwswl,0,TlessC1,27,Contrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,long ribbon,%23tall_bluespiral5.jpg,29,CBAD
+wau0idwswl,0,TlessC1,28,NoContrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,square,full1_greensquare1.jpg,20,ACBD
+wau0idwswl,0,TlessC1,29,Contrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,thin line,%23thick_blueline3.jpg,15,DACB
+wau0idwswl,0,TlessC1,30,NoContrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,star,yellow_star.jpg,40,ADBC
+wau0idwswl,0,TlessC1,31,Contrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,long line no arrow,long_greenline5.jpg,22,ADBC
+wau0idwswl,0,TlessC1,32,NoContrast,2,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,arrow,long_bluearrow2.jpg,3,BADC
+wau0idwswl,0,TlessC1,33,Contrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,small triangle,big_greentriangle3.jpg,25,DACB
+wau0idwswl,0,TlessC1,34,NoContrast,2,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,triangle,big_yellowtriangle2.jpg,31,ACDB
+wau0idwswl,0,TlessC1,35,Contrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,thick rectangle,wide_yellowrectangle5.jpg,4,BCAD
+wau0idwswl,0,TlessC1,36,NoContrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,square,full1_bluesquare2.jpg,7,DCBA
+wau0idwswl,0,TlessC1,37,Contrast,3,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,line,bent_redline1.jpg,24,DACB
+wau0idwswl,0,TlessC1,38,NoContrast,2,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,ribbon,%23tall_bluespiral2.jpg,5,DCBA
+wau0idwswl,0,TlessC1,39,Contrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,thin line,%23thick_yellowline3.jpg,28,ADCB
+wau0idwswl,0,TlessC1,40,NoContrast,2,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,arrow line,%23thick_greenarrow2.jpg,2,DCBA
+lfnxs5ou7h,0,TlessC1,1,Contrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,red square,bumpy_redsquare1.jpg,16,BACD
+lfnxs5ou7h,0,TlessC1,2,NoContrast,1,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,blue broken circle,open_bluecircle6.jpg,15,ACBD
+lfnxs5ou7h,0,TlessC1,3,Contrast,1,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,green line,bent_greenline6.jpg,3,DCAB
+lfnxs5ou7h,0,TlessC1,4,NoContrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,star,yellow_star.jpg,13,BDCA
+lfnxs5ou7h,0,TlessC1,5,Contrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,yellow spotted circle,spotted_yellowcircle6.jpg,31,ADCB
+lfnxs5ou7h,0,TlessC1,6,NoContrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,yellow square,striped_yellowsquare6.jpg,2,BCAD
+lfnxs5ou7h,0,TlessC1,7,Contrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,red triangle,bumpy_redtriangle6.jpg,29,BCDA
+lfnxs5ou7h,0,TlessC1,8,NoContrast,2,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,red arrow,curved_redarrow7.jpg,4,DCAB
+lfnxs5ou7h,0,TlessC1,9,Contrast,3,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,blue arrow,diagonal_bluearrow.jpg,33,ABCD
+lfnxs5ou7h,0,TlessC1,10,NoContrast,4,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,blue shape,bumpy_blueshape.jpg,35,ABDC
+lfnxs5ou7h,0,TlessC1,11,Contrast,1,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,green circle,bumpy_greencircle2.jpg,5,BCAD
+lfnxs5ou7h,0,TlessC1,12,NoContrast,1,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,green broken circle,open_greencircle2.jpg,28,BACD
+lfnxs5ou7h,0,TlessC1,13,Contrast,1,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,blue line,curved_blueline2.jpg,30,DBCA
+lfnxs5ou7h,0,TlessC1,14,NoContrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,blue line,diagonal_bluearrow.jpg,40,BCDA
+lfnxs5ou7h,0,TlessC1,15,Contrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,almost full square,full_bluecube5.jpg,22,ACBD
+lfnxs5ou7h,0,TlessC1,16,NoContrast,1,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,triangle,bumpy_yellowtriangle2.jpg,18,ADBC
+lfnxs5ou7h,0,TlessC1,17,Contrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,blue broken circle,open_bluecircle2.jpg,7,ACDB
+lfnxs5ou7h,0,TlessC1,18,NoContrast,4,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,purple cylinder,full_bluecylinder7.jpg,14,ABDC
+lfnxs5ou7h,0,TlessC1,19,Contrast,1,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,purple filled cylinder,full_bluecylinder6.jpg,26,DACB
+lfnxs5ou7h,0,TlessC1,20,NoContrast,1,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,cylinder,full_yellowcylinder1.jpg,8,ABCD
+lfnxs5ou7h,0,TlessC1,21,Contrast,2,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,green arrow,long_greenarrow6.jpg,27,CBAD
+lfnxs5ou7h,0,TlessC1,22,NoContrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,red arrow,long_redarrow2.jpg,9,ACBD
+lfnxs5ou7h,0,TlessC1,23,Contrast,1,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,red square,big_redsquare5.jpg,17,DBAC
+lfnxs5ou7h,0,TlessC1,24,NoContrast,1,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,yellow triangle,big_yellowtriangle3.jpg,19,CDBA
+lfnxs5ou7h,0,TlessC1,25,Contrast,1,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,green oval,wide_greenoval5.jpg,12,CBAD
+lfnxs5ou7h,0,TlessC1,26,NoContrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,star,blue_star.jpg,38,CBAD
+lfnxs5ou7h,0,TlessC1,27,Contrast,1,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,blue spiral,%23tall_bluespiral5.jpg,1,DBAC
+lfnxs5ou7h,0,TlessC1,28,NoContrast,2,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,yellow shape,%23tall_yellowcylinder2.jpg,11,CBAD
+lfnxs5ou7h,0,TlessC1,29,Contrast,3,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,sun,red_sun.jpg,34,CADB
+lfnxs5ou7h,0,TlessC1,30,NoContrast,3,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,circle,bumpy_greencircle4.jpg,6,DCAB
+lfnxs5ou7h,0,TlessC1,31,Contrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,green line,long_greenline5.jpg,32,DBCA
+lfnxs5ou7h,0,TlessC1,32,NoContrast,1,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,red line,long_redline3.jpg,36,CABD
+lfnxs5ou7h,0,TlessC1,33,Contrast,1,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,yellow triangle,big_yellowtriangle5.jpg,23,CBDA
+lfnxs5ou7h,0,TlessC1,34,NoContrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,blue square,big_bluesquare3.jpg,37,BDCA
+lfnxs5ou7h,0,TlessC1,35,Contrast,1,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,yellow rectangle,wide_yellowrectangle5.jpg,25,DABC
+lfnxs5ou7h,0,TlessC1,36,NoContrast,3,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,square,full1_bluesquare2.jpg,24,ADBC
+lfnxs5ou7h,0,TlessC1,37,Contrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,yellow cylinder,%23tall_yellowcylinder5.jpg,10,ADCB
+lfnxs5ou7h,0,TlessC1,38,NoContrast,4,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,star,spotted_redstar.jpg,21,BDCA
+lfnxs5ou7h,0,TlessC1,39,Contrast,4,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,yellow line,%23thick_yellowline3.jpg,39,DCBA
+lfnxs5ou7h,0,TlessC1,40,NoContrast,4,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,square,bumpy_bluesquare4.jpg,20,ACDB
+ecx5i062ch,0,TlessC1,1,Contrast,4,square,bumpy,bumpy_bluesquare6.jpg,bumpy_greencircle7.jpg,%23tall_yellowcylinder3.jpg,bumpy_redsquare1.jpg,red square,bumpy_redsquare1.jpg,36,DBCA
+ecx5i062ch,0,TlessC1,2,NoContrast,4,circle,open,open_bluecircle6.jpg,open_redtriangle7.jpg,yellow_cloud.jpg,green_garabato.jpg,green squiggle,green_garabato.jpg,32,ACDB
+ecx5i062ch,0,TlessC1,3,Contrast,4,line,bent,bent_greenline6.jpg,bent_redarrow7.jpg,yellow_cloud.jpg,bent_blueline1.jpg,blue horizontal line,bent_blueline1.jpg,3,BACD
+ecx5i062ch,0,TlessC1,4,NoContrast,3,line,curved,curved_redline6.jpg,curved_greenarrow7.jpg,yellow_star.jpg,striped_bluetriangle4.jpg,yellow star,yellow_star.jpg,4,ACBD
+ecx5i062ch,0,TlessC1,5,Contrast,1,circle,spotted,spotted_yellowcircle6.jpg,spotted_redsquare7.jpg,striped_bluetriangle4.jpg,spotted_greencircle1.jpg,yellow circle with black dots,spotted_yellowcircle6.jpg,37,ABDC
+ecx5i062ch,0,TlessC1,6,NoContrast,1,square,striped,striped_yellowsquare6.jpg,striped_bluetriangle7.jpg,spotted_redstar.jpg,bumpy_greencircle4.jpg,yellow square with black vertical lines,striped_yellowsquare6.jpg,15,BACD
+ecx5i062ch,0,TlessC1,7,Contrast,1,triangle,bumpy,bumpy_redtriangle6.jpg,bumpy_bluesquare7.jpg,spotted_greencircle4.jpg,bumpy_yellowtriangle1.jpg,red triangle with raised pegs,bumpy_redtriangle6.jpg,26,DBAC
+ecx5i062ch,0,TlessC1,8,NoContrast,4,line,curved,curved_blueline6.jpg,curved_redarrow7.jpg,bumpy_yellowtriangle1.jpg,green_lightning.jpg,green lightning bolt,green_lightning.jpg,17,ADCB
+ecx5i062ch,0,TlessC1,9,Contrast,4,square,spotted,spotted_yellowsquare6.jpg,spotted_greentriangle7.jpg,diagonal_bluearrow.jpg,spotted_redsquare1.jpg,red square,spotted_redsquare1.jpg,33,BCDA
+ecx5i062ch,0,TlessC1,10,NoContrast,2,triangle,striped,striped_redtriangle6.jpg,striped_greensquare7.jpg,chereos_yellowoval.jpg,bumpy_blueshape.jpg,green square with black vertical lines,striped_greensquare7.jpg,25,CDAB
+ecx5i062ch,0,TlessC1,11,Contrast,2,cirlce,flat,bumpy_greencircle2.jpg,bumpy_yellowtriangle1.jpg,full_cube8.jpg,bumpy_bluecircle5.jpg,yellow triangle,bumpy_yellowtriangle1.jpg,14,ADCB
+ecx5i062ch,0,TlessC1,12,NoContrast,2,cirlce,closed,open_greencircle2.jpg,open_bluesquare1.jpg,bumpy_redline.jpg,yellow_wavyline.jpg,blue square,open_bluesquare1.jpg,18,DBCA
+ecx5i062ch,0,TlessC1,13,Contrast,2,line,straight,curved_blueline2.jpg,curved_greenarrow1.jpg,spotted_yellowcircle4.jpg,curved_redline5.jpg,green arrown,curved_greenarrow1.jpg,35,ADCB
+ecx5i062ch,0,TlessC1,14,NoContrast,3,cube,full,full_yellowcube6.jpg,full_redcylinder7.jpg,diagonal_bluearrow.jpg,%23tall_greenspiral2.jpg,blue diagonal line with arrows,diagonal_bluearrow.jpg,19,CDAB
+ecx5i062ch,0,TlessC1,15,Contrast,4,cube,empty,full_bluecube1.jpg,empty_cylinder.jpg,curved_greenline4.jpg,full_bluecube5.jpg,nearly full cube,full_bluecube5.jpg,2,DCBA
+ecx5i062ch,0,TlessC1,16,NoContrast,3,triangle,flat,bumpy_yellowtriangle2.jpg,bumpy_bluesquare1.jpg,green_sphere.jpg,%23tall_redspiral7.jpg,green sphere,green_sphere.jpg,20,ABCD
+ecx5i062ch,0,TlessC1,17,Contrast,1,circle,closed,open_bluecircle2.jpg,open_yellowtriangle1.jpg,long_redline7.jpg,open_greencircle5.jpg,blue circle,open_bluecircle2.jpg,29,CADB
+ecx5i062ch,0,TlessC1,18,NoContrast,3,line,straight,bent_redline2.jpg,bent_greenarrow1.jpg,chereos_yellowoval.jpg,full_bluecylinder7.jpg,yellow oval with little black circles,chereos_yellowoval.jpg,23,ABCD
+ecx5i062ch,0,TlessC1,19,Contrast,3,cylinder,full,full_bluecylinder6.jpg,full_greencube7.jpg,%23tall_redspiral4.jpg,full_yellowcylinder3.jpg,red ribbon,%23tall_redspiral4.jpg,24,ABCD
+ecx5i062ch,0,TlessC1,20,NoContrast,4,cylinder,empty,full_yellowcylinder1.jpg,empty_cube.jpg,yellow_cloud.jpg,long_redline1.jpg,red line,long_redline1.jpg,5,BCAD
+ecx5i062ch,0,TlessC1,21,Contrast,4,line,long,long_redline5.jpg,long_greenarrow6.jpg,yellow_sun.jpg,long_blueline3.jpg,blue line,long_blueline3.jpg,38,BADC
+ecx5i062ch,0,TlessC1,22,NoContrast,2,line,short,long_blueline3.jpg,long_redarrow2.jpg,yellow_star.jpg,green_heart.jpg,red arrown,long_redarrow2.jpg,8,BADC
+ecx5i062ch,0,TlessC1,23,Contrast,3,square,big,big_redsquare5.jpg,big_yellowtriangle6.jpg,green_wavyline.jpg,big_bluesquare3.jpg,green squiggly line,green_wavyline.jpg,27,ABDC
+ecx5i062ch,0,TlessC1,24,NoContrast,4,triangle,small,big_yellowtriangle3.jpg,big_redsquare2.jpg,green_wavyline.jpg,diagonal_bluearrow.jpg,blue diagonal line with arrows,diagonal_bluearrow.jpg,9,BDCA
+ecx5i062ch,0,TlessC1,25,Contrast,4,oval,wide,wide_greenoval5.jpg,wide_yellowrectangle6.jpg,open_bluesquare7.jpg,wide_redoval3.jpg,red oval,wide_redoval3.jpg,16,BDAC
+ecx5i062ch,0,TlessC1,26,NoContrast,3,rectangle,narrow,wide_redrectangle3.jpg,wide_yellowoval2.jpg,blue_star.jpg,spotted_greenpentagon.jpg,blue star,blue_star.jpg,22,CBAD
+ecx5i062ch,0,TlessC1,27,Contrast,4,spiral,tall,%23tall_bluespiral5.jpg,%23tall_greencylinder6.jpg,chereos_yellowoval.jpg,%23tall_redspiral3.jpg,red ribbon,%23tall_redspiral3.jpg,30,BDAC
+ecx5i062ch,0,TlessC1,28,NoContrast,4,spiral,short,%23tall_redspiral3.jpg,%23tall_yellowcylinder2.jpg,blue_sun.jpg,full1_greensquare1.jpg,green square,full1_greensquare1.jpg,11,CDBA
+ecx5i062ch,0,TlessC1,29,Contrast,4,line,thick,%23thick_yellowline5.jpg,%23thick_greenarrow6.jpg,red_sun.jpg,%23thick_blueline3.jpg,blue line,%23thick_blueline3.jpg,40,BDCA
+ecx5i062ch,0,TlessC1,30,NoContrast,4,line,thin,%23thick_blueline3.jpg,%23thick_redarrow2.jpg,bumpy_greencircle4.jpg,yellow_star.jpg,yellow star,yellow_star.jpg,31,CABD
+ecx5i062ch,0,TlessC1,31,Contrast,1,line,long,long_greenline5.jpg,long_bluearrow6.jpg,yellow_cloud.jpg,long_redline3.jpg,green line,long_greenline5.jpg,7,CDBA
+ecx5i062ch,0,TlessC1,32,NoContrast,4,line,short,long_redline3.jpg,long_bluearrow2.jpg,full_yellowcube7.jpg,spotted_greencircle4.jpg,green with black dots circle,spotted_greencircle4.jpg,21,BDAC
+ecx5i062ch,0,TlessC1,33,Contrast,4,triangle,big,big_yellowtriangle5.jpg,big_bluesquare6.jpg,long_redline4.jpg,big_greentriangle3.jpg,green triangle,big_greentriangle3.jpg,39,CDAB
+ecx5i062ch,0,TlessC1,34,NoContrast,1,square,small,big_bluesquare3.jpg,big_yellowtriangle2.jpg,green_garabato.jpg,red_wavyline.jpg,blue square,big_bluesquare3.jpg,28,CABD
+ecx5i062ch,0,TlessC1,35,Contrast,3,rectangle,wide,wide_yellowrectangle5.jpg,wide_redoval6.jpg,open_bluetriangle7.jpg,wide_greenrectangle3.jpg,blue line that is bent,open_bluetriangle7.jpg,12,ADCB
+ecx5i062ch,0,TlessC1,36,NoContrast,2,oval,narrow,wide_redoval3.jpg,wide_greenrectangle2.jpg,full1_bluesquare2.jpg,yellow_sun.jpg,vertical green rectangular stick,wide_greenrectangle2.jpg,13,CDAB
+ecx5i062ch,0,TlessC1,37,Contrast,1,cylinder,tall,%23tall_yellowcylinder5.jpg,%23tall_bluespiral6.jpg,bent_redline1.jpg,%23tall_greencylinder3.jpg,yellow cylinder,%23tall_yellowcylinder5.jpg,1,DCBA
+ecx5i062ch,0,TlessC1,38,NoContrast,1,cylinder,short,%23tall_greencylinder3.jpg,%23tall_bluespiral2.jpg,yellow_cloud.jpg,spotted_redstar.jpg,green cylinder,%23tall_greencylinder3.jpg,34,CDAB
+ecx5i062ch,0,TlessC1,39,Contrast,1,line,thick,%23thick_blueline5.jpg,%23thick_redarrow6.jpg,green_star.jpg,%23thick_yellowline3.jpg,blue line,%23thick_blueline5.jpg,10,CADB
+0,TlessC1,40,NoContrast,3,line,thin,%23thick_redline3.jpg,%23thick_greenarrow2.jpg,spotted_yellowcircle4.jpg,bumpy_bluesquare4.jpg,yellow circle with black dots,spotted_yellowcircle4.jpg,6,ADCB,

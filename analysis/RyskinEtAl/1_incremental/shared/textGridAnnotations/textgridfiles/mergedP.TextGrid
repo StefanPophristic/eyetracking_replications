@@ -1,0 +1,908 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.083922902494331 
+tiers? <exists> 
+size = 42 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "package" 
+        xmin = 0 
+        xmax = 1.4044671201814058 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6237087210264417 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6237087210264417 
+            xmax = 0.7060054955916065 
+            text = "" 
+        intervals [3]:
+            xmin = 0.7060054955916065 
+            xmax = 1.4044671201814058 
+            text = "noun" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "packageSmall" 
+        xmin = 0 
+        xmax = 1.849092970521542 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4527713647349009 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4527713647349009 
+            xmax = 1.0459890760947033 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0459890760947033 
+            xmax = 1.1353780462996048 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1353780462996048 
+            xmax = 1.849092970521542 
+            text = "noun" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "paintbrush" 
+        xmin = 0 
+        xmax = 1.4780725623582767 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5762820479749019 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5762820479749019 
+            xmax = 0.6347436572411687 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6347436572411687 
+            xmax = 1.4780725623582767 
+            text = "noun" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "paintbrushBig" 
+        xmin = 0 
+        xmax = 1.8664625850340135 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6074056003464819 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6074056003464819 
+            xmax = 0.9355097938608566 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9355097938608566 
+            xmax = 1.0858908825549451 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0858908825549451 
+            xmax = 1.8664625850340135 
+            text = "noun" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "panda" 
+        xmin = 0 
+        xmax = 1.065578231292517 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4466752015042527 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4466752015042527 
+            xmax = 0.5059923387380211 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5059923387380211 
+            xmax = 1.065578231292517 
+            text = "noun" 
+    item [6]:
+        class = "IntervalTier" 
+        name = "pants" 
+        xmin = 0 
+        xmax = 1.3602267573696145 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5901137742166328 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5901137742166328 
+            xmax = 0.6718108321471529 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6718108321471529 
+            xmax = 1.3602267573696145 
+            text = "noun" 
+    item [7]:
+        class = "IntervalTier" 
+        name = "pantsBig" 
+        xmin = 0 
+        xmax = 1.8224943310657595 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.48897505901614385 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.48897505901614385 
+            xmax = 0.6037761164253302 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6037761164253302 
+            xmax = 0.9321605364562588 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9321605364562588 
+            xmax = 1.0923480584225655 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0923480584225655 
+            xmax = 1.8224943310657595 
+            text = "noun" 
+    item [8]:
+        class = "IntervalTier" 
+        name = "paperbagBig" 
+        xmin = 0 
+        xmax = 2.0325850340136054 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4887688068561237 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4887688068561237 
+            xmax = 0.6465792864684623 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6465792864684623 
+            xmax = 0.9949533641032476 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9949533641032476 
+            xmax = 1.155741399934687 
+            text = "" 
+        intervals [5]:
+            xmin = 1.155741399934687 
+            xmax = 2.0325850340136054 
+            text = "noun" 
+    item [9]:
+        class = "IntervalTier" 
+        name = "paperclip" 
+        xmin = 0 
+        xmax = 1.4265079365079365 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6084203237760375 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6084203237760375 
+            xmax = 0.6648424181462196 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6648424181462196 
+            xmax = 1.4265079365079365 
+            text = "noun" 
+    item [10]:
+        class = "IntervalTier" 
+        name = "paperclipBig" 
+        xmin = 0 
+        xmax = 2.083922902494331 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.522483180801741 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.522483180801741 
+            xmax = 0.6415408843122498 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6415408843122498 
+            xmax = 1.0597692274132675 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0597692274132675 
+            xmax = 1.2704097797780136 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2704097797780136 
+            xmax = 2.083922902494331 
+            text = "noun" 
+    item [11]:
+        class = "IntervalTier" 
+        name = "parrot" 
+        xmin = 0 
+        xmax = 1.2385714285714287 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.012974737832130566 
+            text = "" 
+        intervals [2]:
+            xmin = 0.012974737832130566 
+            xmax = 0.6516424596625391 
+            text = "intro" 
+        intervals [3]:
+            xmin = 0.6516424596625391 
+            xmax = 0.7278471310173038 
+            text = "" 
+        intervals [4]:
+            xmin = 0.7278471310173038 
+            xmax = 1.2385714285714287 
+            text = "noun" 
+    item [12]:
+        class = "IntervalTier" 
+        name = "parrotSmall" 
+        xmin = 0 
+        xmax = 1.6532879818594104 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5041250059797169 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5041250059797169 
+            xmax = 1.041791198662301 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.041791198662301 
+            xmax = 1.1289803109892065 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1289803109892065 
+            xmax = 1.6532879818594104 
+            text = "noun" 
+    item [13]:
+        class = "IntervalTier" 
+        name = "partyhat" 
+        xmin = 0 
+        xmax = 1.312312925170068 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5328010722120364 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5328010722120364 
+            xmax = 0.5750943489113499 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5750943489113499 
+            xmax = 1.312312925170068 
+            text = "noun" 
+    item [14]:
+        class = "IntervalTier" 
+        name = "partyhatBig" 
+        xmin = 0 
+        xmax = 1.8534920634920635 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5977541829827512 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5977541829827512 
+            xmax = 0.9072870915853426 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9072870915853426 
+            xmax = 1.0484775411233667 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0484775411233667 
+            xmax = 1.8534920634920635 
+            text = "noun" 
+    item [15]:
+        class = "IntervalTier" 
+        name = "pastaTricolor" 
+        xmin = 0 
+        xmax = 1.8921541950113379 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4633153934507214 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4633153934507214 
+            xmax = 0.5132084690851083 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5132084690851083 
+            xmax = 1.178449477543601 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.178449477543601 
+            xmax = 1.2560609285304252 
+            text = "" 
+        intervals [5]:
+            xmin = 1.2560609285304252 
+            xmax = 1.8921541950113379 
+            text = "noun" 
+    item [16]:
+        class = "IntervalTier" 
+        name = "peanut" 
+        xmin = 0 
+        xmax = 1.0911337868480726 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.41742737825540666 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.41742737825540666 
+            xmax = 0.4989464876974039 
+            text = "" 
+        intervals [3]:
+            xmin = 0.4989464876974039 
+            xmax = 1.0911337868480726 
+            text = "noun" 
+    item [17]:
+        class = "IntervalTier" 
+        name = "peanutSmall" 
+        xmin = 0 
+        xmax = 1.6882766439909298 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49006209204907575 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49006209204907575 
+            xmax = 1.006955680352652 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.006955680352652 
+            xmax = 1.1256680834080188 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1256680834080188 
+            xmax = 1.6882766439909298 
+            text = "noun" 
+    item [18]:
+        class = "IntervalTier" 
+        name = "pearBig" 
+        xmin = 0 
+        xmax = 1.5954421768707483 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.47480060381715844 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.47480060381715844 
+            xmax = 0.5893224644658381 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5893224644658381 
+            xmax = 0.9095162381162283 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9095162381162283 
+            xmax = 1.0544214495492517 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0544214495492517 
+            xmax = 1.5954421768707483 
+            text = "noun" 
+    item [19]:
+        class = "IntervalTier" 
+        name = "penFountain" 
+        xmin = 0 
+        xmax = 1.4533786848072563 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.43890998600502207 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.43890998600502207 
+            xmax = 1.0158880791050635 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0158880791050635 
+            xmax = 1.0244043609220383 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0244043609220383 
+            xmax = 1.4533786848072563 
+            text = "noun" 
+    item [20]:
+        class = "IntervalTier" 
+        name = "pencilSmall" 
+        xmin = 0 
+        xmax = 1.9126984126984128 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.49636520778661647 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.49636520778661647 
+            xmax = 1.1436117275914386 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.1436117275914386 
+            xmax = 1.350954768567875 
+            text = "" 
+        intervals [4]:
+            xmin = 1.350954768567875 
+            xmax = 1.9126984126984128 
+            text = "noun" 
+    item [21]:
+        class = "IntervalTier" 
+        name = "penguin" 
+        xmin = 0 
+        xmax = 1.4036054421768707 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.773425526129654 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.773425526129654 
+            xmax = 0.8166048248626374 
+            text = "" 
+        intervals [3]:
+            xmin = 0.8166048248626374 
+            xmax = 1.4036054421768707 
+            text = "noun" 
+    item [22]:
+        class = "IntervalTier" 
+        name = "penguinSmall" 
+        xmin = 0 
+        xmax = 1.7819047619047619 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46764355369444 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.46764355369444 
+            xmax = 1.0680198965679844 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0680198965679844 
+            xmax = 1.1880951651426932 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1880951651426932 
+            xmax = 1.7819047619047619 
+            text = "noun" 
+    item [23]:
+        class = "IntervalTier" 
+        name = "phoneMobile" 
+        xmin = 0 
+        xmax = 1.6398639455782313 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4897452752098416 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4897452752098416 
+            xmax = 0.9492533544746833 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9492533544746833 
+            xmax = 1.6398639455782313 
+            text = "noun" 
+    item [24]:
+        class = "IntervalTier" 
+        name = "piano" 
+        xmin = 0 
+        xmax = 1.1067573696145125 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.462315608085944 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.462315608085944 
+            xmax = 0.5223037476471646 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5223037476471646 
+            xmax = 1.1067573696145125 
+            text = "noun" 
+    item [25]:
+        class = "IntervalTier" 
+        name = "pickleBig" 
+        xmin = 0 
+        xmax = 1.5044897959183674 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5028319376918392 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5028319376918392 
+            xmax = 0.5821739103247501 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5821739103247501 
+            xmax = 0.9370088434886011 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9370088434886011 
+            xmax = 1.0956927887544228 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0956927887544228 
+            xmax = 1.5044897959183674 
+            text = "noun" 
+    item [26]:
+        class = "IntervalTier" 
+        name = "pie" 
+        xmin = 0 
+        xmax = 1.0604308390022676 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4616052931110735 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4616052931110735 
+            xmax = 0.5408305711312942 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5408305711312942 
+            xmax = 1.0604308390022676 
+            text = "noun" 
+    item [27]:
+        class = "IntervalTier" 
+        name = "pieStrawberry" 
+        xmin = 0 
+        xmax = 1.8250566893424036 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.44955935460794544 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.44955935460794544 
+            xmax = 1.168743137054621 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.168743137054621 
+            xmax = 1.214193413268723 
+            text = "" 
+        intervals [4]:
+            xmin = 1.214193413268723 
+            xmax = 1.8250566893424036 
+            text = "noun" 
+    item [28]:
+        class = "IntervalTier" 
+        name = "pig" 
+        xmin = 0 
+        xmax = 0.9289342403628118 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.39211760079605906 
+            text = "noun" 
+        intervals [2]:
+            xmin = 0.39211760079605906 
+            xmax = 0.4656011251874459 
+            text = "" 
+        intervals [3]:
+            xmin = 0.4656011251874459 
+            xmax = 0.9289342403628118 
+            text = "noun" 
+    item [29]:
+        class = "IntervalTier" 
+        name = "pigBig" 
+        xmin = 0 
+        xmax = 1.6779365079365078 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5780076481432126 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5780076481432126 
+            xmax = 0.656664534043382 
+            text = "" 
+        intervals [3]:
+            xmin = 0.656664534043382 
+            xmax = 1.0450329081754688 
+            text = "adj" 
+        intervals [4]:
+            xmin = 1.0450329081754688 
+            xmax = 1.145812043235061 
+            text = "" 
+        intervals [5]:
+            xmin = 1.145812043235061 
+            xmax = 1.6779365079365078 
+            text = "noun" 
+    item [30]:
+        class = "IntervalTier" 
+        name = "pillow" 
+        xmin = 0 
+        xmax = 1.0810430839002267 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4848304857921929 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4848304857921929 
+            xmax = 0.5529266587246264 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5529266587246264 
+            xmax = 1.0810430839002267 
+            text = "noun" 
+    item [31]:
+        class = "IntervalTier" 
+        name = "pinRed" 
+        xmin = 0 
+        xmax = 1.5411337868480726 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.45789310413420337 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.45789310413420337 
+            xmax = 0.9146785504873594 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9146785504873594 
+            xmax = 1.0153341538618876 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0153341538618876 
+            xmax = 1.5411337868480726 
+            text = "noun" 
+    item [32]:
+        class = "IntervalTier" 
+        name = "pinecone" 
+        xmin = 0 
+        xmax = 1.3491609977324264 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.44696500491557134 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.44696500491557134 
+            xmax = 0.524044636730984 
+            text = "" 
+        intervals [3]:
+            xmin = 0.524044636730984 
+            xmax = 1.3491609977324264 
+            text = "noun" 
+    item [33]:
+        class = "IntervalTier" 
+        name = "pinecondeBig" 
+        xmin = 0 
+        xmax = 1.8714739229024944 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.540497877810711 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.540497877810711 
+            xmax = 0.600811818898053 
+            text = "" 
+        intervals [3]:
+            xmin = 0.600811818898053 
+            xmax = 0.935280037655131 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.935280037655131 
+            xmax = 1.0888064331501832 
+            text = "" 
+        intervals [5]:
+            xmin = 1.0888064331501832 
+            xmax = 1.8714739229024944 
+            text = "noun" 
+    item [34]:
+        class = "IntervalTier" 
+        name = "pizza" 
+        xmin = 0 
+        xmax = 1.0552834467120182 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4640023235226927 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4640023235226927 
+            xmax = 0.5412971411340082 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5412971411340082 
+            xmax = 1.0552834467120182 
+            text = "noun" 
+    item [35]:
+        class = "IntervalTier" 
+        name = "plantBig" 
+        xmin = 0 
+        xmax = 1.642063492063492 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4742421584556613 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4742421584556613 
+            xmax = 0.575272188593434 
+            text = "" 
+        intervals [3]:
+            xmin = 0.575272188593434 
+            xmax = 0.9048225249952163 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9048225249952163 
+            xmax = 1.121315446719015 
+            text = "" 
+        intervals [5]:
+            xmin = 1.121315446719015 
+            xmax = 1.642063492063492 
+            text = "noun" 
+    item [36]:
+        class = "IntervalTier" 
+        name = "plateYellow" 
+        xmin = 0 
+        xmax = 1.6606575963718821 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.5525937653153973 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.5525937653153973 
+            xmax = 1.0561658979069528 
+            text = "adj" 
+        intervals [3]:
+            xmin = 1.0561658979069528 
+            xmax = 1.1559072381787103 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1559072381787103 
+            xmax = 1.6606575963718821 
+            text = "noun" 
+    item [37]:
+        class = "IntervalTier" 
+        name = "poolBig" 
+        xmin = 0 
+        xmax = 1.6585714285714286 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.515454686987453 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.515454686987453 
+            xmax = 0.6077817505022963 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6077817505022963 
+            xmax = 0.9892383023925703 
+            text = "adj" 
+        intervals [4]:
+            xmin = 0.9892383023925703 
+            xmax = 1.144736514628096 
+            text = "" 
+        intervals [5]:
+            xmin = 1.144736514628096 
+            xmax = 1.6585714285714286 
+            text = "noun" 
+    item [38]:
+        class = "IntervalTier" 
+        name = "popcorn" 
+        xmin = 0 
+        xmax = 1.4121995464852608 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.6023176480968393 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.6023176480968393 
+            xmax = 0.6561050617936613 
+            text = "" 
+        intervals [3]:
+            xmin = 0.6561050617936613 
+            xmax = 1.4121995464852608 
+            text = "noun" 
+    item [39]:
+        class = "IntervalTier" 
+        name = "popcornSmall" 
+        xmin = 0 
+        xmax = 1.90875283446712 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.41145669708756066 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.41145669708756066 
+            xmax = 0.9930565346345198 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9930565346345198 
+            xmax = 1.1356603409561299 
+            text = "" 
+        intervals [4]:
+            xmin = 1.1356603409561299 
+            xmax = 1.90875283446712 
+            text = "noun" 
+    item [40]:
+        class = "IntervalTier" 
+        name = "potato" 
+        xmin = 0 
+        xmax = 1.2128798185941043 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4515655742090178 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4515655742090178 
+            xmax = 0.5084219266696346 
+            text = "" 
+        intervals [3]:
+            xmin = 0.5084219266696346 
+            xmax = 1.2128798185941043 
+            text = "noun" 
+    item [41]:
+        class = "IntervalTier" 
+        name = "potatoSmall" 
+        xmin = 0 
+        xmax = 1.676530612244898 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.46454881590624203 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.46454881590624203 
+            xmax = 0.9360947049851802 
+            text = "adj" 
+        intervals [3]:
+            xmin = 0.9360947049851802 
+            xmax = 1.0097737501537642 
+            text = "" 
+        intervals [4]:
+            xmin = 1.0097737501537642 
+            xmax = 1.676530612244898 
+            text = "noun" 
+    item [42]:
+        class = "IntervalTier" 
+        name = "puppetShorthair" 
+        xmin = 0 
+        xmax = 1.9456462585034013 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.4593123393896882 
+            text = "intro" 
+        intervals [2]:
+            xmin = 0.4593123393896882 
+            xmax = 0.524866908308243 
+            text = "" 
+        intervals [3]:
+            xmin = 0.524866908308243 
+            xmax = 0.8355385610092201 
+            text = "noun" 
+        intervals [4]:
+            xmin = 0.8355385610092201 
+            xmax = 0.8412389583064858 
+            text = "" 
+        intervals [5]:
+            xmin = 0.8412389583064858 
+            xmax = 1.9456462585034013 
+            text = "adj" 

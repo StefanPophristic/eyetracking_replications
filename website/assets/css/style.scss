@@ -3,8 +3,8 @@
 ---
 
 @import
-  "minima/skins/{{ site.minima.skin | default: 'classic' }}.scss",
-  "minima/initialize";
+  "../../minima/skins/{{ site.minima.skin | default: 'classic' }}.scss",
+  "../../minima/initialize.scss";
 
 /*
 ===========================

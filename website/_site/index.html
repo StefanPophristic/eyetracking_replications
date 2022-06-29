@@ -1,29 +1,41 @@
 <!DOCTYPE html>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
+<title>Linking Hypothesis | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Your awesome title" />
-<meta name="author" content="GitHub User" />
+<meta property="og:title" content="Linking Hypothesis" />
+<meta name="author" content="ALPS Lab" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:site_name" content="Linking Hypothesis" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Your awesome title" />
+<meta property="twitter:title" content="Linking Hypothesis" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"GitHub User"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Your awesome title","name":"Your awesome title","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"ALPS Lab"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Linking Hypothesis","name":"Linking Hypothesis","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" />
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Linking Hypothesis" />
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+  <div class="wrapper"><a href="https://alpslab.stanford.edu/"><img class=" logoImage site-masthead" src="/images/alpslogo.png" alt="Linking Hypothesis"/></a>
+    <a class="site-title" rel="author" href="/">Linking Hypothesis</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -33,48 +45,73 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger">
+          
+          
+            
+              <a class="page-link" href="/index.html">Home</a>
+            
+              <div class="dropdown">
+                <a class="page-link" href="/learnMore/index.html">Learn More</a>
+                  <div class="dropdown-content">
+                    
+                    <a href="/learnMore/index.html">About</a>
+                    <a href="/learnMore/output.html">Publications & Talks</a>
+                    <a href="/learnMore/people.html">People</a>
+                    <a href="/learnMore/resources.html">Resources</a></div>
+              </div>
+            
+            
+              <div class="dropdown">
+                <a class="page-link" href="/projects/index.html">Projects</a>
+                  <div class="dropdown-content">
+                    
+                    <a href="/projects/index.html">info</a>
+                    <a href="/projects/SunBreheny.html">Sun & Breheny 2020</a>
+                    <a href="/projects/RyskinEtAl.html">Ryskin et al. 2019</a>
+                    <a href="/projects/LeffelEtAl.html">Leffel et al. 2016</a></div>
+              </div>
+            
+            
+              <a class="page-link" href="/contribute/index.html">Contribute</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <div class="home"><h1>Linking Hypothesis</h1>
+  <h1>Assessing the linking hypothesis in Visual World Paradigm Studies</h1>
+
+  <h1 id="the-linking-hypothesis-and-visual-world-paradigm">The Linking Hypothesis and Visual World Paradigm</h1>
+
+<p>The visual world paradigm (VWP) is a widely used methodology in psycholinguistics, whereby participants’ eye movements are tracked as they hear linguistic input. Since it has been shown eye-movements are sensitive to linguistic input, researchers use the VWP to create a fine-grained record of participants’ language-directed attention given linguistic input.</p>
+
+<p>However, the <em>linking hypothesis</em>–the link between eye-movements, linguistic input, and cognitive processes–for the VWP is still poorly understood. One explicit proposal, for active referential tasks (in which a participant must identify and select a speaker’s intended referent) is:</p>
+
+\[p_{emirical}(r | u) \propto	p_{belief}(r = target | u)\]
+
+<p>That is, the proportion of looks (\(p_{empirical}\)) to an object <em>r</em> in response to a speaker’s utterance (<em>u</em>) reflects the participant’s degree of belief (\(p_{belief}\)) that <em>r</em> is the referent that the speaker intended.</p>
+
+<p>However, assessment of this linking hypothesis has given mixed results (). We believe that this is because this linking function only accounts for <em>exploitation</em> and not <em>exploration</em>. That is, the linking function explains where participants may look, if they are familiar with the objects presented in the VWP and the way in which the target object is referred to. However, if the linguistic input or visually presented images are unexpected, participants may want to <em>explore</em> their visual space in order to establish 1) what a speaker may refer to the images as, and 2) why a speaker may have chosen an unexpected way to refer to the images.</p>
+
+<p>For example, FIND A GOOD INTUITIVE EXAMPLE.</p>
+
+<h1 id="the-project">The Project</h1>
+
+<p>In order to assess the explicit linking function, we re-implement active-refential-task eye-tracking experiments as an incremental decision study. The incremental decision study gives us a direct measure of participants’ explicit belief that an object is the speaker’s intended target. We can thus compare eye-movements (\(p_{emirical}\)) with participants’ explicit belief (\(p_{belief}\)).</p>
+
+<p>In order to assess the role of <em>exploration</em> due to unexpected linguistic input, we re-implement the eye-tracking study and incremental decision study as a production study. Through participant produced utterances, we can calculate the surprisal (and thus the effect) of the linguistic input used in the eye-tracking and incremental decision study.</p>
+
+<p>Click through the slides below for a more explicit step-by-step explanation of the project:</p>
+
+<h1 id="our-studies">Our Studies</h1>
 
 
 
-  <ul class="post-list"><li>
-        <span class="post-meta">May 20, 2016</span>
-        <h3>
-          <a class="post-link" href="/2016/05/20/welcome-to-jekyll.html">
-            Welcome To Jekyll
-          </a>
-        </h3></li><li>
-        <span class="post-meta">May 20, 2016</span>
-        <h3>
-          <a class="post-link" href="/junk/2016/05/20/this-post-demonstrates-post-content-styles.html">
-            This post demonstrates post content styles
-          </a>
-        </h3></li><li>
-        <span class="post-meta">May 20, 2016</span>
-        <h3>
-          <a class="post-link" href="/misc/2016/05/20/super-long-article.html">
-            Some articles are just so long they deserve a really long title to see if things will break well
-          </a>
-        </h3></li><li>
-        <span class="post-meta">May 20, 2016</span>
-        <h3>
-          <a class="post-link" href="/2016/05/20/my-example-post.html">
-            My Example Post
-          </a>
-        </h3></li><li>
-        <span class="post-meta">May 19, 2016</span>
-        <h3>
-          <a class="post-link" href="/misc/2016/05/19/super-short-article.html">
-            Some articles are just so short that we have to make the footer stick
-          </a>
-        </h3></li></ul>
+  
 
-    </div>
+    
+
+</div>
 
       </div>
     </main><footer class="site-footer h-card">
@@ -84,16 +121,9 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col">
-        <p class="feed-subscribe">
-          <a href="/feed.xml">
-            <svg class="svg-icon orange">
-              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
-            </svg><span>Subscribe</span>
-          </a>
-        </p>
         <ul class="contact-list">
-          <li class="p-name">GitHub User</li>
-          <li><a class="u-email" href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+          <li class="p-name">ALPS Lab</li>
+          <li><a class="u-email" href="mailto:alpslab-mail@stanford.edu">alpslab-mail@stanford.edu</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -102,7 +132,7 @@
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/jekyll" target="_blank" title="jekyll"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/jekyllrb" target="_blank" title="jekyllrb"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/StefanPophristic/eyetracking_replications" target="_blank" title="StefanPophristic"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
 </div>
 
   </div>

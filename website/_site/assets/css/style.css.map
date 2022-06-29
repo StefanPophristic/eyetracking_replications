@@ -2,7 +2,6 @@
 	"version": 3,
 	"file": "style.css",
 	"sources": [
-		"style.scss",
 		"_sass/minima/skins/classic.scss",
 		"_sass/minima/initialize.scss",
 		"_sass/minima/custom-variables.scss",

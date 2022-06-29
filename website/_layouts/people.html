@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+
+<html>
+  <body>
+    {% assign people = site.data.people %}
+    <h2>PI</h2>
+    {% for person in people %}
+      {% if person.title == "PI" %}
+        <div class="personImage hoverPersonImage">
+          <a href="{{person.url}} "><img src="../images/{{person.image}}" style="	width: 100%;
+            height: 200px; object-fit: cover;"></a>
+          <div> Personal Website </div>
+          <p> {{person.name}} </p>
+        </div>
+      {%- endif -%}
+      <br>
+<br>
+    {%- endfor -%}
+
+    <h2>Researchers</h2>
+    <div class ="image-gallery">
+      {% for person in people %}
+        {% if person.title == "researcher" %}
+          {% if person.url %}
+            <div class="box personImage hoverPersonImage">
+              <a href="{{person.url}} ">
+                <img src="../images/{{person.image}}" alt="{{person.image}}"  class="img-gallery" />
+              </a>
+              <div> Personal Website </div>
+              <p> {{person.name}} </p>
+            </div>
+          {% else %}
+            <div class="box personImage hoverPersonImage">
+              <img src="../images/{{person.image}}" alt="{{person.image}}"  class="img-gallery" />
+              <p> {{person.name}} </p>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+        <br>
+      {%- endfor -%}
+    </div>
+
+
+
+
+
+    <!-- <div class="personImage hoverPersonImage">
+      <a href="{{person.url}} "><img src="../images/{{person.image}}"></a>
+      <div> Personal Website </div>
+      <p> {{person.name}} </p> -->
+
+
+<!--
+
+    <div class="people-grid">
+    <div class=item.1>
+    </div>
+    <div class="item2">
+      <h2>Researchers</h2>
+      {% for person in people %}
+        {% if person.title == "researcher" %}
+          {% if person.url %}
+            <div class="personImage hoverPersonImage">
+              <a href="{{person.url}} "><img src="../images/{{person.image}}"></a>
+              <div> Personal Website </div>
+              <p> {{person.name}} </p>
+            </div>
+
+          {% else %}
+            <div class="personImage">
+              <img src="../images/{{person.image}}">
+              <p> {{person.name}} </p>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+        <br>
+      {%- endfor -%}
+      </div> -->
+
+      <!-- </div> -->
+  </body>
+</html>
+
+
+
+<!-- <html>
+  <body>
+    {% assign people = site.data.people %}
+    <div class="people-grid">
+    <div class=item.1>
+      <h2>PI</h2>
+      {% for person in people %}
+        {% if person.title == "PI" %}
+          <div class="personImage hoverPersonImage">
+            <a href="{{person.url}} "><img src="../images/{{person.image}}"></a>
+            <div> Personal Website </div>
+            <p> {{person.name}} </p>
+          </div>
+        {%- endif -%}
+        <br>
+      {%- endfor -%}
+    </div>
+
+    <div class="item2">
+      <h2>Researchers</h2>
+      {% for person in people %}
+        {% if person.title == "researcher" %}
+          {% if person.url %}
+            <div class="personImage hoverPersonImage">
+              <a href="{{person.url}} "><img src="../images/{{person.image}}"></a>
+              <div> Personal Website </div>
+              <p> {{person.name}} </p>
+            </div>
+
+          {% else %}
+            <div class="personImage">
+              <img src="../images/{{person.image}}">
+              <p> {{person.name}} </p>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+        <br>
+      {%- endfor -%}
+      </div>
+
+      </div>
+  </body>
+</html> -->

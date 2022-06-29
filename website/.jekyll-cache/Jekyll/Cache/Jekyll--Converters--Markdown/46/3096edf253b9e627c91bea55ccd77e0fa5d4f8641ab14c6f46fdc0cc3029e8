@@ -1,0 +1,60 @@
+I"$<h1 id="sun-and-breheny-2020">Sun and Breheny 2020</h1>
+<h1 id="quantifiers-and-the-linking-hypothesis">Quantifiers and the Linking Hypothesis</h1>
+<p>In their original study, <a href="https://www.tandfonline.com/doi/full/10.1080/23273798.2019.1678759">Sun and Breheny (2020)</a> looked at the effect that target referent set size and presence of same-type residue objects have on the processing of the quantifiers “some”, “all”, and numbers as measured through processing speed and location of eye gaze. We replicate their study 3 as an incremental decision task and a production task with and without a training stage, and find that the extent to which the Referential Belief Link holds for the quantifier processing dataset of Sun and Breheny (2020) was modulated by participants’ likely quantifier production expectations.</p>
+
+<h2 id="sun-and-breheny-2020-1">Sun and Breheny 2020</h2>
+
+<p>Sun and Breheny manipulated scenes like the one shown below. Their manipulation of interest was the interaction between the quantifier and the set size of the target object (either 2 or 3) and whether there was an extra “residue” object of the same type as the target found in the middle of the screen, resulting in a 3x2 condition design IS THIS STILL TRUE????/.</p>
+
+<center><img src="../images/SunBreheny_original.png" style="width:700px" alt="For children in each corner of the scene. Two left children are small boys and two right children are small girl. The top left boy has three bananas. The bottom left boy has two pears. The top right girl has three apples. The bottom right girl has two oranges. In the middle of the screen there is an apple and a banana." /></center>
+
+<p>Participants heard stimuli in the following format:</p>
+
+<center>Click on the GENDER that has QUANTIFIER of NAME's NOUN.</center>
+
+<p><em>GENDER</em> refers to whether the target object was possessed by a boy or a girl (the same picture was used for all the boys and another picture for all the girls).</p>
+
+<p><em>QUANTIFIER</em> refers to which quantifier was used to describe the target object (“all”, “some”, “two”, or “three”).</p>
+
+<p><em>NAME</em> refers to 1 of 3 characters who were introduced in a background story at the start of the experiment.</p>
+
+<p><em>NOUN</em> refers to 1 of 12 possible target objects (1 of 4 kitchenware items, 4 stationary items, or 4 fruit).</p>
+
+<p>For example, the instructions for the scene shown above could be:
+<em><center>Click on the boy who has some of Susan's apples.</center></em></p>
+
+<h2 id="incremental-decision-task">Incremental Decision Task</h2>
+<p>We replicated their experiment 3 as an incremental decision task. The task and results are reported in <a href="https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf">Degen, Kursat, &amp; Leigh 2021</a>.</p>
+
+<p>The original instructions from the experiment were split up into the following windows (marked with a | symbol):
+<em><center>Click on the | GENDER who has | QUANTIFIER of NAME's | NOUN.</center></em></p>
+
+<p>You can try the experiment for yourself <a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/1_incremental/main/list1/public/index.html">here</a>!</p>
+
+<p>We found:</p>
+
+<h2 id="production-task">Production task</h2>
+
+<h2 id="links">Links</h2>
+
+<p>You can find all relevant links here:</p>
+<ul>
+  <li>Incremental Decision Task
+    <ul>
+      <li><a href="https://alpslab.stanford.edu//papers/2021_DegenKursatLeigh.pdf">Paper (Degen, Kursat, &amp; Leigh 2021)</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/1_incremental/main/list1/public/index.html">Run through of experiment</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/1_incremental/">Experimental Materials</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/analysis/SunBreheny/1_incremental/">Data and Analysis Scripts</a></li>
+    </ul>
+  </li>
+  <li>Production Experiments
+    <ul>
+      <li><a href="https://alpslab.stanford.edu//papers/2022_DegenPophristic.pdf">Paper (Degen &amp; Pophristic 2022)</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/3_production/3.1/main/list1/public/index.html">Run through Experiment 1</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/3_production/3.2/main/list1/public/index.html">Run through Experiment 2</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/experiments/SunBreheny/3_production/">Experimental Materials</a></li>
+      <li><a href="https://stefanpophristic.github.io/eyetracking_replications/analysis/SunBreheny/3_production/">Data and Analysis Scripts</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

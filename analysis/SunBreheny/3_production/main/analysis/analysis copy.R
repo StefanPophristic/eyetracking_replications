@@ -171,6 +171,12 @@ df_3.2 <- df_3.2 %>%
   filter(df_3.2$ExpFiller == "Exp" | df_3.2$ExpFiller == "Filler")
 
 
+
+### Add scene types
+
+
+
+
 # Get the columns that you will use
 df_3.1 <- df_3.1 %>%
   select(workerid, ExpFiller, condition, determiner, size, response, setting, target_figure3, target_object3, trial_number, response_times,
@@ -460,6 +466,33 @@ df <- df %>%
   rename(noun = target_object3,
          figure = target_figure3)
   
+
+
+
+
+
+#############################################
+#############################################
+#
+# Add scene information
+#
+#############################################
+#############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #############################################
 #############################################
@@ -1154,3 +1187,8 @@ dfCorrFinal_3.2 <- dfCorr_3.2 %>%
 dfCorrFinal_3.2
 # Correlation P
 # -0.74        0
+
+
+
+
+

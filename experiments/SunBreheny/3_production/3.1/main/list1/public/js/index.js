@@ -123,6 +123,7 @@ function make_slides(f) {
         }
       }();
 
+
       // add the appropriate class to draw the red box around the target images
       $("#selectionPractice").addClass(targetClass);
 
@@ -234,6 +235,11 @@ function make_slides(f) {
       $(".sentence").hide();
 
       this.stim = stim; // store this information in the slide so you can record it later
+
+
+
+            console.log("Test");
+            console.log(this.stim.displayID);
 
 
       var loc1_img = '<img src="images/'+stim.location1+'.png"style="height:100px" class="left">';

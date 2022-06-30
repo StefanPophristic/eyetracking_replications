@@ -114,7 +114,7 @@ pragtrain3_data <- rbind(prior_df, pragtrain3_data)
 # Test trials
 # Training trials with the adjective overtly stated, which includes 
 #   - pragmatic reliable contrast present condition
-#   - pragmatic unreliable contrast absent condition
+#   - pragmatic unreliable contrast absent condition --> ACTUALLY IT'S CONTRAST SET PRESENT FOR BOTH
 # Filler trials
 
 pragtrain3_crit = pragtrain3_data %>% 
@@ -123,11 +123,24 @@ pragtrain3_crit = pragtrain3_data %>%
          compet_AR1_corrected = lag(compet_fix)) %>% 
   filter(target_AR1 != 999) %>%
   filter(trial_type == 'test' | 
-           (trial_type == 'train' & prag_context_cond == "reliable" & contrast_cond == "contrast") | 
-           (trial_type == 'train' & prag_context_cond == "unreliable" & contrast_cond == "no_contrast") |
+           (trial_type == 'train' & prag_context_cond == "reliable" ) | #& contrast_cond == "contrast"
+           (trial_type == 'train' & prag_context_cond == "unreliable" ) | #& contrast_cond == "contrast"
            (trial_type == 'filler' & cond == "semantic_contrast")) %>%
   #filter(list == 1) %>%
   ungroup()
+
+trainAbsentGood <- pragtrain3_crit %>% filter(trial_type == "train" & prag_context_cond == "reliable" & cond == "no_contrast")
+trainAbsentBad <- pragtrain3_crit %>% filter(trial_type == "train" & prag_context_cond == "unreliable" & cond == "no_contrast")
+
+# WHAT is the difference between cond and contrast_cond
+
+view(trainAbsentGood)
+
+
+
+trainPresentGood <- pragtrain3_crit %>% filter(trial_type == "train" & contrast_cond == "contrast"& prag_context_cond == "reliable")
+trainAbsentBad <- pragtrain3_crit %>% filter(trial_type == "train" & contrast_cond == "no_contrast"& prag_context_cond == "unreliable")
+trainPresentBad <- pragtrain3_crit %>% filter(trial_type == "train" & contrast_cond == "no_contrast"& prag_context_cond == "unreliable")
 
 # rename semantic_contrast in cond column to be consistent
 # this only affects filler trials
@@ -153,9 +166,9 @@ contrasts(pragtrain3_crit$contrast_cond)<-c(0.5,-0.5)
 
 contrasts(pragtrain3_crit$prag_context_cond)
 contrasts(pragtrain3_crit$contrast_cond)
-
-test <- pragtrain3_crit %>%
-  filter(prag_context_cond == "unreliable" & noun == "bottle" & feature == "glass")
+# 
+# test <- pragtrain3_crit %>%
+#   filter(prag_context_cond == "unreliable" & noun == "bottle" & feature == "glass")
 
 # Filler trial "competitor looks" are dummy coded
 # since filler trials don't have objects of the same features
@@ -369,17 +382,17 @@ view(contrast_train)
 d_test = df %>% 
   filter(trialType == 'test' | 
            (trialType == 'train' & pragContext == "good" & cond == "contrast") | 
-           (trialType == 'train' & pragContext == "bad" & cond == "no_contrast") |
+           (trialType == 'train' & pragContext == "bad" & cond == "contrast") | #changed this from no_contrast to contrast
            (trialType == 'filler'& cond == "semantic_contrast")) %>%
   droplevels()
   
-
-# rename semantic_contrast in cond column to be consistent
-# This only affects filler items
+# 
+# # rename semantic_contrast in cond column to be consistent
+# # This only affects filler items
 d_test <- d_test %>%
   mutate(cond = case_when((cond == "semantic_contrast" & pragContext == "good") ~ "contrast",
-                          (cond == "semantic_contrast" & pragContext == "bad") ~ "no_contrast",
-                          TRUE ~ cond))
+                                      (cond == "semantic_contrast" & pragContext == "bad") ~ "no_contrast",
+                                      TRUE ~ cond))
 
 # rename some things to match the eyetracking data
 d_test <- d_test %>%
@@ -476,6 +489,10 @@ df_merged_opposite %>%
 # delete the rows with missing data
 df_merged <- df_merged %>%
   filter(!is.na(prop_looks))
+
+# check whether all trial types are here
+# feel free to delete in final cleanup
+df_merged %>% select(trialType) %>% unique()
 
 # get rid of rows coding for looks to the competitor
 # in filler trials

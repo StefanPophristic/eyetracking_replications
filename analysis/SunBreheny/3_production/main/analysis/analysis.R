@@ -72,13 +72,32 @@ cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00",
 theme_set(theme_bw())
 
 #########
-# Import Production Data
+# Import Data
 #########
 
+# Production Data
 df_3.1 = read.csv("../data/3.1/3.1-trials_cleaned.csv", header = TRUE)
 df_3.2 = read.csv("../data/3.2/3.2-trials_cleaned.csv", header = TRUE)
 
-# Import all data sets here 
+# Incremental Decision Task Data
+df_incremental = read.csv("../../../1_incremental/main/data/trials_merged.csv", header = TRUE)
+demo = read.csv("../../../1_incremental/main/data/subject_info_merged.csv", header = TRUE)
+
+# Eyetracking data
+baseline = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_beselinedata.csv", header = TRUE)
+gender = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_genderdata.csv", header = TRUE)
+determiner = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_determiner.csv", header = TRUE)
+name = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_namedata.csv", header = TRUE)
+end = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_enddata.csv", header = TRUE)
+
+# Merge eyetracking data into single dataframe
+# order should be: baseline / gender / determiner + name / noun
+g = rbind(baseline,gender,determiner,name,end)  %>%
+  mutate(item=word(as.character(instruction), -1))
+
+# Incremental Decision Data (reloaded as per Degen, Kursat, Leigh 2021 script)
+s = read.csv("../../../1_incremental/main/data/trials_merged.csv", header = TRUE)  %>%
+  mutate(item=word(as.character(instruction3), -1))
 
 #########
 # Production Experiment Information
@@ -334,7 +353,7 @@ trialExclusion <- function(DF) {
   
   postNounExclusionNum <- nrow(DF)
   trialExclusionNoun <- preNounExclusionNum - postNounExclusionNum
-  print(paste("Number of trials excluded due to wrong Noun: ",trialExclusionNoun))
+  print(paste("Number of trials excluded due to wrong Noun: ",trialExclusionNoun, " (resulting in ", postNounExclusionNum, " trials)"))
 
   # get rid of trials with wrong gender
   preGenderExclusionNum <- nrow(DF)
@@ -343,7 +362,7 @@ trialExclusion <- function(DF) {
   
   postGenderExclusionNum <- nrow(DF)
   trialExclusionGender <- preGenderExclusionNum - postGenderExclusionNum
-  print(paste("Number of trials excluded due to wrong Gender: ",trialExclusionGender))
+  print(paste("Number of trials excluded due to wrong Gender: ",trialExclusionGender, " (resulting in ", postGenderExclusionNum, " trials)"))
 
   # Get rid of trials with wrong determiner
   preDetExclusionNum <- nrow(DF)
@@ -352,7 +371,7 @@ trialExclusion <- function(DF) {
   
   postDetExclusionNum <- nrow(DF)
   trialExclusionDet <- preDetExclusionNum - postDetExclusionNum
-  print(paste("Number of trials excluded due to wrong Determiner: ",trialExclusionDet))
+  print(paste("Number of trials excluded due to wrong Determiner: ",trialExclusionDet, " (resulting in ", postDetExclusionNum, " trials)"))
   
   # Get rid of trails where the participant did not use a noun
   preNoNounExclusionNum <- nrow(DF)
@@ -361,7 +380,7 @@ trialExclusion <- function(DF) {
   
   postNoNounExclusionNum <- nrow(test)
   trialExclusionNoNoun <- preNoNounExclusionNum - postNoNounExclusionNum
-  print(paste("Number of trials excluded due to no noun in response: ",trialExclusionNoNoun))
+  print(paste("Number of trials excluded due to no noun in response: ",trialExclusionNoNoun, " (resulting in ", postNoNounExclusionNum, " trials)"))
 
   # Get rid of trials where the participant used only a single word
   preSingleWordExclusionNum <- nrow(DF)
@@ -370,11 +389,11 @@ trialExclusion <- function(DF) {
   
   postSingleWordExclusionNum <- nrow(DF)
   trialExclusionSingleWord <- preSingleWordExclusionNum - postSingleWordExclusionNum
-  print(paste("Number of trials excluded due to single word responses: ",trialExclusionSingleWord))
+  print(paste("Number of trials excluded due to single word responses: ",trialExclusionSingleWord, " (resulting in ", postSingleWordExclusionNum, " trials)"))
 
   # Print total number of trials excluded
   trialsExcluded <- trialExclusionNoun + trialExclusionGender + trialExclusionDet + trialExclusionNoNoun + trialExclusionSingleWord
-  print(paste("Total number of trials excluded due to incorrect answers: ", trialsExcluded))
+  print(paste("Total number of trials excluded due to incorrect answers: ", trialsExcluded, " (resulting in ", nrow(DF), " trials)"))
 
   print(paste("Number of trials post exclusion: ", nrow(DF)))
   
@@ -388,24 +407,24 @@ trialExclusion <- function(DF) {
 # Relative to overall input data set (X include excluded to participants excluded)
 
 df_3.1 <- trialExclusion(df_3.1)
-# "Number of trials pre exclusions:  1836"
-# "Number of trials excluded due to wrong Noun:  17"
-# "Number of trials excluded due to wrong Gender:  3"
-# "Number of trials excluded due to wrong Determiner:  6"
-# "Number of trials excluded due to no noun in response:  0"
-# "Number of trials excluded due to single word responses:  0"
-# "Total number of trials excluded due to incorrect answers:  26"
-# "Number of trials post exclusion:  1810"
+# [1] "Number of trials pre exclusions:  1836"
+# [1] "Number of trials excluded due to wrong Noun:  17  (resulting in  1819  trials)"
+# [1] "Number of trials excluded due to wrong Gender:  3  (resulting in  1816  trials)"
+# [1] "Number of trials excluded due to wrong Determiner:  6  (resulting in  1810  trials)"
+# [1] "Number of trials excluded due to no noun in response:  0  (resulting in  1810  trials)"
+# [1] "Number of trials excluded due to single word responses:  0  (resulting in  1810  trials)"
+# [1] "Total number of trials excluded due to incorrect answers:  26  (resulting in  1810  trials)"
+# [1] "Number of trials post exclusion:  1810"
 
 df_3.2 <- trialExclusion(df_3.2)
-# "Number of trials pre exclusions:  1764"
-# "Number of trials excluded due to wrong Noun:  16"
-# "Number of trials excluded due to wrong Gender:  2"
-# "Number of trials excluded due to wrong Determiner:  6"
-# "Number of trials excluded due to no noun in response:  0"
-# "Number of trials excluded due to single word responses:  13"
-# "Total number of trials excluded due to incorrect answers:  37"
-# "Number of trials post exclusion:  1727"
+# [1] "Number of trials pre exclusions:  1764"
+# [1] "Number of trials excluded due to wrong Noun:  16  (resulting in  1748  trials)"
+# [1] "Number of trials excluded due to wrong Gender:  2  (resulting in  1746  trials)"
+# [1] "Number of trials excluded due to wrong Determiner:  6  (resulting in  1740  trials)"
+# [1] "Number of trials excluded due to no noun in response:  0  (resulting in  1740  trials)"
+# [1] "Number of trials excluded due to single word responses:  13  (resulting in  1727  trials)"
+# [1] "Total number of trials excluded due to incorrect answers:  37  (resulting in  1727  trials)"
+# [1] "Number of trials post exclusion:  1727"
 
 
 ##########
@@ -837,33 +856,30 @@ surprisalDet <-det %>%
 # the analysis is taken from: analysis > SunBreheny > 1_incremental >
 # main > rscripts > graphs.R
 
-df = read.csv("../../../1_incremental/main/data/trials_merged.csv", header = TRUE)
-demo = read.csv("../../../1_incremental/main/data/subject_info_merged.csv", header = TRUE)
-
 #formatting
-df$response = gsub(" ","",df$response)
-df$response = gsub("\\[","",df$response)
-df$response = gsub("\\]","",df$response)
-df$response = gsub("\\'","",df$response)
-df$response = gsub("AOI","",df$response)
+df_incremental$response = gsub(" ","",df_incremental$response)
+df_incremental$response = gsub("\\[","",df_incremental$response)
+df_incremental$response = gsub("\\]","",df_incremental$response)
+df_incremental$response = gsub("\\'","",df_incremental$response)
+df_incremental$response = gsub("AOI","",df_incremental$response)
 
-df = df %>%
+df_incremental = df_incremental %>%
   group_by(workerid)%>%
   mutate(trial_number = seq(1:n())) %>%
   ungroup() %>%
   mutate(trial_group = ifelse(trial_number<31,"first_half","second_half")) %>% 
   mutate(item=word(as.character(instruction3), -1))
 
-df = separate(df,response,into=c("click1","click2","click3","click4"),sep=",")
+df_incremental = separate(df_incremental,response,into=c("click1","click2","click3","click4"),sep=",")
 
 ### EXCLUSIONS
-df = df %>%
+df_incremental = df_incremental %>%
   mutate(selection_correct = ifelse(as.numeric(click4) == as.numeric(target1),1,ifelse(as.numeric(click4) == as.numeric(target2),1,0)))
 
-table(df$selection_correct) # 665 incorrect responses
+table(df_incremental$selection_correct) # 665 incorrect responses
 
 # exclude anyone with < 95% correct selections
-accuracy = df %>% 
+accuracy = df_incremental %>% 
   filter(ExpFiller != "Prac") %>% 
   group_by(workerid) %>% 
   tally(selection_correct) %>% 
@@ -875,37 +891,23 @@ toexclude = accuracy %>%
 length(toexclude$workerid) # exclude 29 subjects
 length(toexclude$workerid)/length(accuracy$workerid) # exclude 24% of subjects
 
-df = df %>% 
+df_incremental = df_incremental %>% 
   filter(!workerid %in% toexclude$workerid)
 
 unique(demo$language) # no exlusions (some people left it blank?)
 
 # trials with incorrect selections
-df = df %>% 
+df_incremental = df_incremental %>% 
   filter(selection_correct==1)
 
-nrow(df) # 4348
+nrow(df_incremental) # 4348
 
 # get only experimental trials (no fillers) for further analysis
-df = df %>% 
+df_incremental = df_incremental %>% 
   filter(ExpFiller=="Exp") %>%
   droplevels()
 
 # ### PART II: PLOT CATEGORICAL DATA AGAINST EYE MOVEMENT DATA
-# 
-baseline = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_beselinedata.csv", header = TRUE)
-gender = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_genderdata.csv", header = TRUE)
-determiner = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_determiner.csv", header = TRUE)
-name = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_namedata.csv", header = TRUE)
-end = read.csv("../../../1_incremental/main/data/sb_eyetracking/exp200ms_enddata.csv", header = TRUE)
-
-# order should be: baseline / gender / determiner + name / noun
-g = rbind(baseline,gender,determiner,name,end)  %>%
-  mutate(item=word(as.character(instruction), -1))
-
-# re-load incremental decision data
-s = read.csv("../../../1_incremental/main/data/trials_merged.csv", header = TRUE)  %>%
-  mutate(item=word(as.character(instruction3), -1))
 
 s$response = gsub(" ","",s$response)
 s$response = gsub("\\[","",s$response)
@@ -942,24 +944,24 @@ gaze =  g %>%
 # This Production study analysis script added in gender distinction in the above two
 # blocks of code
 
-df = merge(selection, gaze, by=c("determiner","size","window","item", "gender"))
-df$window_re<- factor(df$window, levels = c("baseline","gender","determiner+name","noun"))
+df_incremental = merge(selection, gaze, by=c("determiner","size","window","item", "gender"))
+df_incremental$window_re<- factor(df_incremental$window, levels = c("baseline","gender","determiner+name","noun"))
 
 nrow(selection) #376
 nrow(gaze) #376
-nrow(df) #376
+nrow(df_incremental) #376
 nrow(g) #206174
 nrow(s) # 6480
 
 # CORRELATIONAL ANALYSES
 
 # compute and visualize overall correlation
-longer_selections = df %>% 
+longer_selections = df_incremental %>% 
   select(-Mean_target_look,-Mean_competitor_look,-Mean_distractor_look,-Mean_targetdistractor_look,-Mean_competitordistractor_look,-window_re) %>% 
   pivot_longer(cols=c("Mean_target_selection","Mean_competitor_selection","Mean_distractor_selection"),names_to=c("delete_this","Region","remove_this"),names_sep=c("_"),values_to="prop_selections") %>% 
   select(-delete_this,-remove_this)
 
-longer_looks = df %>% 
+longer_looks = df_incremental %>% 
   select(-Mean_target_selection,-Mean_competitor_selection,-Mean_distractor_selection,-Mean_targetdistractor_look,-Mean_competitordistractor_look,-window_re) %>% 
   pivot_longer(cols=c("Mean_target_look","Mean_competitor_look","Mean_distractor_look"),names_to=c("delete_this","Region","remove_this"),names_sep=c("_"),values_to="prop_looks") %>% 
   select(-delete_this,-remove_this)
@@ -1122,23 +1124,15 @@ dfCorr_3.2 <- dfCorr %>%
 # Run linear model to test for how predictive surprisal is of correlation for simple exposure
 m_3.1 = lm(Correlation ~ surprisal, data=dfCorr_3.1) 
 summary(m_3.1) 
-# surprisal estimate:  -0.005497
-# Suprisal estimate Pr(>|t|): 0.00015 ***
-# Adjusted R-squared:  0.2703
-
-# with the unique:
-# surprisal   -0.005514  p = 0.073 .
+# surprisal   -0.005514  
+# p = 0.073 .
 # Adjusted R-squared:  0.2151
 
 # Run linear model to test for how predictive surprisal is of correlation for extra exposure
 m_3.2 = lm(Correlation ~ surprisal, data=dfCorr_3.2) 
 summary(m_3.2) 
-# surprisal estimate:  -0.038322
-# Suprisal estimate Pr(>|t|): 8.75e-15 ***
-# Adjusted R-squared:  0.5479 
-
-# With the unique:
-# surprisal   -0.03852   p =  0.00635 ** 
+# surprisal   -0.03852   
+# p =  0.00635 ** 
 # Adjusted R-squared:  0.4959
 
 

@@ -1,0 +1,98 @@
+condition,trialType,instructions,pragContext,modifier_use,noun,modifier
+no_contrast,test,Click on the big camera,good,modifier,camera,big
+contrast,test,Click on the big ball,good,modifier,ball,big
+contrast_control,filler,Click on the tape,good,no_modifier,tape,big
+no_contrast,train,Click on the bagel,good,no_modifier,bagel,big
+semantic_contrast,filler,Click on the yellow watch,good,modifier,watch,yellow
+contrast_control,filler,Click on the laptop,good,no_modifier,laptop,big
+semantic_control,filler,Click on the sunflower,good,no_modifier,sunflower,small
+semantic_control,filler,Click on the parrot,good,no_modifier,parrot,small
+semantic_control,filler,Click on the cucumber,good,no_modifier,cucumber,big
+contrast,train,Click on the small nut,good,modifier,nut,small
+semantic_control,filler,Click on the train,good,no_modifier,train,big
+contrast_control,filler,Click on the hippo,good,no_modifier,hippo,big
+semantic_control,filler,Click on the champagne,good,no_modifier,champagne,big
+semantic_control,filler,Click on the swan,good,no_modifier,swan,big
+contrast,train,Click on the big seahorse,good,modifier,seahorse,big
+contrast,train,Click on the big lifevest,good,modifier,lifevest,big
+no_contrast,train,Click on the leaf,good,no_modifier,leaf,small
+no_contrast,train,Click on the lipstick,good,no_modifier,lipstick,big
+contrast_control,filler,Click on the mug,good,no_modifier,mug,big
+contrast,test,Click on the big corn,good,modifier,corn,big
+no_contrast,train,Click on the toy,good,no_modifier,toy,big
+contrast_control,filler,Click on the lime,good,no_modifier,lime,small
+contrast_control,filler,Click on the suitcase,good,no_modifier,suitcase,big
+semantic_control,filler,Click on the table,good,no_modifier,table,big
+contrast,train,Click on the small drum,good,modifier,drum,small
+contrast_control,filler,Click on the cork,good,no_modifier,cork,big
+semantic_contrast,filler,Click on the one dollarbills,good,modifier,dollarbills,one
+semantic_control,filler,Click on the scrunchie,good,no_modifier,scrunchie,small
+contrast_control,filler,Click on the grill,good,no_modifier,grill,small
+contrast,train,Click on the small harp,good,modifier,harp,small
+semantic_control,filler,Click on the hawk,good,no_modifier,hawk,big
+no_contrast,test,Click on the big kayak,good,modifier,kayak,big
+no_contrast,test,Click on the small key,good,modifier,key,small
+semantic_control,filler,Click on the horse,good,no_modifier,horse,small
+no_contrast,train,Click on the buffalo,good,no_modifier,buffalo,big
+contrast,test,Click on the small icecream,good,modifier,icecream,small
+semantic_contrast,filler,Click on the fountain pen,good,modifier,pen,fountain
+semantic_control,filler,Click on the sheep,good,no_modifier,sheep,small
+semantic_contrast,filler,Click on the hand mirror,good,modifier,mirror,hand
+semantic_contrast,filler,Click on the pink eraser,good,modifier,eraser,pink
+semantic_control,filler,Click on the partyhat,good,no_modifier,partyhat,big
+contrast_control,filler,Click on the muffin,good,no_modifier,muffin,big
+contrast_control,filler,Click on the bucket,good,no_modifier,bucket,small
+contrast,test,Click on the big lock,good,modifier,lock,big
+contrast_control,filler,Click on the fridge,good,no_modifier,fridge,small
+contrast_control,filler,Click on the nest,good,no_modifier,nest,small
+semantic_contrast,filler,Click on the coffee cup,good,modifier,cup,coffee
+no_contrast,train,Click on the blackberry,good,no_modifier,blackberry,small
+semantic_control,filler,Click on the potato,good,no_modifier,potato,small
+contrast_control,filler,Click on the barrel,good,no_modifier,barrel,big
+semantic_contrast,filler,Click on the yellow plate,good,modifier,plate,yellow
+semantic_control,filler,Click on the cinnamonroll,good,no_modifier,cinnamonroll,big
+semantic_control,filler,Click on the lighthouse,good,no_modifier,lighthouse,small
+contrast,test,Click on the small fish,good,modifier,fish,small
+contrast_control,filler,Click on the beermug,good,no_modifier,beermug,big
+semantic_control,filler,Click on the chocolatebar,good,no_modifier,chocolatebar,small
+no_contrast,train,Click on the stool,good,no_modifier,stool,small
+contrast_control,filler,Click on the tissues,good,no_modifier,tissues,small
+semantic_control,filler,Click on the asparagus,good,no_modifier,asparagus,big
+semantic_contrast,filler,Click on the round chocolatecandy,good,modifier,chocolatecandy,round
+no_contrast,train,Click on the popcorn,good,no_modifier,popcorn,small
+contrast,train,Click on the big briefcase,good,modifier,briefcase,big
+no_contrast,test,Click on the big bunny,good,modifier,bunny,big
+semantic_control,filler,Click on the couch,good,no_modifier,couch,small
+semantic_control,filler,Click on the kazoo,good,no_modifier,kazoo,small
+contrast_control,filler,Click on the shovel,good,no_modifier,shovel,small
+semantic_contrast,filler,Click on the electric guitar,good,modifier,guitar,electric
+semantic_contrast,filler,Click on the yellow highlighter,good,modifier,highlighter,yellow
+contrast,train,Click on the big violin,good,modifier,violin,big
+no_contrast,test,Click on the big dress,good,modifier,dress,big
+semantic_control,filler,Click on the lollipops,good,no_modifier,lollipops,big
+contrast,train,Click on the big door,good,modifier,door,big
+semantic_control,filler,Click on the gumballmachine,good,no_modifier,gumballmachine,big
+contrast,train,Click on the big house,good,modifier,house,big
+semantic_contrast,filler,Click on the green mixer,good,modifier,mixer,green
+no_contrast,train,Click on the comb,good,no_modifier,comb,big
+semantic_contrast,filler,Click on the green lightbulb,good,modifier,lightbulb,green
+contrast,train,Click on the small banjo,good,modifier,banjo,small
+contrast_control,filler,Click on the pillow,good,no_modifier,pillow,small
+semantic_contrast,filler,Click on the mobile phone,good,modifier,phone,mobile
+contrast_control,filler,Click on the sponge,good,no_modifier,sponge,big
+contrast_control,filler,Click on the pie,good,no_modifier,pie,small
+semantic_contrast,filler,Click on the shorthair puppet,good,modifier,puppet,shorthair
+semantic_control,filler,Click on the snowflake,good,no_modifier,snowflake,small
+semantic_contrast,filler,Click on the spotted cow,good,modifier,cow,spotted
+contrast_control,filler,Click on the microscope,good,no_modifier,microscope,small
+semantic_contrast,filler,Click on the glass bottle,good,modifier,bottle,glass
+no_contrast,train,Click on the paperclip,good,no_modifier,paperclip,big
+semantic_contrast,filler,Click on the fivecent coins,good,modifier,coins,fivecent
+semantic_control,filler,Click on the peanut,good,no_modifier,peanut,small
+contrast,test,Click on the small cookie,good,modifier,cookie,small
+semantic_contrast,filler,Click on the hawaiian shirt,good,modifier,shirt,hawaiian
+contrast,train,Click on the big jeep,good,modifier,jeep,big
+no_contrast,train,Click on the owl,good,no_modifier,owl,small
+no_contrast,train,Click on the fork,good,no_modifier,fork,small
+semantic_control,filler,Click on the bathtub,good,no_modifier,bathtub,big
+semantic_contrast,filler,Click on the blue balloon,good,modifier,balloon,blue

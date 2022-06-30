@@ -1,0 +1,84 @@
+condition,trialType,instructions,pragContext,modifier_use,noun,modifier
+contrast_control,filler,Click on the cone,bad,no_modifier,cone,small
+semantic_control,filler,Click on the pants,bad,no_modifier,pants,big
+contrast,train,Click on the yarn,bad,no_modifier,yarn,big
+contrast_control,filler,Click on the sponge,bad,no_modifier,sponge,big
+no_contrast,test,Click on the big turtle,bad,modifier,turtle,big
+contrast_control,filler,Click on the baseballglove,bad,no_modifier,baseballglove,small
+no_contrast,train,Click on the small fork,bad,modifier,fork,small
+contrast_control,filler,Click on the graduationhat,bad,no_modifier,graduationhat,small
+contrast_control,filler,Click on the soap,bad,no_modifier,soap,big
+contrast,train,Click on the wheel,bad,no_modifier,wheel,small
+contrast,train,Click on the violin,bad,no_modifier,violin,big
+contrast_control,filler,Click on the dolphin,bad,no_modifier,dolphin,small
+contrast_control,filler,Click on the stoplight,bad,no_modifier,stoplight,small
+semantic_contrast,filler,Click on the open book,bad,modifier,book,open
+contrast,train,Click on the hammock,bad,no_modifier,hammock,big
+contrast,train,Click on the saw,bad,no_modifier,saw,small
+contrast,test,Click on the big lock,bad,modifier,lock,big
+no_contrast,train,Click on the big elephant,bad,modifier,elephant,big
+no_contrast,test,Click on the big camera,bad,modifier,camera,big
+contrast,test,Click on the small monkey,bad,modifier,monkey,small
+semantic_contrast,filler,Click on the open lock,bad,modifier,lock,open
+no_contrast,train,Click on the small cherry,bad,modifier,cherry,small
+no_contrast,train,Click on the small triangle,bad,modifier,triangle,small
+semantic_control,filler,Click on the package,bad,no_modifier,package,small
+contrast,test,Click on the small bird,bad,modifier,bird,small
+contrast,train,Click on the lifevest,bad,no_modifier,lifevest,big
+semantic_control,filler,Click on the eggs,bad,no_modifier,eggs,small
+contrast,train,Click on the beetle,bad,no_modifier,beetle,big
+semantic_contrast,filler,Click on the electric guitar,bad,modifier,guitar,electric
+contrast_control,filler,Click on the cake,bad,no_modifier,cake,small
+contrast_control,filler,Click on the scissors,bad,no_modifier,scissors,big
+no_contrast,train,Click on the small saxophone,bad,modifier,saxophone,small
+contrast_control,filler,Click on the bone,bad,no_modifier,bone,big
+contrast_control,filler,Click on the teapot,bad,no_modifier,teapot,small
+no_contrast,train,Click on the big whistle,bad,modifier,whistle,big
+semantic_control,filler,Click on the sheep,bad,no_modifier,sheep,small
+semantic_contrast,filler,Click on the convertible car,bad,modifier,car,convertible
+contrast,train,Click on the snail,bad,no_modifier,snail,small
+contrast_control,filler,Click on the kiwi,bad,no_modifier,kiwi,big
+semantic_control,filler,Click on the snowflake,bad,no_modifier,snowflake,small
+semantic_contrast,filler,Click on the rainbow slinky,bad,modifier,slinky,rainbow
+contrast_control,filler,Click on the nest,bad,no_modifier,nest,small
+semantic_control,filler,Click on the radish,bad,no_modifier,radish,small
+semantic_control,filler,Click on the couch,bad,no_modifier,couch,small
+no_contrast,test,Click on the small tree,bad,modifier,tree,small
+contrast_control,filler,Click on the trophy,bad,no_modifier,trophy,small
+no_contrast,test,Click on the big bunny,bad,modifier,bunny,big
+contrast,train,Click on the necklace,bad,no_modifier,necklace,small
+no_contrast,test,Click on the big tuxedo,bad,modifier,tuxedo,big
+semantic_control,filler,Click on the parrot,bad,no_modifier,parrot,small
+semantic_contrast,filler,Click on the cocktail umbrella,bad,modifier,umbrella,cocktail
+contrast,test,Click on the big plant,bad,modifier,plant,big
+contrast_control,filler,Click on the shovel,bad,no_modifier,shovel,small
+contrast,test,Click on the big pear,bad,modifier,pear,big
+contrast,train,Click on the seahorse,bad,no_modifier,seahorse,big
+semantic_control,filler,Click on the teepee,bad,no_modifier,teepee,big
+semantic_contrast,filler,Click on the dog robot,bad,modifier,robot,dog
+semantic_contrast,filler,Click on the open box,bad,modifier,box,open
+contrast_control,filler,Click on the suitcase,bad,no_modifier,suitcase,big
+contrast,train,Click on the mask,bad,no_modifier,mask,small
+semantic_contrast,filler,Click on the round chocolatecandy,bad,modifier,chocolatecandy,round
+contrast,test,Click on the big ribbon,bad,modifier,ribbon,big
+contrast,test,Click on the big pickle,bad,modifier,pickle,big
+semantic_contrast,filler,Click on the heart candy,bad,modifier,candy,heart
+no_contrast,train,Click on the big garbagebin,bad,modifier,garbagebin,big
+no_contrast,train,Click on the big lipstick,bad,modifier,lipstick,big
+no_contrast,train,Click on the small hotdog,bad,modifier,hotdog,small
+contrast_control,filler,Click on the bill,bad,no_modifier,bill,big
+contrast_control,filler,Click on the helmet,bad,no_modifier,helmet,big
+semantic_contrast,filler,Click on the strawberry icecream,bad,modifier,icecream,strawberry
+semantic_contrast,filler,Click on the strawberry pie,bad,modifier,pie,strawberry
+contrast_control,filler,Click on the fountain,bad,no_modifier,fountain,small
+contrast_control,filler,Click on the tissues,bad,no_modifier,tissues,small
+semantic_control,filler,Click on the hawk,bad,no_modifier,hawk,big
+semantic_control,filler,Click on the tank,bad,no_modifier,tank,small
+semantic_control,filler,Click on the waffle,bad,no_modifier,waffle,small
+semantic_control,filler,Click on the partyhat,bad,no_modifier,partyhat,big
+semantic_contrast,filler,Click on the tricolor pasta,bad,modifier,pasta,tricolor
+contrast,train,Click on the paperbag,bad,no_modifier,paperbag,big
+semantic_control,filler,Click on the ovenmit,bad,no_modifier,ovenmit,big
+no_contrast,test,Click on the small guitar,bad,modifier,guitar,small
+contrast,train,Click on the bat,bad,no_modifier,bat,big
+semantic_contrast,filler,Click on the pink eraser,bad,modifier,eraser,pink

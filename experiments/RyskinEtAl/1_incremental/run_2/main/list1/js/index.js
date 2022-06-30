@@ -48,6 +48,9 @@ function make_slides(f) {
       // and training contrast set absent pragmatic bad conditions have the modifier
       // all other trials do not
 
+      console.log(this.stim.trialType);
+      console.log(this.stim.cond);
+
       if (this.stim.trialType == "test" ||
       (this.stim.trialType == "train" && this.stim.cond == "contrast" && pragContext == "good") ||
       (this.stim.trialType == "train" && this.stim.cond == "no_contrast" && pragContext == "bad") ||

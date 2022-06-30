@@ -321,6 +321,9 @@ table td { border: 1px solid #e8e8e8; }
 /** Grid helpers */
 @media screen and (min-width: 800px) { .one-half { width: calc(50% - (30px / 2)); } }
 
+/*
+CUSTOM STYLES
+*/
 .logoImage { display: block; margin-left: auto; margin-right: auto; padding-top: 15px; padding-bottom: 0; margin-bottom: 0; float: left; padding-bottom: 0; }
 
 @media screen and (max-width: 600px) { .logoImage { padding-right: 45px; } }

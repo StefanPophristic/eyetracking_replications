@@ -28,8 +28,13 @@ layout: default
 
       <div id="abstract_{{ output.id | slugify }}" style="display:none"><p>{{output.abstract}}</p></div>
       <div id="bibtex_{{ output.id | slugify }}" style="display:none">
-        <p>@{{ output.type }} <br>
-          { {{ output.id }}, author = { {{ output.author }} }, url = { {{ output.website }} }, year = { {{ output.year }} }, booktitle = { {{ output.booktitle }} }, title = { {{ output.title }} } }
+        @{{ output.type }}{ {{ output.id }},
+        <p style="margin-left:20px">
+          author = { {{ output.author }} }, <br>
+          url = { {{ output.website }} }, <br>
+          year = { {{ output.year }} }, <br>
+          booktitle = { {{ output.booktitle }} }, <br>
+          title = { {{ output.title }} } }
         </p>
       </div>
       <br>

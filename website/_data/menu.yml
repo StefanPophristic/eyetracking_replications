@@ -1,0 +1,26 @@
+- title: Home
+  url: /index.html
+- title: Learn More
+  url: /learnMore/index.html
+  sublinks:
+    - title: About
+      url: /learnMore/index.html
+    - title: Publications & Talks
+      url: /learnMore/output.html
+    - title: People
+      url: /learnMore/people.html
+    - title: Resources
+      url: /learnMore/resources.html
+- title: Projects
+  url: /projects/index.html
+  sublinks:
+    - title: info
+      url: /projects/index.html
+    - title: Sun & Breheny 2020
+      url: /projects/SunBreheny.html
+    - title: Ryskin et al. 2019
+      url: /projects/RyskinEtAl.html
+    - title: Leffel et al. 2016
+      url: /projects/LeffelEtAl.html
+- title: Contribute
+  url: /contribute/index.html

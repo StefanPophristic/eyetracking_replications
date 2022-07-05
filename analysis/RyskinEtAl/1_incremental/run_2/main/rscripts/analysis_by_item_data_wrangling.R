@@ -110,6 +110,26 @@ rm(pragtrain3_lists)
 #adds prior window to pragtrain3_data
 pragtrain3_data <- rbind(prior_df, pragtrain3_data)
 
+
+
+pragFillerSemanticControlGood <- pragtrain3_data %>% filter(cond == "semantic_control" & prag_context_cond == "reliable")
+view(pragFillerSemanticControlGood)
+
+pragFillerSemanticControlBad <- pragtrain3_data %>% filter(cond == "semantic_control" & prag_context_cond == "unreliable")
+view(pragFillerSemanticControlBad)
+
+pragFillercontrastControlGood <- pragtrain3_data %>% filter(cond == "contrast_control" & prag_context_cond == "reliable")
+view(pragFillercontrastControlGood)
+
+pragFillercontrastControlBad <- pragtrain3_data %>% filter(cond == "contrast_control" & prag_context_cond == "unreliable")
+view(pragFillercontrastControlBad)
+
+pragSemanticContrastGood <- pragtrain3_data %>% filter(cond == "semantic_contrast" & prag_context_cond == "reliable")
+view(pragSemanticContrastGood)
+
+pragSemanticContrastBad <- pragtrain3_data %>% filter(cond == "semantic_contrast" & prag_context_cond == "unreliable")
+view(pragSemanticContrastBad)
+
 # We are including the following trial types:
 # Test trials
 # Training trials with the adjective overtly stated, which includes 

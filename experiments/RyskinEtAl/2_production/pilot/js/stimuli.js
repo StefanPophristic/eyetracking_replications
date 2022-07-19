@@ -20415,7 +20415,7 @@ exp.stims_cb_list2_R2 = [
 	production_list: "normal"
 },
 {
-	 trial: "300",
+	trial: "300",
 	counterbalance: "l2",
 	trialType: "filler",
 	trialID: "filler180",

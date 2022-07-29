@@ -41,7 +41,6 @@ accuracy = df %>%
   tally(selection_correct) %>% 
   mutate(correct=n/48) 
 
-View(accuracy %>% arrange(n))
 
 toexclude = accuracy %>% 
   filter(correct < .95)
@@ -86,8 +85,10 @@ toplot =  df %>%
   ungroup() %>%
   mutate(click_number=fct_recode(click_number,prior="click1",gender="click2",determiner="click3",noun="click4"))
 
+toplotIDT <- toplot
+
 # Stefan 2022 Degen Pophristic Talk Graphs
-singleProportion <- toplot %>%
+IDT <- toplotIDT %>%
   filter(condition == "some" & size == "big" & target_figure3 == "boy") %>%
   mutate(Region = case_when(Region == "target" ~ "Target Object",
                             Region == "competitor" ~ "Other Objects")) %>%
@@ -97,11 +98,17 @@ singleProportion <- toplot %>%
   geom_point(aes(color=Region),size=2.5,shape="square") +
   geom_errorbar(aes(ymin=YMin, ymax=YMax), width=.2, alpha=.3) +
   scale_fill_discrete(labels=c('Target Object', 'Other Objects')) +
+  scale_color_manual(values=c("#227100","#BBEA73")) +
   xlab("Window") +
-  ylab("Mean Proportion of Selections") +
-  ggtitle("Incremental Decision Task Data (for single condition)")
+  ylab("Mean Proportion of Selections") 
+  # +
+  # ggtitle("Incremental Decision Task Data (one condition)")
   
-singleProportion
+IDT
+
+ggsave("../graphs/stefan/idt.pdf",width=6,height=4)
+
+
 
 # plot proportion of selections by condition and experiment half
 toplot =  df %>%
@@ -205,107 +212,132 @@ cors_window = toplot %>%
 
 
 # collapsing across items
-agr = toplot %>% 
-  group_by(window,Region,determiner,size) %>% 
-  summarize(prop_selections = mean(prop_selections),prop_looks=mean(prop_looks))
-
-cors_window_it = agr %>% 
-  group_by(window) %>% 
-  summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
-
-
-# correlation between eye movement and decision task data separately by condition within determiner window
-cors_determiner = toplot %>% 
-  filter(window == "determiner+name") %>% 
-  group_by(determiner, size) %>% 
-  summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+# agr = toplot %>%
+#   group_by(window,Region,determiner,size) %>%
+#   summarize(prop_selections = mean(prop_selections),prop_looks=mean(prop_looks))
+# 
+# cors_window_it = agr %>%
+#   group_by(window) %>%
+#   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+# 
+# 
+# # correlation between eye movement and decision task data separately by condition within determiner window
+# cors_determiner = toplot %>%
+#   filter(window == "determiner+name") %>%
+#   group_by(determiner, size) %>%
+#   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
 
 # collapsing across items
-agr = toplot %>% 
-  filter(window == "determiner+name") %>% 
-  group_by(window,Region,determiner,size) %>% 
+agr = toplot %>%
+  filter(window == "determiner+name") %>%
+  group_by(window,Region,determiner,size, gender) %>%
   summarize(prop_selections = mean(prop_selections),prop_looks=mean(prop_looks))
 
-cors_determiner_it = agr %>% 
-  group_by(determiner, size) %>% 
+# cors_determiner_it = agr %>%
+#   group_by(determiner, size) %>%
+#   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+# cors_determiner_it # all close to 1 but p > .05 (too few data points)
+# 
+# cors_determiner_it = agr %>%
+#   group_by(determiner, size, gender) %>%
+#   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+# cors_determiner_it # all close to 1 but p > .05 (too few data points)
+
+cors_determiner_it = toplot %>%
+  group_by(determiner, size, gender) %>%
   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
 cors_determiner_it # all close to 1 but p > .05 (too few data points)
+# 1 all        big   boy           0.89     0
+# 2 all        big   girl          0.9      0
+# 3 all        small boy           0.85     0
+# 4 all        small girl          0.84     0
+# 5 some       big   boy           0.82     0
+# 6 some       big   girl          0.89     0
+# 7 some       small boy           0.86     0
+# 8 some       small girl          0.86     0
+# 9 number     big   boy           0.86     0
+# 10 number     big   girl          0.9      0
+# 11 number     small boy           0.85     0
+# 12 number     small girl          0.85     0
 
 
-
-# correlation between eye movement and decision task data separately by region
-cors_reg = toplot %>% 
-  group_by(Region) %>% 
-  summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
-
+# # correlation between eye movement and decision task data separately by region
+# cors_reg = toplot %>%
+#   group_by(Region) %>%
+#   summarize(Correlation=round(cor.test(prop_selections,prop_looks)$estimate,2),P=round(cor.test(prop_selections,prop_looks)$p.value,5))
+# 
 
 # Stefan 2022 talk plots
 # oneSceneCorrelation = toplot %>%
   
-oneCorrelation <- toplot %>%
-  filter(determiner == "some", gender == "boy", size == "big", window == "determiner+name", Region == "target") %>%
-  ggplot(aes(x=prop_selections, y=prop_looks, group=1)) +
-  geom_point(size=2,aes(color=window,shape=Region),alpha=.7) +
-  geom_smooth(method='lm',size=1,color="grey26") +
-  geom_abline(slope=1,linetype="dotted",color="gray40") +
-  # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
-  scale_color_manual(values=c(cbPalette[1],cbPalette[1],cbPalette[5],cbPalette[7])) +
-  labs(shape="Region",
-       color="Window",
-       x="Proportion of selections (Exp. 1)",
-       y="Proportion of looks (S. & B., 2020)") +
-  xlim(0,1) +
-  ylim(0,1) +
-  # coord_fixed() +
-  facet_grid(size~determiner) +
-  theme(legend.direction = "horizontal", legend.box = "vertical") +
-  theme(legend.position="top",
-        legend.margin=margin(0,0,0,0),
-        legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
+# oneCorrelation <- toplot %>%
+#   filter(determiner == "some", gender == "boy", size == "big", window == "determiner+name", Region == "target") %>%
+#   ggplot(aes(x=prop_selections, y=prop_looks, group=1)) +
+#   geom_point(size=2,aes(color=window,shape=Region),alpha=.7) +
+#   geom_smooth(method='lm',size=1,color="grey26") +
+#   geom_abline(slope=1,linetype="dotted",color="gray40") +
+#   # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
+#   scale_color_manual(values=c(cbPalette[1],cbPalette[1],cbPalette[5],cbPalette[7])) +
+#   labs(shape="Region",
+#        color="Window",
+#        x="Proportion of selections (Exp. 1)",
+#        y="Proportion of looks (S. & B., 2020)") +
+#   xlim(0,1) +
+#   ylim(0,1) +
+#   # coord_fixed() +
+#   facet_grid(size~determiner) +
+#   theme(legend.direction = "horizontal", legend.box = "vertical") +
+#   theme(legend.position="top",
+#         legend.margin=margin(0,0,0,0),
+#         legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
+# 
+# oneCorrelation
+# 
+# allCorrelationBoy <- toplot %>%
+#   filter(Region == "target", window == "determiner+name", gender == "boy") %>%
+#   ggplot(aes(x=prop_selections, y=prop_looks, group=gender)) +
+#   geom_point(size=2,aes(color=gender),alpha=.7) +
+#   geom_smooth(method='lm',size=1,color="grey26") +
+#   geom_abline(slope=1,linetype="dotted",color="gray40") +
+#   # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
+#   scale_color_manual(values=c(cbPalette[1],cbPalette[5])) +
+#   labs(shape="Region",
+#        color="Window",
+#        x="Proportion of selections (Exp. 1)",
+#        y="Proportion of looks (S. & B., 2020)") +
+#   facet_grid(size~determiner, scales = "free") +
+#   theme(legend.direction = "horizontal", legend.box = "vertical") +
+#   theme(legend.position="top",
+#         legend.margin=margin(0,0,0,0),
+#         legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
+# 
+# allCorrelationBoy
+# 
+# allCorrelationGirl <- toplot %>%
+#   filter(Region == "target", window == "determiner+name", gender == "girl") %>%
+#   ggplot(aes(x=prop_selections, y=prop_looks, group=gender)) +
+#   geom_point(size=2,aes(color=gender),alpha=.7) +
+#   geom_smooth(method='lm',size=1,color="grey26") +
+#   geom_abline(slope=1,linetype="dotted",color="gray40") +
+#   # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
+#   scale_color_manual(values=c(cbPalette[5],cbPalette[1])) +
+#   labs(shape="Region",
+#        color="Window",
+#        x="Proportion of selections (Exp. 1)",
+#        y="Proportion of looks (S. & B., 2020)") +
+#   facet_grid(size~determiner, scales = "free") +
+#   theme(legend.direction = "horizontal", legend.box = "vertical") +
+#   theme(legend.position="top",
+#         legend.margin=margin(0,0,0,0),
+#         legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
+# 
+# allCorrelationGirl
 
-oneCorrelation
 
-allCorrelationBoy <- toplot %>%
-  filter(Region == "target", window == "determiner+name", gender == "boy") %>%
-  ggplot(aes(x=prop_selections, y=prop_looks, group=gender)) +
-  geom_point(size=2,aes(color=gender),alpha=.7) +
-  geom_smooth(method='lm',size=1,color="grey26") +
-  geom_abline(slope=1,linetype="dotted",color="gray40") +
-  # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
-  scale_color_manual(values=c(cbPalette[1],cbPalette[5])) +
-  labs(shape="Region",
-       color="Window",
-       x="Proportion of selections (Exp. 1)",
-       y="Proportion of looks (S. & B., 2020)") +
-  facet_grid(size~determiner, scales = "free") +
-  theme(legend.direction = "horizontal", legend.box = "vertical") +
-  theme(legend.position="top",
-        legend.margin=margin(0,0,0,0),
-        legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
+toplotCorrelations <- toplot
 
-allCorrelationBoy
 
-allCorrelationGirl <- toplot %>%
-  filter(Region == "target", window == "determiner+name", gender == "girl") %>%
-  ggplot(aes(x=prop_selections, y=prop_looks, group=gender)) +
-  geom_point(size=2,aes(color=gender),alpha=.7) +
-  geom_smooth(method='lm',size=1,color="grey26") +
-  geom_abline(slope=1,linetype="dotted",color="gray40") +
-  # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
-  scale_color_manual(values=c(cbPalette[5],cbPalette[1])) +
-  labs(shape="Region",
-       color="Window",
-       x="Proportion of selections (Exp. 1)",
-       y="Proportion of looks (S. & B., 2020)") +
-  facet_grid(size~determiner, scales = "free") +
-  theme(legend.direction = "horizontal", legend.box = "vertical") +
-  theme(legend.position="top",
-        legend.margin=margin(0,0,0,0),
-        legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
-
-allCorrelationGirl
-
-allCorrelation <- toplot %>%
+allCorrelation <- toplotCorrelations %>%
   filter(Region == "target", window == "determiner+name") %>%
   ggplot(aes(x=prop_selections, y=prop_looks, color=gender)) +
   geom_point(size=2,alpha=.7) +
@@ -315,8 +347,8 @@ allCorrelation <- toplot %>%
   scale_color_manual(values=c("#F5C4D7","#BD4C79")) +
   labs(shape="Region",
        color="Gender",
-       x="Clicks on target (Explicit Belief)",
-       y="Looks to target ") +
+       x="Clicks on target (Degen et al. 2021)",
+       y="Looks to target (Sun & Breheny 2020)") +
   facet_grid(size~determiner, scales = "free") 
 
 allCorrelation
@@ -324,7 +356,7 @@ allCorrelation
 ggsave("../graphs/stefan/allCorrelation.pdf",width=6,height=4)
 
 correlationOne <- toplot %>%
-  filter(Region == "target", window == "determiner+name") %>%
+  filter(Region == "target", window == "determiner+name", determiner == "some", size == "big", gender == "boy") %>%
   ggplot(aes(x=prop_selections, y=prop_looks, color=gender)) +
   geom_point(size=2,alpha=.7) +
   geom_smooth(method='lm',size=1, se=F) +
@@ -335,18 +367,14 @@ correlationOne <- toplot %>%
        color="Gender",
        x="Clicks on target (Explicit Belief)",
        y="Looks to target ") +
-  facet_grid(size~determiner, scales = "free") 
+  facet_grid(size~determiner, scales = "free") +
+  coord_cartesian(xlim = c(0.40, 0.85))
 
 correlationOne
 
 ggsave("../graphs/stefan/allCorrelation.pdf",width=6,height=4)
 
 
-
-# ,
-# legend.margin=margin(0,0,0,0),
-# legend.box.margin=margin(-10,-10,-10,-10),legend.spacing.y = unit(0.001, 'cm'))#,legend.box.spacing = unit(0.01, 'cm'),) 
-# allCorrelation
 
 
 toplot$cprop_selections = toplot$prop_selections - mean(toplot$prop_selections)
@@ -450,17 +478,23 @@ singleProportionLooks <- toplot %>%
   ggplot(aes(x=ttime, y=proportion)) +
   geom_line(size=1, aes(color=region)) +
   geom_ribbon(aes(ymin=ymin,ymax=ymax,fill=region,group=interaction(region,size)),alpha=.3) +
-  scale_fill_manual(values=c(cbPalette[6],cbPalette[2],cbPalette[3])) +
-  scale_color_manual(values=c(cbPalette[6],cbPalette[2],cbPalette[3])) +
+  scale_fill_manual(values=c("#227100","#BBEA73",cbPalette[3])) +
+  scale_color_manual(values=c("#227100","#BBEA73",cbPalette[3])) +
   geom_vline(aes(xintercept=onsets$gender),size=vlinesize) +
   geom_vline(aes(xintercept=onsets$determiner),size=vlinesize) +
   geom_vline(aes(xintercept=onsets$noun),size=vlinesize) +
-  geom_text(data=windows2,aes(label=window,x=x),y=.9,size=2) +
+  # geom_text(data=windows2,aes(label=window,x=x),y=.9,size=5) +
   xlab("Time in ms relative to audio onset") +
-  ylab("Proportion of looks to target") +  
+  ylab("Proportion of looks") +  
   scale_x_continuous(breaks=seq(0,4000,by=400),minor_breaks = seq(200,3800,by=400)) 
 
 singleProportionLooks
+
+ggsave("../graphs/stefan/eyetracking.pdf",plot=singleProportionLooks, width=6,height=4)
+
+
+
+
 
 # proportion of looks to target and competitor
 gaze =  g %>%

@@ -613,6 +613,60 @@ ggsave(filename = "../graphs/determiner_surprisal.pdf", plot = graphSurprisalDet
        width = 5, height = 4, device = "pdf")
 
 
+# Cogsci presentation graph
+graphSurprisalDetExp1 <- surprisalMeanAndCI %>% 
+  ungroup() %>% 
+  filter(experiment == 1) %>%
+  mutate(YMin = mean_surprisal - CI.Low, 
+         YMax = mean_surprisal + CI.High) %>% 
+  ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
+  geom_point(size = 4) +
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.65) + 
+  theme(text = element_text(size = 12), 
+        plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.x = element_text(size = 12, angle = 45, hjust = 0.9),
+        legend.text = element_text(size = 12),
+        legend.position ="right") +
+  scale_color_manual(values=c(cbPalette[3], cbPalette[7])) +
+  guides(color=guide_legend("Size")) + 
+  ylab("Surprisal") +
+  ylim(0, 14) + 
+  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no quantifier", "other")) + 
+  xlab("Quantifier")
+graphSurprisalDetExp1
+
+ggsave(filename = "../graphs/determiner_surprisal_exp1.pdf", plot = graphSurprisalDetExp1,
+       width = 5, height = 4, device = "pdf")
+
+# New facet label names for supp variable
+exp.labs <- c("Exp. 1 (no exposure)", "Exp. 2 (exposure)")
+names(exp.labs) <- c("1", "2")
+# Cogsci presentation graph
+graphSurprisalDetExpFacet <- surprisalMeanAndCI %>% 
+  ungroup() %>% 
+  mutate(YMin = mean_surprisal - CI.Low, 
+         YMax = mean_surprisal + CI.High) %>% 
+  ggplot(aes(y=mean_surprisal, x=detUsed, color = size)) + 
+  facet_grid(. ~ experiment,
+             labeller = labeller(experiment = exp.labs)) +
+  geom_point(size = 4) +
+  geom_errorbar(aes(ymin = YMin, ymax=YMax),width=0.65) + 
+  theme(text = element_text(size = 12), 
+        plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.x = element_text(size = 12, angle = 45, hjust = 0.9),
+        legend.text = element_text(size = 12),
+        legend.position ="right") +
+  scale_color_manual(values=c(cbPalette[3], cbPalette[7])) +
+  guides(color=guide_legend("Size")) + 
+  ylab("Surprisal") +
+  ylim(0, 14) + 
+  scale_x_discrete(labels = c("\"all\"", "\"some\"", "number", "no quantifier", "other")) + 
+  xlab("Quantifier")
+graphSurprisalDetExpFacet
+
+ggsave(filename = "../graphs/determiner_surprisal_expFacet.pdf", plot = graphSurprisalDetExpFacet,
+       width = 5, height = 4, device = "pdf")
+
 ########
 # Gender Surprisal
 ########

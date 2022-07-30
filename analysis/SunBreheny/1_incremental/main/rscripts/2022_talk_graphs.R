@@ -347,13 +347,34 @@ allCorrelation <- toplotCorrelations %>%
   scale_color_manual(values=c("#F5C4D7","#BD4C79")) +
   labs(shape="Region",
        color="Gender",
-       x="Clicks on target (Degen et al. 2021)",
-       y="Looks to target (Sun & Breheny 2020)") +
+       x="Clicks on object (Degen et al. 2021)",
+       y="Looks to object (Sun & Breheny 2020)") +
   facet_grid(size~determiner, scales = "free") 
 
 allCorrelation
 
 ggsave("../graphs/stefan/allCorrelation.pdf",width=6,height=4)
+
+
+
+allCorrelation <- toplotCorrelations %>%
+  filter(window == "determiner+name") %>%
+  ggplot(aes(x=prop_selections, y=prop_looks, color=gender)) +
+  geom_point(size=2,alpha=.7) +
+  geom_smooth(method='lm',size=1, se=F) +
+  geom_abline(slope=1,linetype="dotted",color="gray40") +
+  # geom_text(data=cors, aes(label=paste("r=",Correlation)), x=.2,y=.9) +
+  scale_color_manual(values=c("#F5C4D7","#BD4C79")) +
+  labs(shape="Region",
+       color="Gender",
+       x="Clicks on object (Degen et al. 2021)",
+       y="Looks to object (Sun & Breheny 2020)") +
+  facet_grid(size~determiner, scales = "free") 
+
+allCorrelation
+
+ggsave("../graphs/stefan/allCorrelation.pdf",width=6,height=4)
+
 
 correlationOne <- toplot %>%
   filter(Region == "target", window == "determiner+name", determiner == "some", size == "big", gender == "boy") %>%

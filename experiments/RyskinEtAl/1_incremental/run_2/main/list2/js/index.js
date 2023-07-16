@@ -44,6 +44,11 @@ function make_slides(f) {
 
       this.stim = stim; // store this information in the slide so you can record it later
 
+
+
+      console.log(this.stim.trialType);
+      console.log(this.stim.cond);
+      
       // semantic_contrast fillers, test trials, training contrast set present pragmatic good,
       // and training contrast set absent pragmatic bad conditions have the modifier
       // all other trials do not

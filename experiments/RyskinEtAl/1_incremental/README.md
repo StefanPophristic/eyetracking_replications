@@ -1,21 +1,32 @@
 # Incremental Study of Ryskin Et al.
 
-This is a replication of Ryskin Et al. 2019's experiment 2 as an incremental decision task. Two versions of this incremental decision task were run. Details for each are given below.
+This is a replication of Ryskin Et al. 2019's experiment 2 as an incremental decision task. Three versions of this incremental decision task were run. Details for each are given below.
 
 Ryskin et al had a counterbalancing error, whereby all participants in the **pragmatic reliable** condition were assigned to list 2 and participants in the **pragmatic unreliable** condition were assigned to list 1. This was misreported in their paper as the opposite (pragmatic reliable condition with list 1, and unreliable condition with list 2).
 
 ## Run 1
 This is the version of the study that was headed by Casey Butcher and was run during the Summer of 2021. The analysis for run 1 is for this experiment, and the poster in the output folder is likewise for this experiment.
 
-
 This replication of Ryskin et al.'s design, as an incremental design, did not replicate the original study on two counts:
-1. The study assigned both pragmatic **reliable** and **unreliable** condition participants to just list 1. This assignment method is what Ryskin et al. originally intended, but not what they did. However, participants were never assigned to list 2, meaning test trials appeared with different items for this replication and the original study for the pragmatic reliable condition.
-2. The training trials were miscoded, such that the all training trials for the **pragmatic reliable** condition appeared with a contrast set, whereas all training trials for the **pragmatic unreliable** condition appeared with no contrast set. Both pragmatic conditions should have appeared with both contrast sets.
+1. The study assigned both **pragmatic reliable** and **unreliable condition** participants to just list 1. This assignment method is what Ryskin et al. originally intended, but not what they did. However, participants were never assigned to list 2.
+
+2. The training trials were miscoded, such that the all training trials for the pragmatic reliable condition appeared with a visually presented contrast set, whereas the pragmatic unreliable condition appeared with no visually presented contrast set.
 
 ## Run 2
-This is the version of the study that was headed by Stefan Pophristic in the Spring of 2022. The run_2 folder is associated with data from this version of the experiment.
+This is the version of the study that was headed by Stefan Pophristic in the Spring of 2022. The run_2 folder is associated with data from this version of the experiment. The experiment was run such that both pragmatic conditions (**reliable** and **unreliable**) were run on both list 1 and list 2 in order to get the complete set of data.
 
-The above two differences were resolved such that: XYZ.
+The **training trials** for the **pragmatic unreliable** condition were miscoded, such that they were identical to the **pragmatic reliable** training trials. Since the **filler trials** are different across pragmatic conditions, this data cannot simply be used as **pragmatic reliable** data.
+
+## Run 3
+This is the version of the study that was headed by Stefan Pophristic in the Spring of 2022. The run_3 folder is associated with data from this version of the experiment. This experiment was run to make up for the error in run 2. That is, this experiment was only run for the **pragmatic unreliable** condition on both lists. All of the data in this run was run without mistakes.
+
+
+## Final analysis
+
+The data that replicates the stimuli from Ryskin et al.'s original experiment are:
+- Run 2, **pragmatic reliable**, list 2 data
+- Run 3, **pragmatic unreliable**, list 1 data
+
 
 ### Shared Folder
 This folder includes all the files used to create the stimuli for the incremental version (both lists) and the files used to inspect these stimuli to make sure the discrepencies in the run_1 stimuli were resolved.
